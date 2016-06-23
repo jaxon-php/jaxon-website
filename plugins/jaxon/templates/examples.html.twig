@@ -1,0 +1,50 @@
+{% embed 'partials/base.html.twig' %}
+
+    {% set collection = page.collection() %}
+    {% set base_url = page.url %}
+    {% set feed_url = base_url %}
+
+    {% if base_url == '/' %}
+        {% set base_url = '' %}
+    {% endif %}
+
+    {% if base_url == base_url_relative %}
+        {% set feed_url = base_url~'/'~page.slug %}
+    {% endif  %}
+
+    {% block content %}
+        <div class="header">
+            <div class="container">
+                {{ root.title }}
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 blog-sidebar">
+                    {% include 'sidebar/examples.html.twig' %}
+                </div>
+
+                <div class="col-sm-9 blog-main">
+                    <h3 class="page-header">{{ page.title }}</h3>
+                    {% if jaxon.content %}
+	                <div class="row">
+	                    <p>{{ page.header.description }}</p>
+	                    <h4 class="page-header">Demo</h4>
+                        {{ jaxon.content }}
+	                </div>
+                    {% endif %}
+                    <div class="row">
+                        {{ page.content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+	{% block bottom %}
+	    {{ jaxon.css }}
+        {{ jaxon.js }}
+	    {{ jaxon.script }}
+	{% endblock %}
+
+{% endembed %}

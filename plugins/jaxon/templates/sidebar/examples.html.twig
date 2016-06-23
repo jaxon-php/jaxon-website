@@ -1,0 +1,20 @@
+{% if config.plugins.simplesearch.enabled %}
+<div class="sidebar-content">
+    {% include 'partials/simplesearch_searchbox.html.twig' %}
+</div>
+{% endif %}
+<div class="sidebar-content">
+    <ul class="list-group">
+    {% for item in page.find('/examples').children %}
+        <li class="list-group-item"><a href="javascript:void(0)">{{ item.menu }}</a></li>
+        <ul>
+        {% for child in item.children %}
+         {% if child.visible %}
+         {% set current_class = (child.active or child.activeChild) ? ' class="active"' : '' %}
+            <li{{ current_class }}><a href="{{ child.url }}">{{ child.menu }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,8 @@
+Pour que l'exemple avec Laravel fonctionne, dans le fichier index.php, il faut placer le code suivant:
+
+// $response->send();
+$response->sendHeaders();
+$response->sendContent();
+
+La fonction send() appelle la fonction fastcgi_finish_request() de PHP, qui empeche de récupérer la page
+dans Grav. Il n'y a pas de moyen d désactiver cette fonction, donc on reécrit le cod de la focntion send().
