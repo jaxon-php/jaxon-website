@@ -1,6 +1,6 @@
 ---
-title: Exporting directories
-menu: Directories
+title: Export with namespaces
+menu: Namespaces
 template: docs
 ---
 

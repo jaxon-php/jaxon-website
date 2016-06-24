@@ -1,6 +1,6 @@
 ---
 title: L'API de réponse
-menu: L'API de réponse
+menu: L'API
 template: docs
 ---
 

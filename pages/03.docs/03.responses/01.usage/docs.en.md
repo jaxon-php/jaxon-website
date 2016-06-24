@@ -1,6 +1,6 @@
 ---
 title: Create and return a response
-menu: Create and return a response
+menu: Usage
 template: docs
 ---
 

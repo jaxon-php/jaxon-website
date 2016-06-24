@@ -1,6 +1,6 @@
 ---
-title: Generate javascript code
-menu: Generate javascript code
+title: Generating javascript code
+menu: Javascript code
 template: docs
 ---
 

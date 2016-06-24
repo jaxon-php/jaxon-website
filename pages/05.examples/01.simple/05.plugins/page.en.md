@@ -1,12 +1,17 @@
 ---
-title: Plugin Usage
-menu: Plugin Usage
+title: Response Plugin
+menu: Response Plugin
 template: examples
 cache_enable: false
-description: This example shows the use of Jaxon plugins, by adding javascript notifications and modal windows to the class.php example with the jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap packages.
+description: This example shows the use of Jaxon response plugins, by adding javascript notifications and modal windows to the Hello World Class example with the jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap plugins.
 ---
 
-Using an Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into the Jaxon core library. It can then be accessed both in the Jaxon main object, for configuration, and in the Jaxon response object, to provide additional functionalities to the application.
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-header">&nbsp;</h4>
+Using a Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into the Jaxon core library. It can then be accessed in the Jaxon response object, to provide its functionalities to the application.
+    </div>
+</div>
 
 <div class="row">
     <div class="col-sm-12">
@@ -59,19 +64,6 @@ class HelloWorld
 }
 </pre>
 
-<p>The javascript event bindings</p>
-<pre>
-// Select
-&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
-// Buttons
-&lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-&lt;button onclick="JaxonHelloWorld.showPgwDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
-&lt;button onclick="JaxonHelloWorld.showTbDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</pre>
-
 <p>The PHP object registrations</p>
 <pre>
 $jaxon = Jaxon::getInstance();
@@ -99,5 +91,19 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 // Process the request, if any.
 $jaxon->processRequest();
 </pre>
+
+<p>The javascript event bindings</p>
+<pre>
+// Select
+&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
+&lt;/select&gt;
+// Buttons
+&lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+
+&lt;button onclick="JaxonHelloWorld.showPgwDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.showTbDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
+</pre>
+
     </div>
 </div>

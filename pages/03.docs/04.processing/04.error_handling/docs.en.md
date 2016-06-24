@@ -1,5 +1,6 @@
 ---
-title: Gestion d'erreurs
-menu: Gestion d'erreurs
+title: Error handling
+menu: Error handling
 template: docs
+published: false
 ---

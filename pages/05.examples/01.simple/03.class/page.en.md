@@ -37,7 +37,7 @@ class HelloWorld
 }
 </pre>
 
-<p><p>2. Register the classes with Jaxon.</p></p>
+<p>2. Register the classes with Jaxon.</p>
 <pre>
 // Register object
 $jaxon = Jaxon::getInstance();

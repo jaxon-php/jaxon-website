@@ -1,13 +1,15 @@
 ---
 title: Pre-processing event
-menu: Pre-processing event
+menu: Pre-processing
 template: docs
 ---
 
-Jaxon allows the developer to specify a function that will be called before the execution of each request.
+Jaxon allows the developer to specify a callback function that will be called before the execution of each request.
 It is defined in one of the following ways.
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, 'functionName');
+```
+```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, array($object, 'methodName'));
 ```
 

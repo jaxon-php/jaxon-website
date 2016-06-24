@@ -1,10 +1,10 @@
 ---
 title: Post-processing event
-menu: Post-processing event
+menu: Post-processing
 template: docs
 ---
 
-Jaxon allows the developer to specify a function that will be called after execution of each request.
+Jaxon allows the developer to specify a callback function that will be called after execution of each request.
 It is defined in one of the following ways.
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_AFTER, 'functionName');

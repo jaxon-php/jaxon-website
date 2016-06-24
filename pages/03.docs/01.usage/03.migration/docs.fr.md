@@ -1,6 +1,6 @@
 ---
-title: Migration d'une version précédente
-menu: Migration d'une version précédente
+title: Migrer de Xajax vers Jaxon
+menu: Migration
 template: docs
 ---
 

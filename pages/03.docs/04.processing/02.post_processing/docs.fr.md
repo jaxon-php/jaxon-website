@@ -1,10 +1,10 @@
 ---
 title: Evènement post-processing
-menu: Evènement post-processing
+menu: Post-processing
 template: docs
 ---
 
-Jaxon permet d'indiquer une fonction qui va être appelée après l'exécution de chaque requête.
+Jaxon permet d'indiquer une fonction callback qui va être appelée après l'exécution de chaque requête.
 Elle est définie de l'une des façons suivantes.
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_AFTER, 'functionName');

@@ -1,13 +1,15 @@
 ---
 title: Evènement pre-processing
-menu: Evènement pre-processing
+menu: Pre-processing
 template: docs
 ---
 
-Jaxon permet d'indiquer une fonction qui va être appelée avant l'exécution de chaque requête.
+Jaxon permet d'indiquer une fonction callback qui va être appelée avant l'exécution de chaque requête.
 Elle est définie de l'une des façons suivantes.
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, 'functionName');
+```
+```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, array($object, 'methodName'));
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: The response API
-menu: The response API
+menu: API
 template: docs
 ---
 

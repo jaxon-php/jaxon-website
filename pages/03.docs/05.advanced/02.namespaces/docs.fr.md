@@ -1,6 +1,6 @@
 ---
-title: Exporter des répertoires
-menu: Répertoires
+title: Exporter avec des namespaces
+menu: Namespaces
 template: docs
 ---
 

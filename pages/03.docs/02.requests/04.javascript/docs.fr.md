@@ -1,6 +1,6 @@
 ---
 title: Générer le code javascript
-menu: Générer le code javascript
+menu: Le code javascript
 template: docs
 ---
 

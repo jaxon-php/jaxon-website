@@ -1,6 +1,6 @@
 ---
 title: Créer et renvoyer une réponse
-menu: Créer et renvoyer une réponse
+menu: Utilisation
 template: docs
 ---
 

@@ -14,7 +14,8 @@ It is also possible to read the library configuration to a file, which can be in
 ```php
 \Jaxon\Config\Yaml::read($yamlFilePath);    // Read configuration in a YAML file.
 \Jaxon\Config\Json::read($jsonFilePath);    // Read configuration in a JSON file.
-\Jaxon\Config\Php::read($phpFilePath);      // Read configuration in a PHP file. The file contains code that returns an array.
+\Jaxon\Config\Php::read($phpFilePath);      // Read configuration in a PHP file.
+                                            // The file contains PHP code that returns an array.
 ```
 If the file contains more data than the Jaxon library configuration, the `read()` function can take a second parameter to read the configuration only in a section of the file.
 
