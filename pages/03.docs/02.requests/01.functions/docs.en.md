@@ -1,7 +1,7 @@
 ---
 title: Export functions
 menu: Export functions
-template: docs
+template: jaxon
 ---
 
 To export a function, the syntax is:
@@ -35,3 +35,6 @@ $jaxon->register(Jaxon::USER_FUNCTION, array("my_function", $myObject, "myMethod
 ```
 
 If the array contains two elements, the exported javascript function will have the same name as the method.
+```php
+$jaxon->register(Jaxon::USER_FUNCTION, array($myObject, "myMethod"));
+```

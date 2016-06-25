@@ -1,7 +1,7 @@
 ---
 title: La fabrique de requête
 menu: La fabrique de requête
-template: docs
+template: jaxon
 ---
 
 La classe `Jaxon\Request\Factory` permet de créer des requêtes vers les fonctions ou les méthodes exportées avec Jaxon.
@@ -61,6 +61,7 @@ class MyClass
     {
         // Requête Jaxon vers cette méthode
         $request = $this->call('myMethod', jr::select('colorselect'));
+        $btn = '<button class="button radius" onclick="' . $request . '" >Click Me</button>'
     }
 }
 ```

@@ -1,5 +1,6 @@
 ---
 title: Les plugins de requête
 menu: Les plugins de requête
-template: docs
+template: jaxon
+published: false
 ---

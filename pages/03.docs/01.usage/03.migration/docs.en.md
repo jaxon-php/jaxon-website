@@ -1,12 +1,12 @@
 ---
 title: Migrating from Xajax to Jaxon
 menu: Migration
-template: docs
+template: jaxon
 ---
 
 Although this new version of the Jaxon library has undergone many changes, the `Response` class, which is involved in most of the code written in a Jaxon application, has not changed. This makes the migration of existing applications easier.
 
-Here are the steps to move from a previous version to version 1.0.0 of Jaxon.
+Here are the steps to migrate from a previous version of Xajax to Jaxon.
 
 1. Make sure that the application does not use one of the classes that were deprecated.
 2. Install the `jaxon-core` package with `Composer` and load the autoloader in the application.

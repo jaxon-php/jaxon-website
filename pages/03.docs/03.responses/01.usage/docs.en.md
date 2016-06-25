@@ -1,10 +1,10 @@
 ---
 title: Create and return a response
 menu: Usage
-template: docs
+template: jaxon
 ---
 
-An Jaxon response is an object that encapsulates the commands to be executed in the browser in response to an Jaxon request.
+An Jaxon response is an object that encapsulates the commands to be executed in the browser in response to a Jaxon request.
 All functions called by Jaxon should therefore return an object of type `Jaxon\Response\Response`.
 
 By default there is a response in the library Jaxon which is accessed with the `Jaxon::getGlobalResponse()` method.
@@ -19,13 +19,13 @@ class MyClass
         $this->response = new Response;
     }
 
-    public function first_method()
+    public function firstMethod()
     {
         // Function body
         return $this->response;
     }
 
-    public function second_method()
+    public function secondMethod()
     {
         // Function body
         return $this->response;
@@ -44,24 +44,24 @@ class MyClass
         $this->response = new Response;
     }
 
-    public function first_method()
+    public function firstMethod()
     {
         // Function body
         return $this->response;
     }
 
-    public function second_method()
+    public function secondMethod()
     {
         // Function body
-        $this->first_method();
+        $this->firstMethod();
         return $this->response;
     }
 
-    public function third_method()
+    public function thirdMethod()
     {
         // Function body
-        $this->first_method();
-        $this->second_method();
+        $this->firstMethod();
+        $this->secondMethod();
         return $this->response;
     }
 }

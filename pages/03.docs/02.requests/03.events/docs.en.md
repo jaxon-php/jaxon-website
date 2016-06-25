@@ -1,6 +1,6 @@
 ---
 title: Export events
 menu: Export events
-template: docs
+template: jaxon
 published: false
 ---

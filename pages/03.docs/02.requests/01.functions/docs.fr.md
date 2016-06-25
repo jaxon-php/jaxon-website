@@ -1,7 +1,7 @@
 ---
 title: Exporter des fonctions
 menu: Exporter des fonctions
-template: docs
+template: jaxon
 ---
 
 Pour exporter une fonction, la syntaxe est la suivante:
@@ -35,4 +35,7 @@ $myObject = new MyClass;
 $jaxon->register(Jaxon::USER_FUNCTION, array("my_function", $myObject, "myMethod"));
 ```
 
-Si le tableau contient 2 éléments, la fonction javascript exportée aura le même nom que la méthode.
+Si le tableau contient 2 éléments, la fonction javascript générée aura le même nom que la méthode.
+```php
+$jaxon->register(Jaxon::USER_FUNCTION, array($myObject, "myMethod"));
+```

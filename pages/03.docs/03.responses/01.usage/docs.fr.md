@@ -1,7 +1,7 @@
 ---
 title: Créer et renvoyer une réponse
 menu: Utilisation
-template: docs
+template: jaxon
 ---
 
 Une réponse Jaxon est un objet qui encapsule les actions à exécuter dans le navigateur en réponse à une requête Jaxon.
@@ -19,13 +19,13 @@ class MyClass
         $this->response = new Response;
     }
 
-    public function first_method()
+    public function firstMethod()
     {
         // Function body
         return $this->response;
     }
 
-    public function second_method()
+    public function secondMethod()
     {
         // Function body
         return $this->response;
@@ -44,24 +44,24 @@ class MyClass
         $this->response = new Response;
     }
 
-    public function first_method()
+    public function firstMethod()
     {
         // Function body
         return $this->response;
     }
 
-    public function second_method()
+    public function secondMethod()
     {
         // Function body
-        $this->first_method();
+        $this->firstMethod();
         return $this->response;
     }
 
-    public function third_method()
+    public function thirdMethod()
     {
         // Function body
-        $this->first_method();
-        $this->second_method();
+        $this->firstMethod();
+        $this->secondMethod();
         return $this->response;
     }
 }

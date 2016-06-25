@@ -1,13 +1,13 @@
 ---
 title: The Request Factory
 menu: The Request Factory
-template: docs
+template: jaxon
 ---
 
 The `Jaxon\Request\Factory` class can be used to create requests to functions or methods exported with Jaxon.
 It implements the `call()` function to create the request, and a range of other functions to pass content of the HTML page elements as parameter to the request.
 
-For example, the following code uses the Request Factory to create a request to an Jaxon class.
+For example, the following code uses the Request Factory to create a request to a Jaxon class.
 
 ```php
 <?php
@@ -62,6 +62,7 @@ class MyClass
     {
         // Jaxon request to this method
         $request = $this->call('myMethod', jr::select('colorselect'));
+        $btn = '<button class="button radius" onclick="' . $request . '" >Click Me</button>'
     }
 }
 ```

@@ -1,10 +1,10 @@
 ---
 title: Pagination
 menu: Pagination
-template: docs
+template: jaxon
 ---
 
-The pagination with Jaxon is different from the pagination with a classic web application, because where the application generates a list of links to different pages, Jaxon must generate a list of calls to a javascript function with different parameters.
+The pagination with Jaxon is different from the pagination with a classic web application, because where the application generates a list of links to different pages, Jaxon must generate a list of calls to a javascript function with different parameters.  
 For Jaxon, the parameters in pagination links are not named, and their position is important.
 
 Here is an example of pagination links in a classic web application.
@@ -37,7 +37,7 @@ public function paginate($itemsTotal, $itemsPerPage, $currentPage, $method, ...)
 His fourth parameter indicates the method (with the name of the class) to call, and the following are the request parameters.
 The position of the page number is indicated by the `jr::page()` function. If it is not present in the call, it will be automatically added to the end of the parameter list.
 
-In an Jaxon class, the `\Jaxon\Request\FactoryTrait` trait also provides a `paginate()` method which creates pagination links from the method name, but without the name of the class.
+In a Jaxon class, the `\Jaxon\Request\FactoryTrait` trait also provides a `paginate()` method which creates pagination links from the method name, but without the name of the class.
 ```php
 public function paginate($itemsTotal, $itemsPerPage, $currentPage, $method, ...)
 ```

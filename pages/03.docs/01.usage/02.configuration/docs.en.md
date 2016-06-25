@@ -1,14 +1,14 @@
 ---
 title: Configuration
 menu: Configuration
-template: docs
+template: jaxon
 ---
 
 The behavior of the Jaxon library can be changed using an extended set of configuration options.
 
 The function `$jaxon->setOption($name, $value)` allows to set the value of a configuration option, while the function `$jaxon->setOption($name)` allows to read the value of an option.
 
-**Configuration files**
+##### Configuration files
 
 It is also possible to read the library configuration to a file, which can be in JSON, YAML, or PHP formats.
 ```php
@@ -19,7 +19,7 @@ It is also possible to read the library configuration to a file, which can be in
 ```
 If the file contains more data than the Jaxon library configuration, the `read()` function can take a second parameter to read the configuration only in a section of the file.
 
-**The configuration option list**
+##### The configuration option list
 
 | Name | Type | Description |
 |-----|------|-------------|

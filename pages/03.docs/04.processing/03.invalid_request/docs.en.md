@@ -1,13 +1,15 @@
 ---
 title: Invalid request
 menu: Invalid request
-template: docs
+template: jaxon
 ---
 
-Finally, Jaxon allows the developer to specify a function to be called when an invalid request is received.
+Jaxon also allows the developer to specify a function to be called when an invalid request is received.
 It is defined in one of the following ways.
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_INVALID, 'functionName');
+```
+```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_INVALID, array($object, 'methodName'));
 ```
 

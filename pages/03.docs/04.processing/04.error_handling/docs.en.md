@@ -1,6 +1,6 @@
 ---
 title: Error handling
 menu: Error handling
-template: docs
+template: jaxon
 published: false
 ---

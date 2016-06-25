@@ -1,5 +1,6 @@
 ---
 title: Request plugins
 menu: Request plugins
-template: docs
+template: jaxon
+published: false
 ---

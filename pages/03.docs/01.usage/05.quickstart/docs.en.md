@@ -1,7 +1,7 @@
 ---
 title: A simple example
 menu: A simple example
-template: docs
+template: jaxon
 ---
 
 Here is the traditional `Hello World` application with Jaxon.
@@ -18,8 +18,8 @@ use Jaxon\Response\Response;          // and the Response class
 function helloworld($name) 
 { 
     $response = new Response();          // Instance the response class 
-    $response->alert("Hello $name");     // Invoke the alert method to alert the user
-    return $response;                    // Return the response to the jaxon engine 
+    $response->alert("Hello $name");     // Invoke the alert method
+    return $response;                    // Return the response to the browser
 }  
 
 $jaxon = Jaxon::getInstance();        // Get the core singleton object   
@@ -45,7 +45,7 @@ The following code generate the HTML page.
     <!-- The crux of this page -->
     Enter your name:
     <input type="text" name="username" id="username" />
-    <input type="button" value="Submit" onclick="jaxon_helloworld(jaxon.$('username').value)" />
+    <input type="button" value="Submit" onclick="jaxon_helloworld(jaxon.$('username').value);return false;" />
 </body>
 <!-- Generate the jaxon javascript-->
 <?php

@@ -1,7 +1,7 @@
 ---
 title: Export objects
 menu: Export objects
-template: docs
+template: jaxon
 ---
 
 To export an object, the syntax is:

@@ -1,13 +1,15 @@
 ---
 title: Requête invalide
 menu: Requête invalide
-template: docs
+template: jaxon
 ---
 
-Enfin, Jaxon permet d'indiquer une fonction qui être appelée lorsqu'une requête invalide est reçue.
+Jaxon permet aussi d'indiquer une fonction qui être appelée lorsqu'une requête invalide est reçue.
 Elle est définie de l'une des façons suivantes.
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_INVALID, 'functionName');
+```
+```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_INVALID, array($object, 'methodName'));
 ```
 

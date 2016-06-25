@@ -1,7 +1,7 @@
 ---
 title: Evènement pre-processing
 menu: Pre-processing
-template: docs
+template: jaxon
 ---
 
 Jaxon permet d'indiquer une fonction callback qui va être appelée avant l'exécution de chaque requête.
@@ -13,7 +13,7 @@ $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, 'funct
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, array($object, 'methodName'));
 ```
 
-La fonction à appeler prend en paramètre un booléen passé par référence, et retourne une réponse Jaxon. La paramètre à la valeur `false` avant l'appel à la fonction.
+La fonction à appeler prend en paramètre un booléen `$bEndRequest` passé par référence, et retourne une réponse Jaxon. La paramètre à la valeur `false` avant l'appel à la fonction.
 Si dans la fonction il est modifié et prend la valeur `true`, le traitement est arrêté, et la réponse de la requête est celle renvoyée par la fonction.
 ```php
 function preProcess(&$bEndRequest)

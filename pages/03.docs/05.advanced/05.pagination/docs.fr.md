@@ -1,10 +1,10 @@
 ---
 title: La pagination
 menu: La pagination
-template: docs
+template: jaxon
 ---
 
-La pagination avec Jaxon est différente de la pagination d'une application classique, car là où l'application génère une liste de liens vers des pages différentes, Jaxon doit générer une liste d'appels à une fonction javascript avec des paramètres différents.
+La pagination avec Jaxon est différente de la pagination d'une application classique, car là où l'application génère une liste de liens vers des pages différentes, Jaxon doit générer une liste d'appels à une fonction javascript avec des paramètres différents.  
 Pour Jaxon, les paramètres dans les liens de pagination ne sont pas nommés, et leur position est importante.
 
 Voici un exemple de liens de pagination dans une application classique.

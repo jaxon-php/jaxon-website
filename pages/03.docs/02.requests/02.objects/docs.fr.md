@@ -1,7 +1,7 @@
 ---
 title: Exporter des objets
 menu: Exporter des objets
-template: docs
+template: jaxon
 ---
 
 Pour exporter un objet, la syntaxe est la suivante:
