@@ -1,7 +1,7 @@
 ---
 title: Config File
 menu: Config File
-template: examples
+template: jaxon
 cache_enable: false
 description: This example features the same code as the Plugins Usage example, excepted that the config is loaded from a config file in Yaml format.
 ---
@@ -11,9 +11,9 @@ In this example, the config options are under the "jaxon" section of the file.
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">How it works</h4>
+        <h5>How it works</h5>
 <p>The Jaxon class</p>
-<pre>
+<pre><code class="language-php">
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -58,23 +58,22 @@ class HelloWorld
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>The javascript event bindings</p>
-<pre>
+<pre><code class="language-php">
 // Select
-&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 // Buttons
 &lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
 &lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
 &lt;button onclick="JaxonHelloWorld.showPgwDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
 &lt;button onclick="JaxonHelloWorld.showTbDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</pre>
+</code></pre>
 
 <p>The PHP object registrations</p>
-<pre>
+<pre><code class="language-php">
 \Jaxon\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'jaxon');
 
 // Register object
@@ -83,10 +82,10 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $jaxon->processRequest();
-</pre>
+</code></pre>
 
 <p>The Yaml config file</p>
-<pre>
+<pre><code class="language-php">
 jaxon:
   core:
     debug:
@@ -110,6 +109,6 @@ jaxon:
         closeOnEscape:             true,
         closeOnBackgroundClick:    true,
         maxWidth:  600
-</pre>
+</code></pre>
     </div>
 </div>

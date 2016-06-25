@@ -1,7 +1,7 @@
 ---
 title: Plugin Usage
 menu: Plugin Usage
-template: examples
+template: jaxon
 cache_enable: false
 description: Cet exemple montre l'utilisation des plugins de réponse de Jaxon, en ajoutant des notifications et des fenêtres modales à l'exemple Classe Hello World avec les plugins jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap.
 ---
@@ -15,14 +15,14 @@ L'utilisation d'un plugin de réponse est très simple. Après son installation,
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">Comment ça marche</h4>
+        <h5>Comment ça marche</h5>
 
 <p>1. Installer les plugins</p>
-<pre>
-</pre>
+<pre><code class="language-php">
+</code></pre>
 
 <p>The Jaxon class</p>
-<pre>
+<pre><code class="language-php">
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -67,10 +67,10 @@ class HelloWorld
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>The PHP object registrations</p>
-<pre>
+<pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
 $jaxon->setOption('core.debug.on', false);
@@ -95,20 +95,19 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $jaxon->processRequest();
-</pre>
+</code></pre>
 
 <p>The javascript event bindings</p>
-<pre>
+<pre><code class="language-php">
 // Select
-&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 // Buttons
 &lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
 &lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
 &lt;button onclick="JaxonHelloWorld.showPgwDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
 &lt;button onclick="JaxonHelloWorld.showTbDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</pre>
+</code></pre>
 
     </div>
 </div>

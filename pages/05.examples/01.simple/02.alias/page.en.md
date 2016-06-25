@@ -1,17 +1,17 @@
 ---
 title: Hello World Alias
 menu: Hello World Alias
-template: examples
+template: jaxon
 cache_enable: false
 description: This example shows how to export the methods of a class as functions with Jaxon, using aliases.
 ---
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">How it works</h4>
+        <h5>How it works</h5>
 
 <p>1. Define the classes with methods to be exported.</p>
-<pre>
+<pre><code class="language-php">
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -35,10 +35,10 @@ class HelloWorld
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>2. Export the methods to javascript functions.</p>
-<pre>
+<pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
 // Register class methods as Jaxon functions
@@ -48,17 +48,16 @@ $jaxon->register(Jaxon::USER_FUNCTION, array($hello, 'setColor'));
 
 // Process the request, if any.
 $jaxon->processRequest();
-</pre>
+</code></pre>
 
 <p>3. Call the exported functions from javascript.</p>
-<pre>
+<pre><code class="language-php">
 // Select
-&lt;select onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 // Buttons
 &lt;button onclick="jaxon_helloWorld(0); return false;"&gt;Click Me&lt;/button&gt;
 &lt;button onclick="jaxon_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
-</pre>
+</code></pre>
 
     </div>
 </div>

@@ -1,5 +1,5 @@
 ---
 title: Fonctionnalités
 menu: Fonctionnalités
-template: features
+template: jaxon
 ---

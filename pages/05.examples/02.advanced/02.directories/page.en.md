@@ -1,7 +1,7 @@
 ---
 title: Register Directories
 menu: Register Directories
-template: examples
+template: jaxon
 cache_enable: false
 description: This example shows how to automatically register all the PHP classes in a set of directories.
 ---
@@ -10,9 +10,9 @@ The classes in this example are not namespaced, thus they all need to have diffe
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">How it works</h4>
+        <h5>How it works</h5>
 <p>The Jaxon class in the file ./classes/simple/app/Test/App.php</p>
-<pre>
+<pre><code class="language-php">
 use Jaxon\Response\Response;
 
 class App
@@ -46,10 +46,10 @@ class App
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>The Jaxon class in the file ./classes/simple/ext/Test/Ext.php</p>
-<pre>
+<pre><code class="language-php">
 use Jaxon\Response\Response;
 
 class Ext
@@ -83,21 +83,19 @@ class Ext
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>The javascript event bindings</p>
-<pre>
+<pre><code class="language-php">
 // Select
-&lt;select onchange="Test.App.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="Test.App.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 
 // Buttons
 &lt;button onclick="Test.App.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
 &lt;button onclick="Test.App.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
 // Select
-&lt;select onchange="Test.Ext.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="Test.Ext.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 
 // Buttons
 &lt;button onclick="Test.Ext.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
@@ -105,10 +103,10 @@ class Ext
 
 &lt;button onclick="Test.App.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
 &lt;button onclick="Test.Ext.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</pre>
+</code></pre>
 
 <p>The PHP object registrations</p>
-<pre>
+<pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
 $jaxon->setOption('core.debug.on', false);
@@ -123,6 +121,6 @@ $jaxon->registerClasses();
 
 // Process the request, if any.
 $jaxon->processRequest();
-</pre>
+</code></pre>
     </div>
 </div>

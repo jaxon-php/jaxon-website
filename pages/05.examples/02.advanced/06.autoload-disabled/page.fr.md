@@ -1,17 +1,17 @@
 ---
 title: Third Party Autoloader
 menu: Third Party Autoloader
-template: examples
+template: jaxon
 cache_enable: false
 description: In this example the autoloading is disabled in the Jaxon library, and a third-party autoloader is used to load the Jaxon classes.
 ---
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">Comment ça marche</h4>
+        <h5>Comment ça marche</h5>
 
 <p>The Jaxon class in the file ./classes/namespace/app/Test/Test.php</p>
-<pre>
+<pre><code class="language-php">
 namespace App\Test;
 
 use Jaxon\Response\Response;
@@ -47,10 +47,10 @@ class Test
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>The Jaxon class in the file ./classes/namespace/ext/Test/Test.php</p>
-<pre>
+<pre><code class="language-php">
 namespace Ext\Test;
 
 use Jaxon\Response\Response;
@@ -86,21 +86,19 @@ class Test
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>The javascript event bindings</p>
-<pre>
+<pre><code class="language-php">
 // Select
-&lt;select onchange="App.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="App.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 
 // Buttons
 &lt;button onclick="App.Test.Test.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
 &lt;button onclick="App.Test.Test.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
 // Select
-&lt;select onchange="Ext.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="Ext.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 
 // Buttons
 &lt;button onclick="Ext.Test.Test.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
@@ -108,10 +106,10 @@ class Test
 
 &lt;button onclick="App.Test.Test.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
 &lt;button onclick="Ext.Test.Test.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</pre>
+</code></pre>
 
 <p>The PHP object registrations</p>
-<pre>
+<pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
 $jaxon->setOption('core.debug.on', false);
@@ -141,6 +139,6 @@ else
     // The Jaxon objects are registered only when the page is loaded
     $jaxon->registerClasses();
 }
-</pre>
+</code></pre>
     </div>
 </div>

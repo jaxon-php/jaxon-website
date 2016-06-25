@@ -1,17 +1,17 @@
 ---
 title: Alias Hello World
 menu: Alias Hello World
-template: examples
+template: jaxon
 cache_enable: false
-description: Cet exemple montre l'export des méthodes d'une classe comme des fonction, à l'aide d'alias.
+description: Cet exemple montre l'export des méthodes d'une classe comme des fonctions, à l'aide d'alias.
 ---
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">Comment ça marche</h4>
+        <h5>Comment ça marche</h5>
 
 <p>1. Définir les classes dont les méthodes doivent être exportées.</p>
-<pre>
+<pre><code class="language-php">
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -35,10 +35,10 @@ class HelloWorld
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>2. Exported les méthodes vers des fonctions javascript.</p>
-<pre>
+<pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
 // Register class methods as Jaxon functions
@@ -48,17 +48,16 @@ $jaxon->register(Jaxon::USER_FUNCTION, array($hello, 'setColor'));
 
 // Process the request, if any.
 $jaxon->processRequest();
-</pre>
+</code></pre>
 
 <p>3. Appeler les fonctions exportées dans le code Javascript.</p>
-<pre>
+<pre><code class="language-php">
 // Select
-&lt;select onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 // Buttons
 &lt;button onclick="jaxon_helloWorld(0); return false;"&gt;Click Me&lt;/button&gt;
 &lt;button onclick="jaxon_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
-</pre>
+</code></pre>
 
     </div>
 </div>

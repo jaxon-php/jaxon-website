@@ -1,7 +1,7 @@
 ---
 title: Export Javascript
 menu: Export Javascript
-template: examples
+template: jaxon
 cache_enable: false
 description: Cet exemple montre comment enregistrer le code javascript généré par la librairie dans un fichier externe.
 ---
@@ -17,10 +17,10 @@ Pour ce faire, il faut passer à la librairie un répertoire existant, et l'URI 
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">Comment ça marche</h4>
+        <h5>Comment ça marche</h5>
 
 <p>1. Definir les classes à exporter.</p>
-<pre>
+<pre><code class="language-php">
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -44,10 +44,10 @@ class HelloWorld
         return $xResponse;
     }
 }
-</pre>
+</code></pre>
 
 <p>2. Exporter les classes avec Jaxon, et définir les options adéquates.</p>
-<pre>
+<pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
 $jaxonAppURI = '/jaxon/app';
@@ -63,17 +63,16 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $jaxon->processRequest();
-</pre>
+</code></pre>
 
 <p>3. Appeler les classes exportées dans le code Javascript.</p>
-<pre>
+<pre><code class="language-php">
 // Select
-&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
+&lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 // Buttons
 &lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
 &lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-</pre>
+</code></pre>
 
     </div>
 </div>

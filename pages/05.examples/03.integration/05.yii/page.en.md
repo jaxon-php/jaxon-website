@@ -1,7 +1,7 @@
 ---
 title: Yii Module
 menu: Yii Module
-template: examples
+template: jaxon
 cache_enable: false
 description: This example shows the usage of the Jaxon plugin for the Yii framework.
 ---
@@ -14,9 +14,9 @@ By default, the Jaxon plugin for Yii registers all classes in the jaxon/ dir, wi
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">How it works</h4>
+        <h5>How it works</h5>
 <p>In this example we have two files Bts.php and Pgw.php in the jaxon/Test/ directory.</p>
-<pre>
+<pre><code class="language-php">
 namespace Jaxon\App\Test;
 
 class Bts extends \Jaxon\Framework\Controller
@@ -51,9 +51,9 @@ class Bts extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</pre>
+</code></pre>
 
-<pre>
+<pre><code class="language-php">
 namespace Jaxon\App\Test;
 
 class Pgw extends \Jaxon\Framework\Controller
@@ -88,7 +88,7 @@ class Pgw extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>Installation</b></h5>
 <p>
@@ -99,7 +99,7 @@ See https://github.com/jaxon-php/jaxon-yii for how to install the Jaxon module f
 <p>
 This is the Jaxon demo controller.
 </p>
-<pre>
+<pre><code class="language-php">
 namespace app\controllers;
 
 use Yii;
@@ -135,7 +135,7 @@ class DemoController extends Controller
         }
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>Configuration</b></h5>
 <p>The config file is located at <em>config/jaxon.php</em></p>
@@ -143,7 +143,7 @@ class DemoController extends Controller
 The config options are separated into two entries. The <em>lib</em> entry provides the options for
 the Jaxon library, while the <em>app</em> entry provides the options for the Yii application.
 </p>
-<pre>
+<pre><code class="language-php">
 return array(
     'app' => array(
         // 'dir' => '',
@@ -182,6 +182,6 @@ return array(
         ),
     ),
 );
-</pre>
+</code></pre>
     </div>
 </div>

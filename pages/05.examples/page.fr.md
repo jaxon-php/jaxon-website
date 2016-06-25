@@ -1,7 +1,7 @@
 ---
 title: Exemples
 menu: Exemples
-template: examples
+template: jaxon
 ---
 
 <p>
@@ -34,7 +34,7 @@ The example shows the use of Jaxon plugins, by adding javascript notifications a
 example with the jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap packages.
 </p>
 <p>
-Using an Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into
+Using a Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into
 the Jaxon core library. It can then be accessed both in the Jaxon main object, for configuration, and in the Jaxon
 response object, to provide additional functionalities to the application.
 </p>

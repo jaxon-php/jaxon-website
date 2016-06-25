@@ -1,7 +1,7 @@
 ---
 title: CodeIgniter Plugin
 menu: CodeIgniter Plugin
-template: examples
+template: jaxon
 cache_enable: false
 description: This example shows the usage of the Jaxon plugin for the CodeIgniter framework.
 ---
@@ -14,9 +14,9 @@ By default, the Jaxon plugin for CodeIgniter registers all classes in the applic
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">How it works</h4>
+        <h5>How it works</h5>
 <p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory.</p>
-<pre>
+<pre><code class="language-php">
 namespace Jaxon\App\Test;
 
 class Bts extends \Jaxon\Framework\Controller
@@ -51,9 +51,9 @@ class Bts extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</pre>
+</code></pre>
 
-<pre>
+<pre><code class="language-php">
 namespace Jaxon\App\Test;
 
 class Pgw extends \Jaxon\Framework\Controller
@@ -88,7 +88,7 @@ class Pgw extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>Installation</b></h5>
 <p>
@@ -111,7 +111,7 @@ Call <em>$this->jaxon->register()</em> to register all the Jaxon classes. Then, 
 <p>
 This is the main Jaxon controller.
 </p>
-<pre>
+<pre><code class="language-php">
 class Jaxon_Controller extends CI_Controller
 {
     public $jaxon = null;
@@ -124,11 +124,11 @@ class Jaxon_Controller extends CI_Controller
         $this->jaxon->setup();
     }
 }
-</pre>
+</code></pre>
 <p>
 This controller is located in the <em>application/jaxon</em> subdir, and processes Jaxon requests.
 </p>
-<pre>
+<pre><code class="language-php">
 class Process extends Jaxon_Controller
 {
     public function __construct()
@@ -145,13 +145,13 @@ class Process extends Jaxon_Controller
         }
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>The application controller</b></h5>
 <p>
 This controller prints the application page with Jaxon code included.
 </p>
-<pre>
+<pre><code class="language-php">
 class Demo extends Jaxon_Controller
 {
     public function __construct()
@@ -172,7 +172,7 @@ class Demo extends Jaxon_Controller
         ));
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>Configuration</b></h5>
 <p>The config file is located at <em>application/config/jaxon.php</em></p>
@@ -180,7 +180,7 @@ class Demo extends Jaxon_Controller
 The config options are separated into two entries. The <em>lib</em> entry provides the options for
 the Jaxon library, while the <em>app</em> entry provides the options for the CodeIgniter application.
 </p>
-<pre>
+<pre><code class="language-php">
 $config['app'] = array(
     // 'dir' => '',
     // 'namespace' => '',
@@ -217,6 +217,6 @@ $config['lib'] = array(
         ),
     ),
 );
-</pre>
+</code></pre>
     </div>
 </div>

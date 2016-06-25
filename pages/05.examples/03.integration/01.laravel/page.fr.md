@@ -1,7 +1,7 @@
 ---
 title: Laravel Plugin
 menu: Laravel Plugin
-template: examples
+template: jaxon
 cache_enable: false
 description: This example shows the usage of the Jaxon plugin for the Laravel framework.
 ---
@@ -14,10 +14,10 @@ By default, the Jaxon plugin for Laravel registers all classes in the app/Jaxon/
 
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-header">Comment ça marche</h4>
+        <h5>Comment ça marche</h5>
 
 <p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory.</p>
-<pre>
+<pre><code class="language-php">
 namespace Jaxon\App\Test;
 
 class Bts extends \Jaxon\Framework\Controller
@@ -52,9 +52,9 @@ class Bts extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</pre>
+</code></pre>
 
-<pre>
+<pre><code class="language-php">
 namespace Jaxon\App\Test;
 
 class Pgw extends \Jaxon\Framework\Controller
@@ -89,7 +89,7 @@ class Pgw extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>Installation</b></h5>
 <p>
@@ -116,7 +116,7 @@ Call <em>LaravelJaxon::register()</em> to register all the Jaxon classes. Then, 
 <p>
 This controller processes Jaxon requests.
 </p>
-<pre>
+<pre><code class="language-php">
 class JaxonController extends Controller
 {
     public function __construct()
@@ -133,13 +133,13 @@ class JaxonController extends Controller
         }
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>The application controller</b></h5>
 <p>
 This controller prints the application page with Jaxon code included.
 </p>
-<pre>
+<pre><code class="language-php">
 class DemoController extends Controller
 {
     public function __construct()
@@ -159,7 +159,7 @@ class DemoController extends Controller
         ));
     }
 }
-</pre>
+</code></pre>
 
 <h5><b>Configuration</b></h5>
 <p>The config file is located at <em>config/jaxon.php</em></p>
@@ -167,7 +167,7 @@ class DemoController extends Controller
 The config options are separated into two entries. The <em>lib</em> entry provides the options for
 the Jaxon library, while the <em>app</em> entry provides the options for the Laravel application.
 </p>
-<pre>
+<pre><code class="language-php">
 return array(
     'app' => array(
         // 'route' => 'jaxon',
@@ -180,32 +180,32 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-'uri' => '/jaxon',
+              'uri' => '/jaxon',
             ),
             'prefix' => array(
-'class' => '',
+              'class' => '',
             ),
             'debug' => array(
-'on' => false,
-'verbose' => false,
+              'on' => false,
+              'verbose' => false,
             ),
             'error' => array(
-'handle' => false,
+              'handle' => false,
             ),
         ),
         'js' => array(
             'lib' => array(
-// 'uri' => '',
+              // 'uri' => '',
             ),
             'app' => array(
-// 'uri' => '',
-// 'dir' => '',
-'export' => false,
-'minify' => false,
+              // 'uri' => '',
+              // 'dir' => '',
+              'export' => false,
+              'minify' => false,
             ),
         ),
     ),
 );
-</pre>
+</code></pre>
     </div>
 </div>
