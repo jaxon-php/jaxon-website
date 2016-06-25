@@ -12,7 +12,7 @@ use Jaxon\Request\Factory as jr;
 
 class JaxonPlugin extends Plugin
 {
-    protected $jaxon;
+    protected $jaxon = null;
     protected $phpFile = null;
 
     public static function getSubscribedEvents()
@@ -70,7 +70,7 @@ class JaxonPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        if(!$this->phpFile)
+        if(!$this->phpFile || !file_exists($this->phpFile))
         {
             return;
         }

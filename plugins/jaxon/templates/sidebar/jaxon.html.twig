@@ -1,0 +1,19 @@
+<div class="sidebar-content">
+    <ul class="side-nav">
+    {% for item in root.children %}
+      {% if item.children|length > 0 %}
+        <li class="list-group-item"><a href="javascript:void(0)">{{ item.menu }}</a></li>
+        <ul class="side-nav">
+        {% for child in item.children %}
+          {% if child.visible %}
+            {% set current_class = (child.active or child.activeChild) ? ' class="active"' : '' %}
+            <li{{ current_class }}><a href="{{ child.url }}">{{ child.menu }}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% else %}
+        <li><a href="{{ item.url }}">{{ item.menu }}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+</div>
