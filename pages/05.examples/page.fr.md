@@ -10,6 +10,7 @@ All examples are variants of the helloword.php example in the original Jaxon rep
 https://github.com/Jaxon/Jaxon/blob/master/examples/helloworld.php</a>.
 </p>
 
+<!--
 <h5 style="margin-top:15px;"><a href="hello.php">Hello World Function</a></h5>
 <p>
 This example shows how to export a function with Jaxon.
@@ -82,3 +83,4 @@ In this example the autoloading is disabled in the Jaxon library.
 <p>
 A third-party autoloader is used to load the Jaxon classes.
 </p>
+-->
