@@ -1,17 +1,20 @@
 ---
-title: Register Namespaces
+title: Register Classes in Directories with Namespaces
 menu: Register Namespaces
 template: jaxon
 cache_enable: false
 description: This example shows how to automatically register all the classes in a set of directories with namespaces.
 ---
 
+<div class="row">
 The namespace name is prepended to the generated javascript class names, and PHP classes in different subdirs can have the same name.
+</div>
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>How it works</h5>
-<p>The Jaxon class in the file ./classes/namespace/app/Test/Test.php</p>
+    <h5>How it works</h5>
+
+<p>1. Save classes to be registered in directories associated with namespaces, for example <code>/jaxon/class/dir/app</code> and <code>/jaxon/class/dir/ext</code></p>
+<p>File <code>/jaxon/class/dir/app/Test/App.php</code></p>
 <pre><code class="language-php">
 namespace App\Test;
 
@@ -89,8 +92,23 @@ class Test
 }
 </code></pre>
 
-<p>The javascript event bindings</p>
+<p>2. Register all the classes found in the directories with their respective namespaces</p>
 <pre><code class="language-php">
+$jaxon = Jaxon::getInstance();
+
+// Add class dirs with namespaces
+$jaxon->addClassDir('/jaxon/class/dir/app', 'App');
+$jaxon->addClassDir('/jaxon/class/dir/ext', 'Ext');
+
+// Register objects
+$jaxon->registerClasses();
+
+// Process the request, if any.
+$jaxon->processRequest();
+</code></pre>
+
+<p>3. Call the exported classes from javascript</p>
+<pre><code class="language-html">
 // Select
 &lt;select id="colorselect" onchange="App.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
 
@@ -109,22 +127,4 @@ class Test
 &lt;button onclick="Ext.Test.Test.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
 </code></pre>
 
-<p>The PHP object registrations</p>
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
-
-$jaxon->setOption('core.debug.on', false);
-$jaxon->setOption('core.prefix.class', '');
-
-// Add class dirs with namespaces
-$jaxon->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
-$jaxon->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
-
-// Register objects
-$jaxon->registerClasses();
-
-// Process the request, if any.
-$jaxon->processRequest();
-</code></pre>
-    </div>
 </div>

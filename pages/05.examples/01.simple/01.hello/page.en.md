@@ -7,10 +7,10 @@ description: This example shows how to export a function with Jaxon.
 ---
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>How it works</h5>
+    <h5>How it works</h5>
 
-<p>1. Define the functions to be exported.</p>
+<p>1. Define the function to be exported</p>
+
 <pre><code class="language-php">
 function helloWorld($isCaps)
 {
@@ -34,7 +34,8 @@ function setColor($sColor)
 }
 </code></pre>
 
-<p>2. Register the functions with Jaxon.</p>
+<p>2. Register the function with Jaxon</p>
+
 <pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
@@ -46,7 +47,8 @@ $jaxon->register(Jaxon::USER_FUNCTION, 'setColor');
 $jaxon->processRequest();
 </code></pre>
 
-<p>3. Call the exported functions from javascript.</p>
+<p>3. Call the exported function from javascript</p>
+
 <pre><code class="language-php">
 // Select
 &lt;select id="colorselect" onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
@@ -55,5 +57,4 @@ $jaxon->processRequest();
 &lt;button onclick="jaxon_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
 </code></pre>
 
-    </div>
 </div>

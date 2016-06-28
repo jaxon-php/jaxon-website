@@ -1,18 +1,21 @@
 ---
-title: Register Namespaces
-menu: Register Namespaces
+title: Exporter des classes dans des répertoires avec namespaces
+menu: Exporter des namespaces
 template: jaxon
 cache_enable: false
-description: This example shows how to automatically register all the classes in a set of directories with namespaces.
+description: Cet exemple montre comment exporter automatiquement toutes les classes présentes dans un ensemble de répertoires avec des namespaces.
 ---
 
-The namespace name is prepended to the generated javascript class names, and PHP classes in different subdirs can have the same name.
+<div class="row">
+Le nom des classes javascript générées est préfixé avec le namespace, et des classes PHP dans des sous-répertoires différents peuvent avoir le même nom.
+</div>
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>Comment ça marche</h5>
+    <h5>Comment ça marche</h5>
 
-<p>The Jaxon class in the file ./classes/namespace/app/Test/Test.php</p>
+<p>1. Placer les classes à exporter dans des répertoires associés à des namespaces, par exemple <code>/jaxon/class/dir/app</code> et <code>/jaxon/class/dir/ext</code></p>
+
+<p>Fichier <code>/jaxon/class/dir/app/Test/App.php</code></p>
 <pre><code class="language-php">
 namespace App\Test;
 
@@ -51,7 +54,7 @@ class Test
 }
 </code></pre>
 
-<p>The Jaxon class in the file ./classes/namespace/ext/Test/Test.php</p>
+<p>Fichier <code>/jaxon/class/dir/ext/Test/Ext.php</code></p>
 <pre><code class="language-php">
 namespace Ext\Test;
 
@@ -90,36 +93,13 @@ class Test
 }
 </code></pre>
 
-<p>The javascript event bindings</p>
-<pre><code class="language-php">
-// Select
-&lt;select id="colorselect" onchange="App.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="App.Test.Test.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="App.Test.Test.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-// Select
-&lt;select id="colorselect" onchange="Ext.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="Ext.Test.Test.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Ext.Test.Test.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-&lt;button onclick="App.Test.Test.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
-&lt;button onclick="Ext.Test.Test.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</code></pre>
-
-<p>The PHP object registrations</p>
+<p>2. Exporter toutes les classes présentes dans les répertoires avec leur namespace</p>
 <pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
-$jaxon->setOption('core.debug.on', false);
-$jaxon->setOption('core.prefix.class', '');
-
 // Add class dirs with namespaces
-$jaxon->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
-$jaxon->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
+$jaxon->addClassDir('/jaxon/class/dir/app', 'App');
+$jaxon->addClassDir('/jaxon/class/dir/ext', 'Ext');
 
 // Register objects
 $jaxon->registerClasses();
@@ -127,5 +107,24 @@ $jaxon->registerClasses();
 // Process the request, if any.
 $jaxon->processRequest();
 </code></pre>
-    </div>
+
+<p>3. Appeler les classes exportées dans le code Javascript</p>
+<pre><code class="language-html">
+// Select
+&lt;select id="colorselect1" onchange="App.Test.Test.setColor(jaxon.$('colorselect1').value); return false;"&gt;&lt;/select&gt;
+
+// Buttons
+&lt;button onclick="App.Test.Test.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="App.Test.Test.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="App.Test.Test.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
+
+// Select
+&lt;select id="colorselect2" onchange="Ext.Test.Test.setColor(jaxon.$('colorselect2').value); return false;"&gt;&lt;/select&gt;
+
+// Buttons
+&lt;button onclick="Ext.Test.Test.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="Ext.Test.Test.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="Ext.Test.Test.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
+</code></pre>
+
 </div>

@@ -1,18 +1,21 @@
 ---
-title: Register Directories
-menu: Register Directories
+title: Exporter des classes dans des répertoires
+menu: Export de répertoire
 template: jaxon
 cache_enable: false
-description: This example shows how to automatically register all the PHP classes in a set of directories.
+description: Cet exemple montre comment exporter automatiquement toutes les classes présentes dans un ensemble de répertoires.
 ---
 
-The classes in this example are not namespaced, thus they all need to have different names, even if they are in different subdirs.
+<div class="row">
+Lorsque les classes exportées d'un répertoire n'ont pas de namespace, elles doivent avoir des noms différents, même si elles ne sont pas dans le même sous-répertoire.
+</div>
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>Comment ça marche</h5>
+    <h5>Comment ça marche</h5>
 
-<p>The Jaxon class in the file ./classes/simple/app/Test/App.php</p>
+<p>Placer les classes à exporter dans des répertoires définis, par exemple <code>/jaxon/class/dir/app</code> et <code>/jaxon/class/dir/ext</code></p>
+
+<p>Fichier <code>/jaxon/class/dir/app/Test/App.php</code></p>
 <pre><code class="language-php">
 use Jaxon\Response\Response;
 
@@ -49,7 +52,7 @@ class App
 }
 </code></pre>
 
-<p>The Jaxon class in the file ./classes/simple/ext/Test/Ext.php</p>
+<p>Fichier <code>/jaxon/class/dir/ext/Test/Ext.php</code></p>
 <pre><code class="language-php">
 use Jaxon\Response\Response;
 
@@ -86,36 +89,13 @@ class Ext
 }
 </code></pre>
 
-<p>The javascript event bindings</p>
-<pre><code class="language-php">
-// Select
-&lt;select id="colorselect" onchange="Test.App.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="Test.App.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Test.App.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-// Select
-&lt;select id="colorselect" onchange="Test.Ext.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="Test.Ext.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Test.Ext.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-&lt;button onclick="Test.App.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
-&lt;button onclick="Test.Ext.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</code></pre>
-
-<p>The PHP object registrations</p>
+<p>2. Exporter toutes les classes présentes dans les répertoires</p>
 <pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
-$jaxon->setOption('core.debug.on', false);
-$jaxon->setOption('core.prefix.class', '');
-
 // Add class dirs
-$jaxon->addClassDir(__DIR__ . '/classes/simple/app');
-$jaxon->addClassDir(__DIR__ . '/classes/simple/ext');
+$jaxon->addClassDir('/jaxon/class/dir/app');
+$jaxon->addClassDir('/jaxon/class/dir/ext');
 
 // Register objects
 $jaxon->registerClasses();
@@ -123,5 +103,24 @@ $jaxon->registerClasses();
 // Process the request, if any.
 $jaxon->processRequest();
 </code></pre>
-    </div>
+
+<p>3. Appeler les classes exportées dans le code Javascript</p>
+<pre><code class="language-html">
+// Select
+&lt;select id="colorselect1" onchange="Test.App.setColor(jaxon.$('colorselect1').value); return false;"&gt;&lt;/select&gt;
+
+// Buttons
+&lt;button onclick="Test.App.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="Test.App.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="Test.App.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
+
+// Select
+&lt;select id="colorselect2" onchange="Test.Ext.setColor(jaxon.$('colorselect2').value); return false;"&gt;&lt;/select&gt;
+
+// Buttons
+&lt;button onclick="Test.Ext.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="Test.Ext.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="Test.Ext.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
+</code></pre>
+
 </div>

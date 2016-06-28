@@ -7,10 +7,10 @@ description: Cet exemple montre l'export des méthodes d'une classe comme des fo
 ---
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>Comment ça marche</h5>
+    <h5>Comment ça marche</h5>
 
-<p>1. Définir les classes dont les méthodes doivent être exportées.</p>
+<p>1. Définir la classe dont les méthodes doivent être exportées</p>
+
 <pre><code class="language-php">
 class HelloWorld
 {
@@ -37,7 +37,8 @@ class HelloWorld
 }
 </code></pre>
 
-<p>2. Exported les méthodes vers des fonctions javascript.</p>
+<p>2. Exported chaque méthode vers une fonction javascript</p>
+
 <pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
@@ -50,7 +51,8 @@ $jaxon->register(Jaxon::USER_FUNCTION, array($hello, 'setColor'));
 $jaxon->processRequest();
 </code></pre>
 
-<p>3. Appeler les fonctions exportées dans le code Javascript.</p>
+<p>3. Appeler la fonctions exportée dans le code Javascript</p>
+
 <pre><code class="language-php">
 // Select
 &lt;select id="colorselect" onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
@@ -59,5 +61,4 @@ $jaxon->processRequest();
 &lt;button onclick="jaxon_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
 </code></pre>
 
-    </div>
 </div>

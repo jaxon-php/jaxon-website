@@ -1,17 +1,20 @@
 ---
-title: Register Directories
+title: Register Classes in Directories
 menu: Register Directories
 template: jaxon
 cache_enable: false
-description: This example shows how to automatically register all the PHP classes in a set of directories.
+description: This example shows how to automatically register all the classes in a set of directories.
 ---
 
-The classes in this example are not namespaced, thus they all need to have different names, even if they are in different subdirs.
+<div class="row">
+When classes registered from a directory are not namespaced, they all need to have different names, even if they are in different subdirs.
+</div>
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>How it works</h5>
-<p>The Jaxon class in the file ./classes/simple/app/Test/App.php</p>
+    <h5>How it works</h5>
+
+<p>1. Save classes to be registered in predefined directories, for example <code>/jaxon/class/dir/app</code> and <code>/jaxon/class/dir/ext</code></p>
+<p>File <code>/jaxon/class/dir/app/Test/App.php</code></p>
 <pre><code class="language-php">
 use Jaxon\Response\Response;
 
@@ -48,7 +51,7 @@ class App
 }
 </code></pre>
 
-<p>The Jaxon class in the file ./classes/simple/ext/Test/Ext.php</p>
+<p>File <code>/jaxon/class/dir/ext/Test/Ext.php</code></p>
 <pre><code class="language-php">
 use Jaxon\Response\Response;
 
@@ -85,36 +88,13 @@ class Ext
 }
 </code></pre>
 
-<p>The javascript event bindings</p>
-<pre><code class="language-php">
-// Select
-&lt;select id="colorselect" onchange="Test.App.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="Test.App.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Test.App.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-// Select
-&lt;select id="colorselect" onchange="Test.Ext.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="Test.Ext.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Test.Ext.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-&lt;button onclick="Test.App.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
-&lt;button onclick="Test.Ext.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</code></pre>
-
-<p>The PHP object registrations</p>
+<p>2. Register all the classes found in the directories</p>
 <pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
 
-$jaxon->setOption('core.debug.on', false);
-$jaxon->setOption('core.prefix.class', '');
-
 // Add class dirs
-$jaxon->addClassDir(__DIR__ . '/classes/simple/app');
-$jaxon->addClassDir(__DIR__ . '/classes/simple/ext');
+$jaxon->addClassDir('/jaxon/class/dir/app');
+$jaxon->addClassDir('/jaxon/class/dir/ext');
 
 // Register objects
 $jaxon->registerClasses();
@@ -122,5 +102,24 @@ $jaxon->registerClasses();
 // Process the request, if any.
 $jaxon->processRequest();
 </code></pre>
-    </div>
+
+<p>3. Call the exported classes from javascript</p>
+<pre><code class="language-html">
+// Select
+&lt;select id="colorselect1" onchange="Test.App.setColor(jaxon.$('colorselect1').value); return false;"&gt;&lt;/select&gt;
+
+// Buttons
+&lt;button onclick="Test.App.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="Test.App.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="Test.App.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
+
+// Select
+&lt;select id="colorselect2" onchange="Test.Ext.setColor(jaxon.$('colorselect2').value); return false;"&gt;&lt;/select&gt;
+
+// Buttons
+&lt;button onclick="Test.Ext.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="Test.Ext.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="Test.Ext.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
+</code></pre>
+
 </div>

@@ -47,6 +47,8 @@ class JaxonPlugin extends Plugin
             $phpDir = $this->config->get('plugins.jaxon.php_dir');
             $webDir = $this->config->get('plugins.jaxon.web_dir');
             $exampleName = strrchr($uri->path(), '/');
+            $GLOBALS['web_dir'] = $webDir;
+
             // Set the file name
             if(in_array($exampleName, ['/laravel', '/symfony', 'zend-framework', '/yii', '/codeigniter']))
             {

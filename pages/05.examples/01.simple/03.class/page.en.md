@@ -7,10 +7,10 @@ description: This example shows how to export a class with Jaxon.
 ---
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>How it works</h5>
+    <h5>How it works</h5>
 
-<p>1. Define the classes to be exported.</p>
+<p>1. Define the classe to be exported</p>
+
 <pre><code class="language-php">
 class HelloWorld
 {
@@ -37,7 +37,8 @@ class HelloWorld
 }
 </code></pre>
 
-<p>2. Register the classes with Jaxon.</p>
+<p>2. Register the classe with Jaxon</p>
+
 <pre><code class="language-php">
 // Register object
 $jaxon = Jaxon::getInstance();
@@ -47,7 +48,8 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 $jaxon->processRequest();
 </code></pre>
 
-<p>3. Call the exported classes from javascript.</p>
+<p>3. Call the exported class from javascript</p>
+
 <pre><code class="language-php">
 // Select
 &lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
@@ -56,5 +58,4 @@ $jaxon->processRequest();
 &lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 </code></pre>
 
-    </div>
 </div>

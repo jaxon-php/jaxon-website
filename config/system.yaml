@@ -5,7 +5,8 @@ home:
 
 pages:
   theme: bones
-  markdown_extra: false
+  markdown:
+    extra: true
   append_url_extension: '.html'
   process:
     markdown: true

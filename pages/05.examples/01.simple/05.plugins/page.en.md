@@ -7,16 +7,24 @@ description: This example shows the use of Jaxon response plugins, by adding jav
 ---
 
 <div class="row">
-    <div class="col-sm-12">
-        <h4 class="page-header">&nbsp;</h4>
 Using a Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into the Jaxon core library. It can then be accessed in the Jaxon response object, to provide its functionalities to the application.
-    </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>How it works</h5>
-<p>The Jaxon class</p>
+    <h5>How it works</h5>
+
+<p>1. Install the plugins</p>
+
+<pre><code class="language-json">
+"require": {
+    "jaxon-php/jaxon-toastr": "dev-master",
+    "jaxon-php/jaxon-pgwjs": "dev-master",
+    "jaxon-php/jaxon-bootstrap": "dev-master"
+}
+</code></pre>
+
+<p>2. In the exported classes, get access to plugins via the Response object</p>
+
 <pre><code class="language-php">
 class HelloWorld
 {
@@ -64,12 +72,10 @@ class HelloWorld
 }
 </code></pre>
 
-<p>The PHP object registrations</p>
+<p>3. While exporting classes, set plugins options</p>
+
 <pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
-
-$jaxon->setOption('core.debug.on', false);
-$jaxon->setOption('core.prefix.class', 'Jaxon');
 
 $jaxon->setOptions(array(
     'toastr.options.closeButton' => true,
@@ -92,7 +98,7 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 $jaxon->processRequest();
 </code></pre>
 
-<p>The javascript event bindings</p>
+<p>3. Call the exported classe from javascript</p>
 <pre><code class="language-php">
 // Select
 &lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;

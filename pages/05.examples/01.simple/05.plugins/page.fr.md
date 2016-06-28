@@ -1,27 +1,29 @@
 ---
-title: Plugin Usage
-menu: Plugin Usage
+title: Plugin de réponse
+menu: Plugin de réponse
 template: jaxon
 cache_enable: false
 description: Cet exemple montre l'utilisation des plugins de réponse de Jaxon, en ajoutant des notifications et des fenêtres modales à l'exemple Classe Hello World avec les plugins jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap.
 ---
 
 <div class="row">
-    <div class="col-sm-12">
-        <h4 class="page-header">&nbsp;</h4>
 L'utilisation d'un plugin de réponse est très simple. Après son installation, le plugin s'enregistre automatiquement dans la librairie Jaxon. Il devient alors accessible depuis la classe Response de Jaxon, pour fournir ses fonctions à l'application.
-    </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>Comment ça marche</h5>
+    <h5>Comment ça marche</h5>
 
 <p>1. Installer les plugins</p>
-<pre><code class="language-php">
+<pre><code class="language-json">
+"require": {
+    "jaxon-php/jaxon-toastr": "dev-master",
+    "jaxon-php/jaxon-pgwjs": "dev-master",
+    "jaxon-php/jaxon-bootstrap": "dev-master"
+}
 </code></pre>
 
-<p>The Jaxon class</p>
+<p>2. Dans les classes exportées, accéder aux plugins via l'objet Response</p>
+
 <pre><code class="language-php">
 class HelloWorld
 {
@@ -69,12 +71,10 @@ class HelloWorld
 }
 </code></pre>
 
-<p>The PHP object registrations</p>
+<p>3. Pendant l'export des classes, définir les paramètres des plugins</p>
+
 <pre><code class="language-php">
 $jaxon = Jaxon::getInstance();
-
-$jaxon->setOption('core.debug.on', false);
-$jaxon->setOption('core.prefix.class', 'Jaxon');
 
 $jaxon->setOptions(array(
     'toastr.options.closeButton' => true,
@@ -97,7 +97,8 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 $jaxon->processRequest();
 </code></pre>
 
-<p>The javascript event bindings</p>
+<p>4. Appeler la classe exportée dans le code Javascript</p>
+
 <pre><code class="language-php">
 // Select
 &lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
