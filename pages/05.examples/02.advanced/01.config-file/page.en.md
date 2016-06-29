@@ -7,7 +7,7 @@ description: In this example, the config options of the Jaxon library and its pl
 ---
 
 <div class="row" markdown="1">
-When loading settings from a file, a second parameter can be added to make the library load the options from a particular section of the file.
+When loading settings from a file, a second parameter can be passed to the `readConfigFile()` call to make the library load the options from a particular section of the file.
 In this example, the config options are under the `jaxon` section of the file.
 </div>
 
@@ -45,12 +45,13 @@ jaxon:
         maxWidth:               600
 </code></pre>
 
-<p>The PHP object registrations</p>
+<p>2. Read the configuration options from the file</p>
+
 <pre><code class="language-php">
 // Register object
 $jaxon = Jaxon::getInstance();
 
-\Jaxon\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'jaxon');
+$jaxon->readConfigFile(__DIR__ . '/config/config.yaml', 'jaxon');
 
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 

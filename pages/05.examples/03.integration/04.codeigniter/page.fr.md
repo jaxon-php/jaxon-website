@@ -16,7 +16,7 @@ By default, the Jaxon plugin for CodeIgniter registers all classes in the applic
     <div class="col-sm-12">
         <h5>Comment ça marche</h5>
 
-<p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory.</p>
+<p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory</p>
 <pre><code class="language-php">
 namespace Jaxon\App\Test;
 

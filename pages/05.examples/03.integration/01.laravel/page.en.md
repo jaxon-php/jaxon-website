@@ -15,7 +15,7 @@ By default, the Jaxon plugin for Laravel registers all classes in the app/Jaxon/
 <div class="row">
     <div class="col-sm-12">
         <h5>How it works</h5>
-<p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory.</p>
+<p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory</p>
 <pre><code class="language-php">
 namespace Jaxon\App\Test;
 

@@ -7,7 +7,7 @@ description: Dans cet exemple, la configuration de la librairie Jaxon et de ses 
 ---
 
 <div class="row" markdown="1">
-Lorsque la configuration est lue dans un fichier, un second paramètre peut être utilisé pour indiquer la section du fichier qui comprend les options. 
+Lorsque la configuration est lue dans un fichier, un second paramètre peut être passé à l'appel à `readConfigFile()` pour indiquer la section du fichier qui comprend les options. 
 Dans cet exemple, les options de configuration se trouvent dans la section `jaxon` du fichier.
 </div>
 
@@ -45,12 +45,12 @@ jaxon:
         maxWidth:               600
 </code></pre>
 
-<p>2. Lire la configuration dans le fichier</p>
+<p>2. Lire les options de configuration dans le fichier</p>
 <pre><code class="language-php">
 // Register object
 $jaxon = Jaxon::getInstance();
 
-\Jaxon\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'jaxon');
+$jaxon->readConfigFile(__DIR__ . '/config/config.yaml', 'jaxon');
 
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 

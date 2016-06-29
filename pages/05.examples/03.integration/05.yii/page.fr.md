@@ -13,10 +13,9 @@ The behaviour of the Jaxon library can be customized from a Yii-specific config 
 By default, the Jaxon plugin for Yii registers all classes in the jaxon/ dir, with namespace \Jaxon\App.
 
 <div class="row">
-    <div class="col-sm-12">
-        <h5>Comment ça marche</h5>
+    <h5>Comment ça marche</h5>
 
-<p>In this example we have two files Bts.php and Pgw.php in the jaxon/Test/ directory.</p>
+<p>In this example we have two files Bts.php and Pgw.php in the jaxon/Test/ directory</p>
 <pre><code class="language-php">
 namespace Jaxon\App\Test;
 
@@ -184,5 +183,5 @@ return array(
     ),
 );
 </code></pre>
-    </div>
+
 </div>

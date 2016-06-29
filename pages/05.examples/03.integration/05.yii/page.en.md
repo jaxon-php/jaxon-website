@@ -15,7 +15,7 @@ By default, the Jaxon plugin for Yii registers all classes in the jaxon/ dir, wi
 <div class="row">
     <div class="col-sm-12">
         <h5>How it works</h5>
-<p>In this example we have two files Bts.php and Pgw.php in the jaxon/Test/ directory.</p>
+<p>In this example we have two files Bts.php and Pgw.php in the jaxon/Test/ directory</p>
 <pre><code class="language-php">
 namespace Jaxon\App\Test;
 

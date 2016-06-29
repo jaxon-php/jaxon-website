@@ -47,9 +47,10 @@ else
 
 La librairie Jaxon peut charger ses paramètres de configuration à partir d'un fichier. Les formats supportés sont JSON, YAML et PHP (le fichier contient du code qui retourne un tableau).
 ```php
-\Jaxon\Config\Yaml::read($yamlFilePath);    // Lire la configuration dans un fichier YAML.
-\Jaxon\Config\Json::read($jsonFilePath);    // Lire la configuration dans un fichier JSON.
-\Jaxon\Config\Php::read($phpFilePath);      // Lire la configuration dans un fichier PHP.
+$jaxon->readPhpConfigFile($yamlFilePath);   // Lire la configuration dans un fichier PHP.
+$jaxon->readYamlConfigFile($jsonFilePath);  // Lire la configuration dans un fichier YAML.
+$jaxon->readJsonConfigFile($phpFilePath);   // Lire la configuration dans un fichier JSON.
+$jaxon->readConfigFile($phpFilePath);       // Lire la configuration en fonction de l'extension du fichier.
 ```
 
 ##### Pagination
