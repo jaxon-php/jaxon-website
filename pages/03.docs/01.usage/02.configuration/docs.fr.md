@@ -58,7 +58,7 @@ Si le fichier contient d'autres données que la configuration de la librairie Ja
 | | | |
 | js.app.uri                    | string  | Le lien vers les fichiers javascript générés par Jaxon |
 | js.app.dir                    | string  | Le répertoire qui contient les fichiers javascript générés par Jaxon |
-| js.app.export                 | boolean | Active ou non la création d'un fichier javascript contenant le code généré par Jaxon |
+| js.app.extern                 | boolean | Active ou non la création d'un fichier javascript contenant le code généré par Jaxon |
 | js.app.minify                 | boolean | Active ou non la minification du code généré par Jaxon |
 | js.app.options                | string  | Les options à ajouter à la balise javascript dans le code HTML généré |
 | | | |

@@ -37,11 +37,12 @@ However, by calling `$jaxon->getScript(true, true)`, we obtain the cumulative ou
 
 ##### Configuration options
 
-The configuration functions and options of the Jaxon library have been renamed. A call to `$jaxon->setOption($name, $value)` is now needed to update an option, while a call to `$jaxon->getOption($name)` returns the value of an option. These two functions take the new option names as parameter.
+The configuration functions and options of the Jaxon library have been renamed.  
+A call to `$jaxon->setOption($name, $value)` is now needed to update an option, while a call to `$jaxon->getOption($name)` returns the value of an option. These two functions take the new option names as parameter.
 
 The `$jaxon->configure($name, $value)` and `$jaxon->getConfiguration($name)` functions can still be used with the old names of options, but they are deprecated and will be removed in a future release.
 
-The following table shows the correspondence between the old and new names of options.
+The following table shows the correspondances between the old and new names of options.
 
 | Previous | Current | Comment     |
 |----------|---------|-------------|
@@ -83,7 +84,7 @@ The following table shows the correspondence between the old and new names of op
 | deferDirectory               | js.app.dir                 | |
 | javascript files             | **deprecated**             | |
 | useUncompressedScripts       | **deprecated**             | |
-| deferScriptGeneration        | js.app.export              | A former option is covered by two new |
+| deferScriptGeneration        | js.app.extern              | A former option is covered by two new |
 | deferScriptGeneration        | js.app.minify              | A former option is covered by two new |
 | scriptDefferal               | js.app.options             | |
 | | | |

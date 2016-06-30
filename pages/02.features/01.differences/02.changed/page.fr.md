@@ -37,7 +37,8 @@ Toutefois, en appelant la fonction `$jaxon->getScript(true, true)`, on obtient l
 
 ##### Les options de configuration
 
-Les fonctions et les paramètres de configuration de la librairie Jaxon ont été renommés. Pour mettre à jour une option, il faut appeler la fonction `$jaxon->setOption($name, $value)`, et pour lire une valeur, il faut appeler la fonction `$jaxon->getOption($name)`. Ces deux fonctions prennent en paramètre les nouveaux noms des options.
+Les fonctions et les paramètres de configuration de la librairie Jaxon ont été renommés.  
+Pour mettre à jour une option, il faut appeler la fonction `$jaxon->setOption($name, $value)`, et pour lire une valeur, il faut appeler la fonction `$jaxon->getOption($name)`. Ces deux fonctions prennent en paramètre les nouveaux noms des options.
 
 Les fonctions `$jaxon->configure($name, $value)` et `$jaxon->getConfiguration($name)` peuvent encore être utilisée avec les anciens noms des options, mais elles sont dépréciées et seront supprimées dans une future version.
 
@@ -83,7 +84,7 @@ Le tableau suivant donne les correspondances etre les anciens et les nouveaux no
 | deferDirectory               | js.app.dir               | |
 | javascript files             | **deprecated**           | |
 | useUncompressedScripts       | **deprecated**           | |
-| deferScriptGeneration        | js.app.export            | Un ancien paramètre correspond à deux nouveaux |
+| deferScriptGeneration        | js.app.extern            | Un ancien paramètre correspond à deux nouveaux |
 | deferScriptGeneration        | js.app.minify            | Un ancien paramètre correspond à deux nouveaux |
 | scriptDefferal               | js.app.options           | |
 | | | |

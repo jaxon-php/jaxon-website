@@ -51,7 +51,7 @@ $jaxon = Jaxon::getInstance();
 $jaxonAppURI = '/jaxon/app';
 $jaxonAppDir = __DIR__ . '/jaxon/app';
 
-$this->setOption('js.app.export', true);
+$this->setOption('js.app.extern', true);
 $this->setOption('js.app.dir', $jaxonAppDir);
 $this->setOption('js.app.uri', $jaxonAppURI);
 $this->setOption('js.app.minify', true); // Optionally, the file can be minified

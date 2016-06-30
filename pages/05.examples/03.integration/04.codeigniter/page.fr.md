@@ -212,7 +212,7 @@ $config['lib'] = array(
         'app' => array(
             // 'uri' => '',
             // 'dir' => '',
-            'export' => false,
+            'extern' => false,
             'minify' => false,
             'options' => '',
         ),

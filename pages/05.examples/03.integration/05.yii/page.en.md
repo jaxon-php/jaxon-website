@@ -155,29 +155,29 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-'uri' => 'jaxon',
+                'uri' => 'jaxon',
             ),
             'prefix' => array(
-'class' => '',
+                'class' => '',
             ),
             'debug' => array(
-'on' => false,
-'verbose' => false,
+                'on' => false,
+                'verbose' => false,
             ),
             'error' => array(
-'handle' => false,
+                'handle' => false,
             ),
         ),
         'js' => array(
             'lib' => array(
-// 'uri' => '',
+                // 'uri' => '',
             ),
             'app' => array(
-// 'uri' => '',
-// 'dir' => '',
-// 'export' => true,
-// 'minify' => true,
-'options' => '',
+                // 'uri' => '',
+                // 'dir' => '',
+                // 'extern' => true,
+                // 'minify' => true,
+                'options' => '',
             ),
         ),
     ),
