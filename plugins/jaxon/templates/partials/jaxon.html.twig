@@ -17,4 +17,10 @@
     <div class="list-blog-padding">
         {{ page.content }}
     </div>
+
+    {% if page.route == '/docs' %}
+    <div class="list-blog-padding">
+        {% include 'partials/intro.html.twig' %}
+    </div>
+    {% endif %}
 </div>
