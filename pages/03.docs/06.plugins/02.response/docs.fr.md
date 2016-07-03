@@ -8,7 +8,7 @@ Un plugin de réponse de Jaxon sert à enrichir la classe `Jaxon\Response\Respon
 
 ##### Installation
 
-Pour installer le plugin, il suffit d'installer le package correspondant avec `Composer`.
+Pour installer un plugin de réponse Jaxon, il suffit d'installer le package correspondant avec `Composer`.
 Une fois installé, le plugin est automatiquement enregistré auprès de la librairie Jaxon, et son code CSS et javascript est automatiquement ajouté à celui de la librairie. 
 
 ##### Utilisation
