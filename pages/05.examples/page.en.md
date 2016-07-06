@@ -4,7 +4,7 @@ menu: Examples
 template: jaxon
 ---
 
-All examples presented here are variants of the Xajax [Hello World](https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php) example.
+All examples presented here are variants of the Xajax [Hello World](https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php?target=_blank) example.
 
 The simple examples show the features inherited from Xajax, that is how to export a function or a class, how to generate and call the corresponding javascript code, and how to use a plugin.
 

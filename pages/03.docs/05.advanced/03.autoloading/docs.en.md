@@ -39,7 +39,7 @@ But it is also possible to make Jaxon use the `Composer` autoloader, or to use a
 
 A call to `$jaxon->useComposerAutoloader()` makes the Jaxon library use the `Composer` autoloader. From that moment, all the classes in a directory registered with a namespace will be loaded with the `PSR-4` autoloader, while all classes in a directory registered without namespace will be loaded with the `ClassMap` autoloader.
 ```php
-// Utilise l'autoloader de Composer
+// Use Composer autoloader
 $jaxon->useComposerAutoloader();
 $jaxon->addClassDir($dirA, $namespaceA);
 $jaxon->addClassDir($dirB, $namespaceB);
@@ -50,7 +50,7 @@ $jaxon->addClassDir($dirB, $namespaceB);
 To use an autoloader from a third-party, autoloading must be disabled in the Jaxon library, by calling `$jaxon->disableAutoload()`.
 From that moment, it is the responsibility of the developer to implement autoloading for the directories he registers.
 
-The example below uses the autoloader from [https://github.com/keradus/Psr4Autoloader](https://github.com/keradus/Psr4Autoloader).
+The example below uses the autoloader from [https://github.com/keradus/Psr4Autoloader](https://github.com/keradus/Psr4Autoloader?target=_blank).
 ```php
 // Register the namespaces with the autoloader
 $loader = new Keradus\Psr4Autoloader;

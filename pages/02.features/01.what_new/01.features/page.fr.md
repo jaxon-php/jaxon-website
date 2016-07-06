@@ -1,12 +1,12 @@
 ---
-title: Nouvelles fonctionnalités
-menu: Nouvelles fonctionnalités
+title: Fonctionnalités
+menu: Fonctionnalités
 template: jaxon
 ---
 
 ##### Export de répertoires
 
-S'agissant des fonctions de la librairie, la nouveauté la plus importante est la possibilité d'exporter en quelques lignes et de façon récursive toutes les classes présentes dans un répertoire, éventuellement avec un namespace.
+La nouveauté la plus importante dans Jaxon est la possibilité d'exporter en quelques lignes et de façon récursive toutes les [classes d'un répertoire](../../../docs/advanced/directories), éventuellement avec un namespace.
 Le nommage des classes javascript générées respecte la hiérarchie des répertoires, et tient compte du namespace associé lorsqu'il y en a un.
 ```php
 $jaxon->addClassDir($path1, $namespace1);
@@ -34,7 +34,7 @@ else
 
 ##### Fichiers de configuration
 
-La librairie Jaxon peut charger ses paramètres de configuration à partir d'un fichier. Les formats supportés sont JSON, YAML et PHP (le fichier contient du code qui retourne un tableau).
+La librairie Jaxon peut charger ses [paramètres de configuration](../../../docs/usage/configuration) à partir d'un fichier. Les formats supportés sont JSON, YAML et PHP (le fichier contient du code qui retourne un tableau).
 ```php
 $jaxon->readPhpConfigFile($yamlFilePath);   // Lire la configuration dans un fichier PHP.
 $jaxon->readYamlConfigFile($jsonFilePath);  // Lire la configuration dans un fichier YAML.
@@ -44,7 +44,7 @@ $jaxon->readConfigFile($phpFilePath);       // Lire la configuration en fonction
 
 ##### Pagination
 
-Enfin, la librairie Jaxon fournit une fonction de pagination, qui permet de créer simplement une liste de liens qui appellent une même fonction Jaxon, mais avec un numéro de page qui s'incrémente.
+Enfin, la librairie Jaxon fournit une [fonction de pagination](../../../docs/advanced/pagination), qui permet de créer simplement une liste de liens qui appellent une même fonction Jaxon, mais avec un numéro de page qui s'incrémente.
 ```php
 $itemsTotal = 45;
 $itemsPerPage = 10;

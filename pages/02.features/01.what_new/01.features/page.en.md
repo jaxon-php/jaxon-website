@@ -1,12 +1,12 @@
 ---
-title: New features
-menu: New features
+title: Features
+menu: Features
 template: jaxon
 ---
 
 ##### Exporting directories
 
-Regarding the library functions, the most important new feature is the ability to export in a few lines and recursively all the classes in a directory, possibly with a namespace.
+The most important new feature in Jaxon is the ability to export in a few lines and recursively all the [classes in a directory](../../../docs/advanced/directories), possibly with a namespace.
 The naming of generated javascript classes respects the hierarchy of directories, and takes into account the associated namespace when there is one.
 ```php
 $jaxon->addClassDir($path1, $namespace1);
@@ -34,7 +34,7 @@ else
 
 ##### Configuration files
 
-The Jaxon library can load its configuration settings from a file. Supported formats are JSON, YAML and PHP (the file contains code that returns an array).
+The Jaxon library can load its [configuration settings](../../../docs/usage/configuration) from a file. Supported formats are JSON, YAML and PHP (the file contains code that returns an array).
 ```php
 $jaxon->readPhpConfigFile($yamlFilePath);   // Read configuration in a PHP file.
 $jaxon->readYamlConfigFile($jsonFilePath);  // Read configuration in a YAML file.
@@ -44,7 +44,7 @@ $jaxon->readConfigFile($phpFilePath);       // Read configuration in a file base
 
 ##### Pagination
 
-Finally, Jaxon library provides a pagination feature, which allows to simply create a list of links that call the same Jaxon function, but with a different page number.
+Finally, Jaxon library provides a [pagination feature](../../../docs/advanced/pagination), which allows to simply create a list of links that call the same Jaxon function, but with a different page number.
 ```php
 $itemsTotal = 45;
 $itemsPerPage = 10;

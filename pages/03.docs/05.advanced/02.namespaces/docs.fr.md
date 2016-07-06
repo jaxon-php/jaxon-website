@@ -6,17 +6,13 @@ template: jaxon
 
 Lorsqu'un répertoire est enregistré avec Jaxon, il est possible de lui associer un namespace.
 
-Par exemple, si le répertoire `/the/class/dir` est associé au namespace `My\Ns`, il sera enregistré ainsi.
-```php
-$jaxon->addClassDir('/the/class/dir', 'My\Ns');
-$jaxon->registerClasses();
-```
+Si on prend un répertoire `/the/class/dir` associé au namespace `Ns` et qui contient les classes suivantes.
 
-En supposant que la classe suivante soit définie dans le fichier `/the/class/dir/My/App/MyClass.php`,
+Dans le fichier `/the/class/dir/App/FirstClass.php`
 ```php
-namespace My\Ns\My\App;
+namespace Ns\App;
 
-class MyClass
+class FirstClass
 {
     public function myMethod()
     {
@@ -24,4 +20,24 @@ class MyClass
     }
 }
 ```
-Le nom de la classe javascript correspondante sera `My.Ns.My.App.MyClass`.
+
+Dans le fichier `/the/class/dir/App/SecondClass.php`
+```php
+namespace Ns\App;
+
+class SecondClass
+{
+    public function myMethod()
+    {
+        // Function body
+    }
+}
+```
+
+Les classes PHP seront exportées ainsi.
+```php
+$jaxon->addClassDir('/the/class/dir', 'Ns');
+$jaxon->registerClasses();
+```
+
+Les noms des classes javascript seront `Ns.App.FirstClass` et `Ns.App.SecondClass`.
