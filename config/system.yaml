@@ -12,6 +12,10 @@ pages:
     markdown: true
     twig: true
 
+languages:
+  supported: [en,fr]
+  include_default_lang: true
+
 cache:
   enabled: true
   check:
