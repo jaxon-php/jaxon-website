@@ -2,14 +2,9 @@
 
 namespace Grav\Theme;
 
-use Grav\Common\Page\Collection;
 use Grav\Common\Theme;
-use Grav\Common\Uri;
-use Grav\Common\Taxonomy;
 
-use Jaxon\Request\Factory as jr;
-
-class JaxonTheme extends Theme
+class Habitat extends Theme
 {
     protected $jaxon = null;
     protected $phpFile = null;
@@ -23,28 +18,22 @@ class JaxonTheme extends Theme
 
     public function onThemeInitialized()
     {
+        $config = $this->config();
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
-        $route = $this->config->get('plugins.jaxon.route');
+        $route = $config['route'];
 
         $this->enable([
-            // 'onPageInitialized' => ['onPageInitialized', 0],
-            // 'onPageContentRaw' => ['onPageContentRaw', 0],
+            'onPageInitialized' => ['onPageInitialized', 0],
+            'onPageContentRaw' => ['onPageContentRaw', 0],
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
         ]);
 
         if (($route) && $route == substr($uri->path(), 0, strlen($route)))
         {
-            $this->enable([
-                'onPageInitialized' => ['onPageInitialized', 0],
-                'onPageContentRaw' => ['onPageContentRaw', 0],
-                // 'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
-                // 'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
-            ]);
-
-            $phpDir = $this->config->get('plugins.jaxon.php_dir');
-            $webDir = $this->config->get('plugins.jaxon.web_dir');
+            $phpDir = $config['php_dir'];
+            $webDir = $config['web_dir'];
             $exampleName = strrchr($uri->path(), '/');
             $GLOBALS['web_dir'] = $webDir;
 
@@ -71,7 +60,7 @@ class JaxonTheme extends Theme
      */
     public function onPageInitialized()
     {
-        if(!$this->phpFile || !file_exists($this->phpFile))
+        if(!$this->jaxon || !$this->phpFile || !file_exists($this->phpFile))
         {
             return;
         }
