@@ -13,9 +13,7 @@ L'utilisation d'un plugin de réponse est très simple. Après son installation,
 Installer les plugins
 ```json
 "require": {
-    "jaxon-php/jaxon-toastr": "dev-master",
-    "jaxon-php/jaxon-pgwjs": "dev-master",
-    "jaxon-php/jaxon-bootstrap": "dev-master"
+    "jaxon-php/jaxon-bootbox": "dev-master"
 }
 ```
 
@@ -33,7 +31,7 @@ class HelloWorld
         $xResponse = new Response();
         $xResponse->assign('div2', 'innerHTML', $text);
         // Call the Toastr plugin
-        $xResponse->toastr->success("div2 text is now $text");
+        $xResponse->bootbox->success("div2 text is now $text");
         return $xResponse;
     }
 
@@ -42,7 +40,7 @@ class HelloWorld
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
         // Call the Toastr plugin
-        $xResponse->toastr->success("div2 color is now $sColor");
+        $xResponse->bootbox->success("div2 color is now $sColor");
         return $xResponse;
     }
 
@@ -62,14 +60,6 @@ Pendant l'export des classes, définir les paramètres des plugins
 ```php
 $jaxon = jaxon();
 
-$jaxon->setOptions(array(
-    'toastr.options.closeButton' => true,
-    'toastr.options.closeMethod' => 'fadeOut',
-    'toastr.options.closeDuration' => 300,
-    'toastr.options.closeEasing' => 'swing',
-    'toastr.options.positionClass' => 'toast-bottom-left',
-));
-
 // Register object
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
@@ -86,5 +76,5 @@ Appeler la classe exportée dans le code Javascript
 <button onclick="JaxonHelloWorld.sayHello(0); return false;">Click Me</button>
 <button onclick="JaxonHelloWorld.sayHello(1); return false;">CLICK ME</button>
 
-<button onclick="JaxonHelloWorld.showDialog(); return false;">PgwModal Dialog</button>
+<button onclick="JaxonHelloWorld.showDialog(); return false;">Bootbox Dialog</button>
 ```
