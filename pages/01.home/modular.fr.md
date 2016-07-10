@@ -8,7 +8,6 @@ content:
         by: header.position
         dir: asc
         custom:
-            - _showcases
             - _motivations
             - _features
             - _plugins

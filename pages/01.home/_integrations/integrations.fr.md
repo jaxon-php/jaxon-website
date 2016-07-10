@@ -17,3 +17,4 @@ integrations:
 ---
 
 D'autres plugins permettent d'intégrer la librairie aux frameworks et CMS les plus courants.
+Plusieurs plugins sont en cours de création.

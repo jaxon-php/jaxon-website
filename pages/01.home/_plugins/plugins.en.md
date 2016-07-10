@@ -24,4 +24,4 @@ plugins:
       demo: /examples/simple/plugins.html
 ---
 
-There are various plugins which add new features to the Jaxon library.
+There are various Jaxon plugins for using existing javascript libraries in an application, without writing a single line of javascript.

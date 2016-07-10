@@ -24,4 +24,4 @@ plugins:
       demo: /fr/examples/simple/plugins.html
 ---
 
-Divers plugins permettent d'ajouter de nouvelles fonctionnalités à la librairie Jaxon.
+Divers plugins de Jaxon permettent d'utiliser des librairies javascript dans une application, sans écrire un seule ligne de javascript.

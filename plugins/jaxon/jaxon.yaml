@@ -1,4 +1,0 @@
-enabled: true
-route: /examples
-php_dir: /srv/contrib/site/www/examples
-web_dir: /srv/contrib/site/www/jaxon

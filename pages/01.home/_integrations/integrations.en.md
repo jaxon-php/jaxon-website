@@ -17,3 +17,4 @@ integrations:
 ---
 
 Other plugins integrate the library with common PHP frameworks and CMS.
+Many plugins are still under contruction.
