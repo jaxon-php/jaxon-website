@@ -51,9 +51,8 @@ class HelloWorld
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('maxWidth' => 400);
-        // Call the PgwModal plugin
-        $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $width = 500;
+        $xResponse->bootbox->modal("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $width);
         return $xResponse;
     }
 }

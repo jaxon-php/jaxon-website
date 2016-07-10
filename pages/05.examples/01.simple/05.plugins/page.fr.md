@@ -50,9 +50,8 @@ class HelloWorld
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('maxWidth' => 400);
-        // Call the PgwModal plugin
-        $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $width = 500;
+        $xResponse->bootbox->modal("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $width);
         return $xResponse;
     }
 }
@@ -69,12 +68,6 @@ $jaxon->setOptions(array(
     'toastr.options.closeDuration' => 300,
     'toastr.options.closeEasing' => 'swing',
     'toastr.options.positionClass' => 'toast-bottom-left',
-));
-
-$jaxon->setOptions(array(
-    'pgw.modal.options.closeOnEscape' => true,
-    'pgw.modal.options.closeOnBackgroundClick' => true,
-    'pgw.modal.options.maxWidth' => 600,
 ));
 
 // Register object
