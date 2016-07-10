@@ -1,0 +1,206 @@
+Grav\Common\Page\Page Object
+(
+    [name:protected] => page.en.md
+    [folder:protected] => 05.autoload-composer
+    [path:protected] => /srv/contrib/site/www/frameworks/grav/user/pages/05.examples/02.advanced
+    [extension:protected] => .en.md
+    [url_extension:protected] => .html
+    [id:protected] => 146786743680c744a98220ab1c2fd23cf030568e1e
+    [parent:protected] => /srv/contrib/site/www/frameworks/grav/user/pages/05.examples/02.advanced
+    [template:protected] => jaxon
+    [expires:protected] => 
+    [visible:protected] => 1
+    [published:protected] => 1
+    [publish_date:protected] => 
+    [unpublish_date:protected] => 
+    [slug:protected] => autoload-composer
+    [route:protected] => /examples/advanced/autoload-composer
+    [raw_route:protected] => /examples/advanced/autoload-composer
+    [url:protected] => 
+    [routes:protected] => 
+    [routable:protected] => 1
+    [modified:protected] => 1467867436
+    [redirect:protected] => 
+    [items:protected] => 
+    [header:protected] => stdClass Object
+        (
+            [title] => Using the Composer Autoloader
+            [menu] => Composer Autoloader
+            [template] => jaxon
+            [cache_enable] => 
+            [description] => This example illustrates the use of the Composer autoloader.
+        )
+
+    [frontmatter:protected] => title: Using the Composer Autoloader
+menu: Composer Autoloader
+template: jaxon
+cache_enable: false
+description: This example illustrates the use of the Composer autoloader.
+    [language:protected] => en
+    [content:protected] => <div class="row">
+<p>By default, the Jaxon library implements a simple autoloading mechanism by <code>require_once</code>'ing the corresponding PHP file for each missing class.
+When provided with the Composer autoloader, the Jaxon library registers all directories with a namespace into the <code>PSR-4</code> autoloader, and it registers all the classes in directories with no namespace into the <code>classmap</code> autoloader.</p>
+</div>
+<div class="row">
+<p>The classes which are registered in this example are the same as in the <a href="/examples/advanced/namespaces">Register Namespaces</a> example.</p>
+</div>
+<div class="row">
+    <h5>How it works</h5>
+
+<p>
+<ol>
+<li>Include the Composer <code>autoload.php</code> file, and call the <code>$jaxon-&amp;gt;useComposerAutoloader()</code> function</li>
+</ol>
+</p>
+
+<pre><code class="language-php">
+require(__DIR__ . '/vendor/autoload.php');
+
+$jaxon = Jaxon::getInstance();
+
+// Use the Composer autoloader
+$jaxon-&gt;useComposerAutoloader();
+
+// Add class dirs with namespaces
+$jaxon-&gt;addClassDir('/jaxon/class/dir/app', 'App');
+$jaxon-&gt;addClassDir('/jaxon/class/dir/ext', 'Ext');
+
+// Check if there is a request.
+if($jaxon-&gt;canProcessRequest())
+{
+    // When processing a request, the required class will be autoloaded
+    $jaxon-&gt;processRequest();
+}
+else
+{
+    // The Jaxon objects are registered only when the page is generated
+    $jaxon-&gt;registerClasses();
+}
+</code></pre>
+
+</div>
+    [content_meta:protected] => 
+    [summary:protected] => 
+    [raw_content:protected] => <div class="row" markdown="1">
+By default, the Jaxon library implements a simple autoloading mechanism by `require_once`'ing the corresponding PHP file for each missing class.
+When provided with the Composer autoloader, the Jaxon library registers all directories with a namespace into the `PSR-4` autoloader, and it registers all the classes in directories with no namespace into the `classmap` autoloader.
+</div>
+
+<div class="row" markdown="1">
+The classes which are registered in this example are the same as in the [Register Namespaces](../namespaces) example.
+</div>
+
+<div class="row">
+    <h5>How it works</h5>
+
+<p markdown="1">1. Include the Composer `autoload.php` file, and call the `$jaxon-&gt;useComposerAutoloader()` function</p>
+
+<pre><code class="language-php">
+require(__DIR__ . '/vendor/autoload.php');
+
+$jaxon = Jaxon::getInstance();
+
+// Use the Composer autoloader
+$jaxon->useComposerAutoloader();
+
+// Add class dirs with namespaces
+$jaxon->addClassDir('/jaxon/class/dir/app', 'App');
+$jaxon->addClassDir('/jaxon/class/dir/ext', 'Ext');
+
+// Check if there is a request.
+if($jaxon->canProcessRequest())
+{
+    // When processing a request, the required class will be autoloaded
+    $jaxon->processRequest();
+}
+else
+{
+    // The Jaxon objects are registered only when the page is generated
+    $jaxon->registerClasses();
+}
+</code></pre>
+
+</div>
+
+    [pagination:protected] => 
+    [media:protected] => Grav\Common\Page\Media Object
+        (
+            [gettersVariable:protected] => instances
+            [path:protected] => /srv/contrib/site/www/frameworks/grav/user/pages/05.examples/02.advanced/05.autoload-composer
+            [instances:protected] => Array
+                (
+                )
+
+            [images:protected] => Array
+                (
+                )
+
+            [videos:protected] => Array
+                (
+                )
+
+            [audios:protected] => Array
+                (
+                )
+
+            [files:protected] => Array
+                (
+                )
+
+        )
+
+    [metadata:protected] => Array
+        (
+            [generator] => Array
+                (
+                    [name] => generator
+                    [content] => GravCMS
+                )
+
+            [description] => Array
+                (
+                    [name] => description
+                    [content] => Jaxon is an open source PHP class library for easily creating powerful PHP-driven, web-based Ajax Applications.
+                )
+
+        )
+
+    [title:protected] => Using the Composer Autoloader
+    [max_count:protected] => 
+    [menu:protected] => Composer Autoloader
+    [date:protected] => 1467867436
+    [taxonomy:protected] => Array
+        (
+            [archives_month] => Array
+                (
+                    [0] => jul_2016
+                )
+
+            [archives_year] => Array
+                (
+                    [0] => 2016
+                )
+
+        )
+
+    [order_by:protected] => default
+    [order_dir:protected] => asc
+    [order_manual:protected] => 
+    [modular:protected] => 
+    [modular_twig:protected] => 
+    [process:protected] => Array
+        (
+            [markdown] => 1
+            [twig] => 1
+        )
+
+    [summary_size:protected] => 
+    [markdown_extra:protected] => 
+    [etag:protected] => 
+    [last_modified:protected] => 
+    [home_route:protected] => /home
+    [hide_home_route:protected] => 
+    [ssl:protected] => 
+    [_original:Grav\Common\Page\Page:private] => 
+    [_action:Grav\Common\Page\Page:private] => 
+)

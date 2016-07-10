@@ -1,0 +1,21 @@
+            <!-- Footer -->
+            <div id="footer" class="background-grey">
+                <div class="container">
+                    <div class="row">
+                        <!-- Footer Menu -->
+                        <div id="footermenu" class="col-md-8">
+                            <ul class="list-unstyled list-inline">
+{% for page in pages.children.visible %}
+                                <li><a href="{{ page.url }}">{{ page.menu }}</a></li>
+{% endfor %}
+                            </ul>
+                        </div>
+                        <!-- End Footer Menu -->
+                        <!-- Copyright -->
+                        <div id="copyright" class="col-md-4">
+                            <p class="pull-right"><a href="/{{ grav.language.getActive }}">Jaxon</a></p>
+                        </div>
+                        <!-- End Copyright -->
+                    </div>
+                </div>
+            </div>

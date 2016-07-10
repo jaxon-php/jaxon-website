@@ -1,0 +1,59 @@
+{% extends 'partials/page.html.twig' %}
+
+{% block content %}
+                    <div class="row margin-vert-40">
+                        <!-- Begin Sidebar Menu -->
+                        <div class="col-md-3">
+                            {% include 'sidebar/menu.html.twig' %}
+                        </div>
+                        <!-- End Sidebar Menu -->
+                        <div class="col-md-9">
+                            <!-- Page title -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="headline">
+                                        <h2>{{ page.title }}</h2>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- End Page title -->
+
+{% if jaxon.content %}
+                            <!-- Jaxon content -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>{{ page.header.description }}</p>
+                                    <h3 class="margin-vert-10">Demo</h3>
+                                </div>
+                                {{ jaxon.content }}
+                                <hr>
+                            </div>
+                            <!-- End Jaxon content -->
+{% endif %}
+
+{% if page.content %}
+                            <!-- Page content -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ page.content }}
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- End Page content -->
+{% endif %}
+
+{% if page.route == '/docs' or page.route == '/features' %}
+                            <!-- Section TOC -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% include 'partials/section.html.twig' %}
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- End Section TOC -->
+{% endif %}
+                            <div class="clearfix margin-bottom-10"></div>
+                        </div>
+                    </div>
+{% endblock %}

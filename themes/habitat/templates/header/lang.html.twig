@@ -1,0 +1,24 @@
+            <div id="pre-header" class="background-gray-lighter">
+                <div class="container no-padding">
+                    <div class="row hidden-xs">
+                        <div class="col-sm-6 padding-vert-5">
+                            <ul class="list-unstyled list-inline no-margin">
+{% set langobj = grav['language'] %}
+{% for key in langswitcher.languages %}
+    {% if key == langswitcher.current %}
+        {% set lang_url = page.url %}
+        {% set active_class = 'active' %}
+    {% else %}
+        {% set lang_url = base_url_simple ~ langobj.getLanguageURLPrefix(key)~langswitcher.page_route ?: '/' %}
+        {% set active_class = '' %}
+    {% endif %}
+                                <li class="external {{ active_class }}"><a href="{{ lang_url ~ uri.params }}">{{  native_name(key)|capitalize }}</a></li>
+{% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 text-right padding-vert-5">
+                            <strong>Email:</strong>&nbsp;info@joomla51.com
+                        </div>
+                    </div>
+                </div>
+            </div>
