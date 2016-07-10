@@ -4,7 +4,7 @@ menu: Modularité
 template: jaxon
 ---
 
-##### Extensibilité et modularité
+#### Extensibilité et modularité
 
 La librairie Jaxon est composée d'un package javascript pur et de plusieurs packages PHP.
 Le package javascript [jaxon-js](https://github.com/jaxon-php/jaxon-js) contient le code qui gère les requêtes et les réponses dans le navigateur.
@@ -16,7 +16,7 @@ Le package PHP [jaxon-core](https://github.com/jaxon-php/jaxon-core) contient le
 Ces deux packages sont requis pour exécuter une application Jaxon. Ils peuvent être complétés par de nombreux autres plugins qui ajoutent des fonctionnalités à la librairie Jaxon, ou lui permettent de s'intégrer aisément à des frameworks ou des CMS PHP.
 
 
-##### Namespaces et Composer
+#### Namespaces et Composer
 
 Tous les packages PHP de la librairie Jaxon sont namespacés, s'installent avec `Composer`, et utilisent l'autoloading `PSR-4`. Le namespace du package [jaxon-core](https://github.com/jaxon-php/jaxon-core) est `Jaxon`.
 

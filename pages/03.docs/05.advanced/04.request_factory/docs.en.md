@@ -46,7 +46,7 @@ The following javascript code will be generated.
 </script>
 ```
 
-The full list of functions of the `Jaxon\Request\Factory` class is [documented here](http://www.jaxon-php.org/docs/api/class-Jaxon.Request.Factory.html).
+The full list of functions of the `Jaxon\Request\Factory` class is [documented here](/api/Jaxon/Request/Factory.html).
 
 The `Jaxon\Request\FactoryTrait` trait adds a `call()` function to the Jaxon classes, that simplifies the creation of Jaxon requests to their methods.
 It takes as a parameter the name of a method, and automatically prepends the name of the javascript class.

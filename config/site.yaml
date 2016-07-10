@@ -3,4 +3,4 @@ author:
   name: Thierry Feuzeu
   email: 'thierry.feuzeu@lagdo-software.net'
 metadata:
-    description: 'Jaxon is an open source PHP class library for easily creating powerful PHP-driven, web-based Ajax Applications.'
+    description: 'Jaxon is an open source PHP class library for easily creating Ajax web applications.'

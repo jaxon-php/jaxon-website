@@ -6,24 +6,19 @@ cache_enable: false
 description: This example illustrates the use of the Composer autoloader.
 ---
 
-<div class="row" markdown="1">
 By default, the Jaxon library implements a simple autoloading mechanism by `require_once`'ing the corresponding PHP file for each missing class.
 When provided with the Composer autoloader, the Jaxon library registers all directories with a namespace into the `PSR-4` autoloader, and it registers all the classes in directories with no namespace into the `classmap` autoloader.
-</div>
 
-<div class="row" markdown="1">
 The classes which are registered in this example are the same as in the [Register Namespaces](../namespaces) example.
-</div>
 
-<div class="row">
-    <h5>How it works</h5>
+#### How it works
 
-<p markdown="1">1. Include the Composer `autoload.php` file, and call the `$jaxon-&gt;useComposerAutoloader()` function</p>
+Include the Composer `autoload.php` file, and call the `$jaxon->useComposerAutoloader()` function
 
-<pre><code class="language-php">
+```php
 require(__DIR__ . '/vendor/autoload.php');
 
-$jaxon = Jaxon::getInstance();
+$jaxon = jaxon();
 
 // Use the Composer autoloader
 $jaxon->useComposerAutoloader();
@@ -43,6 +38,4 @@ else
     // The Jaxon objects are registered only when the page is generated
     $jaxon->registerClasses();
 }
-</code></pre>
-
-</div>
+```

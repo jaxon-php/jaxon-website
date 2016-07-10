@@ -9,7 +9,7 @@ Les plugins d'intégration facilitent l'utilisation de Jaxon dans des frameworks
 Dans le framework ou le CMS, le plugin d'intégration fournit les fonctions d'initialisation de la librairie et de traitement des requêtes Jaxon.
 Il charge automatiquement les classes Jaxon à un emplacement déterminé.
 
-##### Installation
+#### Installation
 
 Pour installer un plugin d'integration Jaxon, il suffit d'installer le package correspondant avec `Composer`.
 Le package [jaxon-framework](https://github.com/jaxon-php/jaxon-framework) fournit des fonctions communes à tous les plugins d'intégration.
@@ -29,7 +29,7 @@ Par exemple, voici la section `require` d'un fichier `composer.json` qui install
 Les plugins d'intégration peuvent fournir des fichiers supplémentaires à installer manuellement dans les répertoires de l'application.
 Ce sont les contrôleurs, les fichiers de configuration ou de définition des routes du framework pour Jaxon.
 
-##### Utilisation
+#### Utilisation
 
 Un plugin d'intégration de Jaxon fournit un module, une librairie ou un plugin pour son framework, qui, lorsqu'il est chargé, initialise automatiquement la librairie Jaxon et donne accès au code CSS et javascript généré.  
 Les classes Jaxon étant à un emplacement déterminé, elles sont aussi automatiquement enregistrées.
@@ -37,12 +37,12 @@ Les classes Jaxon étant à un emplacement déterminé, elles sont aussi automat
 Au final, utiliser la librairie Jaxon dans un framework ou un CMS revient à écrire des classes Jaxon et à les copier dans l'emplacement prévu.
 Le plugin les enregistre automatiquement.
 
-##### Configuration
+#### Configuration
 
 Pour un framework ou un CMS, il existe un emplacement et un format pour les fichiers de configuration.  
 Pour simplifier son utilisation, les plugins d'intégration permettent de lire la configuration de la librairie Jaxon à l'emplacement et au format prévus par le framework.
 
-##### Exemples
+#### Exemples
 
 Les plugins d'intégration suivants sont fonctionnels. Ils sont en démonstration dans la section [Exemples](../../../examples).
 

@@ -6,21 +6,15 @@ cache_enable: false
 description: Dans cet exemple l'autoloading est désactivé dans la librairie Jaxon, et un autoloader d'une tierce partie est utilisé pour charger les classes Jaxon.
 ---
 
-<div class="row" markdown="1">
 Les répertoires exportés avec Jaxon sont également enregistrés dans l'autoloader. Celui utilisé ici est [Keradus](https://github.com/keradus/Psr4Autoloader).
-</div>
-
-<div class="row" markdown="1">
 Les classes exportées dans cet exemple sont les mêmes que celles de l'exemple [Exporter des namespaces](../namespaces).
-</div>
 
-<div class="row">
-    <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p>1. Désactiver l'autoloading dans la librairie Jaxon, et déclarer les namespaces dans l'autoloader</p>
+Désactiver l'autoloading dans la librairie Jaxon, et déclarer les namespaces dans l'autoloader
 
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
+```php
+$jaxon = jaxon();
 
 // Disable autoload
 $jaxon->disableAutoload();
@@ -46,6 +40,4 @@ else
     // The Jaxon objects are registered only when the page is generated
     $jaxon->registerClasses();
 }
-</code></pre>
-
-</div>
+```

@@ -6,12 +6,11 @@ cache_enable: false
 description: Cet exemple montre l'export d'une fonction avec Jaxon.
 ---
 
-<div class="row">
-    <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p>1. Definir la fonction à exporter</p>
+Definir les fonctions à exporter
 
-<pre><code class="language-php">
+```php
 function helloWorld($isCaps)
 {
     if ($isCaps)
@@ -32,12 +31,12 @@ function setColor($sColor)
 
     return $xResponse;
 }
-</code></pre>
+```
 
-<p>2. Exporter la fonction avec Jaxon</p>
+Exporter les fonctions avec Jaxon
 
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
+```php
+$jaxon = jaxon();
 
 // Register functions
 $jaxon->register(Jaxon::USER_FUNCTION, 'helloWorld');
@@ -45,16 +44,14 @@ $jaxon->register(Jaxon::USER_FUNCTION, 'setColor');
 
 // Process the request, if any.
 $jaxon->processRequest();
-</code></pre>
+```
 
-<p>3. Appeler la fonction exportée dans le code Javascript</p>
+Appeler les fonctions exportées dans le code Javascript
 
-<pre><code class="language-php">
+```php
 // Select
-&lt;select id="colorselect" onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
+<select id="colorselect" onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"></select>
 // Buttons
-&lt;button onclick="jaxon_helloWorld(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="jaxon_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
-</code></pre>
-
-</div>
+<button onclick="jaxon_helloWorld(0); return false;">Click Me</button>
+<button onclick="jaxon_helloWorld(1); return false;">CLICK ME</button>
+```

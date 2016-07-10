@@ -18,7 +18,7 @@ Ou bien exécuter la commande
 composer require jaxon-php/jaxon-core
 ```
 
-##### La librairie javascript
+#### La librairie javascript
 
 Jaxon nécessite pour fonctionner que soit installée sa librairie javascript [jaxon-js](https://github.com/jaxon-php/jaxon-js).
 Par défaut, la Jaxon charge cette librairie à partir d'un serveur public qui supporte les protocoles `http` et `https`.

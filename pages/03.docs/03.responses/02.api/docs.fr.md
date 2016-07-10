@@ -17,6 +17,6 @@ Le code suivant affecte un texte à un bloc HTML identifié par son id.
 $response->assign('message-id', 'innerHTML', 'Jaxon is cool');
 ``` 
 
-La liste complète des fonctions de la classe `Jaxon\Response\Response` est [documentée ici](http://www.jaxon-php.org/docs/api/class-Jaxon.Response.Response.html).
+La liste complète des fonctions de la classe `Jaxon\Response\Response` est [documentée ici](/api/Jaxon/Plugin/Response.html).
 
 Bien que la classe `Jaxon\Response\Response` implémente une longue liste de fonctions, il est possible de lui en ajouter à l'aide de [plugins](../../plugins/response).

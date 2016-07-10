@@ -11,7 +11,6 @@ The following PHP code initializes the library, exports one function and process
 <?php 
 require (__DIR__ . '/vendor/autoload.php'); // Start autoload 
 
-use Jaxon\Jaxon;                      // Use the jaxon core class
 use Jaxon\Response\Response;          // and the Response class
 
 // The function called by the browser
@@ -22,7 +21,7 @@ function helloworld($name)
     return $response;                    // Return the response to the browser
 }  
 
-$jaxon = Jaxon::getInstance();        // Get the core singleton object   
+$jaxon = jaxon();        // Get the core singleton object   
 $jaxon->register(Jaxon::USER_FUNCTION, 'helloworld'); // Register the function with Jaxon 
 $jaxon->processRequest();             // Call the Jaxon processing engine  
 ```

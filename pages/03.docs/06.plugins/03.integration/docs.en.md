@@ -9,7 +9,7 @@ Integration plugins facilitate the use of the Jaxon library in some PHP framewor
 In the framework or CMS, the integration plugin provides functions for the library initialization and for processing Jaxon requests.
 It automatically loads Jaxon classes from a specific location.
 
-##### Installation
+#### Installation
 
 To install a Jaxon integration plugin, install the corresponding package with `Composer`.
 The [jaxon-framework](https://github.com/jaxon-php/jaxon-framework) package provides common functions for all intégration plugins.
@@ -29,7 +29,7 @@ For example, this is the `require` section of a `composer.json` file which insta
 Integration plugins can provide additional files to be manually installed in the directories of the application.
 These are the controllers and the configuration or routes definition files of the framework for Jaxon.
 
-##### Usage
+#### Usage
 
 An integration plugin Jaxon provides a module, a library or a plugin for the framework, which, when loaded, automatically initializes the Jaxon library and provides access to the generated CSS and javascript.
 The Jaxon classes being installed in a specific location, they are also loaded automatically.
@@ -37,13 +37,13 @@ The Jaxon classes being installed in a specific location, they are also loaded a
 At the end, the developer only needs to write the Jaxon classes and save them in the specified location.
 The Jaxon plugin will then automatically registrer them.
 
-##### Configuration
+#### Configuration
 
 For each framework or CMS, there are defined location and format for the configuration files.
 
 In order to make their usage simpler, integration plugins allow to read the configuration of the Jaxon library in the location and format specified by the framework.
 
-##### Examples
+#### Examples
 
 The following integration plugins are ready for use. They are demonstrated in the [Examples](../../../examples) section.
 

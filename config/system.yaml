@@ -4,7 +4,7 @@ home:
   alias: '/home'
 
 pages:
-  theme: bones
+  theme: habitat
   markdown:
     extra: true
   append_url_extension: '.html'
@@ -14,7 +14,7 @@ pages:
 
 languages:
   supported: [en,fr]
-  include_default_lang: true
+  include_default_lang: false
 
 cache:
   enabled: true

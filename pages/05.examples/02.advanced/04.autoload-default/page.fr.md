@@ -6,22 +6,17 @@ cache_enable: false
 description: Cet exemple montre comment optimiser le traitement des requêtes Jaxon avec l'autoloading.
 ---
 
-<div class="row">
 Dans cet exemple, les classes Jaxon ne sont pas exportées lorsqu'une requête est traitée.
 Cependant, la librairie est assez intelligente pour se rendre compte que que la classe demandée est absente, et charger uniquement le fichier nécessaire.
-</div>
-
 <div class="row notice" markdown="1">
 Les classes exportées dans cet exemple sont les mêmes que celles de l'exemple [Exporter des namespaces](../namespaces).
-</div>
 
-<div class="row">
-    <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p>1. Les classes ne sont exportées que lorsque la page est générée, et pas quand une requête est traitée</p>
+Les classes ne sont exportées que lorsque la page est générée, et pas quand une requête est traitée
 
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
+```php
+$jaxon = jaxon();
 
 // Add class dirs with namespaces
 $jaxon->addClassDir('/jaxon/class/dir/app', 'App');
@@ -38,6 +33,4 @@ else
     // The Jaxon objects are registered only when the page is generated
     $jaxon->registerClasses();
 }
-</code></pre>
-
-</div>
+```

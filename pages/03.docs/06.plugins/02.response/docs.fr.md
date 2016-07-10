@@ -6,23 +6,23 @@ template: jaxon
 
 Un plugin de réponse de Jaxon sert à enrichir la classe `Jaxon\Response\Response` avec de nouvelles fonctions.
 
-##### Installation
+#### Installation
 
 Pour installer un plugin de réponse Jaxon, il suffit d'installer le package correspondant avec `Composer`.
 Une fois installé, le plugin est automatiquement enregistré auprès de la librairie Jaxon, et son code CSS et javascript est automatiquement ajouté à celui de la librairie. 
 
-##### Utilisation
+#### Utilisation
 
 Un plugin de réponse de Jaxon possède un nom, qui doit être unique dans toute l'application.
 Ce nom permet d'accéder à une instance du plugin à partir d'un objet de la classe `Jaxon\Response\Response`.
 
-##### Configuration
+#### Configuration
 
 Les plugins de réponse sont configurés de la même façon que la librairie Jaxon, à la différence que les noms des paramètres sont préfixés du nom du plugin.
 
 La documentation de chaque plugin fournit la liste de ses paramètres de configuration. 
 
-##### Exemple
+#### Exemple
 
 Le plugin [jaxon-toastr](https://github.com/jaxon-php/jaxon-toastr) permet d'ajouter des notifications à une application, à l'aide de la librarie [Toastr](https://github.com/CodeSeven/toastr).
 
@@ -46,5 +46,5 @@ class MyClass
 }
 ```
 
-##### Créer un plugin de réponse
+#### Créer un plugin de réponse
 

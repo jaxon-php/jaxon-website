@@ -4,17 +4,15 @@ menu: Fonctionnalités modifiées
 template: jaxon
 ---
 
-##### Namespaces
+#### Namespaces
 
-Toutes les classes du package [jaxon-core](https://github.com/jaxon-php/jaxon-core) se trouvent désormais dans le namespace `Jaxon`. La classe principale est un singleton, donc l'unique instance est renvoyée par la méthode `Jaxon::getInstance()`. L'URI qui était passé au constructeur de la classe dans la version précédente doit désormais être définie avec l'option de configuration `core.request.uri`. Donc pour commencer une application Jaxon, on écrira ceci.
+Toutes les classes du package [jaxon-core](https://github.com/jaxon-php/jaxon-core) se trouvent désormais dans le namespace `Jaxon`. La classe principale est un singleton, donc l'unique instance est renvoyée par la fonction `jaxon()`. L'URI qui était passé au constructeur de la classe dans la version précédente doit désormais être définie avec l'option de configuration `core.request.uri`. Donc pour commencer une application Jaxon, on écrira ceci.
 ```php
-use Jaxon\Jaxon;
-
-$jaxon = Jaxon::getInstance();
+$jaxon = jaxon();
 $jaxon->setOption('core.request.uri', $uri);
 ```
 
-##### Constantes
+#### Constantes
 
 Les constantes ont été renommées, et sont désormais toutes définies dans la classe principale `Jaxon`. Le nouveau nom des constantes est obtenu en remplaçant le préfixe `XAJAX_` par le nom de la classe `Jaxon::`, comme dans l'exemple suivant.
 ```php
@@ -24,7 +22,7 @@ $jaxon->register(XAJAX_CALLABLE_OBJECT, $myObject); // Ancien code
 Les exceptions à cette règle sont les constantes `XAJAX_FUNCTION` qui devient `Jaxon::USER_FUNCTION`, et  `XAJAX_EVENT` qui devient `Jaxon::BROWSER_EVENT`.
 La constante `XAJAX_DEFAULT_CHAR_ENCODING` n'existe plus; il faut utiliser l'option de configuration `core.encoding` à la place.
 
-##### Génération du code Javascript
+#### Génération du code Javascript
 
 La fonction `$jaxon->getJavascript()` qui renvoie le code javascript généré par la librairie a été séparée en 3 fonctions distinctes:
 
@@ -35,7 +33,7 @@ La fonction `$jaxon->getJavascript()` qui renvoie le code javascript généré p
 Cette séparation existe parce que ces codes peuvent être insérés dans des endroits différents de la page HTML.
 Toutefois, en appelant la fonction `$jaxon->getScript(true, true)`, on obtient la sortie cumulée des trois fonctions.
 
-##### Les options de configuration
+#### Les options de configuration
 
 Les fonctions et les paramètres de configuration de la librairie Jaxon ont été renommés.  
 Pour mettre à jour une option, il faut appeler la fonction `$jaxon->setOption($name, $value)`, et pour lire une valeur, il faut appeler la fonction `$jaxon->getOption($name)`. Ces deux fonctions prennent en paramètre les nouveaux noms des options.

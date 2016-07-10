@@ -6,21 +6,16 @@ cache_enable: false
 description: In this example the autoloading is disabled in the Jaxon library, and a third-party autoloader is used to load the Jaxon classes.
 ---
 
-<div class="row" markdown="1">
 The directories registered with Jaxon are also registered with the autoloader. The one used here is [Keradus](https://github.com/keradus/Psr4Autoloader).
-</div>
 
-<div class="row" markdown="1">
 The classes which are registered in this example are the same as in the [Register Namespaces](../namespaces) example.
-</div>
 
-<div class="row">
-    <h5>How it works</h5>
+#### How it works
 
-<p>Disable autoloading in the Jaxon library, and declare namespaces with the autoloader</p>
+Disable autoloading in the Jaxon library, and declare namespaces with the autoloader
 
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
+```php
+$jaxon = jaxon();
 
 // Disable autoload
 $jaxon->disableAutoload();
@@ -46,6 +41,4 @@ else
     // The Jaxon objects are registered only when the page is generated
     $jaxon->registerClasses();
 }
-</code></pre>
-
-</div>
+```

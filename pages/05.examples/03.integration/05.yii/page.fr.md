@@ -1,25 +1,52 @@
 ---
-title: Yii Module
-menu: Yii Module
+title: Le plugin Yii
+menu: Le plugin Yii
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the Jaxon plugin for the Yii framework.
+description: Cet exemple montre l'utilisation du plugin Jaxon pour le framework Yii.
 ---
 
-The module implements all the setup of the Jaxon library, and let the user focus on writing Jaxon classes for his application.
+Ce plugin initialise et configure la librairie Jaxon, et laisse au développeur le soin d'écrire les classes Jaxon pour son application.
 
-The behaviour of the Jaxon library can be customized from a Yii-specific config file.
+La configuration de la librairie Jaxon se fait dans un fichier au format Yii, nommé `config/jaxon.php`.
 
-By default, the Jaxon plugin for Yii registers all classes in the jaxon/ dir, with namespace \Jaxon\App.
+Par défaut, le plugin Jaxon enregistre les classes dans le répertoire `jaxon/` de l'application Yii, avec le namespace `\Jaxon\App`.
 
-<div class="row">
-    <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p>In this example we have two files Bts.php and Pgw.php in the jaxon/Test/ directory</p>
-<pre><code class="language-php">
+Installer et configurer le plugin jaxon pour Yii, en suivant la procédure décrite dans la [documentation du plugin](https://github.com/jaxon-php/jaxon-yii?target=_blank)
+
+Dans le contrôleur du framework, insérer le code généré par la librairie dans la page en utilisant ses fonctions de gestion des vues
+
+```php
+use Yii;
+use yii\web\Controller;
+
+class DemoController extends Controller
+{
+    public function actionIndex()
+    {
+        $jaxon = Yii::$app->getModule('jaxon');
+        // Call the Jaxon module
+        $jaxon->register();
+
+        return $this->render('index', array(
+            'JaxonCss' => $jaxon->css(),
+            'JaxonJs' => $jaxon->js(),
+            'JaxonScript' => $jaxon->script(),
+        ));
+    }
+}
+```
+
+Placer les fichiers Jaxon de l'application dans le répertoire `jaxon`
+
+Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `jaxon/Test`.
+
+```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Framework\Controller
+class Bts extends \Jaxon\Yii\Controller
 {
     public function sayHello($isCaps)
     {
@@ -51,12 +78,12 @@ class Bts extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</code></pre>
+```
 
-<pre><code class="language-php">
+```php
 namespace Jaxon\App\Test;
 
-class Pgw extends \Jaxon\Framework\Controller
+class Pgw extends \Jaxon\Yii\Controller
 {
     public function sayHello($isCaps)
     {
@@ -88,100 +115,4 @@ class Pgw extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</code></pre>
-
-<h5><b>Installation</b></h5>
-<p>
-See https://github.com/jaxon-php/jaxon-yii for how to install the Jaxon module fot Yii.
-</p>
-
-<h5><b>The Jaxon controller</b></h5>
-<p>
-This is the Jaxon demo controller.
-</p>
-<pre><code class="language-php">
-namespace app\controllers;
-
-use Yii;
-use yii\web\Controller;
-use yii\helpers\Url;
-
-class DemoController extends Controller
-{
-    protected $jaxon = null;
-
-    public function actionIndex()
-    {
-        $this->jaxon = Yii::$app->getModule('jaxon');
-        // Set the layout
-        $this->layout = 'demo';
-        // Call the Jaxon module
-        $this->jaxon->register();
-
-        return $this->render('index', array(
-            'JaxonCss' => $this->jaxon->css(),
-            'JaxonJs' => $this->jaxon->js(),
-            'JaxonScript' => $this->jaxon->script(),
-        ));
-    }
-
-    public function actionProcess()
-    {
-        $this->jaxon = Yii::$app->getModule('jaxon');
-        // Process Jaxon request
-        if($this->jaxon->canProcessRequest())
-        {
-            $this->jaxon->processRequest();
-        }
-    }
-}
-</code></pre>
-
-<h5><b>Configuration</b></h5>
-<p>The config file is located at <em>config/jaxon.php</em></p>
-<p>
-The config options are separated into two entries. The <em>lib</em> entry provides the options for
-the Jaxon library, while the <em>app</em> entry provides the options for the Yii application.
-</p>
-<pre><code class="language-php">
-return array(
-    'app' => array(
-        // 'dir' => '',
-        // 'namespace' => '',
-        // 'excluded' => array(),
-    ),
-    'lib' => array(
-        'core' => array(
-            'language' => 'en',
-            'encoding' => 'UTF-8',
-            'request' => array(
-              'uri' => 'jaxon',
-            ),
-            'prefix' => array(
-              'class' => '',
-            ),
-            'debug' => array(
-              'on' => false,
-              'verbose' => false,
-            ),
-            'error' => array(
-              'handle' => false,
-            ),
-        ),
-        'js' => array(
-            'lib' => array(
-              // 'uri' => '',
-            ),
-            'app' => array(
-              // 'uri' => '',
-              // 'dir' => '',
-              // 'extern' => true,
-              // 'minify' => true,
-              'options' => '',
-            ),
-        ),
-    ),
-);
-</code></pre>
-
-</div>
+```

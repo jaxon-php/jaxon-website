@@ -6,12 +6,11 @@ cache_enable: false
 description: This example shows how to export a class with Jaxon.
 ---
 
-<div class="row">
-    <h5>How it works</h5>
+#### How it works
 
-<p>1. Define the classe to be exported</p>
+Define the class to be exported
 
-<pre><code class="language-php">
+```php
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -35,27 +34,25 @@ class HelloWorld
         return $xResponse;
     }
 }
-</code></pre>
+```
 
-<p>2. Register the classe with Jaxon</p>
+Register the classe with Jaxon
 
-<pre><code class="language-php">
+```php
 // Register object
-$jaxon = Jaxon::getInstance();
+$jaxon = jaxon();
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $jaxon->processRequest();
-</code></pre>
+```
 
-<p>3. Call the exported class from javascript</p>
+Call the exported class from javascript
 
-<pre><code class="language-php">
+```php
 // Select
-&lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
+<select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"></select>
 // Buttons
-&lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-</code></pre>
-
-</div>
+<button onclick="JaxonHelloWorld.sayHello(0); return false;">Click Me</button>
+<button onclick="JaxonHelloWorld.sayHello(1); return false;">CLICK ME</button>
+```

@@ -10,7 +10,7 @@ Here are the steps to migrate from a previous version of Xajax to Jaxon.
 
 1. Make sure that the application does not use one of the classes that were deprecated.
 2. Install the `jaxon-core` package with `Composer` and load the autoloader in the application.
-3. Access to the main object by a call to the singleton `$jaxon = Jaxon::getInstance()`, and get response objects by instanciating the `Jaxon\Response\Response` class.
+3. Access to the main object with `$jaxon = jaxon()`, and get response objects by instanciating the `Jaxon\Response\Response` class.
 4. Set the new configuration options with calls to `$jaxon->setOption()`, especially the `core.request.uri` and `core.language` options which replace the `$sRequestURI` and `$sLanguage` parameters of the `xajax` class constructor.
 5. Insert javascript and CSS code in the HTML page with calls to `$jaxon->getCss()`, `$jaxon->getJs()` and `$jaxon->getScript()`.  
 

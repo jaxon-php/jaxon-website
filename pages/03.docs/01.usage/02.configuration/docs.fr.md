@@ -8,7 +8,7 @@ Le comportement de la librairie Jaxon peut être modifié à l'aide d'un ensembl
 
 La fonction `$jaxon->setOption($name, $value)` permet de fixer la valeur d'une option de configuration, tandis que la fonction `$jaxon->setOption($name)` permet de lire la valeur d'une option.
 
-##### Les fichiers de configuration
+#### Les fichiers de configuration
 
 Il est également possible de lire la configuration de la librairie dans un fichier, qui peut être au format JSON, YAML ou PHP.
 ```php
@@ -20,12 +20,12 @@ $jaxon->readConfigFile($phpFilePath);       // Lire la configuration en fonction
 ```
 Si le fichier contient d'autres données que la configuration de la librairie Jaxon, la fonction `read()` peut prendre un second paramètre qui permet de lire la configuration uniquement dans une section du fichier.
 
-##### La liste des options de configuration
+#### La liste des options de configuration
 
 | Nom | Type | Description |
 |-----|------|-------------|
 | core.version                  | string  | Le numéro de version de la librairie |
-| core.language                 | string  | La langue de la librairie, qui est aussi celle de l'application qui l'utilise |
+| core.language                 | string  | La langue de la librairie |
 | core.encoding                 | string  | L'encodage des caractères à utiliser |
 | core.decode_utf8              | boolean | Active ou non le décodage en UTF8 des paramètres des fonctions Jaxon |
 | | | |

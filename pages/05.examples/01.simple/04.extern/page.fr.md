@@ -6,18 +6,15 @@ cache_enable: false
 description: Cet exemple montre comment enregistrer le code javascript généré par la librairie dans un fichier externe.
 ---
 
-<div class="row">
 Par défaut, le code javascript généré par Jaxon est inséré directement dans le code HTML de la page.
 Cependant, la librairie peut être configurée pour enregistrer le code généré dans un fichier, et le charger depuis le code HTML de la page.
 Pour ce faire, il faut passer à la librairie un répertoire existant, et l'URI qui donne accès à ce répertoire depuis un navigateur.
-</div>
 
-<div class="row">
-    <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p>1. Definir la classe à exporter</p>
+Definir la classe à exporter
 
-<pre><code class="language-php">
+```php
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -41,12 +38,12 @@ class HelloWorld
         return $xResponse;
     }
 }
-</code></pre>
+```
 
-<p>2. Exporter la classe avec Jaxon, et définir les options générer le code dans un fichier externe</p>
+Exporter la classe avec Jaxon, et définir les options générer le code dans un fichier externe
 
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
+```php
+$jaxon = jaxon();
 
 $jaxonAppURI = '/jaxon/app';
 $jaxonAppDir = __DIR__ . '/jaxon/app';
@@ -61,16 +58,14 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $jaxon->processRequest();
-</code></pre>
+```
 
-<p>3. Appeler la classe exportée dans le code Javascript</p>
+Appeler la classe exportée dans le code Javascript
 
-<pre><code class="language-php">
+```php
 // Select
-&lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
+<select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"></select>
 // Buttons
-&lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-</code></pre>
-
-</div>
+<button onclick="JaxonHelloWorld.sayHello(0); return false;">Click Me</button>
+<button onclick="JaxonHelloWorld.sayHello(1); return false;">CLICK ME</button>
+```

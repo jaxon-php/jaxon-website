@@ -35,7 +35,7 @@ Grâce à l'autoloading, seule la classe demandée par la requête sera chargée
 Par défaut, Jaxon utilise une version simple de l'autoloading où il charge les fichiers des classes avec la fonction PHP `require()`.
 Mais il est également possible de lui demander d'utiliser l'autoloader de `Composer`, ou encore d'utiliser un autoloader d'une tierce-partie.
 
-##### Utiliser l'autoloader de Composer
+#### Utiliser l'autoloader de Composer
 
 Pour utiliser l'autoloader de `Composer`, il faut appeler la fonction `$jaxon->useComposerAutoloader()`. A partir de ce moment, toutes les classes dans un répertoire enregistré avec un namespace seront chargées avec l'autoloader `PSR-4`, et toutes les classes dans un répertoire enregistré sans namespace seront chargées avec l'autoloader `ClassMap`.
 ```php
@@ -45,7 +45,7 @@ $jaxon->addClassDir($dirA, $namespaceA);
 $jaxon->addClassDir($dirB, $namespaceB);
 ```
 
-##### Utiliser un autre l'autoloader
+#### Utiliser un autre l'autoloader
 
 Pour utiliser un autoloader d'une tierce-partie, il faut désactiver l'autoloading dans la librairie Jaxon avec un appel à la fonction `$jaxon->disableAutoload()`.
 A partir de ce moment, il est de la responsabilité du développeur de mettre en place l'autoloading pour les répertoires qu'il enregistre.

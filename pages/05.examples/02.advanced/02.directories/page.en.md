@@ -6,16 +6,13 @@ cache_enable: false
 description: This example shows how to automatically register all the classes in a set of directories.
 ---
 
-<div class="row">
 When classes registered from a directory are not namespaced, they all need to have different names, even if they are in different subdirs.
-</div>
 
-<div class="row">
-    <h5>How it works</h5>
+#### How it works
 
-<p>1. Save classes to be registered in predefined directories, for example <code>/jaxon/class/dir/app</code> and <code>/jaxon/class/dir/ext</code></p>
-<p>File <code>/jaxon/class/dir/app/Test/App.php</code></p>
-<pre><code class="language-php">
+Save classes to be registered in predefined directories, for example <code>/jaxon/class/dir/app</code> and <code>/jaxon/class/dir/ext</code>
+File <code>/jaxon/class/dir/app/Test/App.php</code>
+```php
 use Jaxon\Response\Response;
 
 class App
@@ -49,10 +46,10 @@ class App
         return $xResponse;
     }
 }
-</code></pre>
+```
 
-<p>File <code>/jaxon/class/dir/ext/Test/Ext.php</code></p>
-<pre><code class="language-php">
+File <code>/jaxon/class/dir/ext/Test/Ext.php</code>
+```php
 use Jaxon\Response\Response;
 
 class Ext
@@ -86,11 +83,11 @@ class Ext
         return $xResponse;
     }
 }
-</code></pre>
+```
 
-<p>2. Register all the classes found in the directories</p>
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
+Register all the classes found in the directories
+```php
+$jaxon = jaxon();
 
 // Add class dirs
 $jaxon->addClassDir('/jaxon/class/dir/app');
@@ -101,25 +98,23 @@ $jaxon->registerClasses();
 
 // Process the request, if any.
 $jaxon->processRequest();
-</code></pre>
+```
 
-<p>3. Call the exported classes from javascript</p>
-<pre><code class="language-html">
+Call the exported classes from javascript
+```html
 // Select
-&lt;select id="colorselect1" onchange="Test.App.setColor(jaxon.$('colorselect1').value); return false;"&gt;&lt;/select&gt;
+<select id="colorselect1" onchange="Test.App.setColor(jaxon.$('colorselect1').value); return false;"></select>
 
 // Buttons
-&lt;button onclick="Test.App.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Test.App.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-&lt;button onclick="Test.App.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
+<button onclick="Test.App.sayHello(0); return false;">Click Me</button>
+<button onclick="Test.App.sayHello(1); return false;">CLICK ME</button>
+<button onclick="Test.App.showDialog(); return false;">PgwModal Dialog</button>
 
 // Select
-&lt;select id="colorselect2" onchange="Test.Ext.setColor(jaxon.$('colorselect2').value); return false;"&gt;&lt;/select&gt;
+<select id="colorselect2" onchange="Test.Ext.setColor(jaxon.$('colorselect2').value); return false;"></select>
 
 // Buttons
-&lt;button onclick="Test.Ext.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Test.Ext.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-&lt;button onclick="Test.Ext.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</code></pre>
-
-</div>
+<button onclick="Test.Ext.sayHello(0); return false;">Click Me</button>
+<button onclick="Test.Ext.sayHello(1); return false;">CLICK ME</button>
+<button onclick="Test.Ext.showDialog(); return false;">Bootstrap Dialog</button>
+```

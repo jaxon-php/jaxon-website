@@ -6,24 +6,18 @@ cache_enable: false
 description: Cet exemple montre l'utilisation de l'autoloader de Composer.
 ---
 
-<div class="row" markdown="1">
 Par défaut, la librairie Jaxon implémente un mécanisme simple d'autoloading où le fichier correspondant à une classe est inclus avec la fonction `require_once`.
 Lorsque l'autoloader de Composer est utilisé, la librairie Jaxon enregistre tous les répertoires qui ont un namespace avec l'autoloader `PSR-4`, et tous les répertoires sans namespace avec l'autoloader `classmap`.
-</div>
-
-<div class="row" markdown="1">
 Les classes exportées dans cet exemple sont les mêmes que celles de l'exemple [Exporter des namespaces](../namespaces).
-</div>
 
-<div class="row">
-     <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p markdown="1">1. Inclure le fichier `autoload.php` de Composer, et appeler la fonction `$jaxon-&gt;useComposerAutoloader()`</p>
+Inclure le fichier `autoload.php` de Composer, et appeler la fonction `$jaxon->useComposerAutoloader()`
 
-<pre><code class="language-php">
+```php
 require(__DIR__ . '/vendor/autoload.php');
 
-$jaxon = Jaxon::getInstance();
+$jaxon = jaxon();
 
 // Use the Composer autoloader
 $jaxon->useComposerAutoloader();
@@ -43,6 +37,4 @@ else
     // The Jaxon objects are registered only when the page is generated
     $jaxon->registerClasses();
 }
-</code></pre>
-
-</div>
+```

@@ -4,7 +4,7 @@ menu: Fonctionnalités
 template: jaxon
 ---
 
-##### Export de répertoires
+#### Export de répertoires
 
 La nouveauté la plus importante dans Jaxon est la possibilité d'exporter en quelques lignes et de façon récursive toutes les [classes d'un répertoire](../../../docs/advanced/directories), éventuellement avec un namespace.
 Le nommage des classes javascript générées respecte la hiérarchie des répertoires, et tient compte du namespace associé lorsqu'il y en a un.
@@ -14,7 +14,7 @@ $jaxon->addClassDir($path2, $namespace2);
 $jaxon->registerClasses();
 ```
 
-##### Optimisation du traitement
+#### Optimisation du traitement
 
 Par défaut, toutes les classes exportées avec la librairie Jaxon sont instanciées lorsqu'une requête est traitée.
 Lorsque des classes sont exportées à partir d'un répertoire, la librairie Jaxon peut être optimisée pour ne charger que la classe qui a été appelée.
@@ -32,7 +32,7 @@ else
 }
 ```
 
-##### Fichiers de configuration
+#### Fichiers de configuration
 
 La librairie Jaxon peut charger ses [paramètres de configuration](../../../docs/usage/configuration) à partir d'un fichier. Les formats supportés sont JSON, YAML et PHP (le fichier contient du code qui retourne un tableau).
 ```php
@@ -42,7 +42,7 @@ $jaxon->readJsonConfigFile($phpFilePath);   // Lire la configuration dans un fic
 $jaxon->readConfigFile($phpFilePath);       // Lire la configuration en fonction de l'extension du fichier.
 ```
 
-##### Pagination
+#### Pagination
 
 Enfin, la librairie Jaxon fournit une [fonction de pagination](../../../docs/advanced/pagination), qui permet de créer simplement une liste de liens qui appellent une même fonction Jaxon, mais avec un numéro de page qui s'incrémente.
 ```php

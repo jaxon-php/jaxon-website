@@ -1,28 +1,50 @@
 ---
-title: Laravel Plugin
-menu: Laravel Plugin
+title: Le plugin Laravel
+menu: Le plugin Laravel
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the Jaxon plugin for the Laravel framework.
+description: Cet exemple montre l'utilisation du plugin Jaxon pour le framework Laravel.
 ---
 
-The plugin implements all the setup of the Jaxon library, and let the user focus on writing Jaxon classes for his application.
+Ce plugin initialise et configure la librairie Jaxon, et laisse au développeur le soin d'écrire les classes Jaxon pour son application.
 
-The behaviour of the Jaxon library can be customized from a Laravel-specific config file.
+La configuration de la librairie Jaxon se fait dans un fichier au format Laravel, nommé `config/jaxon.php`.
 
-By default, the Jaxon plugin for Laravel registers all classes in the app/Jaxon/Controllers/ dir, with namespace \Jaxon\App.
+Par défaut, le plugin Jaxon enregistre les classes dans le répertoire `app/Jaxon/Controllers/` de l'application Laravel, avec le namespace `\Jaxon\App`.
 
-<div class="row">
-    <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p>1. Install and configure the Jaxon plugin for Laravel, as described in the [plugin documentation](https://github.com/jaxon-php/jaxon-laravel)</p>
+Installer et configurer le plugin jaxon pour Laravel, en suivant la procédure décrite dans la [documentation du plugin](https://github.com/jaxon-php/jaxon-laravel?target=_blank)
 
-<p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory</p>
+Dans le contrôleur du framework, insérer le code généré par la librairie dans la page en utilisant ses fonctions de gestion des vues
 
-<pre><code class="language-php">
+```php
+use LaravelJaxon;
+
+class DemoController extends Controller
+{
+    public function index()
+    {
+        // Register the Jaxon classes
+        LaravelJaxon::register();
+        // Print the page
+        return view('index', array(
+            'JaxonCss' => LaravelJaxon::css(),
+            'JaxonJs' => LaravelJaxon::js(),
+            'JaxonScript' => LaravelJaxon::script()
+        ));
+    }
+}
+```
+
+Placer les fichiers Jaxon de l'application dans le répertoire `app/Jaxon/Controllers`
+
+Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `app/Jaxon/Controllers/Test`.
+
+```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Framework\Controller
+class Bts extends \Jaxon\Laravel\Controller
 {
     public function sayHello($isCaps)
     {
@@ -54,12 +76,12 @@ class Bts extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</code></pre>
+```
 
-<pre><code class="language-php">
+```php
 namespace Jaxon\App\Test;
 
-class Pgw extends \Jaxon\Framework\Controller
+class Pgw extends \Jaxon\Laravel\Controller
 {
     public function sayHello($isCaps)
     {
@@ -91,6 +113,4 @@ class Pgw extends \Jaxon\Framework\Controller
         return $this->response;
     }
 }
-</code></pre>
-
-</div>
+```

@@ -6,25 +6,22 @@ cache_enable: false
 description: Cet exemple montre l'utilisation des plugins de réponse de Jaxon, en ajoutant des notifications et des fenêtres modales à l'exemple Classe Hello World avec les plugins jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap.
 ---
 
-<div class="row">
 L'utilisation d'un plugin de réponse est très simple. Après son installation, le plugin s'enregistre automatiquement dans la librairie Jaxon. Il devient alors accessible depuis la classe Response de Jaxon, pour fournir ses fonctions à l'application.
-</div>
 
-<div class="row">
-    <h5>Comment ça marche</h5>
+#### Comment ça marche
 
-<p>1. Installer les plugins</p>
-<pre><code class="language-json">
+Installer les plugins
+```json
 "require": {
     "jaxon-php/jaxon-toastr": "dev-master",
     "jaxon-php/jaxon-pgwjs": "dev-master",
     "jaxon-php/jaxon-bootstrap": "dev-master"
 }
-</code></pre>
+```
 
-<p>2. Dans les classes exportées, accéder aux plugins via l'objet Response</p>
+Dans les classes exportées, accéder aux plugins via l'objet Response
 
-<pre><code class="language-php">
+```php
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -49,7 +46,7 @@ class HelloWorld
         return $xResponse;
     }
 
-    public function showPgwDialog()
+    public function showDialog()
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
@@ -58,23 +55,13 @@ class HelloWorld
         $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
         return $xResponse;
     }
-
-    public function showTbDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
-        // Call the Twitter Bootstrap plugin
-        $xResponse->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
-        return $xResponse;
-    }
 }
-</code></pre>
+```
 
-<p>3. Pendant l'export des classes, définir les paramètres des plugins</p>
+Pendant l'export des classes, définir les paramètres des plugins
 
-<pre><code class="language-php">
-$jaxon = Jaxon::getInstance();
+```php
+$jaxon = jaxon();
 
 $jaxon->setOptions(array(
     'toastr.options.closeButton' => true,
@@ -95,20 +82,16 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $jaxon->processRequest();
-</code></pre>
+```
 
-<p>4. Appeler la classe exportée dans le code Javascript</p>
+Appeler la classe exportée dans le code Javascript
 
-<pre><code class="language-php">
+```php
 // Select
-&lt;select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;&lt;/select&gt;
+<select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"></select>
 // Buttons
-&lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+<button onclick="JaxonHelloWorld.sayHello(0); return false;">Click Me</button>
+<button onclick="JaxonHelloWorld.sayHello(1); return false;">CLICK ME</button>
 
-&lt;button onclick="JaxonHelloWorld.showPgwDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
-&lt;button onclick="JaxonHelloWorld.showTbDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</code></pre>
-
-    </div>
-</div>
+<button onclick="JaxonHelloWorld.showDialog(); return false;">PgwModal Dialog</button>
+```

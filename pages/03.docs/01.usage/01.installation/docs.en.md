@@ -18,7 +18,7 @@ Or run the command
 composer require jaxon-php/jaxon-core
 ```
 
-##### The javascript library
+#### The javascript library
 
 Jaxon requires the [jaxon-js](https://github.com/jaxon-php/jaxon-js) javascript library to be loaded into the HTML page to operate properly.
 By default, Jaxon loads the library from a public server that supports the `http` and `https` protocols.
