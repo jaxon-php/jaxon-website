@@ -1,3 +1,4 @@
+{% block javascripts %}
             <script type="text/javascript" src="/assets/js/jquery.min.js" type="text/javascript"></script>
             <script type="text/javascript" src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
             <script type="text/javascript" src="/assets/js/scripts.js"></script>
@@ -13,7 +14,8 @@
             <script type="text/javascript" src="/assets/js/slimbox2.js" charset="utf-8"></script>
             <!-- Modernizr -->
             <script src="/assets/js/modernizr.custom.js" type="text/javascript"></script>
-
+{% endblock %}
+{{ assets.js() }}
 {% if jaxon %}
             {{ jaxon.css }}
             {{ jaxon.js }}
