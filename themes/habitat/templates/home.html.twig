@@ -1,0 +1,53 @@
+{% extends 'partials/page.html.twig' %}
+
+{% block content %}
+
+{% set showcases = page.collection.first %}
+{% set motivations = page.collection.slice(1,1).first %}
+{% set features = page.collection.slice(2,1).first %}
+{% set plugins = page.collection.slice(3,1).first %}
+{% set integrations = page.collection.slice(4,1).first %}
+
+            <div id="content" class="bottom-border-shadow">
+                <div class="container background-white bottom-border">
+                    <div class="row margin-vert-30">
+                        <!-- Main Text -->
+                        <div class="col-md-6">
+                            {{ page.content }}
+                        </div>
+                        <!-- End Main Text -->
+                        <div class="col-md-6">
+                            {{ motivations.content }}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="features" class="bottom-border-shadow">
+                <div class="container background-grey bottom-border">
+                    <div class="row padding-vert-60">
+                        <!-- Features -->
+                        {{ features.content }}
+                        <!-- End Features -->
+                    </div>
+                </div>
+            </div>
+            <div id="plugins" class="bottom-border-shadow">
+                <div class="container background-white bottom-border">
+                    <div class="row margin-vert-30">
+                        <!-- Plugins -->
+                        {{ plugins.content }}
+                        <!-- End Plugins -->
+                    </div>
+                </div>
+            </div>
+            <div id="integrations" class="bottom-border-shadow">
+                <div class="container background-white bottom-border">
+                    <div class="row margin-vert-30">
+                        <!-- Integrations -->
+                        {{ integrations.content }}
+                        <!-- End Integrations -->
+                    </div>
+                </div>
+            </div>
+{% endblock %}
