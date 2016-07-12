@@ -1,6 +1,6 @@
 ---
 title: Pourquoi Jaxon ?
-position: 2
+position: 1
 motivations:
     - text: Fork de la librairie Xajax
     - text: Fonctions avancées

@@ -9,6 +9,7 @@ content:
         dir: asc
         custom:
             - _motivations
+            - _operation
             - _features
             - _plugins
             - _integrations

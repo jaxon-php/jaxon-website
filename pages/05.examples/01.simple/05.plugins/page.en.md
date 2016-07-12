@@ -3,7 +3,7 @@ title: Response Plugin
 menu: Response Plugin
 template: jaxon
 cache_enable: false
-description: This example shows the use of Jaxon response plugins, by adding javascript notifications and modal windows to the Hello World Class example with the jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap plugins.
+description: This example shows the use of Jaxon response plugins, by adding javascript notifications and modal windows to the Hello World Class example with the jaxon-bootbox plugin.
 ---
 
 Using a Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into the Jaxon core library. It can then be accessed in the Jaxon response object, to provide its functionalities to the application.
@@ -31,7 +31,7 @@ class HelloWorld
             $text = 'Hello World!';
         $xResponse = new Response();
         $xResponse->assign('div2', 'innerHTML', $text);
-        // Call the Toastr plugin
+        // Call the Bootbox plugin
         $xResponse->bootbox->success("div2 text is now $text");
         return $xResponse;
     }
@@ -40,7 +40,7 @@ class HelloWorld
     {
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
-        // Call the Toastr plugin
+        // Call the Bootbox plugin
         $xResponse->bootbox->success("div2 color is now $sColor");
         return $xResponse;
     }
