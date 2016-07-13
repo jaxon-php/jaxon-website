@@ -6,7 +6,7 @@
         <ul id="collapse-{{ item.slug }}" class="collapse{% if item.active or item.activeChild %} in{% endif %}">
         {% for child in item.children %}
             {% if child.visible %}
-            <li><a href="{{ child.url }}"><i class="fa fa-chevron-circle-right"></i>{{ child.menu }}</a></li>
+            <li><a href="{{ child.url }}"><i class="fa fa-{% if child.active %}check-circle-o{% else %}chevron-circle-right{% endif %}"></i>{{ child.menu }}</a></li>
             {% endif %}
         {% endfor %}
         </ul>
