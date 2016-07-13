@@ -4,7 +4,7 @@ menu: Modularity
 template: jaxon
 ---
 
-#### Extensibility and Modularity
+#### The packages
 
 The Jaxon library is composed of a pure javascript package and several PHP packages.
 

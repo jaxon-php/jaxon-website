@@ -26,8 +26,8 @@ $jaxon->register(Jaxon::USER_FUNCTION, 'helloworld'); // Register the function w
 $jaxon->processRequest();             // Call the Jaxon processing engine  
 ```
 
-Le code suivant génère la page HTML.
-```php
+Voici le code de la page HTML.
+```html
 <!doctype html>
 <html>
 <head>

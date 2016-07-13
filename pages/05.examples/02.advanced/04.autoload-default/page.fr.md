@@ -8,8 +8,8 @@ description: Cet exemple montre comment optimiser le traitement des requêtes Ja
 
 Dans cet exemple, les classes Jaxon ne sont pas exportées lorsqu'une requête est traitée.
 Cependant, la librairie est assez intelligente pour se rendre compte que que la classe demandée est absente, et charger uniquement le fichier nécessaire.
-<div class="row notice" markdown="1">
-Les classes exportées dans cet exemple sont les mêmes que celles de l'exemple [Exporter des namespaces](../namespaces).
+
+Les classes de cet exemple sont les mêmes que celles de l'exemple [Exporter des namespaces](../namespaces).
 
 #### Comment ça marche
 

@@ -4,7 +4,7 @@ menu: Modularité
 template: jaxon
 ---
 
-#### Extensibilité et modularité
+#### Les packages
 
 La librairie Jaxon est composée d'un package javascript pur et de plusieurs packages PHP.
 Le package javascript [jaxon-js](https://github.com/jaxon-php/jaxon-js) contient le code qui gère les requêtes et les réponses dans le navigateur.

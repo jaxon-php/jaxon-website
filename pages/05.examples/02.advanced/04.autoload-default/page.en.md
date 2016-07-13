@@ -9,7 +9,7 @@ description: This example shows how to optimize Jaxon requests processing with a
 In this example, the Jaxon classes are not registered when processing a request.
 However, the Jaxon library is smart enough to detect that the required class is missing, and to load only the necessary file.
 
-The classes which are registered in this example are the same as in the [Register Namespaces](../namespaces) example.
+The classes in this example are the same as in the [Register Namespaces](../namespaces) example.
 
 #### How it works
 
