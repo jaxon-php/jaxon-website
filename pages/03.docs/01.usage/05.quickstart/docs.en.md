@@ -53,6 +53,3 @@ Here is the HTML page.
 ?>    
 </html>
 ```
-
-This example shows a simple use of Jaxon library.
-It includes many other functions, which are described later in this documentation.

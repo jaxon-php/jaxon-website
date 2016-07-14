@@ -53,6 +53,3 @@ Voici le code de la page HTML.
 ?>    
 </html>
 ```
-
-Cet exemple illustre une utilisation simple de la librairie Jaxon.
-Elle comprend de nombreuses autres fonctions, qui sont décrites dans la suite de cette documentation.
