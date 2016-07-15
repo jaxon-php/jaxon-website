@@ -55,7 +55,7 @@ The following function prints a message in the webpage.
 $response->alert('Done!!');
 ```
 
-#### Les plugins
+#### Plugins
 
 The Jaxon plugins add new functionalities to the `Jaxon\Jaxon\Response` object.
 Once it is installed, a plugin is accessed in the `Jaxon\Jaxon\Response` object using it unique identifier.
