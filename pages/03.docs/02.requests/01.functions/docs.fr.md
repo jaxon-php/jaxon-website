@@ -4,38 +4,59 @@ menu: Exporter des fonctions
 template: jaxon
 ---
 
-Pour exporter une fonction, la syntaxe est la suivante:
+Voici comment exporter une fonction.
+
 ```php
-function my_function()
+function hello_world($isCaps)
 {
-    // Function body
+    if ($isCaps)
+        $text = 'HELLO WORLD!';
+    else
+        $text = 'Hello World!';
+
+    $xResponse = new Response();
+    $xResponse->assign('div1', 'innerHTML', $text);
+
+    return $xResponse;
 }
 
-$jaxon->register(Jaxon::USER_FUNCTION, "my_function");
+$jaxon->register(Jaxon::USER_FUNCTION, "hello_world");
 ```
-Après avoir été exportée, cette fonction peut être appelée en javascript avec le nom `jaxon_my_function()`.
+
+Après avoir été exportée, cette fonction peut être appelée en javascript avec le nom `jaxon_hello_world()`.
 Le préfixe `jaxon_` peut être changé à l'aide de l'option de configuration `core.prefix.function`.
 
 Voici un exemple de code HTML qui appelle la fonction PHP exportée avec Jaxon.
+
 ```html
-<input type="button" value="Submit" onclick="jaxon_my_function()" />
+<input type="button" value="Submit" onclick="jaxon_hello_world()" />
 ```
 
 Une méthode d'une classe peut aussi être exportée comme une fonction. Pour cela, le deuxième paramètre de la fonction `register()` doit être un tableau, comme dans l'exemple suivant.
+
 ```php
-class MyClass
+class HelloWorld
 {
-    public function myMethod()
+    public function sayHello($isCaps)
     {
-        // Function body
+        if ($isCaps)
+            $text = 'HELLO WORLD!';
+        else
+            $text = 'Hello World!';
+
+        $xResponse = new Response();
+        $xResponse->assign('div2', 'innerHTML', $text);
+
+        return $xResponse;
     }
 }
 
-$myObject = new MyClass;
-$jaxon->register(Jaxon::USER_FUNCTION, array("my_function", $myObject, "myMethod"));
+$hello = new HelloWorld;
+$jaxon->register(Jaxon::USER_FUNCTION, array("hello_world", $hello, "sayHello"));
 ```
 
 Si le tableau contient 2 éléments, la fonction javascript générée aura le même nom que la méthode.
+
 ```php
-$jaxon->register(Jaxon::USER_FUNCTION, array($myObject, "myMethod"));
+$jaxon->register(Jaxon::USER_FUNCTION, array($hello, "sayHello"));
 ```

@@ -1,5 +1,5 @@
 ---
-title: Features
+title: New features
 menu: Features
 template: jaxon
 ---

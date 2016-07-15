@@ -49,7 +49,7 @@ $jaxon->processRequest();
 
 Call the exported class from javascript
 
-```php
+```html
 // Select
 <select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"></select>
 // Buttons

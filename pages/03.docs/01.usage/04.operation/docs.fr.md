@@ -2,6 +2,7 @@
 title: Comment ça marche
 menu: Comment ça marche
 template: jaxon
+published: false
 ---
 
 1. Au départ, il y a une fonction PHP définie par le développeur, qui souhaite l'appeler depuis le navigateur. Lorsque cette fonction est exportée, la librarie Jaxon crée une fonction javascript correspondante, qui sera intégrée à la page web.

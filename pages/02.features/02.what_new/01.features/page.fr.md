@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités
+title: Nouvelles fonctions
 menu: Fonctionnalités
 template: jaxon
 ---

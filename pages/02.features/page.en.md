@@ -6,7 +6,7 @@ template: jaxon
 
 The Jaxon library is the result of the refactoring of the [Xajax](http://www.xajax-project.org?target=_blank) library.
 Its main features, namely [exporting functions](../../docs/requests/objects) and [exporting objects](../../docs/requests/objects) from PHP to javascript, have been preserved.
-Moreover, the `Response` object which is involved in most of the code written for the library, is kept unchanged.
+The `Response` object which is involved in most of the code written for the library, is kept unchanged.
 
 The library has been modified to take advantage of the most advanced features of the PHP language: autoloading, namespacing, traits and dependency injection.
 It is now more concise, easier to understand, maintain and evolve.

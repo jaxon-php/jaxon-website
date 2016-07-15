@@ -24,7 +24,7 @@ La documentation de chaque plugin fournit la liste de ses paramètres de configu
 
 #### Exemple
 
-Le plugin [jaxon-toastr](https://github.com/jaxon-php/jaxon-toastr) permet d'ajouter des notifications à une application, à l'aide de la librarie [Toastr](https://github.com/CodeSeven/toastr).
+Le plugin [jaxon-toastr](https://github.com/jaxon-php/jaxon-toastr) ajoute des notifications à une application, à l'aide de la librarie [Toastr](https://github.com/CodeSeven/toastr).
 
 Pour l'installer, il faut ajouter son package au fichier `composer.json`.
 ```json

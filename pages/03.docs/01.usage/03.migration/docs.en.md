@@ -1,6 +1,6 @@
 ---
 title: Migrating from Xajax to Jaxon
-menu: Migration
+menu: Migrating from Xajax
 template: jaxon
 ---
 
@@ -10,7 +10,7 @@ Here are the steps to migrate from a previous version of Xajax to Jaxon.
 
 1. Make sure that the application does not use one of the classes that were deprecated.
 2. Install the `jaxon-core` package with `Composer` and load the autoloader in the application.
-3. Access to the main object with `$jaxon = jaxon()`, and get response objects by instanciating the `Jaxon\Response\Response` class.
+3. Access to the main object with `$jaxon = jaxon($sRequestURI, $sLanguage)`, and get response objects by instanciating the `Jaxon\Response\Response` class.
 4. Set the new configuration options with calls to `$jaxon->setOption()`, especially the `core.request.uri` and `core.language` options which replace the `$sRequestURI` and `$sLanguage` parameters of the `xajax` class constructor.
 5. Insert javascript and CSS code in the HTML page with calls to `$jaxon->getCss()`, `$jaxon->getJs()` and `$jaxon->getScript()`.  
 
@@ -22,4 +22,4 @@ To take full advantage of the new features, the following optional steps can be 
 * Use one or more plugins, installing them with `Composer`.
 * Install the javascript library files on a private server, and update the link with the `js.lib.uri` configuration option.
 
-Read the pages [New features](../../../features/differences/added), [Evolved features](../../../features/differences/changed) and [Deprecated features](../../../features/differences/deprecated) to learn more about the differences between Xajax and Jaxon.
+Read the [New features](../../../features/differences/added), [Evolved features](../../../features/differences/changed) and [Deprecated features](../../../features/differences/deprecated) pages to learn more about the differences between Xajax and Jaxon.

@@ -21,13 +21,13 @@ function helloworld($name)
     return $response;                    // Return the response to the browser
 }  
 
-$jaxon = jaxon();        // Get the core singleton object   
+$jaxon = jaxon();                        // Get the core singleton object   
 $jaxon->register(Jaxon::USER_FUNCTION, 'helloworld'); // Register the function with Jaxon 
-$jaxon->processRequest();             // Call the Jaxon processing engine  
+$jaxon->processRequest();                // Call the Jaxon processing engine  
 ```
 
 Here is the HTML page.
-```html
+```php
 <!doctype html>
 <html>
 <head>

@@ -4,24 +4,42 @@ menu: Export objects
 template: jaxon
 ---
 
-To export an object, the syntax is:
+This is how to export an object.
+
 ```php
-class MyClass
+class HelloWorld
 {
-    public function myMethod()
+    public function sayHello($isCaps)
     {
-        // Function body
+        if ($isCaps)
+            $text = 'HELLO WORLD!';
+        else
+            $text = 'Hello World!';
+
+        $xResponse = new Response();
+        $xResponse->assign('div2', 'innerHTML', $text);
+
+        return $xResponse;
+    }
+
+    public function setColor($sColor)
+    {
+        $xResponse = new Response();
+        $xResponse->assign('div2', 'style.color', $sColor);
+
+        return $xResponse;
     }
 }
 
-$myObject = new MyClass;
-$jaxon->register(Jaxon::CALLABLE_OBJECT, $myObject);
+$jaxon = jaxon();
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 ```
 
-After being exported, all public methods of the object are present in javascript in a class named `JaxonMyClass`.
+After being exported, all public methods of the object are available in a javascript class named `JaxonHelloWorld`.
 The prefix `Jaxon` can be changed using the `core.prefix.class` configuration option.
 
-Here is an example of HTML code that calls a method of the PHP class exported with Jaxon.
+Here is an example of HTML code that calls methods of the PHP class exported with Jaxon.
 ```html
-<input type="button" value="Submit" onclick="JaxonMyClass.myMethod()" />
+<input type="button" value="Say Hello" onclick="JaxonHelloWorld.sayHello(0)" />
+<input type="button" value="Set Color" onclick="JaxonHelloWorld.setColor('red')" />
 ```

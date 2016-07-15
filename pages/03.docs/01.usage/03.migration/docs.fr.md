@@ -1,6 +1,6 @@
 ---
 title: Migrer de Xajax vers Jaxon
-menu: Migration
+menu: Migrer de Xajax
 template: jaxon
 ---
 
@@ -10,7 +10,7 @@ Voici les étapes à suivre pour passer d'une version précédente de Xajax à J
 
 1. Vérifier que l'application n'utilise pas l'une des classes qui ont été supprimées.
 2. Installer le package `jaxon-core` avec `Composer`, et charger son autoloader dans l'application.
-3. Accéder à l'objet principal avec `$jaxon = jaxon()`, et pour les réponses instancier la classe `Jaxon\Response\Response`.
+3. Accéder à l'objet principal avec `$jaxon = jaxon($sRequestURI, $sLanguage)`, et pour les réponses instancier la classe `Jaxon\Response\Response`.
 4. Définir les nouvelles options de configuration avec la fonction `$jaxon->setOption()`, en particulier les options `core.request.uri` et `core.language` qui remplacent les paramètres `$sRequestURI` et `$sLanguage` du constructeur de la classe `xajax`.
 5. Afficher le code javascript et CSS dans la page HTML avec les appels aux fonctions `$jaxon->getCss()`, `$jaxon->getJs()` et `$jaxon->getScript()`.  
 

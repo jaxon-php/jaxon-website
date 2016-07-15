@@ -1,6 +1,6 @@
 ---
 title: Modularity and extensibility
-menu: Modularity
+menu: Packaging
 template: jaxon
 ---
 

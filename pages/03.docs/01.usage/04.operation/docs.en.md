@@ -2,6 +2,7 @@
 title: How it works
 menu: How it works
 template: jaxon
+published: false
 ---
 
 1. Initially, there is a PHP function defined by the developer, who wants to call it from the browser. When this function is exported, the Jaxon library creates a corresponding javascript function that will be integrated into the web page.
