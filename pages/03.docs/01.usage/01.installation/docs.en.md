@@ -15,7 +15,7 @@ To install Jaxon, add the following line in the `composer.json` file.
 
 Or run the command
 ```bash
-composer require jaxon-php/jaxon-core
+composer require jaxon-php/jaxon-core:~1.0
 ```
 
 #### The javascript library

@@ -15,7 +15,7 @@ Pour l'installer, il faut ajouter la ligne suivante dans le fichier `composer.js
 
 Ou bien exécuter la commande
 ```bash
-composer require jaxon-php/jaxon-core
+composer require jaxon-php/jaxon-core:~1.0
 ```
 
 #### La librairie javascript
