@@ -39,6 +39,8 @@ class HelloWorld
 Register the classe with Jaxon
 
 ```php
+use Jaxon\Jaxon;
+
 // Register object
 $jaxon = jaxon();
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());

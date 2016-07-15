@@ -44,6 +44,8 @@ Read the configuration options from the file
 
 ```php
 // Register object
+use Jaxon\Jaxon;
+
 $jaxon = jaxon();
 
 $jaxon->readConfigFile(__DIR__ . '/config/config.yaml', 'jaxon');

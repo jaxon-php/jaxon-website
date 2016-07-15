@@ -39,6 +39,8 @@ class HelloWorld
 Register the methods with Jaxon
 
 ```php
+use Jaxon\Jaxon;
+
 $jaxon = jaxon();
 
 // Register class methods as Jaxon functions

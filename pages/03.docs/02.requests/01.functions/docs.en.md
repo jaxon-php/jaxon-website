@@ -7,6 +7,8 @@ template: jaxon
 This is how to export a function.
 
 ```php
+use Jaxon\Jaxon;
+
 function hello_world($isCaps)
 {
     if ($isCaps)
@@ -34,6 +36,8 @@ Here is an example of HTML code that calls the PHP function exported with Jaxon.
 A method of a class can also be exported as a function. For this, the second parameter of the function `register()` must be an array, as in the following example.
 
 ```php
+use Jaxon\Jaxon;
+
 class HelloWorld
 {
     public function sayHello($isCaps)

@@ -11,6 +11,7 @@ Par exemple, le code suivant utilise la Request Factory pour générer l'appel v
 
 ```php
 <?php
+use Jaxon\Jaxon;
 use Jaxon\Request\Factory as jr;
 
 class MyClass

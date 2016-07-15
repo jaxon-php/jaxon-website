@@ -11,6 +11,7 @@ For example, the following code uses the Request Factory to create a request to 
 
 ```php
 <?php
+use Jaxon\Jaxon;
 use Jaxon\Request\Factory as jr;
 
 class MyClass

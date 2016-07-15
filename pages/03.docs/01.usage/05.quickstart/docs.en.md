@@ -11,6 +11,7 @@ The following PHP code initializes the library, exports one function and process
 <?php 
 require (__DIR__ . '/vendor/autoload.php'); // Start autoload 
 
+use Jaxon\Jaxon;
 use Jaxon\Response\Response;          // and the Response class
 
 // The function called by the browser

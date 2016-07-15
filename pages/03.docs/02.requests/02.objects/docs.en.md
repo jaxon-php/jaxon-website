@@ -7,6 +7,8 @@ template: jaxon
 This is how to export an object.
 
 ```php
+use Jaxon\Jaxon;
+
 class HelloWorld
 {
     public function sayHello($isCaps)

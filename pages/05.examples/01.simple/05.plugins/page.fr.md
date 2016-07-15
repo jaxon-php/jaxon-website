@@ -58,6 +58,8 @@ class HelloWorld
 Pendant l'export des classes, définir les paramètres des plugins
 
 ```php
+use Jaxon\Jaxon;
+
 $jaxon = jaxon();
 
 // Register object

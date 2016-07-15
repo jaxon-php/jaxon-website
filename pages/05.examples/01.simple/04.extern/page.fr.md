@@ -43,6 +43,8 @@ class HelloWorld
 Exporter la classe avec Jaxon, et définir les options générer le code dans un fichier externe
 
 ```php
+use Jaxon\Jaxon;
+
 $jaxon = jaxon();
 
 $jaxonAppURI = '/jaxon/app';

@@ -10,6 +10,7 @@ All functions called by Jaxon should therefore return an object of type `Jaxon\R
 By default there is a response in the library Jaxon which is accessed with the `Jaxon::getGlobalResponse()` method.
 However, it is possible to create others, by instantiating the `Jaxon\Response\Response` class.
 ```php
+use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 
 class MyClass
@@ -35,6 +36,7 @@ class MyClass
 
 By calling successively several functions that access the same instance of  `Jaxon\Response\Response`, a complex series of actions to be executed in the browser can be constructed in a simple way.
 ```php
+use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 
 class MyClass

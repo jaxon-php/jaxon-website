@@ -43,6 +43,8 @@ class HelloWorld
 Register the classe with Jaxon, and set the options to generate code in an extern file
 
 ```php
+use Jaxon\Jaxon;
+
 $jaxon = jaxon();
 
 $jaxonAppURI = '/jaxon/app';

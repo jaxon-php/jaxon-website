@@ -39,6 +39,8 @@ class HelloWorld
 Exporter la classe avec Jaxon
 
 ```php
+use Jaxon\Jaxon;
+
 // Register object
 $jaxon = jaxon();
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());

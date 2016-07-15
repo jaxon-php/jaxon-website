@@ -45,6 +45,7 @@ public function paginate($itemsTotal, $itemsPerPage, $currentPage, $method, ...)
 Example.
 ```php
 <?php
+use Jaxon\Jaxon;
 use Jaxon\Request\Factory as jr;
 use Jaxon\Response\Response;
 

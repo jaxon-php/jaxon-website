@@ -10,6 +10,7 @@ Toutes les fonctions appelées par Jaxon doivent par conséquent renvoyer un obj
 Il existe par défaut dans la librairie une réponse Jaxon à laquelle on accède avec la méthode `Jaxon::getGlobalResponse()`.
 Il est toutefois possible d'en créer d'autres, en instanciant la classe `Jaxon\Response\Response`.
 ```php
+use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 
 class MyClass
@@ -35,6 +36,7 @@ class MyClass
 
 En appelant successivement plusieurs fonctions qui accèdent à une même instance de  `Jaxon\Response\Response`, on peut construire de façon simple une série d'actions complexes à exécuter dans le navigateur.
 ```php
+use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 
 class MyClass

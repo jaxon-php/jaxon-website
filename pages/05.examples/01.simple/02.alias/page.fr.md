@@ -39,6 +39,8 @@ class HelloWorld
 Exported chaque méthode vers une fonction javascript
 
 ```php
+use Jaxon\Jaxon;
+
 $jaxon = jaxon();
 
 // Register class methods as Jaxon functions

@@ -36,6 +36,8 @@ function setColor($sColor)
 Exporter les fonctions avec Jaxon
 
 ```php
+use Jaxon\Jaxon;
+
 $jaxon = jaxon();
 
 // Register functions

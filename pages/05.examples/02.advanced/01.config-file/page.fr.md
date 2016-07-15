@@ -43,6 +43,8 @@ jaxon:
 Lire les options de configuration dans le fichier
 
 ```php
+use Jaxon\Jaxon;
+
 // Register object
 $jaxon = jaxon();
 

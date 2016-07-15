@@ -7,6 +7,8 @@ template: jaxon
 La librairie Jaxon exporte des classes et des fonctions d'une application PHP vers javascript, de façon à pouvoir les appeler directement depuis une page web dans un navigateur, grâce à Ajax.
 
 ```php
+use Jaxon\Jaxon;
+
 function helloworld($name) 
 { 
     $response = new Response();          // Instance the response class 
