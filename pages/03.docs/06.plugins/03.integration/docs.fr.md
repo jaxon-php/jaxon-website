@@ -20,9 +20,9 @@ Par exemple, voici la section `require` d'un fichier `composer.json` qui install
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "jaxon-php/jaxon-core": "dev-master",
-        "jaxon-php/jaxon-framework": "dev-master",
-        "jaxon-php/jaxon-laravel": "dev-master"
+        "jaxon-php/jaxon-core": "~1.0",
+        "jaxon-php/jaxon-framework": "~1.0",
+        "jaxon-php/jaxon-laravel": "1.0.*"
     },
 ```
 

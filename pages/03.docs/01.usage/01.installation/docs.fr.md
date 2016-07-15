@@ -9,7 +9,7 @@ La librairie Jaxon est distribuée sous forme de packages `Composer`.
 Pour l'installer, il faut ajouter la ligne suivante dans le fichier `composer.json`.
 ```json
 "require": {
-    "jaxon-php/jaxon-core": "dev-master"
+    "jaxon-php/jaxon-core": "~1.0"
 }
 ```
 
