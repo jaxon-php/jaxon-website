@@ -26,6 +26,7 @@ function helloworld($name)
 $jaxon = jaxon();                        // Get the core singleton object   
 $jaxon->register(Jaxon::USER_FUNCTION, 'helloworld'); // Register the function with Jaxon 
 $jaxon->processRequest();                // Call the Jaxon processing engine  
+
 ?>
 <!doctype html>
 <html>
@@ -40,7 +41,6 @@ $jaxon->processRequest();                // Call the Jaxon processing engine
     <?php echo $jaxon->getCss() ?>    
 </head>
 <body>
-    <!-- The crux of this page -->
     Enter your name:
     <input type="text" name="username" id="username" />
     <input type="button" value="Submit" onclick="jaxon_helloworld(jaxon.$('username').value);return false;" />
