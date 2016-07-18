@@ -6,7 +6,8 @@ template: jaxon
 
 Here is the traditional `Hello World` application with Jaxon.
 
-The following PHP code initializes the library, exports one function and processes the Jaxon request.
+The Jaxon library is initialized, a function is exported and the Ajax request is processed.
+
 ```php
 <?php 
 require (__DIR__ . '/vendor/autoload.php'); // Start autoload 
@@ -25,10 +26,7 @@ function helloworld($name)
 $jaxon = jaxon();                        // Get the core singleton object   
 $jaxon->register(Jaxon::USER_FUNCTION, 'helloworld'); // Register the function with Jaxon 
 $jaxon->processRequest();                // Call the Jaxon processing engine  
-```
-
-Here is the HTML page.
-```php
+?>
 <!doctype html>
 <html>
 <head>
