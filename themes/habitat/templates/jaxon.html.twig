@@ -25,7 +25,7 @@
                             <!-- Jaxon content -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>{{ page.header.description }}</p>
+                                    <p>{{ page.header.description | markdown }}</p>
                                     <h3 class="margin-vert-10">Demo</h3>
                                 </div>
                                 {{ jaxon.content }}
