@@ -3,7 +3,7 @@ title: The Yii plugin
 menu: The Yii plugin
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the Jaxon plugin for the Yii framework.
+description: This example shows the usage of the [Jaxon plugin for the Yii framework](https://github.com/jaxon-php/jaxon-yii?target=_blank).
 ---
 
 The plugin sets up and configures the Jaxon library, and lets the user focus on writing Jaxon classes for his application.

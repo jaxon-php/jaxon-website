@@ -3,7 +3,7 @@ title: The Laravel plugin
 menu: The Laravel plugin
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the Jaxon plugin for the Laravel framework.
+description: This example shows the usage of the [Jaxon plugin for the Laravel framework](https://github.com/jaxon-php/jaxon-laravel?target=_blank).
 ---
 
 The plugin sets up and configures the Jaxon library, and lets the user focus on writing Jaxon classes for his application.

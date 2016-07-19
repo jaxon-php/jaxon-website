@@ -3,7 +3,7 @@ title: The CodeIgniter plugin
 menu: The CodeIgniter plugin
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the Jaxon plugin for the CodeIgniter framework.
+description: This example shows the usage of the [Jaxon plugin for the CodeIgniter framework](https://github.com/jaxon-php/jaxon-codeigniter?target=_blank).
 ---
 
 The plugin sets up and configures the Jaxon library, and lets the user focus on writing Jaxon classes for his application.
