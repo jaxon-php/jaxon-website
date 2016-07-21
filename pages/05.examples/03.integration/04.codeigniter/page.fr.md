@@ -53,7 +53,7 @@ class Bts extends \Jaxon\CI\Controller
             $text = 'Hello World!';
     
         $this->response->assign('div2', 'innerHTML', $text);
-        $this->response->toastr->success("div2 text is now $text, after calling " . $this->call('sayHello', $isCaps));
+        $this->response->toastr->success("div2 text is now $text");
     
         return $this->response;
     }
@@ -90,7 +90,7 @@ class Pgw extends \Jaxon\CI\Controller
             $text = 'Hello World!';
     
         $this->response->assign('div1', 'innerHTML', $text);
-        $this->response->toastr->success("div1 text is now $text, after calling " . $this->call('sayHello', $isCaps));
+        $this->response->toastr->success("div1 text is now $text");
     
         return $this->response;
     }
