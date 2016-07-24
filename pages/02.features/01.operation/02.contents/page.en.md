@@ -58,7 +58,7 @@ $response->alert('Done!!');
 #### Plugins
 
 The Jaxon plugins add new functionalities to the `Jaxon\Jaxon\Response` object.
-Once it is installed, a plugin is accessed in the `Jaxon\Jaxon\Response` object using it unique identifier.
+Once it is installed, a plugin is accessed in the `Jaxon\Jaxon\Response` object using its unique identifier.
 
 For example, the [jaxon-toastr](https://github.com/jaxon-php/jaxon-toastr) plugin adds notifications to an application.
 ```php
