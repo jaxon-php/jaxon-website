@@ -1,5 +1,5 @@
 ---
-title: Register Classes in Directories with Namespaces
+title: Register Classes in Namespaces
 menu: Register Namespaces
 template: jaxon
 cache_enable: false

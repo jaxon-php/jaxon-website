@@ -1,5 +1,5 @@
 ---
-title: Exporter des classes dans des répertoires avec namespaces
+title: Exporter des classes dans des namespaces
 menu: Exporter des namespaces
 template: jaxon
 cache_enable: false

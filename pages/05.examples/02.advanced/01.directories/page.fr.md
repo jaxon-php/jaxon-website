@@ -1,6 +1,6 @@
 ---
 title: Exporter des classes dans des répertoires
-menu: Export de répertoire
+menu: Exporter des répertoires
 template: jaxon
 cache_enable: false
 description: Cet exemple montre comment exporter automatiquement toutes les classes présentes dans un ensemble de répertoires.
