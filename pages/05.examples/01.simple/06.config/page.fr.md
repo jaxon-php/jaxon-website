@@ -1,6 +1,6 @@
 ---
-title: Config File
-menu: Config File
+title: Fichier de configuration
+menu: Fichier de configuration
 template: jaxon
 cache_enable: false
 description: Dans cet exemple, la configuration de la librairie Jaxon et de ses plugins est lue dans un fichier au format Yaml.
