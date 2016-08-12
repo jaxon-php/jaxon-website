@@ -36,6 +36,7 @@ If the file contains more data than the Jaxon library configuration, the `read()
 | core.request.uri              | string  | The URL where all Jaxon requests are sent |
 | core.request.mode             | string  | The query mode. Can be "asynchronous" or "synchronous" |
 | core.request.method           | string  | The query method. Can be "POST" or "GET" |
+| core.request.csrf_meta        | string  | The name of the HTML meta header for the CSRF token |
 | | | |
 | core.process.clean_buffer     | boolean | Whether to clean the buffer after the processing of a request |
 | core.process.exit_after       | boolean | Whether to call the exit() function after the processing of a request |

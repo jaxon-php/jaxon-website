@@ -36,6 +36,7 @@ Si le fichier contient d'autres données que la configuration de la librairie Ja
 | core.request.uri              | string  | L'URL à laquelle toutes les requêtes sont envoyées |
 | core.request.mode             | string  | Le mode des requêtes. Peut être "asynchronous" or "synchronous" |
 | core.request.method           | string  | La méthode des requêtes. Peut être "POST" or "GET" |
+| core.request.csrf_meta        | string  | Le nom de l'entête HTML meta qui contient le token CSRF |
 | | | |
 | core.process.clean_buffer     | boolean | Active ou non le vidage des buffers après le traitement d'une requête |
 | core.process.exit_after       | boolean | Indique si la fonction exit() doit être appelée après le traitement d'une requête |
