@@ -1,0 +1,3 @@
+enabled:        true                              # global enable/disable the entire plugin
+siteId:         2                                 # site piwik tracking ID
+sitePiWikURL:   'https://an.lagdo-networks.com'   # site piwik url
