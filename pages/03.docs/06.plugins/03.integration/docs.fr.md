@@ -4,7 +4,7 @@ menu: Les plugins d'integration
 template: jaxon
 ---
 
-Les plugins d'intégration facilitent l'utilisation de Jaxon dans des frameworks ou des CMS PHP.
+Les plugins d'intégration facilitent l'utilisation de Jaxon dans des frameworks et des CMS PHP.
 
 Dans le framework ou le CMS, le plugin d'intégration fournit les fonctions d'initialisation de la librairie et de traitement des requêtes Jaxon.
 Il charge automatiquement les classes Jaxon à un emplacement déterminé.
@@ -49,6 +49,10 @@ Les plugins d'intégration suivants sont fonctionnels. Ils sont en démonstratio
 **[Laravel](https://github.com/jaxon-php/jaxon-laravel)** ([Exemple](../../../examples/integration/laravel))
 
 Intègre la librairie Jaxon avec le framework [Laravel](https://laravel.com), à partir de la version 5.
+
+**[Zend Framework](https://github.com/jaxon-php/jaxon-zend)** ([Exemple](../../../examples/integration/zend))
+
+Intègre la librairie Jaxon avec le [Zend Framework 2](https://framework.zend.com).
 
 **[CodeIgniter](https://github.com/jaxon-php/jaxon-codeigniter)** ([Exemple](../../../examples/integration/codeigniter))
 

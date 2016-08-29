@@ -3,6 +3,7 @@
 namespace Grav\Theme;
 
 use Grav\Common\Theme;
+use stdClass;
 
 class Habitat extends Theme
 {
@@ -38,7 +39,7 @@ class Habitat extends Theme
             $GLOBALS['web_dir'] = $webDir;
 
             // Set the file name
-            if(in_array($exampleName, ['/laravel', '/symfony', 'zend-framework', '/yii', '/codeigniter']))
+            if(in_array($exampleName, ['/laravel', '/symfony', '/zend', '/yii', '/codeigniter']))
             {
                 $this->phpFile = $webDir . $exampleName . '/index.php';
             }
@@ -47,7 +48,7 @@ class Habitat extends Theme
                 $this->phpFile = $phpDir . $exampleName . '.php';
             }
             // Create an object for Jaxon contents
-            $this->jaxon = new \stdClass;
+            $this->jaxon = new stdClass;
             $this->jaxon->content = '';
             $this->jaxon->css = '';
             $this->jaxon->js = '';
