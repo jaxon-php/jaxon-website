@@ -9,6 +9,7 @@ class Habitat extends Theme
 {
     protected $jaxon = null;
     protected $phpFile = null;
+    protected $example = null;
 
     public static function getSubscribedEvents()
     {
@@ -35,17 +36,17 @@ class Habitat extends Theme
         {
             $phpDir = $config['php_dir'];
             $webDir = $config['web_dir'];
-            $exampleName = strrchr($uri->path(), '/');
+            $this->example = strrchr($uri->path(), '/');
             $GLOBALS['web_dir'] = $webDir;
 
             // Set the file name
-            if(in_array($exampleName, ['/laravel', '/symfony', '/zend', '/yii', '/codeigniter']))
+            if(in_array($this->example, ['/laravel', '/symfony', '/zend', '/yii', '/codeigniter']))
             {
-                $this->phpFile = $webDir . $exampleName . '/index.php';
+                $this->phpFile = $webDir . $this->example . '/index.php';
             }
-            else if($exampleName != '/examples')
+            else if($this->example != '/examples') // /examples is the path to the section
             {
-                $this->phpFile = $phpDir . $exampleName . '.php';
+                $this->phpFile = $phpDir . $this->example . '.php';
             }
             // Create an object for Jaxon contents
             $this->jaxon = new stdClass;
@@ -65,10 +66,11 @@ class Habitat extends Theme
         {
             return;
         }
+
         ob_start();
         require_once $this->phpFile;
         $this->jaxon->content = ob_get_contents();
-        ob_end_clean();
+        ob_clean();
 
         // Process Jaxon contents
         $jaxon = jaxon();
