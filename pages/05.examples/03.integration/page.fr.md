@@ -1,5 +1,5 @@
 ---
-title: Exemples d'intégration
-menu: Exemples d'intégration
+title: Exemples d'intégration avec des frameworks
+menu: Exemples de framework
 template: jaxon
 ---
