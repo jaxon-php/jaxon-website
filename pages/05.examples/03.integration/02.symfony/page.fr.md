@@ -54,13 +54,15 @@ class Bts extends \Jaxon\AjaxBundle\Controller
 {
     public function sayHello($isCaps)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-    
-        $this->response->assign('div2', 'innerHTML', $text);
-        $this->response->toastr->success("div2 text is now $text");
+        $html = $this->view->render('test/hello.html.twig', ['isCaps' => $isCaps]);
+        $this->response->assign('div2', 'innerHTML', $html);
+
+        $message = $this->view->render('test/message.html.twig', [
+            'element' => 'div2',
+            'attr' => 'text',
+            'value' => $html,
+        ]);
+        $this->response->toastr->success($message);
     
         return $this->response;
     }
@@ -68,7 +70,13 @@ class Bts extends \Jaxon\AjaxBundle\Controller
     public function setColor($sColor)
     {
         $this->response->assign('div2', 'style.color', $sColor);
-        $this->response->toastr->success("div2 color is now $sColor");
+
+        $message = $this->view->render('test/message.html.twig', [
+            'element' => 'div2',
+            'attr' => 'color',
+            'value' => $sColor,
+        ]);
+        $this->response->toastr->success($message);
     
         return $this->response;
     }
@@ -77,7 +85,8 @@ class Bts extends \Jaxon\AjaxBundle\Controller
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $width = 300;
-        $this->response->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+        $html = $this->view->render('test/credit.html.twig', ['library' => 'Twitter Bootstrap']);
+        $this->response->bootstrap->modal("Modal Dialog", $html, $buttons, $width);
     
         return $this->response;
     }
@@ -91,13 +100,15 @@ class Pgw extends \Jaxon\AjaxBundle\Controller
 {
     public function sayHello($isCaps)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-    
-        $this->response->assign('div1', 'innerHTML', $text);
-        $this->response->toastr->success("div1 text is now $text");
+        $html = $this->view->render('test/hello.html.twig', ['isCaps' => $isCaps]);
+        $this->response->assign('div1', 'innerHTML', $html);
+
+        $message = $this->view->render('test/message.html.twig', [
+            'element' => 'div1',
+            'attr' => 'text',
+            'value' => $html,
+        ]);
+        $this->response->toastr->success($message);
     
         return $this->response;
     }
@@ -105,7 +116,13 @@ class Pgw extends \Jaxon\AjaxBundle\Controller
     public function setColor($sColor)
     {
         $this->response->assign('div1', 'style.color', $sColor);
-        $this->response->toastr->success("div1 color is now $sColor");
+
+        $message = $this->view->render('test/message.html.twig', [
+            'element' => 'div1',
+            'attr' => 'color',
+            'value' => $sColor,
+        ]);
+        $this->response->toastr->success($message);
     
         return $this->response;
     }
@@ -114,7 +131,8 @@ class Pgw extends \Jaxon\AjaxBundle\Controller
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
-        $this->response->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $html = $this->view->render('test/credit.html.twig', ['library' => 'PgwModal']);
+        $this->response->pgw->modal("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
     }
