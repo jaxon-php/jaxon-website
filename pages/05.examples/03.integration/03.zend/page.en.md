@@ -29,7 +29,7 @@ class DemoController extends AbstractActionController
     public function indexAction()
     {
         // Call the Jaxon module
-        $jaxon = $this->jaxon();
+        $jaxon = $this->getServiceLocator()->get('JaxonPlugin');
         $jaxon->register();
 
         $view = new ViewModel(array(
@@ -135,7 +135,6 @@ class Pgw extends \Jaxon\Zend\Controller
         $this->response->pgw->modal("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
-    }  return $this->response;
     }
 }
 ```
