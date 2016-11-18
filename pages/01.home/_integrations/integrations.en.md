@@ -5,16 +5,24 @@ integrations:
     - name: The Laravel framework
       website: https://laravel.com
       github: https://github.com/jaxon-php/jaxon-laravel
-      demo: /examples/integration/laravel.html
+      demo: /en/examples/integration/laravel.html
+    - name: The Symfony framework
+      website: https://symfony.com
+      github: https://github.com/jaxon-php/jaxon-symfony
+      demo: /en/examples/integration/symfony.html
+    - name: The Zend framework
+      website: https://framework.zend.com
+      github: https://github.com/jaxon-php/jaxon-zend
+      demo: /en/examples/integration/zend.html
     - name: The CodeIgniter framework
       website: https://www.codeigniter.com
       github: https://github.com/jaxon-php/jaxon-codeigniter
-      demo: /examples/integration/codeigniter.html
+      demo: /en/examples/integration/codeigniter.html
     - name: The Yii framework
       website: http://www.yiiframework.com
       github: https://github.com/jaxon-php/jaxon-yii
-      demo: /examples/integration/yii.html
+      demo: /en/examples/integration/yii.html
 ---
 
 Other plugins integrate the library with common PHP frameworks and CMS.
-Many plugins are still under contruction.
+Many are still under contruction.
