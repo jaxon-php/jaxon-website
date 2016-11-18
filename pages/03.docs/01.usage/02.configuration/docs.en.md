@@ -6,7 +6,7 @@ template: jaxon
 
 The behavior of the Jaxon library can be changed using an extended set of configuration options.
 
-The function `$jaxon->setOption($name, $value)` allows to set the value of a configuration option, while the function `$jaxon->setOption($name)` allows to read the value of an option.
+The function `$jaxon->setOption($name, $value)` allows to set the value of a configuration option, while the function `$jaxon->getOption($name)` allows to read the value of an option.
 
 #### Configuration files
 
@@ -18,7 +18,7 @@ $jaxon->readYamlConfigFile($jsonFilePath);  // Read configuration in a YAML file
 $jaxon->readJsonConfigFile($phpFilePath);   // Read configuration in a JSON file.
 $jaxon->readConfigFile($phpFilePath);       // Read configuration in a file based on its extension.
 ```
-If the file contains more data than the Jaxon library configuration, the `read()` function can take a second parameter to read the configuration only in a section of the file.
+If the file contains more data than the Jaxon library configuration, each of these functions can take a second parameter to read the configuration only in a section of the file.
 
 #### The configuration option list
 
