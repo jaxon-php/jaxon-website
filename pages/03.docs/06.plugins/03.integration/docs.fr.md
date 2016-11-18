@@ -20,8 +20,6 @@ Par exemple, voici la section `require` d'un fichier `composer.json` qui install
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "jaxon-php/jaxon-core": "~1.0",
-        "jaxon-php/jaxon-framework": "~1.0",
         "jaxon-php/jaxon-laravel": "1.0.*"
     },
 ```
@@ -50,9 +48,13 @@ Les plugins d'intégration suivants sont fonctionnels. Ils sont en démonstratio
 
 Intègre la librairie Jaxon avec le framework [Laravel](https://laravel.com), à partir de la version 5.
 
+**[Symfony](https://github.com/jaxon-php/jaxon-symfony)** ([Exemple](../../../examples/integration/symfony))
+
+Intègre la librairie Jaxon avec le framework [Symfony](http://symfony.com), de la version 2.8 à la version 3.
+
 **[Zend Framework](https://github.com/jaxon-php/jaxon-zend)** ([Exemple](../../../examples/integration/zend))
 
-Intègre la librairie Jaxon avec le [Zend Framework 2](https://framework.zend.com).
+Intègre la librairie Jaxon avec le [Zend Framework](https://framework.zend.com), de la version 2.3 à la version 3.
 
 **[CodeIgniter](https://github.com/jaxon-php/jaxon-codeigniter)** ([Exemple](../../../examples/integration/codeigniter))
 
