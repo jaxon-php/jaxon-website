@@ -4,7 +4,7 @@ menu: Le code javascript
 template: jaxon
 ---
 
-Une fois que les fonctions et les objets PHP ont été exportés, la dernière étape consiste à générer le code à insérer dans les pages HTML.
+Une fois que les fonctions et les objets PHP ont été exportés, l'étape suivante consiste à générer le code à insérer dans les pages HTML.
 Jaxon fournit 3 fonctions différentes pour générer le code à envoyer au navigateur.
 
 - La fonction `$jaxon->getCss()` renvoie le code CSS à insérer dans la page. Il s'agira très souvent des instructions de chargement des fichiers CSS des plugins Jaxon.
