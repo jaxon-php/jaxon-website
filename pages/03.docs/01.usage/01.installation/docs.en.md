@@ -21,5 +21,6 @@ composer require jaxon-php/jaxon-core:~1.0
 #### The javascript library
 
 Jaxon requires the [jaxon-js](https://github.com/jaxon-php/jaxon-js) javascript library to be loaded into the HTML page to operate properly.
-By default, Jaxon loads the library from a public server that supports the `http` and `https` protocols.
-It is possible to install them on a private server, in which case the new address must be specified with the `js.lib.uri` configuration option.
+By default, the javascript library files are loaded from the [jsDelivr CDN](https://www.jsdelivr.com/projects/jaxon).
+They are also installed on a public server, which supports the `http` and `https` protocols, and which is used by setting the configuration option `js.lib.uri` to `https://lib.jaxon-php.org/jaxon/latest/`.
+It is also possible to install them on a private server, in which case the `js.lib.uri` configuration option must be updated accordingly.
