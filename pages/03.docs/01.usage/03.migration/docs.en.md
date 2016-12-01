@@ -22,4 +22,4 @@ To take full advantage of the new features, the following optional steps can be 
 * Use one or more plugins, installing them with `Composer`.
 * Install the javascript library files on a private server, and update the link with the `js.lib.uri` configuration option.
 
-Read the [New features](../../../features/differences/added), [Evolved features](../../../features/differences/changed) and [Deprecated features](../../../features/differences/deprecated) pages to learn more about the differences between Xajax and Jaxon.
+Read the [New features](../../../features/what_new/features), [Evolved features](../../../features/differences/changed) and [Deprecated features](../../../features/differences/deprecated) pages to learn more about the differences between Xajax and Jaxon.
