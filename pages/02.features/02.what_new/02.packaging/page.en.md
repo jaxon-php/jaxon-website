@@ -9,8 +9,9 @@ template: jaxon
 The Jaxon library is composed of a pure javascript package and several PHP packages.
 
 The javascript package [jaxon-js](https://github.com/jaxon-php/jaxon-js) contains the code that manages requests and responses in the browser.
-The Jaxon javascript library files are installed on a public server, which supports the `http` and `https` protocols.
-By default, the PHP library loads the javascript files from this server. It is possible to install them on a private server, in which case you must update the link with the configuration option `js.lib.uri`.
+By default, the javascript library files are loaded from the [jsDelivr CDN](https://www.jsdelivr.com/projects/jaxon).
+They are also installed on a public server, which supports the `http` and `https` protocols, and which is used by setting the configuration option `js.lib.uri` to `https://lib.jaxon-php.org/jaxon/latest/`.
+It is also possible to install them on a private server, in which case the `js.lib.uri` configuration option must be updated accordingly.
 
 The PHP package [jaxon-core](https://github.com/jaxon-php/jaxon-core) contains the code that manages requests and responses on the server.
 

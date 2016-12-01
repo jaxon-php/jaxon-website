@@ -27,7 +27,7 @@ if(!$jaxon->canProcessRequest())
 }
 else
 {
-    // When processing the request, the requested class is automatically loaded with the autoloading.
+    // When processing a request, the requested class is autoloaded.
     $jaxon->processRequest();
 }
 ```
