@@ -16,7 +16,7 @@ By default, the Jaxon plugin registers all classes in the `app/Jaxon/Controllers
 
 Install and configure the Jaxon plugin for Laravel, as described in the [plugin documentation](https://github.com/jaxon-php/jaxon-laravel?target=_blank)
 
-In the framework controller, insert Jaxon-generated code in the page using view management calls
+In the framework controller, insert Jaxon-generated code in the page using view functions
 
 ```php
 use LaravelJaxon;

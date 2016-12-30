@@ -16,7 +16,7 @@ By default, the Jaxon plugin registers all classes in the `jaxon/` directory of 
 
 Install and configure the Jaxon plugin for Yii, as described in the [plugin documentation](https://github.com/jaxon-php/jaxon-yii?target=_blank)
 
-In the framework controller, insert Jaxon-generated code in the page using view management calls
+In the framework controller, insert Jaxon-generated code in the page using view functions
 
 ```php
 use Yii;

@@ -3,7 +3,7 @@ title: The Zend Framework plugin
 menu: The Zend Framework plugin
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the [Jaxon plugin for the Zend Framework 2](https://github.com/jaxon-php/jaxon-zend?target=_blank).
+description: This example shows the usage of the [Jaxon plugin for the Zend Framework](https://github.com/jaxon-php/jaxon-zend?target=_blank).
 ---
 
 The plugin sets up and configures the Jaxon library, and lets the user focus on writing Jaxon classes for his application.
