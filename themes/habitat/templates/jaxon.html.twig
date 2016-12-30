@@ -21,14 +21,14 @@
                             </div>
                             <!-- End Page title -->
 
-{% if jaxon.content %}
+{% if jaxon %}
                             <!-- Jaxon content -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <p>{{ page.header.description | markdown }}</p>
                                     <h3 class="margin-vert-10">Demo</h3>
                                 </div>
-                                {{ jaxon.content }}
+                                {{ jaxon.html }}
                                 <hr>
                             </div>
                             <!-- End Jaxon content -->
@@ -55,6 +55,7 @@
                             </div>
                             <!-- End Section TOC -->
 {% endif %}
+
                             <div class="clearfix margin-bottom-10"></div>
                         </div>
                     </div>

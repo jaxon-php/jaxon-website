@@ -1,6 +1,4 @@
 enabled: true
 site_title:
   enabled: true
-route: /examples
-php_dir: ${jaxon.website.exp}
-web_dir: ${jaxon.website.www}
+examples: /examples

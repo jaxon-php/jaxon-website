@@ -8,8 +8,6 @@ use stdClass;
 class Habitat extends Theme
 {
     protected $jaxon = null;
-    protected $phpFile = null;
-    protected $example = null;
 
     public static function getSubscribedEvents()
     {
@@ -23,7 +21,7 @@ class Habitat extends Theme
         $config = $this->config();
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
-        $route = $config['route'];
+        $route = $config['examples'];
 
         $this->enable([
             'onPageInitialized' => ['onPageInitialized', 0],
@@ -34,26 +32,42 @@ class Habitat extends Theme
 
         if (($route) && $route == substr($uri->path(), 0, strlen($route)))
         {
-            $phpDir = $config['php_dir'];
-            $webDir = $config['web_dir'];
-            $this->example = strrchr($uri->path(), '/');
-            $GLOBALS['web_dir'] = $webDir;
-
-            // Set the file name
-            if(in_array($this->example, ['/laravel', '/symfony', '/zend', '/yii', '/codeigniter']))
+            // Set the example URL
+            $exampleUrl = trim($uri->base(), '/') . '/exp/';
+            $path = trim(strrchr($uri->path(), '/'), '/');
+            switch($path)
             {
-                $this->phpFile = $webDir . $this->example . '/index.php';
-            }
-            else if($this->example != '/examples') // /examples is the path to the section
-            {
-                $this->phpFile = $phpDir . $this->example . '.php';
+            // For frameworks, load the pages from the public dir
+            case 'laravel':
+                $exampleUrl .= 'laravel/';
+                break;
+            case 'symfony':
+                $exampleUrl .= 'symfony/';
+                break;
+            case 'zend':
+                $exampleUrl .= 'zend/';
+                break;
+            case 'yii':
+                $exampleUrl .= 'yii/';
+                break;
+            case 'codeigniter':
+                $exampleUrl .= 'codeigniter/';
+                break;
+            default:
+                if($path != 'examples') // /examples is the path to the section
+                {
+                    $exampleUrl .= $path . '.php';
+                }
+                break;
             }
             // Create an object for Jaxon contents
-            $this->jaxon = new stdClass;
-            $this->jaxon->content = '';
-            $this->jaxon->css = '';
-            $this->jaxon->js = '';
-            $this->jaxon->script = '';
+            if(($exampleUrl) && ($dom = \html5qp($exampleUrl)))
+            {
+                $this->jaxon = new stdClass;
+                $this->jaxon->html = html_entity_decode($dom->find('#jaxon-html')->eq(0)->innerHTML());
+                $this->jaxon->init = html_entity_decode($dom->find('#jaxon-init')->eq(0)->innerHTML());
+                $this->jaxon->code = html_entity_decode($dom->find('#jaxon-code')->eq(0)->innerHTML());
+            }
         }
     }
 
@@ -61,30 +75,7 @@ class Habitat extends Theme
      * Get the PHP page contents.
      */
     public function onPageInitialized()
-    {
-        if(!$this->jaxon || !$this->phpFile || !file_exists($this->phpFile))
-        {
-            return;
-        }
-
-        ob_start();
-        require_once $this->phpFile;
-        $this->jaxon->content = ob_get_contents();
-        ob_clean();
-
-        // Process Jaxon contents
-        $jaxon = jaxon();
-        if($jaxon->canProcessRequest())
-        {
-            $this->grav['page']->template('response');
-        }
-        else
-        {
-            $this->jaxon->css = $jaxon->getCss();
-            $this->jaxon->js = $jaxon->getJs();
-            $this->jaxon->script = $jaxon->getScript();
-        }
-    }
+    {}
 
     /**
      * Set the page template.
