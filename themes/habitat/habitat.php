@@ -53,6 +53,9 @@ class Habitat extends Theme
             case 'codeigniter':
                 $exampleUrl .= 'codeigniter/';
                 break;
+            case 'cake':
+                $exampleUrl .= 'cake/';
+                break;
             default:
                 if($path != 'examples') // /examples is the path to the section
                 {
