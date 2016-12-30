@@ -56,6 +56,9 @@
                             <!-- End Section TOC -->
 {% endif %}
 
+{% if config.plugins.jscomments.enabled %}
+  {{ jscomments() }}
+{% endif %}
                             <div class="clearfix margin-bottom-10"></div>
                         </div>
                     </div>
