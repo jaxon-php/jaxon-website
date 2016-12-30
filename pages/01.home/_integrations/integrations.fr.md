@@ -22,6 +22,10 @@ integrations:
       website: http://www.yiiframework.com
       github: https://github.com/jaxon-php/jaxon-yii
       demo: /fr/examples/integration/yii.html
+    - name: Le framework CakePHP
+      website: https://cakephp.org
+      github: https://github.com/jaxon-php/jaxon-cake
+      demo: /fr/examples/integration/cake.html
 ---
 
 D'autres plugins permettent d'intégrer la librairie aux frameworks et CMS les plus courants.
