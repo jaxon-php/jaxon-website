@@ -1,6 +1,7 @@
 ---
 title: Plugins
 position: 4
+published: false
 plugins:
     - name: Bootstrap
       description: Dialog with the minimum functionality and smart defaults

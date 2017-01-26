@@ -11,7 +11,7 @@ content:
             - _motivations
             - _operation
             - _features
-            - _plugins
+#            - _plugins
             - _integrations
 ---
 

@@ -28,5 +28,4 @@ integrations:
       demo: /fr/examples/integration/cake.html
 ---
 
-D'autres plugins permettent d'intégrer la librairie aux frameworks et CMS les plus courants.
-Plusieurs sont en cours de création.
+Plusieurs plugins permettent d'intégrer la librairie aux frameworks les plus courants.

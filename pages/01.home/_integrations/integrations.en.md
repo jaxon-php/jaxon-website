@@ -28,5 +28,4 @@ integrations:
       demo: /en/examples/integration/cake.html
 ---
 
-Other plugins integrate the library with common PHP frameworks and CMS.
-Many are still under contruction.
+Many plugins integrate the library with common PHP frameworks.
