@@ -72,6 +72,13 @@ class Habitat extends Theme
                 $this->jaxon->code = html_entity_decode($dom->find('#jaxon-code')->eq(0)->innerHTML());
             }
         }
+
+        // Enable Piwik and Google Analytics only on the website
+        if($_SERVER['SERVER_NAME'] != 'www.jaxon-php.org' || (key_exists('a', $_GET) && $_GET['a'] == 'no'))
+        {
+            $this->config->set('plugins.piwik.siteId', 0);
+            $this->config->set('plugins.ganalytics.trackingId', '');
+        }
     }
 
     /**
