@@ -18,7 +18,12 @@ content:
 ## A PHP library for Ajax
 
 Jaxon is an open source PHP library for easily creating Ajax web applications.
+
 It allows into a web page to make direct Ajax calls to PHP classes that will in turn update its content, without reloading the entire page.
 
-Jaxon implements a complete set of PHP functions to define the contents and properties of the web page.
-Several plugins exist to extend its functionalities and provide integration with various PHP frameworks and CMS.
+Jaxon implements a complete set of functions to define the contents and properties of the web page from PHP.
+Several plugins exist to extend its functionalities and provide integration with various PHP frameworks.
+
+Starting from version 2, Jaxon implements a module, which makes it easier to use, and further enriches its HTML and javascript code generation functions.
+
+The Jaxon module allows you to write full-featured classes, with views and sessions, which can be reused with different PHP frameworks.

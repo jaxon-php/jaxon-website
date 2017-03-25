@@ -1,13 +1,16 @@
-                            <h3 class="padding-vert-10">{{ page.title }}</h3>
+                            <h4 class="padding-vert-10">{{ page.title }}</h4>
 	                        <div class="jaxon-code">
 	                            {{ page.header.operation.define }}
 <pre><code class="language-php">
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new MyClass);
+$jaxon = jaxon()->module();
+$jaxon->register(); // Register all the classes
+// Get a request to a Jaxon class
+$myClass = $jaxon->request('My.Namespace.My.ClassName');
 </code></pre>
 	                        </div>
 	                        <div class="jaxon-code">
 	                            {{ page.header.operation.insert }}
-<pre><code class="language-html">
-&lt;input type="button" onclick="JaxonMyClass.myMethod()" /&gt;
+<pre><code class="language-php">
+&lt;input type="button" onclick="&lt;?php echo $myClass->myMethod() ?&gt;" /&gt;
 </code></pre>
 	                        </div>

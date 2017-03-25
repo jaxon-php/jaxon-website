@@ -2,6 +2,6 @@
 title: Comment fonctionne Jaxon
 position: 2
 operation:
-    define: Définir et exporter vos classes PHP avec Jaxon.
-    insert: Appeler vos classes avec le code javascript généré par Jaxon.
+    define: Exporter les classes PHP.
+    insert: Appeler les classes PHP avec le code javascript généré.
 ---

@@ -4,10 +4,10 @@ position: 3
 features:
     - header: Fork of the Xajax library
       icon: heart
-      text: Jaxon inherits the functions of the most brilliant library to create Ajax applications with PHP.
+      text: Jaxon inherits the functions of one of the most brilliant libraries to create Ajax applications with PHP.
     - header: Many new functionalities
       icon: rocket
-      text: Jaxon is enriched with new features, and easily integrates with existing PHP frameworks and CMS.
+      text: Jaxon is enriched with new features, and easily integrates with existing PHP frameworks.
     - header: Modular and extensible
       icon: gears
       text: Jaxon is composed of a PHP package, a Javascript package, and many plugins to add more features.
