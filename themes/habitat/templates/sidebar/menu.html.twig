@@ -3,7 +3,8 @@
     {% if item.children|length > 0 %}
     <li class="list-group-item list-toggle">
         <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ item.slug }}">{{ item.menu }}</a>
-        <ul id="collapse-{{ item.slug }}" class="collapse{% if item.active or item.activeChild %} in{% endif %}">
+        <!-- <ul id="collapse-{{ item.slug }}" class="collapse{% if item.active or item.activeChild %} in{% endif %}"> -->
+        <ul id="collapse-{{ item.slug }}" class="collapse in">
         {% for child in item.children %}
             {% if child.visible %}
             <li><a href="{{ child.url }}"><i class="fa fa-{% if child.active %}check-circle-o{% else %}chevron-circle-right{% endif %}"></i>{{ child.menu }}</a></li>
