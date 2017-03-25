@@ -3,8 +3,9 @@ title: Utiliser un autoloader d'une tierce partie
 menu: Autoloader tierce
 template: jaxon
 cache_enable: false
-description: Dans cet exemple l'autoloading est désactivé dans la librairie Jaxon, et un autoloader d'une tierce partie est utilisé pour charger les classes Jaxon.
 ---
+
+Dans cet exemple l'autoloading est désactivé dans la librairie Jaxon, et un autoloader d'une tierce partie est utilisé pour charger les classes Jaxon.
 
 Les répertoires exportés avec Jaxon sont également enregistrés dans l'autoloader. Celui utilisé ici est [Keradus](https://github.com/keradus/Psr4Autoloader).
 Les classes exportées dans cet exemple sont les mêmes que celles de l'exemple [Exporter des namespaces](../namespaces).

@@ -3,8 +3,9 @@ title: Hello World Alias
 menu: Hello World Alias
 template: jaxon
 cache_enable: false
-description: This example shows how to export the methods of a class as functions with Jaxon, using aliases.
 ---
+
+This example shows how to export the methods of a class as functions with Jaxon, using aliases.
 
 #### How it works
 

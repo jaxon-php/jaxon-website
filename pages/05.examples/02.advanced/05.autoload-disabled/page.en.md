@@ -3,8 +3,9 @@ title: Using a Third Party Autoloader
 menu: Third Party Autoloader
 template: jaxon
 cache_enable: false
-description: In this example the autoloading is disabled in the Jaxon library, and a third-party autoloader is used to load the Jaxon classes.
 ---
+
+In this example the autoloading is disabled in the Jaxon library, and a third-party autoloader is used to load the Jaxon classes.
 
 The directories registered with Jaxon are also registered with the autoloader. The one used here is [Keradus](https://github.com/keradus/Psr4Autoloader).
 

@@ -3,8 +3,9 @@ title: The Laravel plugin
 menu: The Laravel plugin
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the [Jaxon plugin for the Laravel framework](https://github.com/jaxon-php/jaxon-laravel?target=_blank).
 ---
+
+This example shows the usage of the [Jaxon plugin for the Laravel framework](https://github.com/jaxon-php/jaxon-laravel?target=_blank).
 
 The plugin sets up and configures the Jaxon library, and lets the user focus on writing Jaxon classes for his application.
 
@@ -44,7 +45,7 @@ In this example we have two files `Bts.php` and `Pgw.php` in the `app/Jaxon/Cont
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Laravel\Controller
+class Bts extends \Jaxon\Module\Controller
 {
     public function sayHello($isCaps)
     {

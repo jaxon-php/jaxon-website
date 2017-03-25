@@ -3,8 +3,9 @@ title: Le plugin Symfony
 menu: Le plugin Symfony
 template: jaxon
 cache_enable: false
-description: Cet exemple montre l'utilisation du [plugin Jaxon pour le framework Symfony](https://github.com/jaxon-php/jaxon-symfony?target=_blank).
 ---
+
+Cet exemple montre l'utilisation du [plugin Jaxon pour le framework Symfony](https://github.com/jaxon-php/jaxon-symfony?target=_blank).
 
 Ce plugin initialise et configure la librairie Jaxon, et laisse au développeur le soin d'écrire les classes Jaxon pour son application.
 
@@ -50,7 +51,7 @@ Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoir
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\AjaxBundle\Controller
+class Bts extends \Jaxon\Module\Controller
 {
     public function sayHello($isCaps)
     {

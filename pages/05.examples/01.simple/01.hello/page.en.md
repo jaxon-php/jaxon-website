@@ -3,8 +3,9 @@ title: Hello World Function
 menu: Hello World Function
 template: jaxon
 cache_enable: false
-description: This example shows how to export a function with Jaxon.
 ---
+
+This example shows how to export a function with Jaxon.
 
 #### How it works
 

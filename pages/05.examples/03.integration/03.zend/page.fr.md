@@ -3,8 +3,9 @@ title: Le plugin Zend
 menu: Le plugin Zend
 template: jaxon
 cache_enable: false
-description: Cet exemple montre l'utilisation du [plugin Jaxon pour le Zend Framework](https://github.com/jaxon-php/jaxon-zend?target=_blank).
 ---
+
+Cet exemple montre l'utilisation du [plugin Jaxon pour le Zend Framework](https://github.com/jaxon-php/jaxon-zend?target=_blank).
 
 Ce plugin initialise et configure la librairie Jaxon, et laisse au développeur le soin d'écrire les classes Jaxon pour son application.
 
@@ -96,7 +97,7 @@ class Bts extends \Jaxon\Zend\Controller
 ```php
 namespace Jaxon\App\Test;
 
-class Pgw extends \Jaxon\Zend\Controller
+class Pgw extends \Jaxon\Module\Controller
 {
     public function sayHello($isCaps)
     {

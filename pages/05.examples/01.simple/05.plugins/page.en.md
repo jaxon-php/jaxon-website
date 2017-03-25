@@ -3,8 +3,9 @@ title: Response Plugin
 menu: Response Plugin
 template: jaxon
 cache_enable: false
-description: This example shows the use of Jaxon response plugins, by adding javascript notifications and modal windows to the Hello World Class example with the jaxon-bootbox plugin.
 ---
+
+This example shows the use of Jaxon response plugins, by adding javascript notifications and modal windows to the Hello World Class example with the jaxon-bootbox plugin.
 
 Using a Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into the Jaxon core library. It can then be accessed in the Jaxon response object, to provide its functionalities to the application.
 

@@ -3,8 +3,9 @@ title: The CakePHP plugin
 menu: The CakePHP plugin
 template: jaxon
 cache_enable: false
-description: This example shows the usage of the [Jaxon plugin for the CakePHP framework](https://github.com/jaxon-php/jaxon-cake?target=_blank).
 ---
+
+This example shows the usage of the [Jaxon plugin for the CakePHP framework](https://github.com/jaxon-php/jaxon-cake?target=_blank).
 
 The plugin sets up and configures the Jaxon library, and lets the user focus on writing Jaxon classes for his application.
 
@@ -50,7 +51,7 @@ In this example we have two files `Bts.php` and `Pgw.php` in the `ROOT/jaxon/Con
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Cake\Controller
+class Bts extends \Jaxon\Module\Controller
 {
     public function sayHello($isCaps)
     {

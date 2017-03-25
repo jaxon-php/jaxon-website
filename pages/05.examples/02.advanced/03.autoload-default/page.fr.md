@@ -3,8 +3,9 @@ title: Utiliser l'autoloading pour les classes Jaxon
 menu: Autoloader par défaut
 template: jaxon
 cache_enable: false
-description: Cet exemple montre comment optimiser le traitement des requêtes Jaxon avec l'autoloading.
 ---
+
+Cet exemple montre comment optimiser le traitement des requêtes Jaxon avec l'autoloading.
 
 Dans cet exemple, les classes Jaxon ne sont pas exportées lorsqu'une requête est traitée.
 Cependant, la librairie est assez intelligente pour se rendre compte que que la classe demandée est absente, et charger uniquement le fichier nécessaire.

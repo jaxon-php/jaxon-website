@@ -3,8 +3,9 @@ title: Using Autoloading for Jaxon classes
 menu: Default Autoloader
 template: jaxon
 cache_enable: false
-description: This example shows how to optimize Jaxon requests processing with autoloading.
 ---
+
+This example shows how to optimize Jaxon requests processing with autoloading.
 
 In this example, the Jaxon classes are not registered when processing a request.
 However, the Jaxon library is smart enough to detect that the required class is missing, and to load only the necessary file.

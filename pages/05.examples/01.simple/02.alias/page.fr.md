@@ -3,8 +3,9 @@ title: Alias Hello World
 menu: Alias Hello World
 template: jaxon
 cache_enable: false
-description: Cet exemple montre l'export des méthodes d'une classe comme des fonctions, à l'aide d'alias.
 ---
+
+Cet exemple montre l'export des méthodes d'une classe comme des fonctions, à l'aide d'alias.
 
 #### Comment ça marche
 

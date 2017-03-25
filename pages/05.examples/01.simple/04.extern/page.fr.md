@@ -3,8 +3,9 @@ title: Fichier Javascript externe
 menu: Fichier Javascript
 template: jaxon
 cache_enable: false
-description: Cet exemple montre comment enregistrer le code javascript généré par la librairie dans un fichier externe.
 ---
+
+Cet exemple montre comment enregistrer le code javascript généré par la librairie dans un fichier externe.
 
 Par défaut, le code javascript généré par Jaxon est inséré directement dans le code HTML de la page.
 Cependant, la librairie peut être configurée pour enregistrer le code généré dans un fichier, et le charger depuis le code HTML de la page.

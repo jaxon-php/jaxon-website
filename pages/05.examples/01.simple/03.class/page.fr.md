@@ -3,8 +3,9 @@ title: Classe Hello World
 menu: Classe Hello World
 template: jaxon
 cache_enable: false
-description: Cet exemple montre l'export d'une classe avec Jaxon.
 ---
+
+Cet exemple montre l'export d'une classe avec Jaxon.
 
 #### Comment ça marche
 

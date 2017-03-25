@@ -3,8 +3,9 @@ title: Utiliser l'autoloader de Composer
 menu: Autoloader de Composer
 template: jaxon
 cache_enable: false
-description: Cet exemple montre l'utilisation de l'autoloader de Composer.
 ---
+
+Cet exemple montre l'utilisation de l'autoloader de Composer.
 
 Par défaut, la librairie Jaxon implémente un mécanisme simple d'autoloading où le fichier correspondant à une classe est inclus avec la fonction `require_once`.
 Lorsque l'autoloader de Composer est utilisé, la librairie Jaxon enregistre tous les répertoires qui ont un namespace avec l'autoloader `PSR-4`, et tous les répertoires sans namespace avec l'autoloader `classmap`.

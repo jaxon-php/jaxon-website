@@ -3,8 +3,9 @@ title: Fichier de configuration
 menu: Fichier de configuration
 template: jaxon
 cache_enable: false
-description: Dans cet exemple, la configuration de la librairie Jaxon et de ses plugins est lue dans un fichier au format Yaml.
 ---
+
+Dans cet exemple, la configuration de la librairie Jaxon et de ses plugins est lue dans un fichier au format Yaml.
 
 Lorsque la configuration est lue dans un fichier, un second paramètre peut être passé à l'appel à `readConfigFile()` pour indiquer la section du fichier qui comprend les options. 
 Dans cet exemple, les options de configuration se trouvent dans la section `jaxon` du fichier.

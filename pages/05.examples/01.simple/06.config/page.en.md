@@ -3,8 +3,9 @@ title: Config File
 menu: Config File
 template: jaxon
 cache_enable: false
-description: In this example, the config options of the Jaxon library and its plugins are loaded from a file in Yaml format.
 ---
+
+In this example, the config options of the Jaxon library and its plugins are loaded from a file in Yaml format.
 
 When loading settings from a file, a second parameter can be passed to the `readConfigFile()` call to make the library load the options from a particular section of the file.
 In this example, the config options are under the `jaxon` section of the file.

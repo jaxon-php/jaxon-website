@@ -3,8 +3,9 @@ title: Le plugin CodeIgniter
 menu: Le plugin CodeIgniter
 template: jaxon
 cache_enable: false
-description: Cet exemple montre l'utilisation du [plugin Jaxon pour le framework CodeIgniter](https://github.com/jaxon-php/jaxon-codeigniter?target=_blank).
 ---
+
+Cet exemple montre l'utilisation du [plugin Jaxon pour le framework CodeIgniter](https://github.com/jaxon-php/jaxon-codeigniter?target=_blank).
 
 Ce plugin initialise et configure la librairie Jaxon, et laisse au développeur le soin d'écrire les classes Jaxon pour son application.
 
@@ -19,15 +20,13 @@ Installer et configurer le plugin jaxon pour CodeIgniter, en suivant la procédu
 Dans le contrôleur du framework, insérer le code généré par la librairie dans la page en utilisant ses fonctions de gestion des vues
 
 ```php
-class Demo extends Jaxon_Controller
+class Demo extends CI_Controller
 {
     public function index()
     {
         // Register the Jaxon classes
         $this->jaxon->register();
-        // Print the page
-        $this->load->library('parser');
-        $this->parser->parse('index', array(
+        $this->load->view('index', array(
             'JaxonCss' => $this->jaxon->css(),
             'JaxonJs' => $this->jaxon->js(),
             'JaxonScript' => $this->jaxon->script()
@@ -43,7 +42,7 @@ Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoir
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\CI\Controller
+class Bts extends \Jaxon\Module\Controller
 {
     public function sayHello($isCaps)
     {

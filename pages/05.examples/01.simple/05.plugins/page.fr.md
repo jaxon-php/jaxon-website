@@ -3,8 +3,9 @@ title: Plugin de réponse
 menu: Plugin de réponse
 template: jaxon
 cache_enable: false
-description: Cet exemple montre l'utilisation des plugins de réponse de Jaxon, en ajoutant des notifications et des fenêtres modales à l'exemple Classe Hello World avec le plugin jaxon-bootbox.
 ---
+
+Cet exemple montre l'utilisation des plugins de réponse de Jaxon, en ajoutant des notifications et des fenêtres modales à l'exemple Classe Hello World avec le plugin jaxon-bootbox.
 
 L'utilisation d'un plugin de réponse est très simple. Après son installation, le plugin s'enregistre automatiquement dans la librairie Jaxon. Il devient alors accessible depuis la classe Response de Jaxon, pour fournir ses fonctions à l'application.
 
