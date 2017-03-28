@@ -1,5 +1,6 @@
 <ul class="list-group sidebar-nav" id="sidebar-nav">
 {% for item in root.children %}
+    {% if item.visible %}
     {% if item.children|length > 0 %}
     <li class="list-group-item list-toggle">
         <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ item.slug }}">{{ item.menu }}</a>
@@ -14,6 +15,7 @@
     </li>
     {% else %}
     <li class="list-group-item"><a href="{{ item.url }}">{{ item.menu }}</a></li>
+    {% endif %}
     {% endif %}
 {% endfor %}
 </ul>
