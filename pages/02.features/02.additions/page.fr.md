@@ -1,5 +1,5 @@
 ---
-title: Quoi de neuf
-menu: Quoi de neuf
+title: Pourquoi Jaxon
+menu: Pourquoi Jaxon
 template: jaxon
 ---

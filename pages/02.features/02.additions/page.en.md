@@ -1,5 +1,5 @@
 ---
-title: What's new
-menu: What's new
+title: Why Jaxon
+menu: Why Jaxon
 template: jaxon
 ---

@@ -2,7 +2,7 @@
 title: The lifecycle of a Jaxon request
 menu: Request lifecycle
 template: jaxon
-published: true
+published: false
 ---
 
 1. Initially, there is a PHP class defined by the developer. When this class is exported with the Jaxon library, a javascript class with the same name (and a configurable prefix) is created and integrated into the web page.

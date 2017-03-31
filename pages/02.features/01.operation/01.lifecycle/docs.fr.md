@@ -2,7 +2,7 @@
 title: Le cycle de vie d'une requête Jaxon
 menu: Principe de fonctionnement
 template: jaxon
-published: true
+published: false
 ---
 
 1. Au départ, il y a une classe PHP définie par le développeur. Lorsque cette classe est exportée avec la librarie Jaxon, une classe javascript du même nom (et un préfixe configurable), est créée et intégrée à la page web.
