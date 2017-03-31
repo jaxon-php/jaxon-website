@@ -1,0 +1,5 @@
+                                    <h4 class="features-block-title">{{ page.header.title }}</h4>
+{{ page.content }}
+{% if page.header.read %}
+                                    <div class="read-more"><a href="{{ page.header.read.link }}">{{ page.header.read.text }}</a></div>
+{% endif %}
