@@ -8,4 +8,4 @@ read:
 
 When the javascript class is called in the browser, an Ajax request is automatically created and sent to the server with the parameters passed to the function.
 
-The Jaxon library receives the request, calls the PHP function with the received parameters, and returns the result to the webpage.  
+The Jaxon library receives the request, calls the PHP class with the parameters, and returns the result to the webpage.  

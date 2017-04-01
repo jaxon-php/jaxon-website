@@ -6,5 +6,5 @@ read:
     link: /docs/usage/configuration.html
 ---
 
-The Jaxon library can load its [configuration settings](/docs/usage/configuration) from a file.
+The Jaxon library can load its configuration settings from a file.
 Supported formats are JSON, YAML and PHP (the file contains code that returns an array).

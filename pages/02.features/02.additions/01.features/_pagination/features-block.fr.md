@@ -6,4 +6,4 @@ read:
     link: /fr/docs/requests/pagination.html
 ---
 
-La librairie Jaxon fournit une [fonction de pagination](/docs/advanced/pagination), qui permet de créer simplement une liste de liens qui appellent une même fonction Jaxon, mais avec un numéro de page qui s'incrémente.
+La librairie Jaxon fournit une fonction de pagination, qui permet de créer une liste de liens qui appellent une même fonction Jaxon, mais avec des numéro de page différents.
