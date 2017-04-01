@@ -1,7 +1,6 @@
 ---
-title: Export objects
-menu: Export objects
-visible: false
+title: Export PHP objects and functions
+menu: Export PHP code
 template: jaxon
 ---
 

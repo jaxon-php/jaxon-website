@@ -1,6 +1,7 @@
 ---
 title: Exporter des fonctions
 menu: Exporter des fonctions
+visible: false
 template: jaxon
 ---
 

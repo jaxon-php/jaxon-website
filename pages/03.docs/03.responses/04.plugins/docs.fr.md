@@ -1,6 +1,6 @@
 ---
-title: Les plugins de réponse
-menu: Les plugins de réponse
+title: Enrichir l'objet Response avec des plugins
+menu: Plugins
 template: jaxon
 ---
 

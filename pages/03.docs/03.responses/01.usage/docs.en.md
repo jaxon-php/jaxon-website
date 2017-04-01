@@ -1,6 +1,6 @@
 ---
 title: Create and return a response
-menu: Usage
+menu: Operation
 template: jaxon
 ---
 

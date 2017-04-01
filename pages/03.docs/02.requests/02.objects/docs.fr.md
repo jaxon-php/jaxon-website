@@ -1,6 +1,7 @@
 ---
 title: Exporter des objets
 menu: Exporter des objets
+visible: false
 template: jaxon
 ---
 

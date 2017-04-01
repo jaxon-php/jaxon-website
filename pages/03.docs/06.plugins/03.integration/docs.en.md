@@ -18,9 +18,8 @@ It must then be installed together with the plugin.
 For example, this is the `require` section of a `composer.json` file which installs the Jaxon plugin for the Laravel framework.
 ```json
     "require": {
-        "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "jaxon-php/jaxon-laravel": "1.0.*"
+        "jaxon-php/jaxon-laravel": "2.0.*"
     },
 ```
 
@@ -30,7 +29,7 @@ These are the controllers and the configuration or routes definition files of th
 #### Usage
 
 An integration plugin Jaxon provides a module, a library or a plugin for the framework, which, when loaded, automatically initializes the Jaxon library and provides access to the generated CSS and javascript.
-The Jaxon classes being installed in a specific location, they are also loaded automatically.
+Since the Jaxon classes are installed in a specific location, they are also automatically loaded.
 
 At the end, the developer only needs to write the Jaxon classes and save them in the specified location.
 The Jaxon plugin will then automatically registrer them.
@@ -43,24 +42,28 @@ In order to make their usage simpler, integration plugins allow to read the conf
 
 #### Examples
 
-The following integration plugins are ready for use. They are demonstrated in the [Examples](../../../examples) section.
+The following integration plugins are ready for use. They are demonstrated in the [Examples](/examples) section.
 
-**[Laravel](https://github.com/jaxon-php/jaxon-laravel)** ([Example](../../../examples/integration/laravel))
+**[Laravel](https://github.com/jaxon-php/jaxon-laravel)** ([Example](/examples/integration/laravel))
 
 Integrates the Jaxon library with the [Laravel](https://laravel.com) framework, starting from version 5.
 
-**[Symfony](https://github.com/jaxon-php/jaxon-symfony)** ([Example](../../../examples/integration/symfony))
+**[Symfony](https://github.com/jaxon-php/jaxon-symfony)** ([Example](/examples/integration/symfony))
 
 Integrates the Jaxon library with the [Symfony](http://symfony.com) framework, from version 2.8 to 3.
 
-**[Zend Framework](https://github.com/jaxon-php/jaxon-zend)** ([Example](../../../examples/integration/zend))
+**[Zend Framework](https://github.com/jaxon-php/jaxon-zend)** ([Example](/examples/integration/zend))
 
 Integrates the Jaxon library with the [Zend Framework](https://framework.zend.com), from version 2.3 to 3.
 
-**[CodeIgniter](https://github.com/jaxon-php/jaxon-codeigniter)** ([Example](../../../examples/integration/codeigniter))
+**[CodeIgniter](https://github.com/jaxon-php/jaxon-codeigniter)** ([Example](/examples/integration/codeigniter))
 
 Integrates the Jaxon library with the [CodeIgniter](https://www.codeigniter.com) framework, starting from version 3.
 
-**[Yii](https://github.com/jaxon-php/jaxon-yii)** ([Example](../../../examples/integration/yii))
+**[Yii](https://github.com/jaxon-php/jaxon-yii)** ([Example](/examples/integration/yii))
 
 Integrates the Jaxon library with the [Yii](http://www.yiiframework.com) framework, starting from version 2.
+
+**[CakePHP](https://github.com/jaxon-php/jaxon-cake)** ([Exemple](/examples/integration/cake))
+
+Integrates the Jaxon library with the [CakePHP](https://cakephp.org), framework, starting from version 3.

@@ -1,11 +1,10 @@
 ---
-title: Export objects
-menu: Export objects
-visible: false
+title: Exporter des objets et des fonctions PHP
+menu: Exporter du code PHP
 template: jaxon
 ---
 
-This is how to export an object.
+Voici comment exporter un objet.
 
 ```php
 use Jaxon\Jaxon;
@@ -38,10 +37,10 @@ $jaxon = jaxon();
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 ```
 
-After being exported, all public methods of the object are available in a javascript class named `JaxonHelloWorld`.
-The prefix `Jaxon` can be changed using the `core.prefix.class` configuration option.
+Après avoir été exportées, les méthodes publiques de l'objet sont dans la classe javascript nommée `JaxonHelloWorld`.
+Le préfixe `Jaxon` peut être changé à l'aide de l'option de configuration `core.prefix.class`.
 
-Here is an example of HTML code that calls methods of the PHP class exported with Jaxon.
+Voici un exemple de code HTML qui appelle des méthodes de la classe PHP exportée avec Jaxon.
 ```html
 <input type="button" value="Say Hello" onclick="JaxonHelloWorld.sayHello(0)" />
 <input type="button" value="Set Color" onclick="JaxonHelloWorld.setColor('red')" />
