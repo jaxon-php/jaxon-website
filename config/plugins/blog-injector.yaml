@@ -1,2 +1,2 @@
 framework: bootstrap
-add_framework_assets: true
+add_framework_assets: false
