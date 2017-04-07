@@ -9,82 +9,87 @@ Pour Jaxon, les paramètres dans les liens de pagination ne sont pas nommés, et
 
 Voici un exemple de liens de pagination dans une application classique.
 ```html
-<div class="pagination">
-    <span class="page-numbers current">1</span>
-    <a class="page-numbers" href="/items?page=2">2</a>
-    <a class="page-numbers" href="/items?page=3">3</a>
-    <a class="page-numbers" href="/items?page=4">4</a>
-    <a class="page-numbers" href="/items?page=5">5</a>
-</div>               
+<ul class="pagination">
+    <li><span class="page-numbers current">1</span></li>
+    <li><a class="page-numbers" href="/items?page=2">2</a></li>
+    <li><a class="page-numbers" href="/items?page=3">3</a></li>
+    <li><a class="page-numbers" href="/items?page=4">4</a></li>
+    <li><a class="page-numbers" href="/items?page=5">5</a></li>
+</ul>               
 ```
 
 Avec Jaxon, on devrait avoir plutôt ceci.
 ```html
-<div class="pagination">
-    <span class="page-numbers current">1</span>
-    <a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(2)">2</a>
-    <a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(3)">3</a>
-    <a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(4)">4</a>
-    <a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(5)">5</a>
-</div>                 
+<ul class="pagination">
+    <li><span class="page-numbers current">1</span></li>
+    <li><a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(2)">2</a></li>
+    <li><a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(3)">3</a></li>
+    <li><a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(4)">4</a></li>
+    <li><a class="page-numbers" href="javascript:;" onclick="MyClass.showPage(5)">5</a></li>
+</ul>                 
 ```
 
-Pour mettre en oeuvre la pagination avec Jaxon, on appelle la méthode `paginate()` de la classe `\Jaxon\Request\Factory`.
+Pour faire de la pagination avec Jaxon, on appelle la méthode `paginate()` de la classe `\Jaxon\Request\Factory`.
 ```php
 public function paginate($itemsTotal, $itemsPerPage, $currentPage, $method, ...)
 ```
 
+Ses 3 premiers paramètres indiquent les options de pagination.
 Son 4e paramètre indique la méthode (avec le nom de la classe) à appeler, et les suivants sont les paramètres de la requête.
-La position du numéro de page est indiquée par la fonction `jr::page()`. S'il n'est pas présent dans l'appel, il sera automatiquement ajouté à la fin de la liste des paramètres.
 
-Dans une classe Jaxon, le trait `Jaxon\Request\FactoryTrait` fournit également une méthode `paginate` qui crée les liens de pagination à partir du nom de la méthode, mais sans le nom de la classe.
-```php
-public function paginate($itemsTotal, $itemsPerPage, $currentPage, $method, ...)
-```
+La position du numéro de page est indiquée par la fonction `Jaxon\Request\Factory::page()`. S'il n'est pas présent dans l'appel, il sera automatiquement ajouté à la fin de la liste des paramètres.
 
-Exemple.
 ```php
-<?php
 use Jaxon\Jaxon;
-use Jaxon\Request\Factory as jr;
 use Jaxon\Response\Response;
+use Jaxon\Request\Factory as rq;
 
 class MyClass
 {
-    use \Jaxon\Request\FactoryTrait;
-
-    public function showPage($currentPage, $paginationText)
+    public function showPage($color, $currentPage)
     {
         // Function body
-        $response = new Response;
-
-        // Pagination
-        $itemsTotal = 45;
-        $itemsPerPage = 10;
-        $pagination = $this->paginate($itemsTotal, $itemsPerPage, $currentPage, 'showPage', jr::page(), jr::html('pagination-text'));
-        $response->assign('pagination-text', 'innerHTML', $paginationText);
-        $response->assign('pagination-content', 'innerHTML', $pagination);
-        return $response;
     }
 }
 
 $myObject = new MyClass;
 $jaxon->register(Jaxon::CALLABLE_OBJECT, $myObject);
 
-// Pagination
-$itemsTotal = 45;
-$itemsPerPage = 10;
-$currentPage = 1;
-// Requête
-$pagination = jr::paginate($itemsTotal, $itemsPerPage, $currentPage, 'MyClass.showPage', jr::page(), jr::html('pagination-text'));
-?>
+$pagination = rq::paginate(25, 10, 1, 'MyClass.showPage', rq::select('colorselect'), rq::page());
+```
 
+```html
 <div class="content">
-    <div id="pagination-text">
-        Jaxon Pagination
+    <div id="color">
+        <select class="form-control" id="colorselect" name="colorselect">
+            <option value="black" selected="selected">Black</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
     </div>
-    <div id="pagination-content">
-        <?php echo $pagination ?>
-    </div>
+    <div id="pagination-wrapper"><?php echo $pagination ?></div>
 </div>
+```
+
+Dans une classe Jaxon, le trait `Jaxon\Request\Traits\Factory` fournit également une méthode `paginate` qui crée les liens de pagination à partir du nom de la méthode, mais sans le nom de la classe.
+
+Exemple.
+```php
+use Jaxon\Jaxon;
+use Jaxon\Response\Response;
+use Jaxon\Request\Factory as rq;
+
+class MyClass
+{
+    use \Jaxon\Request\FactoryTrait;
+
+    public function showPage($color, $currentPage)
+    {
+        $response = new Response;
+        $pagination = $this->paginate(25, 10, $currentPage, 'showPage', rq::select('colorselect'), rq::page());
+        $response->assign('pagination-wrapper', 'innerHTML', $pagination);
+        return $response;
+    }
+}
 ```
