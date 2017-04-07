@@ -57,7 +57,7 @@ The following table shows the correspondances between the old and new names of o
 | | | |
 | debugOutputID                | js.lib.output_id           | |
 | responseQueueSize            | js.lib.queue_size          | |
-| scriptLoadTimeout            | js.lib.load_timeout        | |
+| scriptLoadTimeout            | js.lib.load_timeout        | **Supprimé dans la version 2** |
 | waitCursor                   | js.lib.show_cursor         | |
 | statusMessages               | js.lib.show_status         | |
 | javascript URI               | js.lib.uri                 | A former option is covered by two new |

@@ -54,7 +54,6 @@ These options are those of the Jaxon library. The Jaxon plugins can require addi
 | | | |
 | js.lib.uri                    | string  | The link to the Jaxon javascript libraries |
 | js.lib.queue_size             | integer | The max number of commands in a single answer |
-| js.lib.load_timeout           | integer | Loading timeout of javascript libraries |
 | js.lib.show_cursor            | boolean | Whether to display a cursor |
 | js.lib.show_status            | boolean | Whether to display the status of the request |
 | js.lib.output_id              | string  | The id of the javascript debug output |

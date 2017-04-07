@@ -57,7 +57,7 @@ Le tableau suivant donne les correspondances etre les anciens et les nouveaux no
 | | | |
 | debugOutputID                | js.lib.output_id         | |
 | responseQueueSize            | js.lib.queue_size        | |
-| scriptLoadTimeout            | js.lib.load_timeout      | |
+| scriptLoadTimeout            | js.lib.load_timeout      | **removed in version 2** |
 | waitCursor                   | js.lib.show_cursor       | |
 | statusMessages               | js.lib.show_status       | |
 | javascript URI               | js.lib.uri               | Un ancien paramètre correspond à deux nouveaux |
