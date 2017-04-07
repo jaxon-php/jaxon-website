@@ -3,7 +3,7 @@ title: The JQuery PHP API
 position: 1
 read:
     text: Read more
-    link: /docs/responses/jquery.html
+    link: /docs/advanced/jquery.html
 ---
 
 Each function provided by the `Jaxon\Response\Response` class to set the content or the layout of a webpage performs an action on a single element, identified by its `id` attribute.

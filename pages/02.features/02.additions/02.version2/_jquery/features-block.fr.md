@@ -3,7 +3,7 @@ title: L'API JQuery PHP
 position: 1
 read:
     text: Lire plus
-    link: /fr/docs/responses/jquery.html
+    link: /fr/docs/advanced/jquery.html
 ---
 
 Chaque fonction de la classe `Jaxon\Response\Response` qui modifie le contenu ou la présentation d'une page agit sur un élément unique, identifié par son attribut `id`.
