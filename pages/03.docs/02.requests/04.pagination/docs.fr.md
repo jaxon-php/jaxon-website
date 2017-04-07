@@ -82,7 +82,7 @@ use Jaxon\Request\Factory as rq;
 
 class MyClass
 {
-    use \Jaxon\Request\FactoryTrait;
+    use \Jaxon\Request\Traits\Factory;
 
     public function showPage($color, $currentPage)
     {

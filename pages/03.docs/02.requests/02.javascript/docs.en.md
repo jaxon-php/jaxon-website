@@ -1,6 +1,6 @@
 ---
-title: Generating javascript code
-menu: Javascript code
+title: Generating and calling javascript code
+menu: Javascript calls
 template: jaxon
 ---
 

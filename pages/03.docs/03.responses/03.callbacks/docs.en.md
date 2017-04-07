@@ -5,8 +5,10 @@ template: jaxon
 published: true
 ---
 
-Jaxon allows the developer to specify a callback function that will be called before the execution of each request.
-It is defined in one of the following ways.
+Jaxon allows the developer to specify callbacks that will be called at different steps during the execution of each request.
+
+#### Before processing the request
+
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, 'functionName');
 ```
@@ -16,14 +18,15 @@ $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_BEFORE, array(
 
 The callback function takes a boolean parameter `$bEndRequest` passed by reference, and returns a Jaxon response. The parameter value equals to `false` before the function is called.
 If the parameter is assigned to `true` in the function, the request processing is stopped, and the returned response is sent back to the browser.
+
 ```php
 function preProcess(&$bEndRequest)
 {
 }
 ```
 
-Jaxon allows the developer to specify a callback function that will be called after execution of each request.
-It is defined in one of the following ways.
+#### After processing the request
+
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_AFTER, 'functionName');
 ```
@@ -39,8 +42,8 @@ function postProcess($bEndRequest)
 }
 ```
 
-Jaxon also allows the developer to specify a function to be called when an invalid request is received.
-It is defined in one of the following ways.
+#### In the case of an invalid request
+
 ```php
 $jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_INVALID, 'functionName');
 ```
@@ -53,6 +56,26 @@ The response to the Jaxon request is reset, and if the callback returns one, it 
 
 ```php
 function invalidRequest($sMessage)
+{
+}
+```
+
+#### In the case of a processing error
+
+This callback is available since version 2.
+
+```php
+$jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_ERROR, 'functionName');
+```
+```php
+$jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_ERROR, array($object, 'methodName'));
+```
+
+The callback function takes as a parameter the exception thrown while processing the request.
+The response to the Jaxon request is reset, and if the callback returns one, it will also be that of the request.
+
+```php
+function invalidRequest($xException)
 {
 }
 ```

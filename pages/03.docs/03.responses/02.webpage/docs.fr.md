@@ -1,11 +1,11 @@
 ---
-title: Modifier le contenu d'une page web avec PHP
-menu: Modifier une page
+title: Modifier le contenu des pages web avec PHP
+menu: Le contenu des pages
 template: jaxon
 ---
 
-Une réponse Jaxon contient une liste de commandes à exécuter dans le navigateur en réponse à une requête Jaxon.
-La classe `Jaxon\Response\Response` implémente un ensemble de fonctions qui permettent chacune de lui ajouter une commande qui exécute une action dans le navigateur.
+L'objet `Response` retourné en réponse à une requête Jaxon contient une liste de commandes à exécuter dans le navigateur.
+La classe `Jaxon\Response\Response` fournit un ensemble de fonctions qui lui ajoutent chacune une commande spécidique.
 
 Par exemple, le code suivant affiche un message d'alerte.
 ```php
