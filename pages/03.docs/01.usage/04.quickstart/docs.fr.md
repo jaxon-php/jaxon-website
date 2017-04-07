@@ -4,7 +4,8 @@ menu: Un exemple simple
 template: jaxon
 ---
 
-Voici la traditionnelle application `Hello World` avec Jaxon.
+Voici la traditionnelle application `Hello World` avec Jaxon.  
+Pour plus de clarté, tout le code est dans un seul fichier.
 
 D'abord, la classe `HelloWorld` est définie. Elle contient une méthode `sayHello()` qui renvoie un objet `Jaxon\Response\Response`.
 L'instruction `$response->alert($text)` sert à afficher un message dans la page web.

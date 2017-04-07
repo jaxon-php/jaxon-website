@@ -5,7 +5,7 @@ features:
     - header: Fork de la librairie Xajax
       icon: heart
       text: Jaxon reprend les fonctions d'une des plus brillantes librairies pour créer des applications Ajax en PHP.
-    - header: Plusieurs nouvelles fonctions
+    - header: De nouvelles fonctions
       icon: rocket
       text: Jaxon s'enrichit de nouvelles fonctions, et s'intègre facilement avec les frameworks PHP existants.
     - header: Modulaire et extensible
