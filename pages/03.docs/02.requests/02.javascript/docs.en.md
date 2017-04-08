@@ -64,8 +64,4 @@ In this example the content of a HTML element is passed as parameter to the func
 ````
 
 The [Request Factory](/docs/requests/factory) provides functions to generate the above javascript calls from PHP.
-```php
-use Jaxon\Request\Factory as jr;
 
-<button onclick="<?php echo jr::call('HelloWorld.sayHello', jr::html('DemoDiv')) ?>">Click Me</button>
-````

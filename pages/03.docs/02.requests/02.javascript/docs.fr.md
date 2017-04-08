@@ -66,8 +66,4 @@ L'exemple suivant transmet le contenu d'un élément de la page à une fonction 
 ````
 
 La [Fabrique de requêtes](/docs/requests/factory) permet de générer les appels javascript ci-dessus à partir de PHP.
-```php
-use Jaxon\Request\Factory as jr;
 
-<button onclick="<?php echo jr::call('HelloWorld.sayHello', jr::html('DemoDiv')) ?>">Click Me</button>
-````
