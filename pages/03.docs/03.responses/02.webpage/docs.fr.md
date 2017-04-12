@@ -41,7 +41,7 @@ Par exemple, le code suivant affecte un texte au bloc HTML avec l'id `message-id
 $response->assign('message-id', 'innerHTML', 'Jaxon is cool');
 ``` 
 
-Pour modifier le style, le paramètre `$sAttribute` prend la valeur `style.` suivi de l'aatribut CSS à modifier.
+Pour modifier le style, le paramètre `$sAttribute` prend la valeur `style.` suivi de l'attribut CSS à modifier.
 Par exemple, le code suivant définit la couleur du texte du bloc HTML avec l'id `message-id`.
 
 ```php
