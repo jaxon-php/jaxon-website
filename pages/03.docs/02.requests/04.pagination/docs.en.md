@@ -40,22 +40,7 @@ Its fourth parameter indicates the method (with the name of the class) to call, 
 The position of the page number is indicated by the `Jaxon\Request\Factory::page()` function. If it is not present in the call, it will be automatically added to the end of the parameter list.
 
 ```php
-use Jaxon\Jaxon;
-use Jaxon\Response\Response;
-use Jaxon\Request\Factory as rq;
-
-class MyClass
-{
-    public function showPage($color, $currentPage)
-    {
-        // Function body
-    }
-}
-
-$myObject = new MyClass;
-$jaxon->register(Jaxon::CALLABLE_OBJECT, $myObject);
-
-$pagination = rq::paginate(25, 10, 1, 'MyClass.showPage', rq::select('colorselect'), rq::page());
+$pagination = rq()->paginate(25, 10, 1, 'MyClass.showPage', rq()->select('colorselect'), rq()->page());
 ```
 
 ```html
@@ -72,21 +57,16 @@ $pagination = rq::paginate(25, 10, 1, 'MyClass.showPage', rq::select('colorselec
 </div>
 ```
 
-In a Jaxon class, the `\Jaxon\Request\Traits\Factory` trait also provides a `paginate()` method which creates pagination links from the method name, but without the name of the class.
+In a Jaxon class, the `\Jaxon\Request\Traits\Factory` trait provides a `paginate()` method which creates pagination links from the method name, but without the name of the class.
 
 ```php
-use Jaxon\Jaxon;
-use Jaxon\Response\Response;
-use Jaxon\Request\Factory as rq;
-
 class MyClass
 {
     use \Jaxon\Request\Traits\Factory;
 
     public function showPage($color, $currentPage)
     {
-        $response = new Response;
-        $pagination = $this->paginate(25, 10, $currentPage, 'showPage', rq::select('colorselect'), rq::page());
+        $pagination = $this->paginate(25, 10, $currentPage, 'showPage', rq()->select('colorselect'), rq()->page());
         $response->assign('pagination-wrapper', 'innerHTML', $pagination);
         return $response;
     }
