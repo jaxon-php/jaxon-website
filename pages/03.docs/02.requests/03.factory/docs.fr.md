@@ -61,3 +61,72 @@ class MyClass
     }
 }
 ```
+
+#### Les appels conditionnels
+
+La fabrique de requête fournit 3 fonctions pour vérifier une condition avant l'éxécution de la requête.
+
+La fonction `when()` exécute la requête seulement si une condition est vraie.
+Dans l'exemple suivant la requête est exécutée si l'utilisateur a coché la case avec l'id `accepted`.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->when(rq()->checked('accepted'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+La fonction `unless()` exécute la requête seulement si une condition est fausse.
+Dans l'exemple suivant la requête est exécutée si l'utilisateur n'a pas coché la case avec l'id `refused`.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->unless(rq()->checked('refused'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+La fonction `confirm()` exécute la requête seulement si l'utilisateur répond oui à la question posée.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->confirm('Etes-vous sûr?');
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+Le contenu de la page web peut être inclus dans la question, en indiquant les positions entre accolades.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->confirm('Vous voulez du {1} ? Vraiment, {2} ?', rq()->select('colorselect'), rq()->html('username'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+L'ordre des paramètres dans dans le message peut être changé, ce qui permet par exemple de prendre en compte les traductions.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->confirm('Bonjour {2}, vous voulez du {1} ?', rq()->select('colorselect'), rq()->html('username'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+Par défaut, le message de confirmation est affiché avec la fonction javascript `confirm()`.
+Le plugin [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs) permet de poser la question de confirmation avec d'autres librairies javascript.

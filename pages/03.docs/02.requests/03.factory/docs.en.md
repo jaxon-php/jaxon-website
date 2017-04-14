@@ -62,3 +62,72 @@ class MyClass
     }
 }
 ```
+
+#### Conditional calls
+
+The Request Factory provides 3 functions to check a condition before sending a Jaxon request.
+
+The function `when()` sends the request only if the given condition is true.
+In the following example, the request is sent only if the checkbox with id `accepted` is checked.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->when(rq()->checked('accepted'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+The function `unless()` sends the request only if the given condition is not true.
+In the following example, the request is sent only if the checkbox with id `refused` is not checked.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->unless(rq()->checked('refused'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+The function `confirm()` asks a question and sends the request only if the user answers yes.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->confirm('Are you sure?');
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+The content from the webpage can be inserted in the question, by giving their position between braces.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->confirm('You want {1}? Really, {2}?', rq()->select('colorselect'), rq()->html('username'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+The order of the parameters in the message can be changed, allowing for example to take message tranlations into account.
+
+```php
+public function myFunction()
+{
+    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+        ->confirm('Hey {2}, you really want {1}?', rq()->select('colorselect'), rq()->html('username'));
+    $response->setEvent('colorselect', 'onchange', $request);
+    return $response;
+}
+```
+
+By default, the confirmation message is printed using the javascript `confirm()` function.
+The [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs) plugin allows to ask the confirmation question using third party javascript libraries.
