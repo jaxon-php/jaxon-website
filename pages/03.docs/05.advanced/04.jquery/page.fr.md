@@ -17,7 +17,7 @@ En réalité elle génère automatiquement des appels aux fonctions de jQuery.
 L'API jQuery PHP permet d'utiliser les mêmes sélecteurs que la librairie jQuery, et donc d'appliquer une fonction simultanément sur plusieurs éléments d'une page web, sélectionnés avec des critères variés.
 Elle est simple à apprendre pour ceux qui connaissent jQuery. Cependant, elle nécessite de charger la librairie jQuery dans la page pour fonctionner.
 
-L'API jQuery est disponible dans le plugin [jaxon-jquery](https://github.com/jaxon-php/jaxon-jquery), qui a été intégré à la librairie dans la version 2.
+L'API jQuery est fournie par le plugin [jaxon-jquery](https://github.com/jaxon-php/jaxon-jquery), qui a été intégré à la librairie dans la version 2.
 
 #### Utiliser l'API (Dans Jaxon version 2)
 
@@ -25,10 +25,10 @@ L'API fonctionne de la même manière que celle de la librairie javascript.
 Une première fonction sélectionne les éléments sur lequels on souhaite agir, et une ou plusieurs autres fonctions leur appliquent les traitements souhaités.
 Toutes ces fonctions peuvent être chaînées dans un seul appel.
 
-La fonction qui sélectionne les éléments est `jquery()`. C'est une méthode de la classe `Response`.
+La fonction qui sélectionne les éléments est `jQuery()`. C'est une méthode de la classe `Response`.
 
 ```php
-$response->jquery('#message')->html('Yaba daba doo')->css('color', 'blue');
+$response->jQuery('#message')->html('Yaba daba doo')->css('color', 'blue');
 ```
 
 SOn premier paramètre est un sélecteur (voir la [documentation de jQuery](http://api.jquery.com/jQuery/)).
@@ -37,60 +37,60 @@ Le second, optionnel, est un contexte qui permet de limiter la sélection à une
 Chaque appel suivant peut modifier le contenu ou le style de chaque élément de la sélection,
 
 ```php
-$response->jquery('#message')->html('Yaba daba doo')->css('color', 'blue');
+$response->jQuery('#message')->html('Yaba daba doo')->css('color', 'blue');
 ```
 
 ou bien lier un évènement à une fonction javascript sur chaque élément de la sélection,
 
 ```php
-$response->jquery('#message')->click(rq()->func('alert', 'You clicked on the message'));
+$response->jQuery('#message')->click(rq()->func('alert', 'You clicked on the message'));
 ```
 
 ou enfin écrire ou lire la valeur d'un attribut du premier élément de la sélection.
 
 ```php
-$response->jquery('#message')->value = 'Yaba daba doo';
+$response->jQuery('#message')->value = 'Yaba daba doo';
 ```
 
 #### Les paramètres des fonctions
 
-Le méthode `jquery()` accepte les mêmes [sélecteurs que jQuery](http://api.jquery.com/category/selectors/).
+Le méthode `jQuery()` accepte les mêmes [sélecteurs que jQuery](http://api.jquery.com/category/selectors/).
 
 Les paramètres des appels suivants peuvent être de type booléen, entier, caractères ou tableau.
-Il est également possible de passer du contenu de la page web en paramètre des appels, en utilisant la fonction globale `jquery()`,
+Il est également possible de passer du contenu de la page web en paramètre des appels, en utilisant la fonction globale `jQuery()`,
 
 ```php
-$response->jquery('#message')->html(jquery('#message2')->html());
+$response->jQuery('#message')->html(jQuery('#message2')->html());
 ```
 
 ou encore la [fabrique de requête](/docs/requests/factory).
 
 ```php
-$response->jquery('#message')->html(rq()->html('message2'));
+$response->jQuery('#message')->html(rq()->html('message2'));
 ```
 
 Une fonction Jaxon peut être passée en paramètre, pour la lier à un évènement.
 
 ```php
-$response->jquery('#button')->click(rq()->call('MyClass.myMethod'));
+$response->jQuery('#button')->click(rq()->call('MyClass.myMethod'));
 ```
 
-La fonction globale `jquery()` peut être appelée sans paramètre.
+La fonction globale `jQuery()` peut être appelée sans paramètre.
 Cela permet dans le contexte de l'exécution d'une callback, d'accéder à l'élément en cours de traitement, soit l'équivalent de la variable javascript `this`.
 
 Dans l'exemple suivant un click sur chaque bouton appellera la fonction Jaxon avec un paramètre différent, donné par l'attribut `data-name` de l'élément parent du bouton.
 
 ```php
-$request = rq()->call('MyClass.myMethod', jquery()->parent()->attr('data-name'));
-$response->jquery('.btn')->click($request);
+$request = rq()->call('MyClass.myMethod', jQuery()->parent()->attr('data-name'));
+$response->jQuery('.btn')->click($request);
 ```
 
 Cette syntaxe peut également être utilisée pour inclure du contenu de la page web dans une question de confirmation.
 
 ```php
 $request = rq()->call('MyClass.myMethod')
-    ->confirm('Confirm the name {1}?', jquery()->parent()->attr('data-name'));
-$response->jquery('.btn')->click($request);
+    ->confirm('Confirm the name {1}?', jQuery()->parent()->attr('data-name'));
+$response->jQuery('.btn')->click($request);
 ```
 
 #### Compatibilité avec jQuery

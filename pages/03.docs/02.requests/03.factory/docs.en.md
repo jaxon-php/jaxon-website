@@ -117,7 +117,7 @@ public function myFunction()
 }
 ```
 
-The order of the parameters in the message can be changed, allowing for example to take message tranlations into account.
+The order of the parameters in the message can be changed, allowing for example to take message translations into account.
 
 ```php
 public function myFunction()
