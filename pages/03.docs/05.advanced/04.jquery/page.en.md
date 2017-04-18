@@ -25,7 +25,7 @@ The PHP API operates the same way as the javascript library.
 A first function selects the set of elements to be modified, and the following calls each perform an action on the selected elements.
 All these functions can be chained in one call.
 
-The function which selects the elements est `jQuery()`. It is a method of the `Response` class.
+The function to select the elements is named `jQuery()`. It is a method of the `Response` class.
 
 ```php
 $response->jQuery('#message')->html('Yaba daba doo')->css('color', 'blue');
