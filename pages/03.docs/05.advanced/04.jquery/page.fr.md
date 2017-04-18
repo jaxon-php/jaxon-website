@@ -25,7 +25,7 @@ L'API fonctionne de la même manière que celle de la librairie javascript.
 Une première fonction sélectionne les éléments sur lequels on souhaite agir, et une ou plusieurs autres fonctions leur appliquent les traitements souhaités.
 Toutes ces fonctions peuvent être chaînées dans un seul appel.
 
-La fonction qui sélectionne les éléments est `jQuery()`. C'est une méthode de la classe `Response`.
+La classe `Response` fournit une méthode nommée `jQuery()`, qui sélectionne les éléments du DOM à modifier.
 
 ```php
 $response->jQuery('#message')->html('Yaba daba doo')->css('color', 'blue');
