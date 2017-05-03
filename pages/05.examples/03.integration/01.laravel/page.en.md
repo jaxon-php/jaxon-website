@@ -40,12 +40,12 @@ class DemoController extends Controller
 
 Save the Jaxon files of  the application in the `app/Jaxon/Controllers` directory
 
-In this example we have two files `Bts.php` and `Pgw.php` in the `app/Jaxon/Controllers/Test` directory.
+In this example we have two files `Bts.php` and `Pgw.php` in the `app/Jaxon/Classes/Test` directory.
 
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Module\Controller
+class Bts extends \Jaxon\Sentry\Classes\Base
 {
     public function sayHello($isCaps)
     {

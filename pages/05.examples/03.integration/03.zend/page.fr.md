@@ -46,7 +46,7 @@ class DemoController extends AbstractActionController
 
 Placer les fichiers Jaxon de l'application dans le répertoire `jaxon` à la racine de l'application.
 
-Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `jaxon/Test`.
+Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `jaxon/Classes/Test`.
 
 ```php
 namespace Jaxon\App\Test;
@@ -97,7 +97,7 @@ class Bts extends \Jaxon\Zend\Controller
 ```php
 namespace Jaxon\App\Test;
 
-class Pgw extends \Jaxon\Module\Controller
+class Pgw extends \Jaxon\Sentry\Classes\Base
 {
     public function sayHello($isCaps)
     {

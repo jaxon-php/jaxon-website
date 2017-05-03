@@ -37,12 +37,12 @@ class Demo extends CI_Controller
 
 Placer les fichiers Jaxon de l'application dans le répertoire `application/jaxon`
 
-Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `application/jaxon/Test`.
+Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `application/jaxon/classes/Test`.
 
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Module\Controller
+class Bts extends \Jaxon\Sentry\Classes\Base
 {
     public function sayHello($isCaps)
     {

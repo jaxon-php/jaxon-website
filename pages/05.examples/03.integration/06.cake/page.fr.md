@@ -46,12 +46,12 @@ class DemoController extends AppController
 
 Placer les fichiers Jaxon de l'application dans le répertoire `ROOT/jaxon/Controller`
 
-Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `ROOT/jaxon/Controller/Test`.
+Dans cet exemple il y a deux fichiers `Bts.php` and `Pgw.php` dans le répertoire `ROOT/jaxon/Classes/Test`.
 
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Module\Controller
+class Bts extends \Jaxon\Sentry\Classes\Base
 {
     public function sayHello($isCaps)
     {
