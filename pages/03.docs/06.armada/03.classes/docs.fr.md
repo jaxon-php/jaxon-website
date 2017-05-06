@@ -15,6 +15,20 @@ Chaque entrée du tableau représente un répertoire, défini avec les informati
 - `protected` : optionnel, un tableau de méthodes à ne pas exporter dans les classes javascript, par défaut vide.
 
 Ce tableau doit toujours contenir au moins une entrée.
+Le code suivant est extrait de [l'exemple d'utilisation de Armada](https://github.com/jaxon-php/jaxon-examples/blob/master/armada/config/jaxon.php).
+
+```php
+    'app' => array(
+        'classes' => array(
+            array(
+                'directory' => dirname(__DIR__) . '/classes',
+                'namespace' => '\\Jaxon\\App',
+                // 'separator' => '.',
+                // 'protected' => [],
+            ),
+        ),
+    ),
+```
 
 #### La classe `Jaxon\Sentry\Classes\Base`
 
@@ -91,7 +105,7 @@ class ClassA extends \Jaxon\Sentry\Classes\Base
 }
 ```
 
-Le contenu de la page peut être passé en paramètre aux appels à l'aide de la fabrique de requête ou de l'API jQuery PHP, et leurs fonctions globales `rq()` et `jq()`.
+Le contenu de la page peut être passé en paramètre aux appels à l'aide de [la fabrique de requête](/docs/requests/factory) ou de [l'API jQuery PHP](/docs/advanced/jquery), et leurs fonctions globales `rq()` et `jq()`.
 
 ```php
 class ClassA extends \Jaxon\Sentry\Classes\Base

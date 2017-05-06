@@ -44,7 +44,7 @@ La section `app` contient la [configuration des classes](/docs/armada/classes) e
 #### Les callbacks
 
 Avec Armada, les [callbacks](/docs/responses/callbacks) ne doivent plus être définies avec la fonction `jaxon()->register()`.
-Elles doivent être définies à l'aide de fonctions anonymes et des méthodes suivantes, qui donnent au développeur l'accès à l'object et à la méthode appelés.
+Elles doivent être définies à l'aide de fonctions anonymes et des méthodes suivantes, qui donnent au développeur l'accès à l'objet et à la méthode appelés.
 
 ###### Initialisation de la librairie
 

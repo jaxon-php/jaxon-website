@@ -37,7 +37,7 @@ $jaxon->register(Jaxon::USER_FUNCTION, 'helloWorld');
 #### Les paramètres des appels javascript
 
 Des paramètres de tout type peuvent être passés aux fonctions javascript générées par Jaxon : entier, booléen, caractères, tableaux ou objets.
-Ils sont automatiquement passée aux classes PHP correspondantes.
+Ils sont automatiquement passés aux classes PHP correspondantes.
 
 La librairie javascript de Jaxon permet de passer des éléments du contenu de la page web en paramètres des appels Ajax.
 

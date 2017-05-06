@@ -94,9 +94,7 @@ removeHandler(string $sTarget, string $sEvent, string $sHandler)
 Par exemple, le code suivant exécute une fonction Jaxon lorsque l'utilisateur clique sur le bouton.
 
 ```php
-use Jaxon\Request\Factory as rq;
-
-$response->onClick('btn-set-color', rq::call('MyClass.myMethod', rq::select('colorselect')));
+$response->onClick('btn-set-color', rq()->call('MyClass.myMethod', rq()->select('colorselect')));
 ``` 
 
 Bien que la classe `Jaxon\Response\Response` implémente un riche ensemble de fonctions, il est possible de lui en ajouter à l'aide de [plugins](/docs/plugins/response).

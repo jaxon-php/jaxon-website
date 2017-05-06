@@ -15,6 +15,20 @@ Each entry of the array represents a directory, defined with the following infor
 - `protected` : optional, an array of methods that are not to be exported in javascript classes, empty by default.
 
 This array must always contain at least one entry.
+The following code is an excerpt from [the example of using Armada](https://github.com/jaxon-php/jaxon-examples/blob/master/armada/config/jaxon.php).
+
+```php
+    'app' => array(
+        'classes' => array(
+            array(
+                'directory' => dirname(__DIR__) . '/classes',
+                'namespace' => '\\Jaxon\\App',
+                // 'separator' => '.',
+                // 'protected' => [],
+            ),
+        ),
+    ),
+```
 
 #### The `Jaxon\Sentry\Classes\Base` class
 
@@ -91,7 +105,7 @@ class ClassA extends \Jaxon\Sentry\Classes\Base
 }
 ```
 
-The contents of the webpage can be passed as parameters to calls using the Request Factory or the PHP jQuery API, and their global functions `rq()` and `jq()`.
+The contents of the webpage can be passed as parameters to calls using the [Request Factory](/docs/requests/factory) or the [PHP jQuery API](/docs/advanced/jquery), and their global functions `rq()` and `jq()`.
 
 ```php
 class ClassA extends \Jaxon\Sentry\Classes\Base

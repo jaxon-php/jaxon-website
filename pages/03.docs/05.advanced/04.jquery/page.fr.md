@@ -31,7 +31,7 @@ La classe `Response` fournit une méthode nommée `jQuery()`, qui sélectionne l
 $response->jQuery('#message')->html('Yaba daba doo')->css('color', 'blue');
 ```
 
-SOn premier paramètre est un sélecteur (voir la [documentation de jQuery](http://api.jquery.com/jQuery/)).
+Son premier paramètre est un sélecteur (voir la [documentation de jQuery](http://api.jquery.com/jQuery/)).
 Le second, optionnel, est un contexte qui permet de limiter la sélection à une partie de la page web.
 
 Chaque appel suivant peut modifier le contenu ou le style de chaque élément de la sélection,
