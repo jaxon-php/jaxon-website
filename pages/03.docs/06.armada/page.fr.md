@@ -1,5 +1,5 @@
 ---
-title: Jaxon Armada
-menu: Armada
+title: Armada et Sentry
+menu: Armada et Sentry
 template: jaxon
 ---

@@ -74,7 +74,7 @@ class ClassB extends \Jaxon\Sentry\Classes\Base
 #### La fabrique de requête
 
 La méthode `request()` (ou sa version courte `rq()`) renvoie une requête vers la classe qui l'appelle.
-Elle fournit une interface fluide qui transforme chaque appel vers une de ses méthodes en requête vers la même méthode dans la classe Jaxon.
+Elle fournit une interface fluide qui transforme chaque appel reçu en requête vers la même méthode dans la classe qui l'appelle.
 
 ```php
 class ClassA extends \Jaxon\Sentry\Classes\Base

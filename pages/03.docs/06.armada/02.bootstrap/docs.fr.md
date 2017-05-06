@@ -8,8 +8,8 @@ Le démarrage d'une application Jaxon basée sur Armada se fait en trois étapes
 
 D'abord il faut charger la configuration, avec la méthode `config()`, qui prend en paramètre le chemin complet vers le fichier de configuration.
 
-Ensuite, il faut définir à l'aide de callbacks les fonctions à exécuter à différentes étapes du traitement de la requête.
-Les callbacks sont présentées ci-dessous.
+Ensuite, il faut définir à l'aide de callbacks les actions à exécuter à différentes étapes du traitement de la requête.
+Cette étape est optionnelle. Les callbacks sont présentées ci-dessous.
 
 Enfin, il faut soit exporter les classes ou traiter la requête, selon l'action exécutée sur la page web.  
 
@@ -43,7 +43,7 @@ La section `app` contient la [configuration des classes](/docs/armada/classes) e
 
 #### Les callbacks
 
-Avec Armada, les [callbacks](/docs/responses/callbacks) ne doivent plus être définies avec la fonction `register()` de Jaxon.
+Avec Armada, les [callbacks](/docs/responses/callbacks) ne doivent plus être définies avec la fonction `jaxon()->register()`.
 Elles doivent être définies à l'aide de fonctions anonymes et des méthodes suivantes, qui donnent au développeur l'accès à l'object et à la méthode appelés.
 
 ###### Initialisation de la librairie
@@ -88,5 +88,5 @@ $armada->onError(function($response, $exception){
 
 Les paramètres `$instance` et `$method` sont respectivement l'instance de la classe Jaxon et le nom de la méthode invoquées.
 Le paramètre `$bEndRequest` est un booléen que l'on peut passer à `true` dans la callback pour interrompre la requête en cours.
-Un objet `Response` est soit accessible dans l'objet avec `$instance->response`, soit passé en paramètre à la callback.
+L'objet `Response` est soit accessible dans l'objet avec `$instance->response`, soit passé en paramètre à la callback.
 En cas de requête invalide, le paramètre `$message` donne la cause, et en cas d'erreur, le paramètre `$exception` est l'exception qui a été levée.

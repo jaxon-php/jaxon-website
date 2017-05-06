@@ -12,7 +12,7 @@ Each entry of the array represents a directory, defined with the following infor
 - `directory` : the full path to the directory.
 - `namespace` : the associated namespace.
 - `separator` : optional, the separator to be used in javascript class names, can be `.` (by default) or `_`.
-- `protected` : optionnal, an array of methods that are not to be exported in javascript classes, empty by default.
+- `protected` : optional, an array of methods that are not to be exported in javascript classes, empty by default.
 
 This array must always contain at least one entry.
 
@@ -28,7 +28,7 @@ For example, the instance of the `\Namespace\Subdir\Class` class in namespace `N
 $myClass = $this->instance('Subdir.Class');
 ```
 
-If both classes are in the same subdirectory, this can be omitted, and the class name is preceded by a period.
+If both classes are in the same subdirectory, this can be omitted, and the class name is prepended with a period.
 
 ```php
 $myClass = $this->instance('.Class');
@@ -74,7 +74,7 @@ class ClassB extends \Jaxon\Sentry\Classes\Base
 #### The Request Factory
 
 The `request()` method (or its short version `rq()`) returns a request to its calling class.
-It provodes a fluid interface that transforms any call to its method to into an request to the method with the same name in the Jaxon class.
+It provides a fluid interface that transforms any received call into a request to the method with the same name in the caller class.
 
 ```php
 class ClassA extends \Jaxon\Sentry\Classes\Base
