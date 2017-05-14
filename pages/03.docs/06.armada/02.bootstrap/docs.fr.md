@@ -6,7 +6,7 @@ template: jaxon
 
 Le démarrage d'une application Jaxon basée sur Armada se fait en trois étapes, la seconde étant optionnelle.
 
-D'abord il faut charger la configuration, avec la méthode `config()`, qui prend en paramètre le chemin complet vers le fichier de configuration.
+D'abord il faut définir la configuration avec la méthode `config()`, qui prend en paramètre le chemin complet vers le fichier de configuration.
 
 Ensuite, il faut définir à l'aide de callbacks les actions à exécuter à différentes étapes du traitement de la requête.
 Cette étape est optionnelle. Les callbacks sont présentées ci-dessous.
@@ -15,12 +15,16 @@ Enfin, il faut soit exporter les classes ou traiter la requête, selon l'action 
 
 ```php
 $armada = jaxon()->armada();
+
+// 1. Configuration
 $armada->config('/path/to/config.php');
 
+// 2. Callbacks
 $armada->onInit(function($instance){
     $instance->init();
 });
 
+// 3. Traiter les classes ou la requête
 if($armada->canProcessRequest())
 {
     // Traiter la requête

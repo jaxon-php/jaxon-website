@@ -15,12 +15,16 @@ Finally, the classes are registered or the request is processed, depending on th
 
 ```php
 $armada = jaxon()->armada();
+
+// 1. Configuration
 $armada->config('/path/to/config.php');
 
+// 2. Callbacks
 $armada->onInit(function($instance){
     $instance->init();
 });
 
+// 3. Process classes or request
 if($armada->canProcessRequest())
 {
     // Process the request
