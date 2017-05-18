@@ -2,15 +2,15 @@
 	                        <div class="jaxon-code">
 	                            {{ page.header.operation.define }}
 <pre><code class="language-php">
-$jaxon = jaxon()->module();
-$jaxon->register(); // Register all the classes
+$armada = jaxon()->armada();
+$armada->register(); // Register all the classes
 // Get a request to a Jaxon class
-$myClass = $jaxon->request('My.Namespace.My.ClassName');
+$c = $armada->request('My.Namespace.My.Class');
 </code></pre>
 	                        </div>
 	                        <div class="jaxon-code">
 	                            {{ page.header.operation.insert }}
 <pre><code class="language-php">
-&lt;input type="button" onclick="&lt;?php echo $myClass->myMethod() ?&gt;" /&gt;
+&lt;input type="button" onclick="&lt;?php echo $c->myMethod() ?&gt;" /&gt;
 </code></pre>
 	                        </div>
