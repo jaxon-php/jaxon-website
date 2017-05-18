@@ -24,6 +24,6 @@ Il permet dans une page web d'appeler directement avec Ajax des classes PHP, qui
 Jaxon propose un ensemble complet de fonctions pour définir le contenu et les propriétés d'une page web avec PHP.
 Plusieurs plugins permettent d'étendre ses fonctionnalités et l'intégrer avec divers frameworks PHP.
 
-&Agrave; partir de la version 2, Jaxon implémente un module qui simplifie encore son usage, et enrichit ses fonctions de génération de code HTML et javascript.
+&Agrave; partir de la version 2, Armada s'ajoute à Jaxon pour simplifier encore son usage, et enrichir ses fonctions de génération de code HTML et javascript.
 
-Le module de Jaxon permet d'écrire des classes complètes, avec vues et sessions, qui peuvent etre réutilisées avec des frameworks PHP différents.
+Armada permet aux développeurs d'écrire des composants complets, avec vues et sessions, qui peuvent etre réutilisés avec des frameworks PHP différents.
