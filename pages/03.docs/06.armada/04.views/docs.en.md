@@ -77,7 +77,7 @@ If a default namespace is added in the configuration, then the identifier can be
     $html = $this->view()->render('path/to/view');
 ```
 
-#### Les variables
+#### The variables
 
 The following functions insert variables into views.
 

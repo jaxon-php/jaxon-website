@@ -24,16 +24,22 @@ La documentation de chaque plugin fournit la liste de ses paramètres de configu
 
 #### Exemple
 
-Le plugin [jaxon-toastr](https://github.com/jaxon-php/jaxon-toastr) de la version 1 de Jaxon ajoute des notifications à une application, à l'aide de la librarie [Toastr](https://github.com/CodeSeven/toastr).
+Le plugin [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs) de la version 1 de Jaxon ajoute des notifications à une application, à l'aide de plusieurs libraries javascript dont [Toastr](https://github.com/CodeSeven/toastr).
 
 Pour l'installer, il faut ajouter son package au fichier `composer.json`.
 ```json
 "require": {
-    "jaxon-php/jaxon-toastr": "dev-master"
+    "jaxon-php/jaxon-dialogs": "~2.0"
 }
 ```
 
-Une fois installé, les fichiers [javascript](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js) et [css](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css) de la librairie Toastr sont chargés dans la page HTML, et ses méthodes peuvent être appelées dans les fonctions Jaxon. 
+Ensuite configurer le package pour utiliser la librairie Toastr.
+
+```php
+    $jaxon->setOptions('dialogs.default.alert', 'toastr');
+```
+
+Une fois installé et configuré, les fichiers [javascript](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js) et [css](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css) de la librairie Toastr sont chargés dans la page HTML, et ses méthodes peuvent être appelées dans les fonctions Jaxon. 
 
 ```php
 class MyClass
@@ -41,7 +47,7 @@ class MyClass
     public function myMethod()
     {
         $response = new Response;
-        $response->toastr->success("You are now using the Toastr Notification plugin!!");
+        $response->dialog->success("You are now using the Toastr Notification plugin!!");
     }
 }
 ```

@@ -12,10 +12,7 @@ Il charge automatiquement les classes Jaxon à un emplacement déterminé.
 #### Installation
 
 Pour installer un plugin d'integration Jaxon, il suffit d'installer le package correspondant avec `Composer`.
-Le package [jaxon-framework](https://github.com/jaxon-php/jaxon-framework) fournit des fonctions communes à tous les plugins d'intégration.
-Il doit donc être installé en même temps que le plugin.
 
-Par exemple, voici la section `require` d'un fichier `composer.json` qui installe le plugin Jaxon pour le framework Laravel.
 ```json
     "require": {
         "laravel/framework": "5.2.*",
