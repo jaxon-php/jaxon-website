@@ -24,7 +24,7 @@ La documentation de chaque plugin fournit la liste de ses paramètres de configu
 
 #### Exemple
 
-Le plugin [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs) de la version 1 de Jaxon ajoute des notifications à une application, à l'aide de plusieurs libraries javascript dont [Toastr](https://github.com/CodeSeven/toastr).
+Le plugin [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs) de la version 2 de Jaxon ajoute des notifications à une application, à l'aide de plusieurs libraries javascript dont [Toastr](https://github.com/CodeSeven/toastr).
 
 Pour l'installer, il faut ajouter son package au fichier `composer.json`.
 ```json
