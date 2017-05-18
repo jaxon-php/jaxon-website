@@ -21,7 +21,6 @@ class Habitat extends Theme
         $config = $this->config();
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
-        $route = $config['examples'];
 
         $this->enable([
             'onPageInitialized' => ['onPageInitialized', 0],
@@ -30,7 +29,8 @@ class Habitat extends Theme
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
         ]);
 
-        if (($route) && $route == substr($uri->path(), 0, strlen($route)))
+        // Check if this is an example page (dir is /examples or /demo)
+        if (substr($uri->path(), 0, 9) == '/examples' || substr($uri->path(), 0, 5) == '/demo')
         {
             // Set the example URL
             $exampleUrl = trim($uri->base(), '/') . '/exp/';
