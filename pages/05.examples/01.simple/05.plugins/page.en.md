@@ -11,53 +11,16 @@ Using a Jaxon plugin is very simple. After a plugin is installed with Composer, 
 
 #### How it works
 
-Install the plugins
+Install the Dialog plugin with `Composer`.
 
 ```json
 "require": {
-    "jaxon-php/jaxon-bootbox": "dev-master"
+    "jaxon-php/jaxon-dialogs": "2.0.*"
 }
 ```
 
-In the exported classes, get access to plugins via the Response object
-
-```php
-class HelloWorld
-{
-    public function sayHello($isCaps)
-    {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'innerHTML', $text);
-        // Call the Bootbox plugin
-        $xResponse->bootbox->success("div2 text is now $text");
-        return $xResponse;
-    }
-
-    public function setColor($sColor)
-    {
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'style.color', $sColor);
-        // Call the Bootbox plugin
-        $xResponse->bootbox->success("div2 color is now $sColor");
-        return $xResponse;
-    }
-
-    public function showDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 500;
-        $xResponse->bootbox->modal("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $width);
-        return $xResponse;
-    }
-}
-```
-
-While exporting classes, set plugins options
+Register the class [defined here](/examples/codes/plugin.html) with Jaxon.
+This class uses the Dialog plugin to show notifications and a modal window.
 
 ```php
 use Jaxon\Jaxon;
@@ -71,13 +34,18 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 $jaxon->processRequest();
 ```
 
-Call the exported classe from javascript
-```php
-// Select
-<select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"></select>
-// Buttons
-<button onclick="JaxonHelloWorld.sayHello(0); return false;">Click Me</button>
-<button onclick="JaxonHelloWorld.sayHello(1); return false;">CLICK ME</button>
+Call the exported classe from javascript.
 
-<button onclick="JaxonHelloWorld.showDialog(); return false;">Bootbox Dialog</button>
+```php
+<!-- Select -->
+<select id="colorselect" onchange="<?php echo rq()->call('HelloWorld.setColor', rq()->select('colorselect')) ?>">
+    <option value="black" selected="selected">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+</select>
+<!-- Buttons -->
+<button onclick="<?php echo rq()->call('HelloWorld.sayHello', 0) ?>">Click Me</button>
+<button onclick="<?php echo rq()->call('HelloWorld.sayHello', 1) ?>">CLICK ME</button>
+<button onclick="<?php echo rq()->call('HelloWorld.showDialog') ?>">Show Dialog</button>
 ```

@@ -13,35 +13,7 @@ Pour ce faire, il faut passer à la librairie un répertoire existant, et l'URI 
 
 #### Comment ça marche
 
-Definir la classe à exporter
-
-```php
-class HelloWorld
-{
-    public function sayHello($isCaps)
-    {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'innerHTML', $text);
-
-        return $xResponse;
-    }
-
-    public function setColor($sColor)
-    {
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'style.color', $sColor);
-
-        return $xResponse;
-    }
-}
-```
-
-Exporter la classe avec Jaxon, et définir les options générer le code dans un fichier externe
+Exporter la classe [définie ici](/examples/codes/class.html) avec Jaxon, et définir les options générer le code dans un fichier externe.
 
 ```php
 use Jaxon\Jaxon;
@@ -63,12 +35,17 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 $jaxon->processRequest();
 ```
 
-Appeler la classe exportée dans le code Javascript
+Appeler la classe exportée dans le code Javascript.
 
 ```php
-// Select
-<select id="colorselect" onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"></select>
-// Buttons
-<button onclick="JaxonHelloWorld.sayHello(0); return false;">Click Me</button>
-<button onclick="JaxonHelloWorld.sayHello(1); return false;">CLICK ME</button>
+<!-- Select -->
+<select id="colorselect" onchange="<?php echo rq()->call('HelloWorld.setColor', rq()->select('colorselect')) ?>">
+    <option value="black" selected="selected">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+</select>
+<!-- Buttons -->
+<button onclick="<?php echo rq()->call('HelloWorld.sayHello', 0) ?>">Click Me</button>
+<button onclick="<?php echo rq()->call('HelloWorld.sayHello', 1) ?>">CLICK ME</button>
 ```

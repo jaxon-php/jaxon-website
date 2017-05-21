@@ -11,87 +11,8 @@ Le nom des classes javascript générées est préfixé avec le namespace, et de
 
 #### Comment ça marche
 
-Placer les classes à exporter dans des répertoires associés à des namespaces, par exemple <code>/jaxon/class/dir/app</code> et <code>/jaxon/class/dir/ext</code>
+Exporter les classes dans les namespaces [définis ici](/examples/codes/namespace.html) avec Jaxon.
 
-Fichier <code>/jaxon/class/dir/app/Test/App.php</code>
-```php
-namespace App\Test;
-
-use Jaxon\Response\Response;
-
-class Test
-{
-    public function sayHello($isCaps)
-    {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-        $xResponse = new Response();
-        $xResponse->assign('div1', 'innerHTML', $text);
-        $xResponse->toastr->success("div1 text is now $text");
-        return $xResponse;
-    }
-
-    public function setColor($sColor)
-    {
-        $xResponse = new Response();
-        $xResponse->assign('div1', 'style.color', $sColor);
-        $xResponse->toastr->success("div1 color is now $sColor");
-        return $xResponse;
-    }
-
-    public function showDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('maxWidth' => 400);
-        $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
-        return $xResponse;
-    }
-}
-```
-
-Fichier <code>/jaxon/class/dir/ext/Test/Ext.php</code>
-```php
-namespace Ext\Test;
-
-use Jaxon\Response\Response;
-
-class Test
-{
-    public function sayHello($isCaps)
-    {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'innerHTML', $text);
-        $xResponse->toastr->success("div2 text is now $text");
-        return $xResponse;
-    }
-
-    public function setColor($sColor)
-    {
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'style.color', $sColor);
-        $xResponse->toastr->success("div2 color is now $sColor");
-        return $xResponse;
-    }
-
-    public function showDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
-        $xResponse->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
-        return $xResponse;
-    }
-}
-```
-
-Exporter toutes les classes présentes dans les répertoires avec leur namespace
 ```php
 $jaxon = jaxon();
 
@@ -106,21 +27,32 @@ $jaxon->registerClasses();
 $jaxon->processRequest();
 ```
 
-Appeler les classes exportées dans le code Javascript
-```html
-// Select
-<select id="colorselect1" onchange="App.Test.Test.setColor(jaxon.$('colorselect1').value); return false;"></select>
+Appeler les classes exportées dans le code Javascript.
 
-// Buttons
-<button onclick="App.Test.Test.sayHello(0); return false;">Click Me</button>
-<button onclick="App.Test.Test.sayHello(1); return false;">CLICK ME</button>
-<button onclick="App.Test.Test.showDialog(); return false;">PgwModal Dialog</button>
+```php
+<!-- Select -->
+<select id="colorselect" onchange="<?php echo rq()->call('App.Test.Test.setColor', rq()->select('colorselect1')) ?>">
+    <option value="black" selected="selected">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+</select>
 
-// Select
-<select id="colorselect2" onchange="Ext.Test.Test.setColor(jaxon.$('colorselect2').value); return false;"></select>
+<!-- Buttons -->
+<button onclick="<?php echo rq()->call('App.Test.Test.sayHello', 0) ?>">Click Me</button>
+<button onclick="<?php echo rq()->call('App.Test.Test.sayHello', 1) ?>">CLICK ME</button>
+<button onclick="<?php echo rq()->call('App.Test.Test.showDialog') ?>">Show Dialog</button>
 
-// Buttons
-<button onclick="Ext.Test.Test.sayHello(0); return false;">Click Me</button>
-<button onclick="Ext.Test.Test.sayHello(1); return false;">CLICK ME</button>
-<button onclick="Ext.Test.Test.showDialog(); return false;">Bootstrap Dialog</button>
+<!-- Select -->
+<select id="colorselect" onchange="<?php echo rq()->call('Ext.Test.Test.setColor', rq()->select('colorselect2')) ?>">
+    <option value="black" selected="selected">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+</select>
+
+<!-- Buttons -->
+<button onclick="<?php echo rq()->call('Ext.Test.Test.sayHello', 0) ?>">Click Me</button>
+<button onclick="<?php echo rq()->call('Ext.Test.Test.sayHello', 1) ?>">CLICK ME</button>
+<button onclick="<?php echo rq()->call('Ext.Test.Test.showDialog') ?>">Show Dialog</button>
 ```

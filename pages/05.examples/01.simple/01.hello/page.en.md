@@ -9,32 +9,7 @@ This example shows how to export a function with Jaxon.
 
 #### How it works
 
-Define the functions to be exported
-
-```php
-function helloWorld($isCaps)
-{
-    if ($isCaps)
-        $text = 'HELLO WORLD!';
-    else
-        $text = 'Hello World!';
-
-    $xResponse = new Response();
-    $xResponse->assign('div1', 'innerHTML', $text);
-
-    return $xResponse;
-}
-
-function setColor($sColor)
-{
-    $xResponse = new Response();
-    $xResponse->assign('div1', 'style.color', $sColor);
-
-    return $xResponse;
-}
-```
-
-Register the functions with Jaxon
+Register the functions [defined here](/examples/codes/function.html) with Jaxon.
 
 ```php
 use Jaxon\Jaxon;
@@ -49,12 +24,17 @@ $jaxon->register(Jaxon::USER_FUNCTION, 'setColor');
 $jaxon->processRequest();
 ```
 
-Call the exported functions from javascript
+Call the exported functions from javascript.
 
 ```php
-// Select
-<select id="colorselect" onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"></select>
-// Buttons
-<button onclick="jaxon_helloWorld(0); return false;">Click Me</button>
-<button onclick="jaxon_helloWorld(1); return false;">CLICK ME</button>
+<!-- Select -->
+<select id="colorselect" onchange="<?php echo rq()->call('setColor', rq()->select('colorselect')) ?>">
+    <option value="black" selected="selected">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+</select>
+<!-- Buttons -->
+<button onclick="<?php echo rq()->call('helloWorld', 0) ?>">Click Me</button>
+<button onclick="<?php echo rq()->call('helloWorld', 1) ?>">CLICK ME</button>
 ```

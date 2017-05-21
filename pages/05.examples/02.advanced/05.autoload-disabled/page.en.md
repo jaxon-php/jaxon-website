@@ -9,11 +9,10 @@ In this example the autoloading is disabled in the Jaxon library, and a third-pa
 
 The directories registered with Jaxon are also registered with the autoloader. The one used here is [Keradus](https://github.com/keradus/Psr4Autoloader).
 
-The classes which are registered in this example are the same as in the [Register Namespaces](../namespaces) example.
-
 #### How it works
 
-Disable autoloading in the Jaxon library, and declare namespaces with the autoloader
+Disable autoloading in the Jaxon library, and declare namespaces with the autoloader.
+Register the classes in the namespaces [defined here](/examples/codes/namespace.html) with Jaxon.
 
 ```php
 $jaxon = jaxon();

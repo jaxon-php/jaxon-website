@@ -10,11 +10,10 @@ Cet exemple montre comment optimiser le traitement des requêtes Jaxon avec l'au
 Dans cet exemple, les classes Jaxon ne sont pas exportées lorsqu'une requête est traitée.
 Cependant, la librairie est assez intelligente pour se rendre compte que que la classe demandée est absente, et charger uniquement le fichier nécessaire.
 
-Les classes de cet exemple sont les mêmes que celles de l'exemple [Exporter des namespaces](../namespaces).
-
 #### Comment ça marche
 
-Les classes ne sont exportées que lorsque la page est générée, et pas quand une requête est traitée
+Exporter les classes dans les namespaces [définis ici](/examples/codes/namespace.html) avec Jaxon.
+Les classes ne sont exportées que lorsque la page est générée, et pas quand une requête est traitée.
 
 ```php
 $jaxon = jaxon();
