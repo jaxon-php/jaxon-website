@@ -13,6 +13,7 @@ pages:
     twig: true
 
 languages:
+  translations: true
   supported: [en,fr]
   include_default_lang: false
 

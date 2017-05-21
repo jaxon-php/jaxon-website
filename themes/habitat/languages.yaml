@@ -1,0 +1,9 @@
+en:
+  HEADER:
+    MOTTO: Easily create Ajax applications with PHP
+    DONATE: <i class="fa fa-heart"></i> Jaxon? Donate to help us.
+
+fr:
+  HEADER:
+    MOTTO: Créez facilement des applications Ajax avec PHP
+    DONATE: <i class="fa fa-heart"></i> Jaxon ? Faites-nous un don.
