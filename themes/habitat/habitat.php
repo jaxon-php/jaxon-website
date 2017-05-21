@@ -30,7 +30,8 @@ class Habitat extends Theme
         ]);
 
         // Check if this is an example page (dir is /examples or /demo)
-        if (substr($uri->path(), 0, 9) == '/examples' || substr($uri->path(), 0, 5) == '/demo')
+        if(!strstr($uri->path(), '/codes/') &&
+            (substr($uri->path(), 0, 9) == '/examples' || substr($uri->path(), 0, 5) == '/demo'))
         {
             // Set the example URL
             $exampleUrl = trim($uri->base(), '/') . '/exp/';
