@@ -10,7 +10,6 @@ They are rendered with the Twig template engine.
 File `test/hello.html.twig`.
 
 ```php
-// Do this
 {% verbatim %}
 {% if isCaps == 0 or isCaps is empty %}
 Hello World, by Twig!
