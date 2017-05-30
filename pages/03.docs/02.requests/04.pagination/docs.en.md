@@ -96,5 +96,5 @@ In order to customize the pagination, copy the templates to another directory an
 Then, make the following call to indicate the new directory.
 
 ```php
-jaxon()->setPaginationDir('/chemin/vers/le/repertoire');
+jaxon()->setPaginationDir('/path/to/the/directory');
 ```
