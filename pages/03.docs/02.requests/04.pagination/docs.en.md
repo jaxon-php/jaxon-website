@@ -92,7 +92,7 @@ In the `links` sub-directory, there is a template for each type of link.
 In each template, the `text` variable contains the text to be printed, while the `call` variable contains the Jaxon call which shows the corresponding page.
 The `call` variable is not available in the `disabled` template.
 
-In order to customize the pagination, copy the templates to another directory an edit them.
+In order to customize the pagination, copy the templates to another directory and edit them.
 Then, make the following call to indicate the new directory.
 
 ```php
