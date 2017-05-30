@@ -93,7 +93,7 @@ Dans chaque template, la variable `text` contient le texte à afficher, et la va
 La variable `call` n'est pas disponible dans le template `disabled`.
 
 Pour personnaliser la pagination, il faut copier tous les templates vers un autre répertoire, et les modifier.
-Ensuite il faut indiquer le nouveau répertoire avec l'appel suivant.
+Ensuite, configurer le nouveau répertoire avec l'appel suivant.
 
 ```php
 jaxon()->setPaginationDir('/chemin/vers/le/repertoire');

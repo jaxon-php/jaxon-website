@@ -93,7 +93,7 @@ In each template, the `text` variable contains the text to be printed, while the
 The `call` variable is not available in the `disabled` template.
 
 In order to customize the pagination, copy the templates to another directory and edit them.
-Then, make the following call to indicate the new directory.
+Then, make the following call to setup the new directory.
 
 ```php
 jaxon()->setPaginationDir('/path/to/the/directory');
