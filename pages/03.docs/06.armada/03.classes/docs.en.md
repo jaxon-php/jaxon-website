@@ -160,3 +160,28 @@ class ClassA extends \Jaxon\Sentry\Classes\Base
 }
 ```
 
+With Armada, the pagination links can be printed using any template engine (see the [views documentation](/docs/armada/views.html)).
+In order to customize the pagination, create all the required templates in a directory, and then change the views configuration accordingly.
+
+```php
+        'views' => array(
+            'pagination' => array(
+                'directory' => '/path/to/the/directory',
+                'extension' => '.tpl',
+                'renderer' => 'smarty',
+            ),
+        ),
+```
+
+For example, this is the content of the `/path/to/the/directory/wrapper.tpl`, which is a Smarty template.
+
+```html
+{if !empty($prev)}
+{$prev}
+{/if}
+{$links}
+{if !empty($next)}
+{$next}
+{/if}
+```
+

@@ -37,7 +37,7 @@ public function paginate($itemsTotal, $itemsPerPage, $currentPage, $method, ...)
 Ses 3 premiers paramètres indiquent les options de pagination.
 Son 4e paramètre indique la méthode (avec le nom de la classe) à appeler, et les suivants sont les paramètres de la requête.
 
-La position du numéro de page est indiquée par la fonction `Jaxon\Request\Factory::page()`. S'il n'est pas présent dans l'appel, il sera automatiquement ajouté à la fin de la liste des paramètres.
+La position du numéro de page est indiquée par la fonction `rq()->page()`. S'il n'est pas présent dans l'appel, il sera automatiquement ajouté à la fin de la liste des paramètres.
 
 ```php
 $pagination = rq()->paginate(25, 10, 1, 'MyClass.showPage', rq()->select('colorselect'), rq()->page());
@@ -71,4 +71,30 @@ class MyClass
         return $response;
     }
 }
+```
+
+#### Personnalisation de la pagination
+
+Les liens de pagination de Jaxon sont générés à partir de templates, qui par défaut sont fournis par la librairie : [https://github.com/jaxon-php/jaxon-core/tree/master/templates/pagination](https://github.com/jaxon-php/jaxon-core/tree/master/templates/pagination).
+
+A la racine du répertoire, il y a le template `wrapper`, qui positionne les liens de pagination et les balises HTML qui les entourent.
+La variable de template `links` contient la liste des liens de pagination, tandis que les variables `prev` et `next` contiennent respectivement les liens vers les pages précédente et suivante.
+Les variables `prev` et `next` sont vides si le lien correspondant est absent.
+
+Dans le sous-répertoire `links`, il y a un template pour chaque type de lien:
+
+- Le template `current` affiche le lien vers la page courante.
+- Le template `enabled` affiche un lien vers une page active.
+- Le template `disabled` affiche un lien vers une page inactive.
+- Le template `prev` affiche le lien vers la page précédente.
+- Le template `next` affiche le lien vers la page suivante.
+
+Dans chaque template, la variable `text` contient le texte à afficher, et la variable `call` contient l'appel Jaxon pour afficher la page correspondante.
+La variable `call` n'est pas disponible dans le template `disabled`.
+
+Pour personnaliser la pagination, il faut copier tous les templates vers un autre répertoire, et les modifier.
+Ensuite il faut indiquer le nouveau répertoire avec l'appel suivant.
+
+```php
+jaxon()->setPaginationDir('/chemin/vers/le/repertoire');
 ```

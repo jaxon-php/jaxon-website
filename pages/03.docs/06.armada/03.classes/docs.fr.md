@@ -159,3 +159,28 @@ class ClassA extends \Jaxon\Sentry\Classes\Base
     }
 }
 ```
+
+Avec Armada, les liens de pagination peuvent être affichés avec n'importe quel moteur de templates (voir [la documentation des vues](/docs/armada/views.html)).
+Pour personnaliser la pagination, il faut créer tous les templates de pagination dans un répertoire, puis l'indiquer dans la configuration des vues.
+
+```php
+        'views' => array(
+            'pagination' => array(
+                'directory' => '/chemin/vers/le/repertoire',
+                'extension' => '.tpl',
+                'renderer' => 'smarty',
+            ),
+        ),
+```
+
+Par exemple, voici le contenu du fichier `/chemin/vers/le/repertoire/wrapper.tpl`, qui est un template Smarty.
+
+```html
+{if !empty($prev)}
+{$prev}
+{/if}
+{$links}
+{if !empty($next)}
+{$next}
+{/if}
+```
