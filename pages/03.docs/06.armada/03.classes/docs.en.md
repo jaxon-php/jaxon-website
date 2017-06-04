@@ -30,9 +30,9 @@ The following code is an excerpt from [the example of using Armada](https://gith
     ),
 ```
 
-#### The `Jaxon\Sentry\Classes\Base` class
+#### The `Jaxon\Sentry\Classes\Armada` class
 
-The classes of an Armada application must inherit from the `Jaxon\Sentry\Classes\Base` class, which provides them with functions to access other classes, and to manage requests, responses, views and sessions.
+The classes of an Armada application must inherit from the `Jaxon\Sentry\Classes\Armada` class, which provides them with functions to access other classes, and to manage requests, responses, views and sessions.
 
 The `instance()` method (or its short version `cl()`) returns an instance of another Jaxon class in the same namespace. It takes the name of the class as a parameter, without the namespace.
 
@@ -54,7 +54,7 @@ All instances of the classes registered in a Armada application have access to t
 This object is automatically initialized by the library, and allows to build the response to a request by calling several methods in one or more classes.
 
 ```php
-class ClassA extends \Jaxon\Sentry\Classes\Base
+class ClassA extends \Jaxon\Sentry\Classes\Armada
 {
     public function doA()
     {
@@ -75,7 +75,7 @@ class ClassA extends \Jaxon\Sentry\Classes\Base
 ```
 
 ```php
-class ClassB extends \Jaxon\Sentry\Classes\Base
+class ClassB extends \Jaxon\Sentry\Classes\Armada
 {
     public function doB()
     {
@@ -91,7 +91,7 @@ The `request()` method (or its short version `rq()`) returns a request to its ca
 It provides a fluid interface that transforms any received call into a request to the method with the same name in the caller class.
 
 ```php
-class ClassA extends \Jaxon\Sentry\Classes\Base
+class ClassA extends \Jaxon\Sentry\Classes\Armada
 {
     public function doA()
     {
@@ -108,7 +108,7 @@ class ClassA extends \Jaxon\Sentry\Classes\Base
 The contents of the webpage can be passed as parameters to calls using the [Request Factory](/docs/requests/factory) or the [PHP jQuery API](/docs/advanced/jquery), and their global functions `rq()` and `jq()`.
 
 ```php
-class ClassA extends \Jaxon\Sentry\Classes\Base
+class ClassA extends \Jaxon\Sentry\Classes\Armada
 {
     public function doA()
     {
@@ -127,7 +127,7 @@ class ClassA extends \Jaxon\Sentry\Classes\Base
 The `jQuery()` method (or its short version `jq()`) adds a call to jQuery into the response.
 
 ```php
-class ClassA extends \Jaxon\Sentry\Classes\Base
+class ClassA extends \Jaxon\Sentry\Classes\Armada
 {
     public function doA()
     {
@@ -148,7 +148,7 @@ The `$this->jQuery()` call is the same as `$this->response->jQuery()`.
 The `paginator()` method (or its short version `pg()`) creates pagination links with calls to a method of a Jaxon class.
 
 ```php
-class ClassA extends \Jaxon\Sentry\Classes\Base
+class ClassA extends \Jaxon\Sentry\Classes\Armada
 {
     public function doA($pageNumber)
     {

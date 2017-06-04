@@ -9,7 +9,7 @@ In this example there are two files `Bts.php` and `Pgw.php` in the `Test` subdir
 ```php
 namespace Jaxon\App\Test;
 
-class Bts extends \Jaxon\Sentry\Classes\Base
+class Bts extends \Jaxon\Sentry\Classes\Armada
 {
     public function sayHello($isCaps, $bNotify = true)
     {
@@ -68,7 +68,7 @@ class Bts extends \Jaxon\Sentry\Classes\Base
 ```php
 namespace Jaxon\App\Test;
 
-class Pgw extends \Jaxon\Sentry\Classes\Base
+class Pgw extends \Jaxon\Sentry\Classes\Armada
 {
     public function sayHello($isCaps, $bNotify = true)
     {
