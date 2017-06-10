@@ -7,6 +7,7 @@ template: jaxon
 La librairie Jaxon est distribuée sous forme de packages `Composer`.
 
 Pour l'installer, il faut ajouter la ligne suivante dans le fichier `composer.json`.
+
 ```json
 "require": {
     "jaxon-php/jaxon-core": "~2.0"
@@ -14,6 +15,7 @@ Pour l'installer, il faut ajouter la ligne suivante dans le fichier `composer.js
 ```
 
 Ou bien exécuter la commande
+
 ```bash
 composer require jaxon-php/jaxon-core:~2.0
 ```
@@ -23,6 +25,9 @@ composer require jaxon-php/jaxon-core:~2.0
 Jaxon nécessite pour son fonctionnement d'installer sa librairie javascript [jaxon-js](https://github.com/jaxon-php/jaxon-js).
 
 Par défaut, la librairie PHP charge les fichiers javascript à partir du CDN [jsDelivr](https://www.jsdelivr.com/projects/jaxon).
-Ils sont également installés sur un serveur public qui supporte les protocoles `http` et `https`, et qu'on utilise en donnant à l'option de configuration `js.lib.uri` la valeur `https://lib.jaxon-php.org/jaxon/latest/`.
+
+Ils sont également installés sur leur propre CDN, fourni par [KeyCDN](https://www.keycdn.com), et qui supporte les protocoles `http` et `https`.
+Pour utiliser le CDN de Jaxon, on donne à l'option de configuration `js.lib.uri` la valeur `https://cdn.jaxon-php.org/libs/jaxon/1.2.0/`.
+Les versions disponibles sont `1.0.0` and `1.2.0`.
 
 Il est enfin possible de les installer sur un serveur privé, auquel cas il faut mettre à jour l'option de configuration `js.lib.uri`.
