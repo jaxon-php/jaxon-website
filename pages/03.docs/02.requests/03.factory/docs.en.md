@@ -5,7 +5,7 @@ template: jaxon
 ---
 
 The `Jaxon\Request\Factory` class can be used to create requests to functions or methods exported with Jaxon.
-It provides the `call()` function to create the request, and a range of other functions to pass content of the HTML page elements as parameter to the request.
+The `rq()` global function returns an instance of this class, which provides the `call()` method to create a request, and a range of other functions to pass content of the HTML page elements as parameter to the request.
 
 For example, the following code uses the Request Factory to create a request to a the `setColor()` method of the class `HelloWorld`, passing the value selected in the combobox with id `colorselect` as parameter.
 
@@ -31,7 +31,6 @@ public function myFunction()
 }
 ```
 
-The `rq()` global function returns an instance of the `Jaxon\Request\Factory` class.
 The configured prefix is automatically prepended to the generated javascript call.
 
 The following methods are used to get content from the webpage.

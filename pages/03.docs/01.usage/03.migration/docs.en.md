@@ -45,8 +45,8 @@ The following table shows the correspondances between the old and new names of o
 | contentType                  | **deprecated**             | The content type is always JSON |
 | outputEntities               | **deprecated**             | |
 | | | |
-| cleanBuffer                  | core.process.clean_buffer  | |
-| exitAllowed                  | core.process.exit_after    | |
+| cleanBuffer                  | core.process.clean         | |
+| exitAllowed                  | core.process.exit          | |
 | timeout                      | core.process.timeout       | |
 | | | |
 | errorHandler                 | core.error.handle          | |

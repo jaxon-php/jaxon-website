@@ -40,8 +40,8 @@ These options are those of the Jaxon library. The Jaxon plugins can require addi
 | core.request.method           | string  | The query method. Can be "POST" or "GET" |
 | core.request.csrf_meta        | string  | The name of the HTML meta header for the CSRF token |
 | | | |
-| core.process.clean_buffer     | boolean | Whether to clean the buffer after the processing of a request |
-| core.process.exit_after       | boolean | Whether to call the exit() function after the processing of a request |
+| core.process.clean            | boolean | Whether to clean the buffer after the processing of a request |
+| core.process.exit             | boolean | Whether to call the exit() function after the processing of a request |
 | core.process.timeout          | integer |  |
 | | | |
 | core.error.handle             | boolean | Whether to handle error |

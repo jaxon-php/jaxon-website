@@ -8,10 +8,10 @@ Voici la traditionnelle application `Hello World` avec Jaxon.
 Pour plus de clarté, tout le code est dans un seul fichier.
 
 D'abord, la classe `HelloWorld` est définie. Elle contient une méthode `sayHello()` qui renvoie un objet `Jaxon\Response\Response`.
-L'instruction `$response->alert($text)` sert à afficher un message dans la page web.
+L'appel `$response->alert($text)` sert à afficher un message dans la page web.
 
 Ensuite, une instance de la classe est enregistrée dans la librairie Jaxon.  
-L'instruction `$jaxon->processRequest()` vérifie si une requête à Jaxon est présente dans les paramètres HTTP, auquel cas elle la traite et renvoie le résultat.
+L'appel `$jaxon->processRequest()` vérifie si une requête à Jaxon est présente dans les paramètres HTTP, auquel cas elle la traite et renvoie le résultat.
 Sinon, le traitement continue avec l'affichage de la page HTML.
 
 Les appels à `$jaxon->getCss()`, `$jaxon->getJs()` et `$jaxon->getScript()` affichent le code généré par Jaxon dans la page.

@@ -5,7 +5,7 @@ template: jaxon
 ---
 
 La classe `Jaxon\Request\Factory` permet de créer des requêtes vers les fonctions ou les méthodes exportées avec Jaxon.
-Elle fournit une fonction `call()` pour créer la requête, et un ensemble d'autres fonctions pour lui passer des éléments du contenu de la page HTML en paramètre.
+La fonction globale `rq()` retourne une instance de cette classe, qui fournit une fonction `call()` pour créer la requête, et un ensemble d'autres fonctions pour lui passer des éléments du contenu de la page HTML en paramètre.
 
 Par exemple, le code suivant utilise la fabrique de requête pour générer un appel à la méthode `setColor()` de la classe `HelloWorld`, en lui passant la valeur de la liste déroulante avec l'id `colorselect`.
 
@@ -31,7 +31,6 @@ public function myFunction()
 }
 ```
 
-La fonction globale `rq()` retourne une instance de la classe `Jaxon\Request\Factory`.
 Le préfixe configuré est automatiquement ajouté au code javascript généré.
 
 Les méthodes suivantes sont utilisées pour lire le contenu de la page.

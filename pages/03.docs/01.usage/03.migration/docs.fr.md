@@ -45,8 +45,8 @@ Le tableau suivant donne les correspondances etre les anciens et les nouveaux no
 | contentType                  | **deprecated**             | Le type de contenu est toujours JSON |
 | outputEntities               | **deprecated**             | |
 | | | |
-| cleanBuffer                  | core.process.clean_buffer  | |
-| exitAllowed                  | core.process.exit_after    | |
+| cleanBuffer                  | core.process.clean         | |
+| exitAllowed                  | core.process.exit          | |
 | timeout                      | core.process.timeout       | |
 | | | |
 | errorHandler                 | core.error.handle          | |

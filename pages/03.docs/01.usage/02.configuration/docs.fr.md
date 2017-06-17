@@ -40,8 +40,8 @@ Ces options sont celles de la librairie Jaxon. D'autres options peuvent exister 
 | core.request.method           | string  | La méthode des requêtes. Peut être "POST" or "GET" |
 | core.request.csrf_meta        | string  | Le nom de l'entête HTML meta qui contient le token CSRF |
 | | | |
-| core.process.clean_buffer     | boolean | Active ou non le vidage des buffers après le traitement d'une requête |
-| core.process.exit_after       | boolean | Indique si la fonction exit() doit être appelée après le traitement d'une requête |
+| core.process.clean            | boolean | Active ou non le vidage des buffers après le traitement d'une requête |
+| core.process.exit             | boolean | Indique si la fonction exit() doit être appelée après le traitement d'une requête |
 | core.process.timeout          | integer |  |
 | | | |
 | core.error.handle             | boolean | Active ou non la gestion des erreurs |
