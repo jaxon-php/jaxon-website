@@ -21,6 +21,18 @@
                             </div>
                             <!-- End Page title -->
 
+{% if jaxon and jaxon.html %}
+                            <!-- Jaxon content -->
+                            <div class="row" style="margin-bottom:20px;">
+                                <div class="col-md-12">
+                                    <h3 class="margin-vert-10">Demo</h3>
+                                </div>
+                                {{ jaxon.html }}
+                                <hr>
+                            </div>
+                            <!-- End Jaxon content -->
+{% endif %}
+
 {% if page.content %}
                             <!-- Page content -->
                             <div class="row">
@@ -41,18 +53,6 @@
                                 </div>
                             </div>
                             <!-- End Section TOC -->
-{% endif %}
-
-{% if jaxon and jaxon.html %}
-                            <!-- Jaxon content -->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="margin-vert-10">Demo</h3>
-                                </div>
-                                {{ jaxon.html }}
-                                <hr>
-                            </div>
-                            <!-- End Jaxon content -->
 {% endif %}
 
 {% if config.plugins.jscomments.enabled %}
