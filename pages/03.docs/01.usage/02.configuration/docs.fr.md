@@ -49,6 +49,7 @@ Ces options sont celles de la librairie Jaxon. D'autres options peuvent exister 
 | | | |
 | core.debug.on                 | boolean | Active ou non le mode debug |
 | core.debug.verbose            | boolean | Active ou non le mode debug verbeux |
+| core.debug.output_id          | string  | L'id de la sortie des debug javascript |
 | | | |
 | core.template.cache           | string  | Le chemin du répertoire de cache des templates |
 | | | |
@@ -56,7 +57,6 @@ Ces options sont celles de la librairie Jaxon. D'autres options peuvent exister 
 | js.lib.queue_size             | integer | Le nombre max de commandes que la librairie javascript attend dans une réponse |
 | js.lib.show_cursor            | boolean | Active ou non l'affichage d'un curseur |
 | js.lib.show_status            | boolean | Active ou non l'affichage du statut de la requête |
-| js.lib.output_id              | string  | L'id de la sortie des debug javascript |
 | | | |
 | js.app.uri                    | string  | Le lien vers les fichiers javascript générés par Jaxon |
 | js.app.dir                    | string  | Le répertoire qui contient les fichiers javascript générés par Jaxon |
