@@ -63,5 +63,4 @@ In this example the content of a HTML element is passed as parameter to the func
 <button onclick="JaxonHelloWorld.sayHello(jaxon.$('DemoDiv').innerHTML)">Click Me</button>
 ````
 
-The [Request Factory](/docs/requests/factory) provides functions to generate the above javascript calls from PHP.
-
+The [Request Factory](/docs/requests/factory) provides functions to generate the above javascript calls as well as their parameters from PHP.
