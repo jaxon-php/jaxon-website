@@ -48,3 +48,45 @@ For a class registerer from a given directory, the `classpath` is the path from 
 The `classpath` is prefixed to the name of the PHP class to give the name of the corresponding javascript class.
 
 In the above example, the javascript classes will be named `App.FirstClass` and  `App.SecondClass`.
+
+#### Setting options on Jaxon requests
+
+Additional options can be passed to classes when they are registered, and included in generated javascript functions.
+To do this, an array must be passed to the `$jaxon->registerClasses()` call, in which each entry defines the options of a class.
+
+Entries are indexed by the names of the javascript classes, which in this case is the name of the corresponding PHP class, prefixed with its `classpath`.
+
+```php
+$jaxon->registerClasses([
+    'App.FirstClass' => [
+        '*' => [
+            'mode' => "'asynchronous'"
+        ]
+    ],
+    'App.SecondClass' => [
+        '*' => [
+            'mode' => "'synchronous'"
+        ]
+    ]
+]);
+```
+
+Here's the generated javascript code.
+
+```js
+App = {};
+App.FirstClass = {};
+App.FirstClass.myMethod = function() {
+    return jaxon.request(
+        { jxncls: 'App.FirstClass', jxnmthd: 'myMethod' },
+        { parameters: arguments, mode: 'asynchronous' }
+    );
+};
+App.SecondClass = {};
+App.SecondClass.myMethod = function() {
+    return jaxon.request(
+        { jxncls: 'App.SecondClass', jxnmthd: 'myMethod' },
+        { parameters: arguments, mode: 'synchronous' }
+    );
+};
+```

@@ -5,7 +5,7 @@ template: jaxon
 published: true
 ---
 
-A partir de la version 2.1.0, et de la version 2.0.0 de la librairie javascript, Jaxon implémente le transfert de fichier avec Ajax.
+A partir de la version 2.1.0 de la librairie PHP et de la version 2.0.0 de la librairie javascript, Jaxon implémente le transfert de fichier avec Ajax.
 Un appel d'une fonction ou d'une classe peut transférer un ou plusieurs fichiers du client vers l'application, et les enregistrer dans un répertoire défini.
 
 La fonction d'upload de Jaxon utilise l'objet `FormData` de javascript pour transporter le fichier et les autres paramètres de la fonction appelée dans une requête HTTP Ajax.
@@ -72,12 +72,13 @@ Les conditions sont définies en fonction de leur type, leur extension et leur t
 Les paramètres qui s'appliquent à tous les fichiers sont définis dans la section `upload.default`.
 
 - `upload.default.dir` : le répertoire où les fichiers seront enregistrés.
-- `upload.default.types` : les types mime acceptés.
-- `upload.default.extensions` : Les extensions de fichiers acceptés.
-- `upload.default.max-size` : la taille maximale des fichiers.
-- `upload.default.min-size` : la taille minimale des fichiers.
+- `upload.default.types` : un tableau de types mime acceptés.
+- `upload.default.extensions` : un tableau d'extensions de fichiers acceptées.
+- `upload.default.max-size` : la taille maximale acceptée.
+- `upload.default.min-size` : la taille minimale acceptée.
 
-Un paramètre non défini ne sera pas vérifié.
+Le répertoire défini par le paramètre `upload.default.dir` doit exister et être et accessible en écriture.
+Les autres paramètres ne seront pas vérifiés s'ils ne sont pas définis.
 
 Pour définir des paramètres qui vont s'appliquer uniquement à des fichiers spécifiques, il faut remplacer la chaîne `default` par l'id du champ `input` du fichier transferé.
 Dans l'exemple précédent, l'option `upload.upload_example.dir` définit un répertoire différent.

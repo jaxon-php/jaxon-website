@@ -48,3 +48,65 @@ Pour une classe enregistrée dans un répertoire donné, le `classpath` est le c
 Le `classpath` est préfixé au nom de la classe PHP pour donner le nom de la classe javascript correspondante.
 
 Dans l'exemple ci-dessus, les noms des classes javascript seront `App.FirstClass` et `App.SecondClass`.
+
+Voici le code javascript généré par Jaxon.
+
+```js
+App = {};
+App.FirstClass = {};
+App.FirstClass.myMethod = function() {
+    return jaxon.request(
+        { jxncls: 'App.FirstClass', jxnmthd: 'myMethod' },
+        { parameters: arguments }
+    );
+};
+App.SecondClass = {};
+App.SecondClass.myMethod = function() {
+    return jaxon.request(
+        { jxncls: 'App.SecondClass', jxnmthd: 'myMethod' },
+        { parameters: arguments }
+    );
+};
+```
+
+#### Définir les options des requêtes Jaxon
+
+Des options supplémentaires peuvent être passées aux classes lors de leur enregistrement, et ajoutées aux appels en javascript.
+Pour cela, il faut passer à l'appel à `$jaxon->registerClasses()` un tableau dont chaque entrée définit les options d'une classe.
+
+Les entrées sont indexées par le nom des classes javascript, qui dans ce cas est le nom de la classe PHP correspondante préfixée de son `classpath`.
+
+```php
+$jaxon->registerClasses([
+    'App.FirstClass' => [
+        '*' => [
+            'mode' => "'asynchronous'"
+        ]
+    ],
+    'App.SecondClass' => [
+        '*' => [
+            'mode' => "'synchronous'"
+        ]
+    ]
+]);
+```
+
+Voici le code javascript généré par Jaxon.
+
+```js
+App = {};
+App.FirstClass = {};
+App.FirstClass.myMethod = function() {
+    return jaxon.request(
+        { jxncls: 'App.FirstClass', jxnmthd: 'myMethod' },
+        { parameters: arguments, mode: 'asynchronous' }
+    );
+};
+App.SecondClass = {};
+App.SecondClass.myMethod = function() {
+    return jaxon.request(
+        { jxncls: 'App.SecondClass', jxnmthd: 'myMethod' },
+        { parameters: arguments, mode: 'synchronous' }
+    );
+};
+```

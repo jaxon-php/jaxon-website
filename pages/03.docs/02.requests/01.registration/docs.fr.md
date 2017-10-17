@@ -139,3 +139,61 @@ $jaxon->register(Jaxon::USER_FUNCTION, array($hello, "sayHello"));
 ```html
 <input type="button" value="Submit" onclick="jaxon_sayHello()" />
 ```
+
+#### Définir les options des requêtes Jaxon
+
+Des options supplémentaires peuvent être passées aux classes lors de leur enregistrement, et ajoutées aux appels en javascript.
+Elles permettent de changer le comportement des requêtes Jaxon, sans changer la façon dont elles sont appelées.
+
+En pratique, ces options sont ajoutées dans les fonctions javascript générées par Jaxon.
+
+```php
+// Options des classes
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), [
+    'setColor' => [
+        'name' => "'value'"
+    ],
+    '*' => [
+        'name' => "'value'"
+    ]
+]);
+// Options des fonctions
+$jaxon->register(Jaxon::USER_FUNCTION, "hello_world", [
+    'name' => "'value'"
+]);
+```
+
+Les options sont définies dans un tableau dont les index sont sont leurs noms.
+Notons que pour définir une option de type chaîne de caractères, les quotes sont inclues dans sa valeur.
+
+Pour les classes, chaque groupe d'options est lui-même indexé par le nom de la méthode à laquelle elles s'appliquent, ou bien par `*` si les options s'appliquent à toutes les méthodes.
+
+L'option `mode` par exemple permet de définir si les requêtes Jaxon sont asynchrones ou pas.
+
+```php
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), [
+    'setColor' => [
+        'mode' => "'synchronous'"
+    ],
+    '*' => [
+        'mode' => "'asynchronous'"
+    ]
+]);
+```
+
+Le code javascript généré est le suivant.
+
+```js
+JaxonHelloWorld.sayHello = function() {
+    return jaxon.request(
+        { jxncls: 'HelloWorld', jxnmthd: 'sayHello' },
+        { parameters: arguments, mode: 'asynchronous' }
+    );
+};
+JaxonHelloWorld.setColor = function() {
+    return jaxon.request(
+        { jxncls: 'HelloWorld', jxnmthd: 'setColor' },
+        { parameters: arguments, mode: 'synchronous' }
+    );
+};
+```

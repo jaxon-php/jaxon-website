@@ -30,6 +30,22 @@ The following code is an excerpt from [the example of using Armada](https://gith
     ),
 ```
 
+The options of the Jaxon requests can be defined in the `app.options.classes` of the configuration file.
+
+```php
+    'app' => [
+        'options' => [
+            'classes' => [
+                \Jaxon\App\Test\Bts::class => [
+                    '*' => [
+                        'mode' => "'asynchronous'",
+                    ]
+                ]
+            ],
+        ],
+    ],
+```
+
 #### The `Jaxon\Sentry\Armada` class
 
 The classes of an Armada application must inherit from the `Jaxon\Sentry\Armada` class, which provides them with functions to access other classes, and to manage requests, responses, views and sessions.
@@ -39,7 +55,7 @@ The `instance()` method (or its short version `cl()`) returns an instance of ano
 For example, the instance of the `\Namespace\Subdir\Class` class in namespace `Namespace` will be returned by the following call.
 
 ```php
-$myClass = $this->instance('Subdir.Class');
+$myClass = $this->instance(':Subdir.Class');
 ```
 
 If both classes are in the same subdirectory, this can be omitted, and the class name is prepended with a period.

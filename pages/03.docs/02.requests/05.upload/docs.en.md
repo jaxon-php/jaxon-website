@@ -5,7 +5,7 @@ template: jaxon
 published: true
 ---
 
-Starting from version 2.1.0, and version 2.0.0 for the javascript library, Jaxon implements file upload with Ajax.
+Starting from version 2.1.0 of the PHP library and version 2.0.0 for the javascript library, Jaxon implements file upload with Ajax.
 A call to a class or a function can also transfert one or many files from the browser to the application, and save them into a configured directory.
 
 The Jaxon upload function uses the javascript `FormData` object to encapsulate the uploaded files, as well as the other parameters of the Jaxon call, into an HTTP Ajax request.
@@ -37,7 +37,7 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new Upload(), [
 ]);
 ```
 
-If the class is registered with a directory or a namespace, the parameter is defined as follow.
+If the class is registered with a directory or a namespace, then the parameter is defined as follow.
 
 ```php
 $jaxon->registerClasses([
@@ -72,12 +72,13 @@ The matching conditions are related to their type, extension and size.
 The options that apply to all uploaded files are defined in the `upload.default` section.
 
 - `upload.default.dir`: the directory where the files are saved.
-- `upload.default.types`: the accepted mime type.
-- `upload.default.extensions`: the accepted extensions.
-- `upload.default.max-size`: the files maximum size.
-- `upload.default.min-size`: the files minimum size.
+- `upload.default.types`: an array of accepted mime types.
+- `upload.default.extensions`: an array of accepted extensions.
+- `upload.default.max-size`: the accepted maximum size.
+- `upload.default.min-size`: the accepted minimum size.
 
-Undefined options will not be checked.
+The directory defined by `upload.default.dir` option must exist and be writable.
+The other options are not checked if they are undefined.
 
 Options can also be defined that apply only to a specific file. In this case, the `default` string in the option name is replaced by the id of the `input` file of the uploaded file.
 In the previous example, the `upload.upload_example.dir` option defines a different directory.

@@ -18,16 +18,32 @@ Ce tableau doit toujours contenir au moins une entrée.
 Le code suivant est extrait de [l'exemple d'utilisation de Armada](https://github.com/jaxon-php/jaxon-examples/blob/master/armada/config/jaxon.php).
 
 ```php
-    'app' => array(
-        'classes' => array(
-            array(
+    'app' => [
+        'classes' => [
+            [
                 'directory' => dirname(__DIR__) . '/classes',
                 'namespace' => '\\Jaxon\\App',
                 // 'separator' => '.',
                 // 'protected' => [],
-            ),
-        ),
-    ),
+            ],
+        ],
+    ],
+```
+
+Les options des requêtes Jaxon peuvent être définies dans la section `app.options.classes` du fichier de configuration.
+
+```php
+    'app' => [
+        'options' => [
+            'classes' => [
+                \Jaxon\App\Test\Bts::class => [
+                    '*' => [
+                        'mode' => "'asynchronous'",
+                    ]
+                ]
+            ],
+        ],
+    ],
 ```
 
 #### La classe `Jaxon\Sentry\Armada`
@@ -39,7 +55,7 @@ La méthode `instance()` (ou sa version courte `cl()`) retourne une instance d'u
 Par exemple l'instance de la classe `\Namespace\Subdir\Class` dans le namespace `Namespace` sera retrouvée avec l'appel suivant.
 
 ```php
-$myClass = $this->instance('Subdir.Class');
+$myClass = $this->instance(':Subdir.Class');
 ```
 
 Si les deux classes sont dans le même répertoire, le sous-répertoire peut être omis, et le nom de la classe est précédé par un point.
