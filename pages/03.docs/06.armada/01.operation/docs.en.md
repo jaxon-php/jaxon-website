@@ -8,10 +8,19 @@ template: jaxon
 
 The main objective of Armada is to further simplify the use of Jaxon, while functionally enriching it.
 
-With Armada, an application bootstraps from a single configuration file, and its [classes](/docs/armada/classes) automatically inherit from a rich set of functionalities.
-Armada only allows to export PHP classes with a namespace, and not functions.
+With Armada, the Jaxon library bootstraps from a single configuration file, and its [classes](/docs/armada/classes) automatically inherit from a rich set of functionalities for handling classes, Ajax requests, pagination, views, sessions, etc.
 
-In addition to the library settings, the configuration of Armada indicates the directories where the classes and the views of the application are located.
+The Armada configuration is separated into two sections, containing respectively the settings of the library and those of the classes and the views.
+
+#### Installation
+
+Armada is distributed in a separated package, which is installed by adding the following line in the `composer.json` file.
+
+```json
+"require": {
+    "jaxon-php/jaxon-armada": "~2.0"
+}
+```
 
 #### Sentry
 
