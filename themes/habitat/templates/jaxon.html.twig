@@ -21,6 +21,17 @@
                             </div>
                             <!-- End Page title -->
 
+{% if page.content %}
+                            <!-- Page content -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ page.content }}
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- End Page content -->
+{% endif %}
+
 {% if jaxon and jaxon.html %}
                             <!-- Jaxon content -->
                             <div class="row" style="margin-bottom:20px;">
@@ -31,17 +42,6 @@
                                 <hr>
                             </div>
                             <!-- End Jaxon content -->
-{% endif %}
-
-{% if page.content %}
-                            <!-- Page content -->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    {{ page.content }}
-                                    <hr>
-                                </div>
-                            </div>
-                            <!-- End Page content -->
 {% endif %}
 
 {% if page.route == '/docs' or page.route == '/features' %}
