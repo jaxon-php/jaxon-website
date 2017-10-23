@@ -62,7 +62,7 @@ class Upload
 }
 ```
 
-La methode `getUploadedFiles()` renvoie les fichiers transferés dans un tableau d'objets de type [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php).
+La methode `Jaxon::getUploadedFiles()` renvoie les fichiers transferés dans un tableau d'objets de type [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php).
 
 #### Configuration
 

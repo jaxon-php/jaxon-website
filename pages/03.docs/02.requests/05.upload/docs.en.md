@@ -62,7 +62,7 @@ class Upload
 }
 ```
 
-The `getUploadedFiles()` method return the uploaded files in the form of an array of objects of type [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php).
+The `Jaxon::getUploadedFiles()` method return the uploaded files in the form of an array of objects of type [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php).
 
 #### Configuration
 
