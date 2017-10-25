@@ -34,43 +34,40 @@ class Habitat extends Theme
             (substr($uri->path(), 0, 9) == '/examples' || substr($uri->path(), 0, 5) == '/demo'))
         {
             // Set the example URL
-            $exampleUrl = trim($uri->base(), '/') . '/exp/';
+            $exampleUrl = trim($uri->base(), '/') . '/exp/web/';
             $path = trim(strrchr($uri->path(), '/'), '/');
-            switch($path)
-            {
             // For frameworks, load the pages from the public dir
-            case 'laravel':
-                $exampleUrl .= 'laravel/';
-                break;
-            case 'symfony':
-                $exampleUrl .= 'symfony/';
-                break;
-            case 'zend':
-                $exampleUrl .= 'zend/';
-                break;
-            case 'yii':
-                $exampleUrl .= 'yii/';
-                break;
-            case 'codeigniter':
-                $exampleUrl .= 'codeigniter/';
-                break;
-            case 'cake':
-                $exampleUrl .= 'cake/';
-                break;
-            default:
-                if($path != 'examples') // /examples is the path to the section
-                {
-                    $exampleUrl .= $path . '.php';
-                }
-                break;
-            }
-            // Create an object for Jaxon contents
-            if(($exampleUrl) && ($dom = \html5qp($exampleUrl)))
+            if($path != 'examples') // /examples is the path to the section
             {
-                $this->jaxon = new stdClass;
-                $this->jaxon->html = html_entity_decode($dom->find('#jaxon-html')->eq(0)->innerHTML());
-                $this->jaxon->init = html_entity_decode($dom->find('#jaxon-init')->eq(0)->innerHTML());
-                $this->jaxon->code = html_entity_decode($dom->find('#jaxon-code')->eq(0)->innerHTML());
+                // Create an object for Jaxon contents
+                if(($dom = \html5qp($exampleUrl . $path . '/')))
+                {
+                    $this->jaxon = new stdClass;
+                    $this->jaxon->html = html_entity_decode($dom->find('#jaxon-html')->eq(0)->innerHTML());
+                    $this->jaxon->init = html_entity_decode($dom->find('#jaxon-init')->eq(0)->innerHTML());
+                    $this->jaxon->code = html_entity_decode($dom->find('#jaxon-code')->eq(0)->innerHTML());
+                    // Reset the Jaxon request URI
+                    switch($path)
+                    {
+                    // For frameworks, Set the request URI to the "/jaxon" path.
+                    case 'laravel':
+                    case 'symfony':
+                    case 'zend':
+                    case 'yii':
+                    case 'codeigniter':
+                    case 'cake':
+                        $this->jaxon->code .= "\n" .
+                            '<script type="text/javascript" charset="UTF-8">jaxon.config.requestURI = "/exp/web/' .
+                            $path . '/jaxon";</script>';
+                        break;
+                    // For the others, Set the request URI to the "/ajax.php" path.
+                    default:
+                        $this->jaxon->code .= "\n" .
+                            '<script type="text/javascript" charset="UTF-8">jaxon.config.requestURI = "/exp/web/' .
+                            $path . '/ajax.php";</script>';
+                        break;
+                    }
+                }
             }
         }
 
