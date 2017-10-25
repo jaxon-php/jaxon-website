@@ -49,12 +49,16 @@ class Habitat extends Theme
                     // Reset the Jaxon request URI
                     switch($path)
                     {
-                    // For frameworks, Set the request URI to the "/jaxon" path.
+                    // For all frameworks except CodeIgniter, Set the request URI to the "/jaxon" path.
+                    case 'codeigniter':
+                        $this->jaxon->code .= "\n" .
+                            '<script type="text/javascript" charset="UTF-8">jaxon.config.requestURI = "/exp/web/' .
+                            $path . '/jaxon/process";</script>';
+                        break;
                     case 'laravel':
                     case 'symfony':
                     case 'zend':
                     case 'yii':
-                    case 'codeigniter':
                     case 'cake':
                         $this->jaxon->code .= "\n" .
                             '<script type="text/javascript" charset="UTF-8">jaxon.config.requestURI = "/exp/web/' .
