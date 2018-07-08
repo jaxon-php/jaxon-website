@@ -23,7 +23,7 @@ $jaxon = jaxon();
 $jaxon->register(Jaxon::CALLABLE_OBJECT, HelloWorld::class);
 
 // Bind the service interface with its implementation
-$jaxon->di()->set(IExample::class, function($di){
+$jaxon->di()->set(ExampleInterface::class, function($di){
     return new Example();
 });
 
