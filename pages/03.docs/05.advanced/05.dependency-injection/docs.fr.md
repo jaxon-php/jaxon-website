@@ -28,4 +28,4 @@ jaxon()->di()->set(ExampleInterface::class, function($di){
 
 Ces classes seront alors instanciées par la librairie en même temps que les classes Jaxon, lors du traitement des requêtes Ajax.
 
-Voici un exemple plus complet d'[injection de dépendance avec Jaxon](/examples/advanced/dependecy-injection).
+Voici un exemple plus complet d'[injection de dépendance avec Jaxon](/examples/advanced/dependency-injection).
