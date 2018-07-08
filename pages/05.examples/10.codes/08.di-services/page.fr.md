@@ -9,7 +9,7 @@ Un service qui va être injecté dans des classes Jaxon peut d'abord être défi
 ```php
 namespace Service;
 
-interface IExample
+interface ExampleInterface
 {
     public function message($isCaps);
     public function color($name);
@@ -21,7 +21,7 @@ Ensuite, il y aura une classe qui implémente l'interface.
 ```php
 namespace Service;
 
-class Example implements IExample
+class Example implements ExampleInterface
 {
     public function message($isCaps)
     {

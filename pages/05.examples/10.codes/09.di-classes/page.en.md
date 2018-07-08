@@ -7,14 +7,14 @@ template: jaxon
 With dependency injection, classes and interfaces can be added as parameters in the constructor of Jaxon classes.
 
 ```php
-use Service\IExample;
+use Service\ExampleInterface;
 
 class HelloWorld
 {
     protected $service;
     protected $response;
 
-    public function __construct(IExample $service)
+    public function __construct(ExampleInterface $service)
     {
         $this->service = $service;
         $this->response = new Response();

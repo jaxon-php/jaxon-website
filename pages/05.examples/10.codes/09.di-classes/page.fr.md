@@ -7,14 +7,14 @@ template: jaxon
 L'injection de dépendance permet d'ajouter des classes ou des interfaces en paramètres du constructeur des classes Jaxon.
 
 ```php
-use Service\IExample;
+use Service\ExampleInterface;
 
 class HelloWorld
 {
     protected $service;
     protected $response;
 
-    public function __construct(IExample $service)
+    public function __construct(ExampleInterface $service)
     {
         $this->service = $service;
         $this->response = new Response();

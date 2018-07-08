@@ -9,7 +9,7 @@ A service which is to be injected in Jaxon classes can first be defined as an in
 ```php
 namespace Service;
 
-interface IExample
+interface ExampleInterface
 {
     public function message($isCaps);
     public function color($name);
@@ -21,7 +21,7 @@ Then, there will be a class which implements the interface
 ```php
 namespace Service;
 
-class Example implements IExample
+class Example implements ExampleInterface
 {
     public function message($isCaps)
     {

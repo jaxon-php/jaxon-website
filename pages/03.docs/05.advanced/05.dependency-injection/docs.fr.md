@@ -4,7 +4,7 @@ menu: L'injection de dépendance
 template: jaxon
 ---
 
-A partir de la version `2.1.6`, la librairie Jaxon permet d'ajouter des classes ou des interfaces en paramètres des constructeurs des classes Jaxon.
+A partir de la version `2.2.0`, la librairie Jaxon permet d'ajouter des classes ou des interfaces en paramètres des constructeurs des classes Jaxon.
 
 ```php
 class HelloWorld
@@ -27,3 +27,5 @@ jaxon()->di()->set(ExampleInterface::class, function($di){
 ```
 
 Ces classes seront alors instanciées par la librairie en même temps que les classes Jaxon, lors du traitement des requêtes Ajax.
+
+Voici un exemple plus complet d'[injection de dépendance avec Jaxon](/examples/advanced/dependecy-injection).

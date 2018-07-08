@@ -4,7 +4,7 @@ menu: Dependency Injection
 template: jaxon
 ---
 
-Starting from version `2.1.6`, the Jaxon library allows to add classes and interfaces as parameters of Jaxon classes constructors.
+Starting from version `2.2.0`, the Jaxon library allows to add classes and interfaces as parameters of Jaxon classes constructors.
 
 ```php
 class HelloWorld
@@ -18,7 +18,7 @@ class HelloWorld
 }
 ```
 
-The dependences are declared while configuring the library.
+The dependences are declared during the library configuration.
 
 ```php
 jaxon()->di()->set(ExampleInterface::class, function($di){
@@ -27,3 +27,5 @@ jaxon()->di()->set(ExampleInterface::class, function($di){
 ```
 
 These classes will then be instanciated at the same time as Jaxon classes, when processing Ajax requests.
+
+Here is an example of using [dependency injection with Jaxon](/examples/advanced/dependecy-injection).
