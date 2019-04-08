@@ -49,7 +49,7 @@ $jaxon->registerClasses([
 
 Finally, the uploaded files are available in the Jaxon class method.
 
-```
+```php
 class Upload
 {
     public function saveFile()
@@ -80,8 +80,8 @@ The options that apply to all uploaded files are defined in the `upload.default`
 The directory defined by `upload.default.dir` option must exist and be writable.
 The other options are not checked if they are undefined.
 
-Options can also be defined that apply only to a specific file. In this case, the `default` string in the option name is replaced by the id of the `input` file of the uploaded file.
-In the previous example, the `upload.upload_example.dir` option defines a different directory.
+Options can also be defined that apply only to a specific file. In this case, the `default` string in the option name is replaced by the id of the `input` file of the uploaded file, prepended with `files.`.
+In the previous example, the `upload.files.upload_example.dir` option defines a different directory.
 
 #### Upload with iframe
 

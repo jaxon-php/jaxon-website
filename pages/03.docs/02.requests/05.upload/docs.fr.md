@@ -49,7 +49,7 @@ $jaxon->registerClasses([
 
 Enfin, les fichiers transferés sont disponibles dans la fonction appelée.
 
-```
+```php
 class Upload
 {
     public function saveFile()
@@ -80,8 +80,8 @@ Les paramètres qui s'appliquent à tous les fichiers sont définis dans la sect
 Le répertoire défini par le paramètre `upload.default.dir` doit exister et être et accessible en écriture.
 Les autres paramètres ne seront pas vérifiés s'ils ne sont pas définis.
 
-Pour définir des paramètres qui vont s'appliquer uniquement à des fichiers spécifiques, il faut remplacer la chaîne `default` par l'id du champ `input` du fichier transferé.
-Dans l'exemple précédent, l'option `upload.upload_example.dir` définit un répertoire différent.
+Pour définir des paramètres qui vont s'appliquer uniquement à des fichiers spécifiques, il faut remplacer la chaîne `default` par l'id du champ `input` du fichier transferé, préfixé de `files.`.
+Dans l'exemple précédent, l'option `upload.files.upload_example.dir` définit un répertoire différent.
 
 #### Transfert avec iframe
 
