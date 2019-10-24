@@ -1,5 +1,5 @@
 ---
-title: Enregistrer des objets et des fonctions PHP
+title: Enregistrer des classes et des fonctions PHP
 menu: Déclarations
 template: jaxon
 ---
@@ -7,9 +7,9 @@ template: jaxon
 Avant de pouvoir appeler une classe ou une fonction PHP avec javascript, celle-ci doit etre enregistrée, ou déclarée.
 Pour cela on utilise la fonction `register()` de Jaxon.
 
-#### Enregistrer une instance d'une classe
+#### Enregistrer une classe
 
-Pour enregistrer un objet, on appelle la fonction `register` avec le paramètre `Jaxon::CALLABLE_OBJECT`.
+Pour enregistrer une classe, on appelle la fonction `register` avec le paramètre `Jaxon::CALLABLE_CLASS`.
 
 ```php
 use Jaxon\Jaxon;
@@ -34,10 +34,10 @@ class HelloWorld
 }
 
 $jaxon = jaxon();
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
 ```
 
-Après avoir été enregistré, les méthodes publiques de l'objet sont dans une classe javascript nommée `JaxonHelloWorld`.
+Après avoir été enregistré, les méthodes publiques de la classe sont dans une classe javascript nommée `JaxonHelloWorld`.
 Le préfixe `Jaxon` peut être changé à l'aide de l'option de configuration `core.prefix.class`.
 
 Voici le code javascript généré par Jaxon.
@@ -67,7 +67,7 @@ Voici un exemple de code HTML qui appelle des méthodes de la classe PHP export�
 
 #### Enregistrer une fonction
 
-Pour enregistrer une fonction, on appelle la fonction `register` avec le paramètre `Jaxon::USER_FUNCTION`.
+Pour enregistrer une fonction, on appelle la fonction `register` avec le paramètre `Jaxon::CALLABLE_FUNCTION`.
 
 ```php
 use Jaxon\Jaxon;
@@ -81,7 +81,7 @@ function hello_world($isCaps)
     return $response;
 }
 
-$jaxon->register(Jaxon::USER_FUNCTION, "hello_world");
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, "hello_world");
 ```
 
 Après avoir été enregistrée, cette fonction peut être appelée en javascript avec le nom `jaxon_hello_world()`.
@@ -104,8 +104,18 @@ Voici un exemple de code HTML qui appelle la fonction PHP enregistrée avec Jaxo
 <input type="button" value="Submit" onclick="jaxon_hello_world()" />
 ```
 
+Le nom de la fonction javascript peut être changé en un alias.
+
+```php
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, "hello_world", ["alias" => "sayHello"]);
+```
+
+```html
+<input type="button" value="Say Hello" onclick="jaxon_sayHello(0)" />
+```
+
 Une méthode d'une classe peut aussi être enregistrée comme une fonction.
-Pour cela, le deuxième paramètre de la fonction `register()` doit être un tableau, comme dans l'exemple suivant.
+Pour cela, le nom de la classe doit être passé à la fonction `register()`, comme dans l'exemple suivant.
 
 ```php
 use Jaxon\Jaxon;
@@ -113,7 +123,7 @@ use Jaxon\Response\Response;
 
 class HelloWorld
 {
-    public function sayHello($isCaps)
+    public function hello_world($isCaps)
     {
         $response = new Response();
         $text = ($isCaps) ? 'HELLO WORLD!' : 'Hello World!';
@@ -122,18 +132,17 @@ class HelloWorld
     }
 }
 
-$hello = new HelloWorld;
-$jaxon->register(Jaxon::USER_FUNCTION, array("hello_world", $hello, "sayHello"));
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, "hello_world", ["class" => HelloWorld::class]);
 ```
 
 ```html
 <input type="button" value="Submit" onclick="jaxon_hello_world()" />
 ```
 
-Si le tableau contient 2 éléments, la fonction javascript générée aura le même nom que la méthode.
+De même, un alias peut être défini.
 
 ```php
-$jaxon->register(Jaxon::USER_FUNCTION, array($hello, "sayHello"));
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, "hello_world", ["class" => HelloWorld::class, "alias" => "sayHello"]);
 ```
 
 ```html
@@ -149,7 +158,7 @@ En pratique, ces options sont ajoutées dans les fonctions javascript générée
 
 ```php
 // Options des classes
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), [
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
     'setColor' => [
         'name' => "'value'"
     ],
@@ -158,7 +167,7 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), [
     ]
 ]);
 // Options des fonctions
-$jaxon->register(Jaxon::USER_FUNCTION, "hello_world", [
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, "hello_world", [
     'name' => "'value'"
 ]);
 ```
@@ -171,7 +180,7 @@ Pour les classes, chaque groupe d'options est lui-même indexé par le nom de la
 L'option `mode` par exemple permet de définir si les requêtes Jaxon sont asynchrones ou pas.
 
 ```php
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), [
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
     'setColor' => [
         'mode' => "'synchronous'"
     ],

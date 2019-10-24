@@ -32,22 +32,12 @@ Multiple files upload is supported.
 Then, the id of the `input` field must be passed as parameter when registering the class which implements the method that processes the uploaded files.
 
 ```php
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new Upload(), [
-    'saveFile' => array('upload' => "'upload_example'")
+$jaxon->register(Jaxon::CALLABLE_CLASS, Upload::class, [
+    'saveFile' => ['upload' => "'upload_example'"]
 ]);
 ```
 
-If the class is registered with a directory or a namespace, then the parameter is defined as follow.
-
-```php
-$jaxon->registerClasses([
-    Upload::class => [
-        'saveFile' => array('upload' => "'upload_example'")
-    ]
-]);
-```
-
-Finally, the uploaded files are available in the Jaxon class method.
+At the end, the uploaded files are available in the Jaxon class method.
 
 ```php
 class Upload

@@ -32,18 +32,8 @@ Les uploads de fichiers multiples sont pris en charge.
 Ensuite, il faut passer l'id du champ `input` en paramètre à l'enregistrement de la classe ou la fonction qui va traiter le fichier transferé.
 
 ```php
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new Upload(), [
-    'saveFile' => array('upload' => "'upload_example'")
-]);
-```
-
-Si la classe est enregistrée dans un répertoire ou un namespace, le paramètre est défini ainsi.
-
-```php
-$jaxon->registerClasses([
-    Upload::class => [
-        'saveFile' => array('upload' => "'upload_example'")
-    ]
+$jaxon->register(Jaxon::CALLABLE_CLASS, Upload::class, [
+    'saveFile' => ['upload' => "'upload_example'"]
 ]);
 ```
 

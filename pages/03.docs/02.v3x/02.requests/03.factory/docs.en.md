@@ -5,14 +5,15 @@ template: jaxon
 ---
 
 The `Jaxon\Request\Factory` class can be used to create requests to functions or methods exported with Jaxon.
-The `rq()` global function returns an instance of this class, which provides the `call()` method to create a request, and a range of other functions to pass elements from the HTML page as parameter to the request.
+The `rq()` global function returns an instance of this class, which provides the `call()` method to create a request.
+The `pr()` global function returns an object which provides a range of other functions to pass elements from the HTML page as parameter to the request.
 
 For example, the following code uses the Request Factory to create a request to a the `setColor()` method of the class `HelloWorld`, passing the value selected in the combobox with id `colorselect` as parameter.
 
 ```php
 <div class="col-md-4 margin-vert-10">
     <select id="colorselect" name="colorselect"
-            onchange="<?php echo rq()->call('HelloWorld.setColor', rq()->select('colorselect')) ?>">
+            onchange="<?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>">
         <option value="black" selected="selected">Black</option>
         <option value="red">Red</option>
         <option value="green">Green</option>
@@ -26,7 +27,7 @@ The Request Factory can also be used in a Jaxon function to bind a call to a Jax
 ```php
 public function myFunction()
 {
-    $response->setEvent('colorselect', 'onchange', rq()->call('HelloWorld.setColor', rq()->select('colorselect')));
+    $response->setEvent('colorselect', 'onchange', rq('HelloWorld')->call('setColor', pr()->select('colorselect')));
     return $response;
 }
 ```
@@ -44,24 +45,6 @@ The following methods are used to get content from the webpage.
 
 The full list of functions of the `Jaxon\Request\Factory` class is [documented here](/api/Jaxon/Request/Factory.html).
 
-#### The Request Factory trait
-
-The `Jaxon\Request\Traits\Factory` trait adds a `call()` function to the Jaxon classes, that simplifies the creation of Jaxon requests to their methods.
-It takes as a parameter the name of a method, and automatically prepends the name of the javascript class.
-
-```php
-class MyClass
-{
-    use \Jaxon\Request\Traits\Factory;
-
-    public function myMethod($color)
-    {
-        $response->onClick('button-ok', $this->call('myMethod', rq()->select('colorselect')));
-        return $response;
-    }
-}
-```
-
 #### Conditional calls
 
 The Request Factory provides 3 functions to check a condition before sending a Jaxon request.
@@ -72,8 +55,8 @@ In the following example, the request is sent only if the checkbox with id `acce
 ```php
 public function myFunction()
 {
-    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
-        ->when(rq()->checked('accepted'));
+    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
+        ->when(pr()->checked('accepted'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -85,8 +68,8 @@ In the following example, the request is sent only if the checkbox with id `refu
 ```php
 public function myFunction()
 {
-    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
-        ->unless(rq()->checked('refused'));
+    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
+        ->unless(pr()->checked('refused'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -97,7 +80,7 @@ The function `confirm()` asks a question and sends the request only if the user 
 ```php
 public function myFunction()
 {
-    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
+    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
         ->confirm('Are you sure?');
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
@@ -109,8 +92,8 @@ The content from the webpage can be inserted in the question, by giving their po
 ```php
 public function myFunction()
 {
-    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
-        ->confirm('You want {1}? Really, {2}?', rq()->select('colorselect'), rq()->html('username'));
+    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
+        ->confirm('You want {1}? Really, {2}?', pr()->select('colorselect'), pr()->html('username'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -121,8 +104,8 @@ The order of the parameters in the message can be changed, allowing for example 
 ```php
 public function myFunction()
 {
-    $request = rq()->call('HelloWorld.setColor', rq()->select('colorselect'))
-        ->confirm('Hey {2}, you really want {1}?', rq()->select('colorselect'), rq()->html('username'));
+    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
+        ->confirm('Hey {2}, you really want {1}?', pr()->select('colorselect'), pr()->html('username'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
