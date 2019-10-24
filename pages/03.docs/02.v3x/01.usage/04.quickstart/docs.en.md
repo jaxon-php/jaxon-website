@@ -4,7 +4,7 @@ menu: A simple example
 template: jaxon
 ---
 
-Here is the traditional `Hello World` application with Jaxon.
+Here is the well known `Hello World` application with Jaxon.
 For the sake of clarity, all the code is first included in a single file.
 It is then separated into 3 files, to further illustrate the various phases of the library operation.
 

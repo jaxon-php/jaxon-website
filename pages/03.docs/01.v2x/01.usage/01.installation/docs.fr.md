@@ -24,7 +24,7 @@ composer require jaxon-php/jaxon-core:~2.0
 
 Jaxon nécessite pour son fonctionnement d'inclure sa librairie javascript [jaxon-js](https://github.com/jaxon-php/jaxon-js) dans le code HTML.
 
-Par défaut, la librairie PHP charge les fichiers javascript à partir du CDN [jsDelivr](https://www.jsdelivr.com/projects/jaxon).
+Par défaut, la librairie PHP charge les fichiers javascript à partir du CDN [jsDelivr](https://www.jsdelivr.com/package/gh/jaxon-php/jaxon-js).
 
 Ils sont également installés sur leur propre CDN, fourni par [KeyCDN](https://www.keycdn.com), et qui supporte les protocoles `http` et `https`.
 Pour utiliser le CDN de Jaxon, on donne à l'option de configuration `js.lib.uri` la valeur `https://cdn.jaxon-php.org/libs/jaxon/1.2.0/`.
