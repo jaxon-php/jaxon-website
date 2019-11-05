@@ -29,16 +29,10 @@ With Jaxon, we should have links more like this.
 </ul>
 ```
 
-The `paginate()` ou `pg()` method` class is used to implement pagination with Jaxon.
+The `paginate()` ou `pg()` method allows, from a request, to generate the pagination links to a method of a Jaxon class.
 
 ```php
-public function paginate($itemsTotal, $itemsPerPage, $currentPage, $method, ...)
-```
-
-For example,
-
-```php
-$pagination = rq('MyClass')->call('showPage', pr()->select('colorselect'), pr()->page())->paginate(1, 10, 25);
+$pagination = rq('MyClass')->call('showPage', pr()->select('colorselect'), pr()->page())->paginate($currentPage, $itemsPerPage, $itemsTotal);
 ```
 
 The position of the page number is indicated by the `pr()->page()` function. If it is not present in the call, it will be automatically added to the end of the parameter list.

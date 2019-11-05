@@ -4,11 +4,11 @@ menu: Fabrique de requête
 template: jaxon
 ---
 
-La classe `Jaxon\Request\Factory` permet de créer des requêtes vers les fonctions ou les méthodes exportées avec Jaxon.
-
+La classe `Jaxon\Request\Factory\RequestFactory` permet de créer des requêtes vers les fonctions ou les méthodes exportées avec Jaxon.
 La fonction globale `rq()` retourne une instance de cette classe, qui fournit une fonction `call()` pour créer la requête.
 
-La fonction globale `pr()` retourne un objet qui fournit un ensemble d'autres fonctions pour lui passer des éléments de la page HTML en paramètre.
+La classe `Jaxon\Request\Factory\ParameterFactory` permet de créer des paramètres.
+La fonction globale `pr()` retourne une instance de cette classe, qui fournit un ensemble d'autres fonctions pour passer des éléments de la page HTML en paramètre.
 
 Par exemple, le code suivant utilise la fabrique de requête pour générer un appel à la méthode `setColor()` de la classe `HelloWorld`, en lui passant la valeur de la liste déroulante avec l'id `colorselect`.
 
@@ -44,8 +44,6 @@ Les méthodes suivantes sont utilisées pour lire le contenu de la page.
 - select($sInputId): retourne la valeur de la liste déroulante avec l'id donné.
 - html($sElementId): retourne le texte de l'élément HTML avec l'id donné.
 - js($sValue): retourne une variable ou un appel de fonction javascript.
-
-La liste complète des fonctions de la classe `Jaxon\Request\Factory` est [documentée ici](/api/Jaxon/Request/Factory.html).
 
 #### Les appels conditionnels
 

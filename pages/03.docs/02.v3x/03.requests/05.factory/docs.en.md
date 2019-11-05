@@ -4,11 +4,11 @@ menu: Request Factory
 template: jaxon
 ---
 
-The `Jaxon\Request\Factory` class can be used to create requests to functions or methods exported with Jaxon.
-
+The `Jaxon\Request\Factory\RequestFactory` class allows to create requests to functions or methods exported with Jaxon.
 The `rq()` global function returns an instance of this class, which provides the `call()` method to create a request.
 
-The `pr()` global function returns an object which provides a range of other functions to pass elements from the HTML page as parameter to the request.
+The `Jaxon\Request\Factory\RequestFactory` class allows to create parameters.
+The `pr()` global function returns an instance of this class, which provides a range of other functions to pass elements from the HTML page as parameter to the request.
 
 For example, the following code uses the Request Factory to create a request to a the `setColor()` method of the class `HelloWorld`, passing the value selected in the combobox with id `colorselect` as parameter.
 
@@ -44,8 +44,6 @@ The following methods are used to get content from the webpage.
 - select($sInputId): returns the value of the combobox with the given id.
 - html($sElementId): returns the text of the HTML element with the given id.
 - js($sValue): returns a javascript variable or function call.
-
-The full list of functions of the `Jaxon\Request\Factory` class is [documented here](/api/Jaxon/Request/Factory.html).
 
 #### Conditional calls
 
