@@ -16,11 +16,14 @@ The call to `$jaxon->getScript(true, true)` returns the cumulative output of the
 
 #### The Javascript code
 
-When the `js.app.extern` option is set to `false`, the call to `$jaxon->getScript()` returns the javascript code, which then will be directly included into the HTML code of the page.
+When the `js.app.export` option is set to `false`, the call to `$jaxon->getScript()` returns the javascript code, which then will be directly included into the HTML code of the page.
 
 If this option is set to `true`, the javascript code is saved into a file in the directory indicated by the `js.app.dir` option,
 and the call to `$jaxon->getScript()` returns the HTML code to load this file from the URL indicated by the `js.app.uri` option.
 If in addition, the `js.app.minify` option is set to `true`, the javascript code is minified and the file name ends with `.min.js`.
 
+By default, the javascript file name is generated using a hash on a value computed by the library.
+If the `js.app.file` option is defined, its value is used as the file name.
+
 The javascript file will not be regenerated if it already exists.
-It is then recommended to set the `js.app.extern` option  to `false` when developping, and generate a minified javascript file when deploying the application.
+It is then recommended to set the `js.app.export` option  to `false` when developping, and generate a minified javascript file when deploying the application.

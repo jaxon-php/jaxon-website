@@ -37,4 +37,4 @@ Lors de l'enregistrement d'un répertoire avec namespace, l'option `autoload` pe
 $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', ['namespace' => 'App\Jaxon', 'autoload' => true]);
 ```
 
-Dans ce cas, Jaxon va ajouter le répertoire dans le système d'autoloading de Composer.
+Dans ce cas, Jaxon va ajouter le répertoire dans le mécanisme d'autoloading de Composer.

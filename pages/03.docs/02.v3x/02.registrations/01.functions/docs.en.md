@@ -1,6 +1,6 @@
 ---
 title: Registering PHP functions
-menu: Registering functions
+menu: Functions
 template: jaxon
 ---
 

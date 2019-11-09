@@ -55,4 +55,4 @@ L'exemple suivant transmet le contenu d'un élément de la page à une fonction 
 <button onclick="JaxonHelloWorld.sayHello(jaxon.$('DemoDiv').innerHTML)">Click Me</button>
 ```
 
-La [Fabrique de requêtes](../requests/factory) permet de générer les appels javascript ci-dessus, ainsi que leurs paramètres, à partir de PHP.
+La [Fabrique de requêtes](../factory) permet de générer les appels javascript ci-dessus, ainsi que leurs paramètres, à partir de PHP.

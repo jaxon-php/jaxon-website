@@ -37,4 +37,4 @@ When registering a directory with a namespace, the `autoload` option can also be
 $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', ['namespace' => 'App\Jaxon', 'autoload' => true]);
 ```
 
-In this case, Jaxon will add the directory to the Composer autoloading system.
+In this case, Jaxon will add the directory to the Composer autoloading mechanism.

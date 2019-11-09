@@ -3,7 +3,7 @@ title: Optimisation du traitement
 position: 2
 read:
     text: Lire plus
-    link: /fr/docs/advanced/autoloading.html
+    link: /fr/docs/v3x/requests/autoloading.html
 ---
 
 Par défaut, toutes les classes exportées avec la librairie Jaxon sont instanciées lorsqu'une requête est traitée.

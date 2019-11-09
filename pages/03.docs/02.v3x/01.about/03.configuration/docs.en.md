@@ -13,7 +13,8 @@ The `$jaxon->setOption($name, $value)` function allows to set the value of a con
 It is also possible to read the library configuration to a file, which can be in JSON, YAML, or PHP formats.
 
 ```php
-$jaxon->config()->read($phpFilePath);       // Read configuration in a file based on its extension.
+// Read configuration in a file based on its extension.
+$jaxon->config()->read($phpFilePath);
 ```
 
 If the file contains other data than the Jaxon library configuration, this function can take a second parameter to read the configuration only in a section of the file.

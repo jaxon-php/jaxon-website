@@ -3,7 +3,7 @@ title: Registering classes and directories
 position: 1
 read:
     text: Read more
-    link: /docs/advanced/jquery.html
+    link: /docs/v3x/requests/autoloading.html
 ---
 
 The classes and directories registration feature is improved, and does not require anymore to instantiate a class unless it is necessary.

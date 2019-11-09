@@ -3,7 +3,7 @@ title: Enregistrer des classes et des répertoires
 position: 1
 read:
     text: Lire plus
-    link: /fr/docs/advanced/jquery.html
+    link: /fr/docs/v3x/requests/autoloading.html
 ---
 
 La fonction d'enregistrement des classes et répertoires a été améliorée, pour que les classes ne soient plus instanciées sans que cela soit nécessaire.

@@ -3,7 +3,7 @@ title: Editing webpage content
 position: 3
 read:
     text: Read more
-    link: /docs/responses/webpage.html
+    link: /docs/v3x/responses/features.html
 ---
 
 The `Response` object returned by the Jaxon request contains a set of operations to be executed in the web page.

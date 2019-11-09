@@ -18,12 +18,12 @@ content:
 ## Une librarie PHP pour Ajax
 
 Jaxon est une librairie PHP open source pour créer des applications web Ajax.
+C'est un fork de la librairie Xajax.
 
 Il permet dans une page web d'appeler directement avec Ajax des classes PHP, qui vont en retour modifier son contenu, sans recharger la page entière.
 
 Jaxon propose un ensemble complet de fonctions pour définir le contenu et les propriétés d'une page web avec PHP.
 Plusieurs plugins permettent d'étendre ses fonctionnalités et l'intégrer avec divers frameworks PHP.
 
-&Agrave; partir de la version 2, Armada s'ajoute à Jaxon pour simplifier encore son usage, et enrichir ses fonctions de génération de code HTML et javascript.
-
-Armada permet aux développeurs d'écrire des composants complets, avec vues et sessions, qui peuvent etre réutilisés avec des frameworks PHP différents.
+Comparé à Xajax, Jaxon est plus simple à utiliser, fonctionnellement plus riche, et plus performant.
+Il fonctionne aussi avec les dernières versions de PHP.

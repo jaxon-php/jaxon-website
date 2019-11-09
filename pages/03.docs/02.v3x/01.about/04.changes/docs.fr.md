@@ -11,7 +11,7 @@ Les principales fonctions à mettre à jour pour migrer de la version 2 sont:
 - la fabrique de requêtes
 - la pagination
 
-Si l'application utilise les fonctions des packages `jaxon-armada` et `jaxon-sentry`, il faut y ajouter:
+Si l'application utilise les fonctions des packages `jaxon-armada` et `jaxon-sentry`, alors il faut y ajouter:
 
 - la classe CallableClass
 - le traitement des requêtes

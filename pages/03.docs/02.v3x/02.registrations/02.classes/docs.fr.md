@@ -1,6 +1,6 @@
 ---
 title: Enregistrer des classes PHP
-menu: Enregistrer des classes
+menu: Classes
 template: jaxon
 ---
 

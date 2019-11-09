@@ -1,6 +1,6 @@
 ---
 title: Enregistrer des fonctions PHP
-menu: Enregistrer des fonctions
+menu: Fonctions
 template: jaxon
 ---
 

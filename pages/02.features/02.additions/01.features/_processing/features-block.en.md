@@ -3,7 +3,7 @@ title: Optimized processing
 position: 2
 read:
     text: Read more
-    link: /docs/advanced/autoloading.html
+    link: /docs/v3x/requests/autoloading.html
 ---
 
 By default, all the classes registered with the Jaxon library are instanciated anytime a request is processed.

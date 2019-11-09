@@ -11,7 +11,7 @@ The following features are impacted by changes from version 2:
 - The request factory
 - The pagination
 
-If the application includes the `jaxon-armada` et `jaxon-sentry` packages, the following features are also impacted.
+If the application is using the `jaxon-armada` et `jaxon-sentry` packages, then the following features are also impacted.
 
 - The CallableClass class
 - The request processing
@@ -168,7 +168,7 @@ The `instance()`, `request()` et `jQuery()` are removed in favor of their short 
 
 The pagination syntax has changed.
 
-Dans la version 2
+With version 2
 ```php
 class HelloWorld extends \Jaxon\Sentry\Armada
 {
@@ -180,7 +180,7 @@ class HelloWorld extends \Jaxon\Sentry\Armada
 }
 ```
 
-Dans la version 3
+With version 3
 ```php
 class HelloWorld extends \Jaxon\CallableClass
 {
@@ -199,13 +199,13 @@ It should be noted that the order of parameters has also changed.
 The `jaxon-armada` package allows to bootstrap the library from a single configuration file.
 In the version 3, this feature is included in the `jaxon-core` package.
 
-Dans la version 2
+With version 2
 ```php
 $armada = jaxon()->armada();
 $armada->config('/path/to/config/file.php');
 ```
 
-Dans la version 3
+With version 3
 ```php
 $app = jaxon()->app();
 $app->setup('/path/to/config/file.php');

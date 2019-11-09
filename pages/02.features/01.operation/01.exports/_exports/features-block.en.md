@@ -3,7 +3,7 @@ title: Exports from PHP to javascript
 position: 1
 read:
     text: Read more
-    link: /docs/requests/exports.html
+    link: /docs/v3x/registrations/classes.html
 ---
 
 The Jaxon library exports classes and functions from a PHP application to javascript, so they can be called directly from a webpage in a browser using Ajax.

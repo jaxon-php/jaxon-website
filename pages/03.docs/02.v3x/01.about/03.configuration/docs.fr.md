@@ -13,7 +13,8 @@ La fonction `$jaxon->setOption($name, $value)` permet de fixer la valeur d'une o
 Il est également possible de lire la configuration de la librairie dans un fichier, qui peut être au format JSON, YAML ou PHP.
 
 ```php
-$jaxon->config()->read($phpFilePath);       // Lire la configuration en fonction de l'extension du fichier.
+// Lire la configuration en fonction de l'extension du fichier.
+$jaxon->config()->read($phpFilePath);
 ```
 
 Si le fichier contient d'autres données que la configuration de la librairie Jaxon, cette fonction peut prendre un second paramètre qui permet de lire la configuration dans une section du fichier.

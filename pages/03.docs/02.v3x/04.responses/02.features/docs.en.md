@@ -1,6 +1,6 @@
 ---
-title: Editing webpage contents from PHP
-menu: Webpage contents
+title: Features of the Response class
+menu: Features
 template: jaxon
 ---
 
@@ -10,8 +10,6 @@ These commands can perform 3 types of operations in the web page.
 - Edit the page content
 - Edit the page presentation with CSS
 - Run javascript code in the page
-
-The complete list of functions of the `Jaxon\Response\Response` class is [documented here](/api/Jaxon/Response/Response.html).
 
 #### Editing the page content and style
 
@@ -97,4 +95,4 @@ For example, the following code will call a Jaxon function when the user clicks 
 $response->onClick('btn-set-color', rq('MyClass')->call('myMethod', pr()->select('colorselect')));
 ```
 
-Although the `Jaxon\Response\Response` class implements a rich set of features, it can be extended using [plugins](/docs/plugins/response).
+Although the `Jaxon\Response\Response` class implements a rich set of features, it can be extended using [plugins](../plugins).

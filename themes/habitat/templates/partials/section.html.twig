@@ -1,4 +1,10 @@
-{% for item in root.children %}
+{% if root.route == '/docs' %}
+{# Under /docs, the root for the menu is the 2nd level menu, ie the versions. #}
+{% set _root = page.find('/docs/' ~ uri.paths[1]) %}
+{% else %}
+{% set _root = root %}
+{% endif %}
+{% for item in _root.children %}
         <h4>{{ item.menu }}</h4>
         <ul class="list-unstyled">
 {% for child in item.children %}

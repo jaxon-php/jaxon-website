@@ -3,7 +3,7 @@ title: Fichiers de configuration
 position: 3
 read:
     text: Lire plus
-    link: /fr/docs/usage/configuration.html
+    link: /fr/docs/v3x/about/configuration.html
 ---
 
 La librairie Jaxon peut charger ses paramètres de configuration à partir d'un fichier.

@@ -34,7 +34,6 @@ Il peut y en avoir plusieurs ainsi dans l'application.
 
 use Jaxon\Response\Response;
 
-// La classe HelloWorld
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -56,10 +55,8 @@ Ce fichier définit les options de configuration de la librairie.
 
 $jaxon = jaxon();
 
-// Définir l'URI de traitement de la requête Jaxon
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
-// Enregistrer une instance de la classe avec Jaxon
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, ['include' => __DIR__ . '/HelloWorld.php']);
 ```
 
@@ -118,10 +115,8 @@ Ce fichier traite les requêtes Jaxon.
 
 require __DIR__ . '/setup.php';
 
-// Retrouver le singleton Jaxon
 $jaxon = jaxon();
 
-// Call the Jaxon processing engine
 if($jaxon->canProcessRequest())
 {
     $jaxon->processRequest();

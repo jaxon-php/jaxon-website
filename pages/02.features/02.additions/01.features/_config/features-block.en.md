@@ -3,7 +3,7 @@ title: Configuration files
 position: 3
 read:
     text: Read more
-    link: /docs/usage/configuration.html
+    link: /docs/v3x/about/configuration.html
 ---
 
 The Jaxon library can load its configuration settings from a file.

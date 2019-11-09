@@ -3,7 +3,7 @@ title: Jaxon Armada
 position: 2
 read:
     text: Read more
-    link: /docs/armada/operation.html
+    link: /docs/v3x/advanced/bootstrap.html
 ---
 
 The `jaxon-armada` and `jaxon-sentry` packages are removed, and their features are integrated in the `jaxon-core` package.

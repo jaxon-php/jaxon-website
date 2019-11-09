@@ -102,8 +102,8 @@ if($jaxon->canProcessRequest())
 }
 else if($jaxon->upload()->hasFiles())
 {
-    // Process upload.
-    $jaxon->upload()->saveFiles();
+    // Process HTTP upload request.
+    $jaxon->upload()->processHttpRequest();
 }
 ```
 

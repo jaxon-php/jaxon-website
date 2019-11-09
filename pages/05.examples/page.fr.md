@@ -1,5 +1,5 @@
 ---
-title: Exemples
+title: Exemples (uniquement pour la version 2)
 menu: Exemples
 template: jaxon
 ---

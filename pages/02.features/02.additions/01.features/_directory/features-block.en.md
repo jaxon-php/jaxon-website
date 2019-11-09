@@ -3,7 +3,7 @@ title: Exporting directories
 position: 1
 read:
     text: Read more
-    link: /docs/advanced/directories.html
+    link: /docs/v3x/registrations/directories.html
 ---
 
 The most important new feature in Jaxon is the ability to export in a few lines and recursively all the classes in a directory, possibly with a namespace.

@@ -1,6 +1,6 @@
 ---
 title: Registering PHP classes
-menu: Registering classes
+menu: Classes
 template: jaxon
 ---
 

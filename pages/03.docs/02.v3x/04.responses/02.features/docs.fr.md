@@ -1,6 +1,6 @@
 ---
-title: Modifier le contenu des pages web avec PHP
-menu: Le contenu des pages
+title: Fonctionnalités de la classe Response
+menu: Fonctionnalités
 template: jaxon
 ---
 
@@ -10,8 +10,6 @@ Ces commandes peuvent réaliser 3 types d'opérations dans une page web.
 - Modifier le contenu de la page
 - Modifier la présentation de la page avec CSS
 - Exécuter du code javascript dans la page
-
-La liste complète des fonctions de la classe `Jaxon\Response\Response` est [documentée ici](/api/Jaxon/Response/Response.html).
 
 #### Modifier le contenu et le style de la page
 
@@ -97,4 +95,4 @@ Par exemple, le code suivant exécute une fonction Jaxon lorsque l'utilisateur c
 $response->onClick('btn-set-color', rq('MyClass')->call('myMethod', pr()->select('colorselect')));
 ```
 
-Bien que la classe `Jaxon\Response\Response` implémente un riche ensemble de fonctions, il est possible de lui en ajouter à l'aide de [plugins](/docs/plugins/response).
+Bien que la classe `Jaxon\Response\Response` implémente un riche ensemble de fonctions, il est possible de lui en ajouter à l'aide de [plugins](../plugins).

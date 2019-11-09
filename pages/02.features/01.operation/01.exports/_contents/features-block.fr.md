@@ -3,7 +3,7 @@ title: Editer le contenu des pages web
 position: 3
 read:
     text: Lire plus
-    link: /fr/docs/responses/webpage.html
+    link: /fr/docs/v3x/responses/features.html
 ---
 
 L'objet `Response` renvoyé par la requête Jaxon contient une série d'opérations à exécuter dans une page web.

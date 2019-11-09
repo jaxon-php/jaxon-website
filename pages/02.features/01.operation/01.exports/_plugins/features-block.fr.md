@@ -3,7 +3,7 @@ title: Ajouter de nouvelles fonctions
 position: 4
 read:
     text: Lire plus
-    link: /fr/docs/responses/plugins.html
+    link: /fr/docs/v3x/responses/plugins.html
 ---
 
 La librairie Jaxon peut être étendue avec des plugins qui vont ajouter de nouvelles fonctions à l'objet `Response`.
