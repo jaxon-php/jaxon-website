@@ -10,16 +10,24 @@
                         </div>
                         <!-- End Sidebar Menu -->
                         <div class="col-md-9">
-                            <!-- Page title -->
                             <div class="row">
+                                <!-- Page title -->
                                 <div class="col-md-12">
                                     <div class="headline">
                                         <h3>{{ page.title }}</h3>
                                     </div>
                                     <hr>
                                 </div>
+                                <!-- End Page title -->
+{% if root.route == '/docs' %}
+                                <!-- Documentation menu
+                                <div class="col-md-12">
+                                    {% include 'partials/section.html.twig' %}
+                                    <hr>
+                                </div> -->
+                                <!-- End Documentation menu -->
+{% endif %}
                             </div>
-                            <!-- End Page title -->
 
 {% if page.content %}
                             <!-- Page content -->
@@ -44,7 +52,7 @@
                             <!-- End Jaxon content -->
 {% endif %}
 
-{% if page.route == '/docs' or page.route == '/features' %}
+{% if page.route == '/docs/v3x' or page.route == '/docs/v2x' %}
                             <!-- Section TOC -->
                             <div class="row">
                                 <div class="col-md-12">

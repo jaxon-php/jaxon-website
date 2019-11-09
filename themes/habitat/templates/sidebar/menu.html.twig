@@ -1,5 +1,11 @@
+{% if root.route == '/docs' %}
+{# Under /docs, the root for the menu is the 2nd level menu, ie the versions. #}
+{% set _root = page.find('/docs/' ~ uri.paths[1]) %}
+{% else %}
+{% set _root = root %}
+{% endif %}
 <ul class="list-group sidebar-nav" id="sidebar-nav">
-{% for item in root.children %}
+{% for item in _root.children %}
     {% if item.visible %}
     {% if item.children|length > 0 %}
     <li class="list-group-item list-toggle">
