@@ -91,19 +91,13 @@ Dans l'exemple précédent, l'option `upload.files.upload_example.dir` définit 
 
 Lorsque l'objet `FormData` n'est pas disponible dans le navigateur, un iframe est créé pour transférer le fichier dans une première requête HTTP POST classique, et la fonction Jaxon est appelée dans une seconde requête.
 
-La requête HTTP qui transfère le fichier est envoyée à l'URI définie pour les requêtes Jaxon.
-Il faut donc modifier la fonction de traitement pour les prendre en compte.
+La requête HTTP qui transfère le fichier est envoyée à l'URI définie pour les requêtes Jaxon, et traitée par la même fonction.
 
 ```php
 if($jaxon->canProcessRequest())
 {
     // Process the request.
     $jaxon->processRequest();
-}
-else if($jaxon->upload()->hasFiles())
-{
-    // Process HTTP upload request.
-    $jaxon->upload()->processHttpRequest();
 }
 ```
 

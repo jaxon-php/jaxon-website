@@ -91,19 +91,13 @@ In the previous example, the `upload.files.upload_example.dir` option defines a 
 
 When the `FormData` class is not available in the browser, the files are uploaded using a simple HTTP POST request in an iframe in a first request, and the Jaxon function is called in a second request.
 
-The HTTP request which transfers the file is sent to the same URI defined for Jaxon request.
-The Jaxon request processing function must then be modified to take them into account.
+The HTTP request which transfers the file is sent to the same URI defined for Jaxon request, and processed by the same function.
 
 ```php
 if($jaxon->canProcessRequest())
 {
     // Process the request.
     $jaxon->processRequest();
-}
-else if($jaxon->upload()->hasFiles())
-{
-    // Process HTTP upload request.
-    $jaxon->upload()->processHttpRequest();
 }
 ```
 
