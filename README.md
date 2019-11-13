@@ -12,9 +12,13 @@ The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.
 2. Install the Grav plugins
 
 > ./bin/gpm install piwik
+
 > ./bin/gpm install langswitcher
+
 > ./bin/gpm install blog-injector
+
 > ./bin/gpm install jscomments
+
 > ./bin/gpm install ganalytics
 
 
