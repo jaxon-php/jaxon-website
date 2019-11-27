@@ -17,7 +17,7 @@ Il est également possible de charger la configuration de la librairie à partir
 $jaxon->config()->load($phpFilePath);
 ```
 
-Cette fonction peut prendre un second paramètre qui permet de lire la configuration seulement dans une section du fichier.
+Cette fonction peut prendre un second paramètre pour lire la configuration seulement dans une section du fichier.
 
 #### La liste des options de configuration
 
