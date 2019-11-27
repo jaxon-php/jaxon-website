@@ -17,8 +17,6 @@ En réalité elle génère automatiquement des appels aux fonctions de jQuery.
 L'API jQuery PHP permet d'utiliser les mêmes sélecteurs que la librairie jQuery, et donc d'appliquer une fonction simultanément sur plusieurs éléments d'une page web, sélectionnés avec des critères variés.
 Elle est simple à apprendre pour ceux qui connaissent jQuery. Cependant, elle nécessite de charger la librairie jQuery dans la page pour fonctionner.
 
-L'API jQuery est fournie par le plugin [jaxon-jquery](https://github.com/jaxon-php/jaxon-jquery), qui a été intégré à la librairie dans la version 2.
-
 #### Utiliser l'API (Dans Jaxon version 2)
 
 L'API fonctionne de la même manière que celle de la librairie javascript.

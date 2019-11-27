@@ -17,8 +17,6 @@ Actually, it automatically generates calls to jQuery functions.
 The JQuery PHP API allows the developer to use the same selectors as the jQuery library, and therefore can apply a fonction simultaneously to multiple elements in a webpage, selected based on various criteria.
 It is simple to learn for those who already know jQuery. However, it requires the jQuery library to be loaded in the webpage to operate properly.
 
-The JQuery API is provided by the [jaxon-jquery](https://github.com/jaxon-php/jaxon-jquery) plugin, which is integrated in version 2.
-
 #### Using the API (In Jaxon version 2)
 
 The PHP API operates the same way as the javascript library.
