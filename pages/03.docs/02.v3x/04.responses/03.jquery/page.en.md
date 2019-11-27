@@ -61,13 +61,13 @@ It is also possible to pass contents from the web page as parameters of the call
 $response->jq('#message')->html(jq('#message2')->html());
 ```
 
-or the [request factory](/docs/requests/factory).
+or the [parameter factory](../requests/factory.html).
 
 ```php
-$response->jq('#message')->html(rq()->html('message2'));
+$response->jq('#message')->html(pr()->html('message2'));
 ```
 
-A Jaxon function can be used as parameter, when binding to an event.
+A call to a Jaxon function can be used as parameter, when binding to an event.
 
 ```php
 $response->jq('#button')->click(rq('MyClass')->call('myMethod'));

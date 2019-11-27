@@ -61,13 +61,13 @@ Il est également possible de passer du contenu de la page web en paramètre des
 $response->jq('#message')->html(jq('#message2')->html());
 ```
 
-ou encore la [fabrique de requête](/docs/requests/factory).
+ou encore la [fabrique de paramètres](../requests/factory.html).
 
 ```php
-$response->jq('#message')->html(rq()->html('message2'));
+$response->jq('#message')->html(pr()->html('message2'));
 ```
 
-Une fonction Jaxon peut être passée en paramètre, pour la lier à un évènement.
+Un appel à une fonction Jaxon peut être passée en paramètre, pour la lier à un évènement.
 
 ```php
 $response->jq('#button')->click(rq('MyClass')->call('myMethod'));

@@ -99,7 +99,7 @@ public function myFunction()
 }
 ```
 
-L'ordre des paramètres dans dans le message peut être changé, ce qui permet par exemple de prendre en compte les traductions.
+L'ordre des paramètres dans dans le message peut être changé, ce qui permet par exemple de réaliser des traductions.
 
 ```php
 public function myFunction()

@@ -7,7 +7,7 @@ template: jaxon
 The `Jaxon\Request\Factory\RequestFactory` class allows to create requests to functions or methods exported with Jaxon.
 The `rq()` global function returns an instance of this class, which provides the `call()` method to create a request.
 
-The `Jaxon\Request\Factory\RequestFactory` class allows to create parameters.
+The `Jaxon\Request\Factory\ParameterFactory` class allows to create parameters.
 The `pr()` global function returns an instance of this class, which provides a range of other functions to pass elements from the HTML page as parameter to the request.
 
 For example, the following code uses the Request Factory to create a request to a the `setColor()` method of the class `HelloWorld`, passing the value selected in the combobox with id `colorselect` as parameter.
@@ -99,7 +99,7 @@ public function myFunction()
 }
 ```
 
-The order of the parameters in the message can be changed, allowing for example to take message translations into account.
+The order of the parameters in the message can be changed, allowing for example to implement message translations.
 
 ```php
 public function myFunction()
