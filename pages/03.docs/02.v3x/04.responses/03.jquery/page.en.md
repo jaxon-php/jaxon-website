@@ -64,7 +64,7 @@ $response->jq('#message')->html(jq('#message2')->html());
 or the [parameter factory](../requests/factory.html).
 
 ```php
-$response->jq('#message')->html(pr()->html('message2'));
+$response->jq('#message')->html(pm()->html('message2'));
 ```
 
 A call to a Jaxon function can be used as parameter, when binding to an event.

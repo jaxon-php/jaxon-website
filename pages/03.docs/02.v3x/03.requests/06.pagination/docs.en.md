@@ -32,10 +32,10 @@ With Jaxon, we should have links more like this.
 The `paginate()` ou `pg()` method allows, from a request, to generate the pagination links to a method of a Jaxon class.
 
 ```php
-$pagination = rq('MyClass')->call('showPage', pr()->select('colorselect'), pr()->page())->paginate($currentPage, $itemsPerPage, $itemsTotal);
+$pagination = rq('MyClass')->call('showPage', pm()->select('colorselect'), pm()->page())->paginate($currentPage, $itemsPerPage, $itemsTotal);
 ```
 
-The position of the page number is indicated by the `pr()->page()` function. If it is not present in the call, it will be automatically added to the end of the parameter list.
+The position of the page number is indicated by the `pm()->page()` function. If it is not present in the call, it will be automatically added to the end of the parameter list.
 The result is the HTML code to be inserted in the page.
 
 ```html

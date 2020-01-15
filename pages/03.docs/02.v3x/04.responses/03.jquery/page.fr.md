@@ -64,7 +64,7 @@ $response->jq('#message')->html(jq('#message2')->html());
 ou encore la [fabrique de paramètres](../requests/factory.html).
 
 ```php
-$response->jq('#message')->html(pr()->html('message2'));
+$response->jq('#message')->html(pm()->html('message2'));
 ```
 
 Un appel à une fonction Jaxon peut être passée en paramètre, pour la lier à un évènement.

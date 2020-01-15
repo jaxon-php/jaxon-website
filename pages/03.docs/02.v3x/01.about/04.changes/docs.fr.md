@@ -127,6 +127,10 @@ Dans la version 3
 rq('MyClass')->call('showPage', pr()->select('colorselect'), pr()->page());
 ```
 
+Note
+====
+La fonction `pr()` a été renommée en `pm()` daans la version 3.2.0.
+
 #### La pagination
 
 Une nouvelle syntaxe doit être utilisée pour générer la pagination.

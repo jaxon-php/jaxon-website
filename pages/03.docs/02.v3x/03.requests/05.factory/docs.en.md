@@ -8,14 +8,14 @@ The `Jaxon\Request\Factory\RequestFactory` class allows to create requests to fu
 The `rq()` global function returns an instance of this class, which provides the `call()` method to create a request.
 
 The `Jaxon\Request\Factory\ParameterFactory` class allows to create parameters.
-The `pr()` global function returns an instance of this class, which provides a range of other functions to pass elements from the HTML page as parameter to the request.
+The `pm()` global function returns an instance of this class, which provides a range of other functions to pass elements from the HTML page as parameter to the request.
 
 For example, the following code uses the Request Factory to create a request to a the `setColor()` method of the class `HelloWorld`, passing the value selected in the combobox with id `colorselect` as parameter.
 
 ```php
 <div class="col-md-4 margin-vert-10">
     <select id="colorselect" name="colorselect"
-            onchange="<?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>">
+            onchange="<?php echo rq('HelloWorld')->call('setColor', pm()->select('colorselect')) ?>">
         <option value="black" selected="selected">Black</option>
         <option value="red">Red</option>
         <option value="green">Green</option>
@@ -29,7 +29,7 @@ The Request Factory can also be used to bind a call to a Jaxon function to an ev
 ```php
 public function myFunction()
 {
-    $response->setEvent('colorselect', 'onchange', rq('HelloWorld')->call('setColor', pr()->select('colorselect')));
+    $response->setEvent('colorselect', 'onchange', rq('HelloWorld')->call('setColor', pm()->select('colorselect')));
     return $response;
 }
 ```
@@ -55,8 +55,8 @@ In the following example, the request is sent only if the checkbox with id `acce
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->when(pr()->checked('accepted'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->when(pm()->checked('accepted'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -68,8 +68,8 @@ In the following example, the request is sent only if the checkbox with id `refu
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->unless(pr()->checked('refused'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->unless(pm()->checked('refused'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -80,7 +80,7 @@ The function `confirm()` asks a question and sends the request only if the user 
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
         ->confirm('Are you sure?');
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
@@ -92,8 +92,8 @@ The content from the webpage can be inserted in the question, by giving their po
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->confirm('You want {1}? Really, {2}?', pr()->select('colorselect'), pr()->html('username'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->confirm('You want {1}? Really, {2}?', pm()->select('colorselect'), pm()->html('username'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -104,8 +104,8 @@ The order of the parameters in the message can be changed, allowing for example 
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->confirm('Hey {2}, you really want {1}?', pr()->select('colorselect'), pr()->html('username'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->confirm('Hey {2}, you really want {1}?', pm()->select('colorselect'), pm()->html('username'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }

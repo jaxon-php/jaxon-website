@@ -32,10 +32,10 @@ Avec Jaxon, on devrait avoir plutôt ceci.
 La méthode `paginate()` ou `pg()` permet, à partir d'une requête, de générer les liens de pagination vers une méthode d'une classe Jaxon.
 
 ```php
-$pagination = rq('MyClass')->call('showPage', pr()->select('colorselect'), pr()->page())->paginate($currentPage, $itemsPerPage, $itemsTotal);
+$pagination = rq('MyClass')->call('showPage', pm()->select('colorselect'), pm()->page())->paginate($currentPage, $itemsPerPage, $itemsTotal);
 ```
 
-La position du numéro de page est indiquée par la fonction `pr()->page()`. S'il n'est pas présent dans l'appel, il sera automatiquement ajouté à la fin de la liste des paramètres.
+La position du numéro de page est indiquée par la fonction `pm()->page()`. S'il n'est pas présent dans l'appel, il sera automatiquement ajouté à la fin de la liste des paramètres.
 Le résultat est le code HTML à insérer dans la page.
 
 ```html

@@ -93,7 +93,7 @@ class ClassA extends \Jaxon\CallableClass
 }
 ```
 
-Le contenu de la page peut être passé en paramètre aux appels à l'aide de [la fabrique de requête](../../requests/factory) ou de [l'API jQuery PHP](../../advanced/jquery), et leurs fonctions globales `pr()` et `jq()`.
+Le contenu de la page peut être passé en paramètre aux appels à l'aide de [la fabrique de requête](../../requests/factory) ou de [l'API jQuery PHP](../../advanced/jquery), et leurs fonctions globales `pm()` et `jq()`.
 
 ```php
 class ClassA extends \Jaxon\CallableClass
@@ -101,7 +101,7 @@ class ClassA extends \Jaxon\CallableClass
     public function doA()
     {
         // Paramètre avec la fabrique de requête
-        $this->response->onClick('btn-a', $this->rq()->doB(pr()->form('form-user')));
+        $this->response->onClick('btn-a', $this->rq()->doB(pm()->form('form-user')));
 
         // Paramètre avec l'API jQuery PHP
         $this->response->onClick('btn-b', $this->cl('.ClassB')->rq()->doB(jq('#username')->val()));
@@ -141,7 +141,7 @@ class ClassA extends \Jaxon\CallableClass
     public function doA($pageNumber)
     {
         // Insert the pagination links into the page
-        $pagination = $this->rq()->doA(pr()->page())->paginate($currentPage, $itemsPerPage, $totalPages);
+        $pagination = $this->rq()->doA(pm()->page())->paginate($currentPage, $itemsPerPage, $totalPages);
         $this->response->assign('pagination-links', 'innerHTML', $pagination);
         return $this->response;
     }

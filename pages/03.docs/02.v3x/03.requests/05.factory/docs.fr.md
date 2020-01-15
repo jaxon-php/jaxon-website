@@ -8,14 +8,14 @@ La classe `Jaxon\Request\Factory\RequestFactory` permet de créer des requêtes 
 La fonction globale `rq()` retourne une instance de cette classe, qui fournit une fonction `call()` pour créer la requête.
 
 La classe `Jaxon\Request\Factory\ParameterFactory` permet de créer des paramètres.
-La fonction globale `pr()` retourne une instance de cette classe, qui fournit un ensemble d'autres fonctions pour passer des éléments de la page HTML en paramètre.
+La fonction globale `pm()` retourne une instance de cette classe, qui fournit un ensemble d'autres fonctions pour passer des éléments de la page HTML en paramètre.
 
 Par exemple, le code suivant utilise la fabrique de requête pour générer un appel à la méthode `setColor()` de la classe `HelloWorld`, en lui passant la valeur de la liste déroulante avec l'id `colorselect`.
 
 ```php
 <div class="col-md-4 margin-vert-10">
     <select id="colorselect" name="colorselect"
-            onchange="<?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>">
+            onchange="<?php echo rq('HelloWorld')->call('setColor', pm()->select('colorselect')) ?>">
         <option value="black" selected="selected">Black</option>
         <option value="red">Red</option>
         <option value="green">Green</option>
@@ -29,7 +29,7 @@ La fabrique de requête peut aussi être utilisée pour lier un appel à une fon
 ```php
 public function myFunction()
 {
-    $response->setEvent('colorselect', 'onchange', rq('HelloWorld')->call('setColor', pr()->select('colorselect')));
+    $response->setEvent('colorselect', 'onchange', rq('HelloWorld')->call('setColor', pm()->select('colorselect')));
     return $response;
 }
 ```
@@ -55,8 +55,8 @@ Dans l'exemple suivant la requête est exécutée si l'utilisateur a coché la c
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->when(pr()->checked('accepted'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->when(pm()->checked('accepted'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -68,8 +68,8 @@ Dans l'exemple suivant la requête est exécutée si l'utilisateur n'a pas coch�
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->unless(pr()->checked('refused'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->unless(pm()->checked('refused'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -80,7 +80,7 @@ La fonction `confirm()` exécute la requête seulement si l'utilisateur répond 
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
         ->confirm('Etes-vous sûr?');
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
@@ -92,8 +92,8 @@ Le contenu de la page web peut être inclus dans la question, en indiquant les p
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->confirm('Vous voulez du {1} ? Vraiment, {2} ?', pr()->select('colorselect'), pr()->html('username'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->confirm('Vous voulez du {1} ? Vraiment, {2} ?', pm()->select('colorselect'), pm()->html('username'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }
@@ -104,8 +104,8 @@ L'ordre des paramètres dans dans le message peut être changé, ce qui permet p
 ```php
 public function myFunction()
 {
-    $request = rq('HelloWorld')->call('setColor', pr()->select('colorselect'))
-        ->confirm('Bonjour {2}, vous voulez du {1} ?', pr()->select('colorselect'), pr()->html('username'));
+    $request = rq('HelloWorld')->call('setColor', pm()->select('colorselect'))
+        ->confirm('Bonjour {2}, vous voulez du {1} ?', pm()->select('colorselect'), pm()->html('username'));
     $response->setEvent('colorselect', 'onchange', $request);
     return $response;
 }

@@ -93,7 +93,7 @@ class ClassA extends \Jaxon\CallableClass
 }
 ```
 
-The contents of the webpage can be passed as parameters to calls using the [Request Factory](../../requests/factory) or the [PHP jQuery API](../../advanced/jquery), and their global functions `pr()` and `jq()`.
+The contents of the webpage can be passed as parameters to calls using the [Request Factory](../../requests/factory) or the [PHP jQuery API](../../advanced/jquery), and their global functions `pm()` and `jq()`.
 
 ```php
 class ClassA extends \Jaxon\CallableClass
@@ -101,7 +101,7 @@ class ClassA extends \Jaxon\CallableClass
     public function doA()
     {
         // Parameter using the Request Factory
-        $this->response->onClick('btn-a', $this->rq()->doB(pr()->form('form-user')));
+        $this->response->onClick('btn-a', $this->rq()->doB(pm()->form('form-user')));
 
         // Parameter using the PHP jQuery API
         $this->response->onClick('btn-b', $this->cl('.ClassB')->rq()->doB(jq('#username')->val()));
@@ -141,7 +141,7 @@ class ClassA extends \Jaxon\CallableClass
     public function doA($pageNumber)
     {
         // Insert the pagination links into the page
-        $pagination = $this->rq()->doA(pr()->page())->paginate($currentPage, $itemsPerPage, $totalPages);
+        $pagination = $this->rq()->doA(pm()->page())->paginate($currentPage, $itemsPerPage, $totalPages);
         $this->response->assign('pagination-links', 'innerHTML', $pagination);
         return $this->response;
     }
