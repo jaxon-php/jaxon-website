@@ -112,7 +112,10 @@ class Habitat extends Theme
     {
         $this->grav['twig']->twig_vars['jaxon'] = $this->jaxon;
         // Top parent page
-        $root = $this->grav['page']->topParent();
+        if(!($root = $this->grav['page']->topParent()))
+        {
+            return;
+        }
         // The top parent pages have "Pages" as top parent.
         if($root->title() == 'Pages')
         {

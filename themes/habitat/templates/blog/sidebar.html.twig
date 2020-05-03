@@ -1,4 +1,4 @@
-{% block sidebar %} 
+{% block sidebar %}
 {% set title_tag = title_tag|default('h3') %}
 
 {% if config.plugins.taxonomylist.enabled %}
@@ -12,7 +12,7 @@
                                 <ul class="blog-tags">
         {% for tax,value in taxlist[taxonomy] %}
                                     <li>
-                                        <a href="{{ blog_base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}" class="blog-tag">{{ tax }}</a>
+                                        <a href="{{ root.url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}" class="blog-tag">{{ tax }}</a>
                                     </li>
         {% endfor %}
                                 </ul>
@@ -22,7 +22,7 @@
 {% endif %}
 
                             <!-- Recent Posts -->
-                            <div class="recent-posts">
+                            <!-- <div class="recent-posts">
                                 <{{ title_tag }}>{{ "PLUGIN_BLOG_INJECTOR.TEMPLATES.RELATED_POSTS"|t }}</{{ title_tag }}>
                                 <ul class="posts-list margin-top-10">
 {% for post in recent_posts %}
@@ -36,7 +36,7 @@
                                     </li>
 {% endfor %}
                                 </ul>
-                            </div>
+                            </div> -->
                             <!-- End Recent Posts -->
 
 {% endblock %}

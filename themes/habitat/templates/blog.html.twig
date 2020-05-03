@@ -24,12 +24,12 @@
 {% endblock %}
 
 {% block posts %}
-{% for child in collection %} 
+{% for child in collection %}
 {% set blog = page %}
 {% set truncate = true %}
 {% set page = child %}
 {{ block('post') }}
-{% endfor %} 
+{% endfor %}
 {% endblock %}
 
 {% block post %}
@@ -42,14 +42,14 @@
                             <div class="blog-post padding-bottom-20">
                                 <!-- Blog Item Header -->
                                 <div class="blog-item-header">
-{{ block('post_header_title') }}      
+{{ block('post_header_title') }}
                                 </div>
                                 <!-- End Blog Item Header -->
                                 <!-- Blog Item Details -->
                                 <div class="blog-post-details">
-{{ block('post_header_date') }} 
+{{ block('post_header_date') }}
 {{ block('post_header_taxonomy') }}
-{{ block('post_header_comments') }} 
+{{ block('post_header_comments') }}
                                 </div>
                                 <!-- End Blog Item Details -->
                                 <!-- Blog Item Body -->
@@ -58,7 +58,7 @@
                                     <div class="blog-post-body row margin-top-15">
 {% if header_image %}
                                         <div class="col-md-5">
-{{ block('post_image') }} 
+{{ block('post_image') }}
                                         </div>
                                         <div class="col-md-7">
 {{ block('post_content') }}
@@ -75,8 +75,8 @@
                             <!-- End Blog Item -->
 {% endblock %}
 
-{% block post_header_title %}   
-{% set title_tag = title_tag|default('h2') %}
+{% block post_header_title %}
+{% set title_tag = title_tag|default('h3') %}
 {% if page.header.link %}
                                     <!-- Title -->
 								    <{{ title_tag }}>
@@ -106,22 +106,24 @@
 {% endblock %}
 
 {% block post_header_comments %}
+{% if config.plugins.jscomments.enabled %}
                                     <!-- # of Comments -->
                                     <div class="blog-post-details-item blog-post-details-item-left blog-post-details-item-last">
                                         <i class="fa fa-comments color-gray-light"></i> 2 Comments
                                     </div>
                                     <!-- End # of Comments -->
+{% endif %}
 {% endblock %}
 
 {% block post_header_date %}
                                     <!-- Date -->
                                     <div class="blog-post-details-item blog-post-details-item-left">
-                                        <i class="fa fa-calendar color-gray-light"></i> <span>{{ page.date|date("F j, Y, g:i a") }}</span>
+                                        <i class="fa fa-calendar color-gray-light"></i> <span>{{ page.date|date("F j, Y") }}</span>
                                     </div>
                                     <!-- End Date -->
 {% endblock %}
 
-{% block post_image %}   
+{% block post_image %}
 {% if header_image_file %}
     {% set header_image_media = page.media.images[header_image_file] %}
 {% else %}
@@ -145,5 +147,5 @@
                             <!-- Pagination -->
 {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
                             <!-- End Pagination -->
-{% endif %}  
+{% endif %}
 {% endblock %}

@@ -15,23 +15,71 @@ The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.
 
 > ./bin/gpm install langswitcher
 
-> ./bin/gpm install blog-injector
-
-> ./bin/gpm install jscomments
-
 > ./bin/gpm install ganalytics
+
+> ./bin/gpm install pagination
+
+> ./bin/gpm install taxonomylist
+
+> ./bin/gpm install archives
+
+> ./bin/gpm install comments
 
 
 3. Install the website files
 
-> Copy the `{wsp}/themes/habitat` dir to `{web}/user/themes`.
+> Copy the `{wsp}/themes/habitat` dir to `{app}/user/themes`.
+
+> Copy the content of the `{wsp}/config` dir to `{app}/user/config`.
+
+> Copy the content of the `{wsp}/pages` dir to `{app}/user/pages`.
 
 > Copy the `{wsp}/themes/habitat/assets` dir to `{web}/assets`.
-
-> Copy the content of the `{wsp}/config` dir to `{web}/user/config`.
-
-> Copy the content of the `{wsp}/pages` dir to `{web}/user/pages`.
 
 4. Clone the v2x branch of the `jaxon-examples` package into the `{web}\exp` dir.
 
 5. Configure the web server to serve website root at `{web}`
+
+6. In the cms is installed in a different directory than the webroot, set this in the `index.php` file:
+```php
+define('GRAV_ROOT', '/path/to/the/grav/install/dir');
+```
+
+#### Blogging
+
+The `pages/06.blog` directory contains the blog pages.
+The link of the blog pages are in the form `/blog/2020/06/blog-entry-title`,
+and each entry is supposed to have an image for illustration.
+
+Therefore, the blog pages will be located in a 3 level directory hierarchy.
+The first level directory name is the year.
+The second level directory name is the month.
+The third level directory name is the slug of the blog entry title.
+
+The first and second level directories must contain a `item.md` file with the following content.
+
+```markdown
+---
+published: false
+---
+```
+It will prevent these pages from being listed in the main blog page.
+
+The third level directory contains the blog entry content.
+Each entry header must define a date in the following format `17:34 05/01/2020`.
+The date is mandatory because the blog entries are ordered by date in the blog main page.
+A list of tags can also be define in the `taxonomy.tag` header.
+This is an example of a blog entry header.
+```markdown
+---
+title: 'Why Jaxon'
+date: '17:34 05/01/2020'
+taxonomy:
+    category:
+        - blog
+    tag:
+        - photography
+        - architecture
+        - ajax
+---
+```

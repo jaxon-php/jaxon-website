@@ -19,7 +19,7 @@ TABLE OF CONTENTS
 	- Testimonials
 	- Accordions
 	- Tabs
-	- Progress Bars 
+	- Progress Bars
 	- Panels
 	- Social Icons
 	- Carousel
@@ -1024,7 +1024,7 @@ p.site-slogan {
 .slicknav_menu {
   *zoom: 1;
 }
-/* 
+/*
     User Default Style
     Change the following styles to modify the appearance of the menu.
 */
@@ -2621,7 +2621,7 @@ ul.social-icons li a:hover {
   border-radius: 3px 0 0 3px;
   color: #333333;
   display: inline-block;
-  font-size: 10px;
+  font-size: 13px;
   height: 22px;
   line-height: 22px;
   padding: 0 25px 0 10px;
