@@ -34,7 +34,11 @@ The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.
 
 > Copy the content of the `{wsp}/pages` dir to `{app}/user/pages`.
 
-> Copy the `{wsp}/themes/habitat/assets` dir to `{web}/assets`.
+> Copy the content of the `{wsp}/themes/habitat/assets` dir to `{app}/assets`.
+
+> Link the `{web}/assets` dir to `{app}/assets`.
+
+> Link the `{web}/images` dir to `{app}/images`.
 
 4. Clone the v2x branch of the `jaxon-examples` package into the `{web}\exp` dir.
 
@@ -83,3 +87,11 @@ taxonomy:
         - ajax
 ---
 ```
+
+The image which illustrates each blog entry is stored in the same directory.
+It will be resized later, and copied into the `images` directory by the CMS.
+The images must be in the 9:6 format.
+
+Additional meta data can be added foreach image.
+They are defined in a file with the same name as the image, suffixed with `meta.yaml`.
+They are used for example to define images source and author data for credits.
