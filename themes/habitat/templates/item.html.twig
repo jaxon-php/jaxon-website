@@ -32,7 +32,7 @@
 {{ block('urls') }}
 {% set header_image = page.header.header_image|defined(true) %}
 {% set header_image_width  = page.header.header_image_width|defined(900) %}
-{% set header_image_height = page.header.header_image_height|defined(300) %}
+{% set header_image_height = page.header.header_image_height|defined(600) %}
 {% set header_image_file = page.header.header_image_file %}
                             <div class="blog-post">
 {{ block('post_header') }}
@@ -107,7 +107,12 @@
     {% else %}
         {% set header_image_media = page.media.images|first %}
     {% endif %}
-                                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html }}
+                        <div class="thumbnail" style="margin-bottom:20px">
+                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html }}
+                            <div class="caption">
+{% include 'blog/credits/unsplash.html.twig' with {'author':header_image_media.meta.author} %}
+                            </div>
+                        </div>
 {% endif %}
 {% endblock %}
 
