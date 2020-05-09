@@ -34,11 +34,11 @@ The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.
 
 > Copy the content of the `{wsp}/pages` dir to `{app}/user/pages`.
 
-> Copy the content of the `{wsp}/themes/habitat/assets` dir to `{app}/assets`.
+> Copy the content of the `{wsp}/themes/habitat/assets` dir to `{web}/assets`.
 
-> Link the `{web}/assets` dir to `{app}/assets`.
+> Link the `{app}/assets` dir to `{web}/assets`.
 
-> Link the `{web}/images` dir to `{app}/images`.
+> Link the `{app}/images` dir to `{web}/images`.
 
 4. Clone the v2x branch of the `jaxon-examples` package into the `{web}\exp` dir.
 
