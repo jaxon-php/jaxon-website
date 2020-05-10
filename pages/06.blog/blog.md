@@ -2,7 +2,6 @@
 title: Blog
 menu: Blog
 template: blog
-visible: false
 content:
     items: '@self.descendants'
     order:
