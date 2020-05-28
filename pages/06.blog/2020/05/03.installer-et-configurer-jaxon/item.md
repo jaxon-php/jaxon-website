@@ -84,7 +84,7 @@ return [
 ```
 
 Ces options sont décrites [dans la documentation](/docs/v3x/about/configuration.html).
-Le bloc `'core'` contient les options générales de Jaxon, le bloc `'js'` définit les options de la partie javascript, et le bloc `'assets'` concerne le traitement des fichiers statiques et librairies tierces (CSS et javascript).
+Le bloc `core` contient les options générales de Jaxon, le bloc `js` définit les options de la partie javascript, et le bloc `assets` concerne le traitement des fichiers statiques et librairies tierces (CSS et javascript).
 
 Le bloc `dialogs` définit les options de la librairie [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs).
 
@@ -215,7 +215,7 @@ Les options de la librairie sont définies sous la clé `lib`. Ils ont déjà é
 
 Les options de l'application sont définies sous la clé `app`.
 
-Les blocs `functions`, `classes` et `directories` permettent respectivement d'enregistrer des [fonctions](/docs/v3x/registrations/functions.html), des [classes individuelles](/docs/v3x/registrations/classes.html), ou encore des [répertoires de classes](/docs/v3x/registrations/directories.html) dans la librairie. Les répertoires peuvent être associés à des [namespaces](/docs/v3x/registrations/namespaces.html).
+Les blocs `functions`, `classes` et `directories` permettent respectivement d'enregistrer des [fonctions](/docs/v3x/registrations/functions.html), des [classes individuelles](/docs/v3x/registrations/classes.html), et des [répertoires de classes](/docs/v3x/registrations/directories.html) dans la librairie. Les répertoires peuvent être associés à des [namespaces](/docs/v3x/registrations/namespaces.html).
 
 Le bloc `container` permet de définir [l'injection de dépendance](/docs/v3x/advanced/dependency-injection.html) pour les classes exportées. Cette fonctonnalité est très importante dans la version 3 de Jaxon, où les classes exportées ne peuvent plus être instanciées par le développeur. C'est alors le seul moyen pour que ces classes puissent prendre des paramètres dans leurs constructeurs.
 
