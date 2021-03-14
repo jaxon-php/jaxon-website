@@ -130,12 +130,12 @@
     {% set header_image_media = page.media.images|first %}
 {% endif %}
                                         <div class="thumbnail">
-                                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html }}
+                                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html | raw }}
                                         </div>
 {% endblock %}
 
 {% block post_content %}
-                                            <p>{{ page.summary }}</p>
+                                            <p>{{ page.summary | raw }}</p>
                                             <!-- Read More -->
                                             <a href="{{ page.url }}" class="btn btn-primary">
                                                 {{ "PLUGIN_BLOG_INJECTOR.TEMPLATES.CONTINUE_READING"|t }}
