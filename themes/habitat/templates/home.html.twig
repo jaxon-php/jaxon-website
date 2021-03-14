@@ -12,11 +12,11 @@
                     <div class="row margin-vert-30">
                         <!-- Main Text -->
                         <div class="col-md-6">
-                            {{ page.content }}
+                            {{ page.content | raw }}
                         </div>
                         <!-- End Main Text -->
                         <div class="col-md-6">
-                            {{ operation.content }}
+                            {{ operation.content | raw }}
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="container background-grey bottom-border">
                     <div class="row padding-vert-60">
                         <!-- Features -->
-                        {{ features.content }}
+                        {{ features.content | raw }}
                         <!-- End Features -->
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="container background-white bottom-border">
                     <div class="row margin-vert-30">
                         <!-- Plugins -->
-                        {{ plugins.content }}
+                        {{ plugins.content | raw }}
                         <!-- End Plugins -->
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="container background-white bottom-border">
                     <div class="row margin-vert-30">
                         <!-- Integrations -->
-                        {{ integrations.content }}
+                        {{ integrations.content | raw }}
                         <!-- End Integrations -->
                     </div>
                 </div>

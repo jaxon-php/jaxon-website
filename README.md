@@ -34,7 +34,7 @@ The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.
 
 > Copy the content of the `{wsp}/pages` dir to `{app}/user/pages`.
 
-> Copy the content of the `{wsp}/themes/habitat/assets` dir to `{web}/assets`.
+> Copy the content of the `{wsp}/themes/habitat/assets` dir to `{app}/assets`.
 
 > Link the `{app}/assets` dir to `{web}/assets`.
 
