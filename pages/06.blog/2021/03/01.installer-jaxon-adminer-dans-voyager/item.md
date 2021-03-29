@@ -27,7 +27,7 @@ Les packages Jaxon offrent une autre alternative, [Jaxon Adminer](https://github
 
 [Adminer](https://www.adminer.org/) (anciennement phpMinAdmin) est un outil de gestion de base de données complet écrit en PHP.
 À l'inverse de [phpMyAdmin](https://www.phpmyadmin.net/), il se compose d'un seul fichier prêt à être déployé sur le serveur cible.
-Adminer est disponible pour MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch, MongoDB et autres via des plugins.
+`Adminer` est disponible pour `MySQL`, `MariaDB`, `PostgreSQL`, `SQLite`, `MS SQL`, `Oracle`, `Elasticsearch`, `MongoDB` et autres via des plugins.
 
 #### Qu'est-ce que Jaxon Adminer
 
@@ -43,6 +43,12 @@ Il est possible dans ce cas d'intégrer `Jaxon Adminer` dans l'un des nombreux p
 Dans cet article, nous avons choisi [Voyager](https://voyager-docs.devdojo.com), parce qu'il est gratuit, utilise le framework [Laravel](https://laravel.com) pour lequel un [plugin Jaxon](https://github.com/jaxon-php/jaxon-laravel) existe, et le framework CSS Bootstrap 3, qui est également utilisé dans `Jaxon Adminer`.
 
 #### Installer Laravel et Voyager
+
+Bien que cet article décrive l'installation de `Jaxon Adminer` dans `Voyager`, les principales étapes sont les mêmes pour l'installer dans d'autres environnements.
+1. Installer les packages `Jaxon`,
+2. Créer la page qui va contenir `Jaxon Adminer`,
+3. Ajouter une route et une entrée de menu vers cette page,
+4. Configurer `Jaxon` et ses packages, dont `Jaxon Adminer`.
 
 Pour commencer, on va installer `Voyager` sur la dernière version de Laravel, en [suivant sa documentation](https://voyager-docs.devdojo.com/getting-started/installation).
 ```bash
@@ -75,23 +81,6 @@ La commande `php artisan route:list | grep jaxon` affiche désormais le résulta
 +--------+--------+---------+---------+------------------------------------------------------------+-----------
 |        | POST   | jaxon   | jaxon   | Jaxon\Laravel\Http\Controllers\JaxonController@process     | web
 ```
-
-#### Créer un menu Adminer dans Voyager
-
-`Voyager` fournit un `Menu Builder`, que nous allons utiliser pour ajouter une entrée pour `Adminer`.
-On va le lancer à partir du menu `Tools > Menu Builder`, et ensuite cliquer sur le bouton `Builder` du menu `admin` déjà présent dans la liste.
-On accède alors à la page suivante, qui permet de définir les menus.
-
-![voyager-menu-builder](./voyager-menu-builder.png)
-
-A partir du bouton `New Menu Item`, on va ajouter un nouveau menu avec les attributs suivants:
-- Title: Adminer
-- Type: Dynamic Route
-- Route: jaxon.adminer
-- Route parameters: (vide)
-- Icon: voyager-data
-
-On peut ensuite déplacer le menu à sa guise, par exemple sous la section `Tools`.
 
 #### Créer une page pour Jaxon Adminer
 
@@ -163,7 +152,7 @@ La vue `resources/views/adminer.blade.php` étend le template `voyager:master`, 
 {% endraw %}
 
 La route est définie à la suite de celles de `Voyager`, avec le middleware fourni par `Voyager`.
-Son nom est celui qui a été défini dans le `Menu Builder` de `Voyager`.
+
 ```php
 use App\Http\Controllers\JaxonController;
 
@@ -173,6 +162,25 @@ Route::group(['prefix' => 'admin'], function () {
         ->name('jaxon.adminer')->middleware('admin.user');
 });
 ```
+
+Le nom de cette route sera utilisé dans le `Menu Builder` de `Voyager`, comme décrit dans le paragraphe suivant.
+
+#### Créer un menu Adminer dans Voyager
+
+`Voyager` fournit un `Menu Builder`, que nous allons utiliser pour ajouter une entrée pour `Adminer`.
+On va le lancer à partir du menu `Tools > Menu Builder`, et ensuite cliquer sur le bouton `Builder` du menu `admin` déjà présent dans la liste.
+On accède alors à la page suivante, qui permet de définir les menus.
+
+![voyager-menu-builder](./voyager-menu-builder.png)
+
+A partir du bouton `New Menu Item`, on va ajouter un nouveau menu avec les attributs suivants:
+- Title: Adminer
+- Type: Dynamic Route
+- Route: jaxon.adminer
+- Route parameters: (vide)
+- Icon: voyager-data
+
+On peut ensuite déplacer le menu à sa guise, par exemple sous la section `Tools`.
 
 Après avoir rechargé la page du `Menu Builder`, le lien `/admin/adminer` s'affiche alors dans l'entrée du menu `Adminer`.
 
