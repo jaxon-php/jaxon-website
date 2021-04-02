@@ -241,7 +241,8 @@ return [
         'dialogs' => [
             'default' => [
                 'modal' => 'bootstrap',
-                'message' => 'toastr',
+                'message' => 'noty',
+                'question' => 'noty',
             ],
             'toastr' => [
                 'options' => [
