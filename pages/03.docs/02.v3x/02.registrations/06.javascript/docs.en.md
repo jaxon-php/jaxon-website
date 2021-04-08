@@ -26,4 +26,4 @@ By default, the javascript file name is generated using a hash on a value comput
 If the `js.app.file` option is defined, its value is used as the file name.
 
 The javascript file will not be regenerated if it already exists.
-It is then recommended to set the `js.app.export` option  to `false` when developping, and generate a minified javascript file when deploying the application.
+It is then recommended to set the `js.app.export` option  to `false` when developing, and generate a minified javascript file when deploying the application.
