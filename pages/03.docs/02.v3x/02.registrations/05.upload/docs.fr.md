@@ -57,15 +57,29 @@ class Upload
 {
     public function saveFile()
     {
+        $response = new Response;
+
         // Get uploaded files
         $aUploadedFiles = jaxon()->upload()->files();
+
+        return $response;
+    }
+}
+```
+```php
+class Upload extends JaxonCallable
+{
+    public function saveFile()
+    {
+        // Get uploaded files
+        $aUploadedFiles = $this->files();
 
         return $this->response;
     }
 }
 ```
 
-L'appel à `jaxon()->upload()->files()` renvoie les fichiers transferés dans un tableau d'objets de la classe [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php).
+L'appel à `jaxon()->upload()->files()` renvoie une table où la clé est l'attribut `name` du champ `input`, et la valeur est un tableau d'objets de la classe [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php), chacun représentant un fichier transféré.
 
 #### Configuration
 
@@ -83,9 +97,9 @@ Les paramètres qui s'appliquent à tous les fichiers sont définis dans la sect
 Le répertoire défini par le paramètre `upload.default.dir` doit exister et être et accessible en écriture.
 Les autres paramètres ne seront pas vérifiés s'ils ne sont pas définis.
 
-Pour définir des paramètres qui vont s'appliquer uniquement à des fichiers spécifiques, il faut remplacer la chaîne `default` par l'id du champ `input` du fichier transferé, préfixé de `files.`.
+Pour définir des paramètres qui vont s'appliquer uniquement à des fichiers spécifiques, il faut remplacer la chaîne `default` par l'attribut `name` du champ `input` du fichier transferé, préfixé de `files.`.
 
-Dans l'exemple précédent, l'option `upload.files.upload_example.dir` définit un répertoire différent.
+Dans l'exemple précédent, l'option `upload.files.example_files.dir` définit un répertoire différent.
 
 #### Transfert avec iframe
 

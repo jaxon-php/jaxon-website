@@ -57,15 +57,29 @@ class Upload
 {
     public function saveFile()
     {
+        $response = new Response;
+
         // Get uploaded files
         $aUploadedFiles = jaxon()->upload()->files();
+
+        return $response;
+    }
+}
+```
+```php
+class Upload extends JaxonCallable
+{
+    public function saveFile()
+    {
+        // Get uploaded files
+        $aUploadedFiles = $this->files();
 
         return $this->response;
     }
 }
 ```
 
-The call to `jaxon()->upload()->files()` returns the uploaded files in the form of an array of objects of class [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php).
+The call to `jaxon()->upload()->files()` returns an array where the key is the `name` attribute of the `input` field, and the value is an array of objects of class [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php), each representing an uploaded file.
 
 #### Configuration
 
@@ -83,9 +97,9 @@ The options that apply to all uploaded files are defined in the `upload.default`
 The directory defined by `upload.default.dir` option must exist and be writable.
 The other options are not checked if they are undefined.
 
-Options can also be defined that apply only to a specific file. In this case, the `default` string in the option name is replaced by the id of the `input` file of the uploaded file, prepended with `files.`.
+Options can also be defined that apply only to a specific file. In this case, the `default` string in the option name is replaced by the `name` attribute of the `input` field of the uploaded file, prepended with `files.`.
 
-In the previous example, the `upload.files.upload_example.dir` option defines a different directory.
+In the previous example, the `upload.files.example_files.dir` option defines a different directory.
 
 #### Upload with iframe
 
