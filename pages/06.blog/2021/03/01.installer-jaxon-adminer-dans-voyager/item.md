@@ -19,9 +19,10 @@ taxonomy:
         - ajax
 ---
 
-Pour administrer des bases de données à partir d'une interface web, les deux choix les plus populaires sont [phpMyAdmin](https://www.phpmyadmin.net/) et [Adminer](https://www.adminer.org/), qui sont des applications PHP à installer sur un serveur web.
+Les deux applications web en PHP les plus populaires pour administrer des bases de données sont [phpMyAdmin](https://www.phpmyadmin.net/) et [Adminer](https://www.adminer.org/). Les deux sont des applications à installer sur un serveur web.
 
-Les packages Jaxon offrent une autre alternative, [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer), qui intègre un outil d'administration de bases de données dans une page d'une application web PHP existante. Cette solution s'appuie sur [Adminer](https://www.adminer.org/), et à terme offrira donc les mêmes fonctionnalités.
+Les packages Jaxon offrent un autre choix, [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer), qui intègre un outil d'administration de bases de données dans une page d'une application web PHP existante.
+Cette solution s'appuie sur [Adminer](https://www.adminer.org/), et à terme offrira donc les mêmes fonctionnalités.
 
 #### Qu'est-ce que Adminer
 
@@ -40,7 +41,7 @@ Il peut arriver que des utilisateurs n'aient pas à leur disposition une applica
 Ils ont alors besoin d' installer une application complète.
 Il est possible dans ce cas d'intégrer `Jaxon Adminer` dans l'un des nombreux packages d'administration PHP disponibles.
 
-Dans cet article, nous avons choisi [Voyager](https://voyager-docs.devdojo.com), parce qu'il est gratuit, utilise le framework [Laravel](https://laravel.com) pour lequel un [plugin Jaxon](https://github.com/jaxon-php/jaxon-laravel) existe, et le framework CSS Bootstrap 3, qui est également utilisé dans `Jaxon Adminer`.
+Dans cet article, nous avons choisi [Voyager](https://voyager-docs.devdojo.com), parce qu'il est gratuit, utilise le framework [Laravel](https://laravel.com) pour lequel un [plugin Jaxon](https://github.com/jaxon-php/jaxon-laravel) existe, et le framework CSS [Bootstrap 3](https://getbootstrap.com/docs/3.4/), qui est également utilisé dans `Jaxon Adminer`.
 
 #### Installer Laravel et Voyager
 
@@ -50,7 +51,7 @@ Bien que cet article décrive l'installation de `Jaxon Adminer` dans `Voyager`, 
 3. Ajouter une route et une entrée de menu vers cette page,
 4. Configurer `Jaxon` et ses packages, dont `Jaxon Adminer`.
 
-Pour commencer, on va installer `Voyager` sur la dernière version de Laravel, en [suivant sa documentation](https://voyager-docs.devdojo.com/getting-started/installation).
+Pour commencer, on va installer `Voyager` sur la dernière version de `Laravel`, en [suivant sa documentation](https://voyager-docs.devdojo.com/getting-started/installation).
 ```bash
 composer create-project laravel/laravel voyager
 cd voyager
@@ -69,13 +70,13 @@ Il est alors possible de se connecter à `Voyager`.
 
 #### Installer les packages Jaxon
 
-En plus du package `lagdo/jaxon-adminer`, nous allons installer les packages `jaxon-php/jaxon-laravel`, pour l'intégration avec Laravel, et `jaxon-php/jaxon-dialogs` pour l'affichage des dialogues.
+En plus du package `lagdo/jaxon-adminer`, nous allons installer les packages `jaxon-php/jaxon-laravel`, pour l'intégration avec `Laravel`, et `jaxon-php/jaxon-dialogs` pour l'affichage des dialogues.
 
 ```bash
 composer require lagdo/jaxon-adminer jaxon-php/jaxon-laravel jaxon-php/jaxon-dialogs
 ```
 
-La commande `php artisan route:list | grep jaxon` affiche désormais le résultat suivant, qui montre qu'une route a été ajoutée pour traiter les requêtes Jaxon.
+La commande `php artisan route:list | grep jaxon` affiche désormais la ligne suivante, qui montre qu'une route a été ajoutée pour traiter les requêtes `Jaxon`.
 ```
 | Domain | Method | URI     | Name    | Action                                                     | Middleware
 +--------+--------+---------+---------+------------------------------------------------------------+-----------
@@ -84,7 +85,7 @@ La commande `php artisan route:list | grep jaxon` affiche désormais le résulta
 
 #### Créer une page pour Jaxon Adminer
 
-Pour afficher la page `Jaxon Adminer`, nous allons ajouter un contrôleur, une vue et une route dans Laravel.
+Pour afficher la page `Jaxon Adminer`, nous allons ajouter un contrôleur, une vue et une route dans `Laravel`.
 
 Le contrôleur `app/Http/Controllers/JaxonController.php` affiche la vue, en lui passant les codes HTML, CSS et javascript de `Jaxon` et `Adminer`.
 Il appelle également la méthode `ready()` du package `Jaxon Adminer`, pour indiquer que le package doit être initialisé dans cette page.
@@ -115,7 +116,7 @@ class JaxonController extends Controller
 }
 ```
 
-La vue `resources/views/adminer.blade.php` étend le template `voyager:master`, et y insère les codes HTML, CSS et javascript de `Jaxon` et `Adminer`.
+La vue `resources/views/adminer.blade.php` étend le template `voyager:master`, et insère les codes HTML, CSS et javascript de `Jaxon` et `Adminer` dans la page.
 
 {% raw %}
 [//]: <> (La commande raw empêche l'interprétation des tags {{ et }} dans le code, qui fait planter Grav.)
@@ -168,8 +169,7 @@ Le nom de cette route sera utilisé dans le `Menu Builder` de `Voyager`, comme d
 #### Créer un menu Adminer dans Voyager
 
 `Voyager` fournit un `Menu Builder`, que nous allons utiliser pour ajouter une entrée pour `Adminer`.
-On va le lancer à partir du menu `Tools > Menu Builder`, et ensuite cliquer sur le bouton `Builder` du menu `admin` déjà présent dans la liste.
-On accède alors à la page suivante, qui permet de définir les menus.
+Il se lance à partir du menu `Tools > Menu Builder`. Le bouton `Builder` de la ligne `admin` donne accès à la page suivante, qui permet de définir les menus.
 
 ![voyager-menu-builder](./voyager-menu-builder.png)
 
@@ -188,7 +188,7 @@ Après avoir rechargé la page du `Menu Builder`, le lien `/admin/adminer` s'aff
 
 #### Configuration de Jaxon
 
-Le fichier `config\jaxon.php` définit la configuration de la librairie Jaxon et de tous ses plugins et packages.
+Le fichier `config\jaxon.php` définit la configuration de la librairie `Jaxon` et de tous ses plugins et packages.
 
 ```php
 return [
@@ -260,7 +260,7 @@ return [
 ];
 ```
 
-L'option `lib.core.request.csrf_meta` met en place la [protection CSRF de Laravel](https://laravel.com/docs/8.x/csrf) sur les requêtes Jaxon.
+L'option `lib.core.request.csrf_meta` met en place la [protection CSRF de Laravel](https://laravel.com/docs/8.x/csrf) sur les requêtes `Jaxon`.
 
 La section `lib.dialogs` définit les paramètres du package [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs).
 
