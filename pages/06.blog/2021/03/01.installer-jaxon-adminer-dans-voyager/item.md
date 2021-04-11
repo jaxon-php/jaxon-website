@@ -66,7 +66,7 @@ php artisan voyager:admin your@email.com --create
 
 Il est alors possible de se connecter à `Voyager`.
 
-![voyager-login](./voyager-login.png)
+[![voyager-login](./voyager-login.png)](./voyager-login.png)
 
 #### Installer les packages Jaxon
 
@@ -171,7 +171,7 @@ Le nom de cette route sera utilisé dans le `Menu Builder` de `Voyager`, comme d
 `Voyager` fournit un `Menu Builder`, que nous allons utiliser pour ajouter une entrée pour `Adminer`.
 Il se lance à partir du menu `Tools > Menu Builder`. Le bouton `Builder` de la ligne `admin` donne accès à la page suivante, qui permet de définir les menus.
 
-![voyager-menu-builder](./voyager-menu-builder.png)
+[![voyager-menu-builder](./voyager-menu-builder.png)](./voyager-menu-builder.png)
 
 A partir du bouton `New Menu Item`, on va ajouter un nouveau menu avec les attributs suivants:
 - Title: Adminer
@@ -184,7 +184,7 @@ On peut ensuite déplacer le menu à sa guise, par exemple sous la section `Tool
 
 Après avoir rechargé la page du `Menu Builder`, le lien `/admin/adminer` s'affiche alors dans l'entrée du menu `Adminer`.
 
-![voyager-menu-adminer](./voyager-menu-adminer.png)
+[![voyager-menu-adminer](./voyager-menu-adminer.png)](./voyager-menu-adminer.png)
 
 #### Configuration de Jaxon
 
@@ -271,8 +271,8 @@ L'option `default` indique le serveur dont il faut afficher le contenu dès le c
 L'installation de `Jaxon Adminer` dans `Voyager` est maintenant terminée.
 La page ci-dessous s'affiche lorsqu'on y accède.
 
-![voyager-adminer-server](./voyager-adminer-server.png)
+[![voyager-adminer-server](./voyager-adminer-server.png)](./voyager-adminer-server.png)
 
 On peut par exemple voir le contenu de la base de données de `Voyager`.
 
-![voyager-adminer-database](./voyager-adminer-database.png)
+[![voyager-adminer-database](./voyager-adminer-database.png)](./voyager-adminer-database.png)
