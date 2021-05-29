@@ -1,7 +1,7 @@
 ---
-title: Plugins
-name: plugins
-plugins:
+title: 'New package: Jaxon Adminer'
+name: packages
+extensions:
     - name: Bootstrap
       description: Dialog with the minimum functionality and smart defaults
       website: http://getbootstrap.com/javascript/#modals

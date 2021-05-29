@@ -2,51 +2,57 @@
 
 {% block content %}
 
-{% set operation = page.collection.slice(1,1).first %}
+{% set operation = page.collection.slice(0,1).first %}
+{% set featured = page.collection.slice(1,1).first %}
 {% set features = page.collection.slice(2,1).first %}
-{% set plugins = page.collection.slice(3,1).first %}
-{% set integrations = page.collection.slice(4,1).first %}
+{% set extensions = page.collection.slice(3,1).first %}
+{% set plugins = page.collection.slice(4,1).first %}
+{% set integrations = page.collection.slice(5,1).first %}
+{% set packages = page.collection.slice(6,1).first %}
 
-            <div id="content" class="bottom-border-shadow">
-                <div class="container background-white bottom-border">
-                    <div class="row margin-vert-30">
-                        <!-- Main Text -->
-                        <div class="col-md-6">
-                            {{ page.content | raw }}
-                        </div>
-                        <!-- End Main Text -->
-                        <div class="col-md-6">
-                            {{ operation.content | raw }}
-                        </div>
-                    </div>
+    <div id="content" class="bottom-border-shadow">
+        <div class="container background-white bottom-border">
+            <div class="row margin-vert-30">
+                <!-- Main Text -->
+                <div class="col-md-6">
+                    {{ page.content | raw }}
+                    {{ operation.content | raw }}
+                </div>
+                <!-- End Main Text -->
+                <div class="col-md-6">
+                    {{ featured.content | raw }}
                 </div>
             </div>
-            <div id="features" class="bottom-border-shadow">
-                <div class="container background-grey bottom-border">
-                    <div class="row padding-vert-60">
-                        <!-- Features -->
-                        {{ features.content | raw }}
-                        <!-- End Features -->
-                    </div>
+        </div>
+    </div>
+    <div id="features" class="bottom-border-shadow">
+        <div class="container background-grey bottom-border">
+            <div class="row padding-vert-60">
+                <!-- Features -->
+                {{ features.content | raw }}
+                <!-- End Features -->
+            </div>
+        </div>
+    </div>
+    <div id="extensions" class="bottom-border-shadow">
+        <div class="container background-white bottom-border">
+            <div class="row margin-vert-30">
+                <div class="col-md-12 text-center">
+                    {{ extensions.content | raw }}
                 </div>
             </div>
-            <div id="plugins" class="bottom-border-shadow">
-                <div class="container background-white bottom-border">
-                    <div class="row margin-vert-30">
-                        <!-- Plugins -->
-                        {{ plugins.content | raw }}
-                        <!-- End Plugins -->
-                    </div>
+            <div class="row margin-vert-30">
+                <div class="col-md-4">
+                    {{ plugins.content | raw }}
+                </div>
+                <div class="col-md-4">
+                    {{ integrations.content | raw }}
+                </div>
+                <div class="col-md-4">
+                    {{ packages.content | raw }}
                 </div>
             </div>
-            <div id="integrations" class="bottom-border-shadow">
-                <div class="container background-white bottom-border">
-                    <div class="row margin-vert-30">
-                        <!-- Integrations -->
-                        {{ integrations.content | raw }}
-                        <!-- End Integrations -->
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
 
 {% endblock %}

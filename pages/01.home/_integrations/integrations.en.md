@@ -1,6 +1,6 @@
 ---
 title: Integrations
-position: 5
+name: integrations
 integrations:
     - name: The Laravel framework
       website: https://laravel.com
@@ -10,10 +10,6 @@ integrations:
       website: https://symfony.com
       github: https://github.com/jaxon-php/jaxon-symfony
       demo: /en/examples/integration/symfony.html
-    - name: The Zend framework
-      website: https://framework.zend.com
-      github: https://github.com/jaxon-php/jaxon-zend
-      demo: /en/examples/integration/zend.html
     - name: The CodeIgniter framework
       website: https://www.codeigniter.com
       github: https://github.com/jaxon-php/jaxon-codeigniter
@@ -26,6 +22,10 @@ integrations:
       website: https://cakephp.org
       github: https://github.com/jaxon-php/jaxon-cake
       demo: /en/examples/integration/cake.html
+    - name: The Zend framework
+      website: https://framework.zend.com
+      github: https://github.com/jaxon-php/jaxon-zend
+      demo: /en/examples/integration/zend.html
 ---
 
 Many plugins integrate the library with common PHP frameworks.

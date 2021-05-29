@@ -1,8 +1,8 @@
-                        <div class="col-md-12 text-center">
+                        <div class="text-center">
                             <h3 class="padding-vert-10">{{ page.title }}</h3>
                             {{ content }}
                         </div>
-{% for integration in page.header.integrations %}
+{# {% for integration in page.header.integrations %}
                         <div class="col-md-4 text-center">
                             <h4 class="padding-top-10 animate fadeIn">{{ integration.name }}</h4>
                             <p class="animate fadeIn">{{ integration.description }}</p>
@@ -12,4 +12,4 @@
                             <a href="{{ integration.demo }}"><button type="button" class="btn btn-default">Demo</button></a>
 {% endif %}
                         </div>
-{% endfor %}
+{% endfor %} #}

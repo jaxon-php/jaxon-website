@@ -1,6 +1,6 @@
 ---
 title: Fonctionnalités
-position: 3
+name: features
 features:
     - header: Fork de la librairie Xajax
       icon: heart
@@ -15,4 +15,3 @@ features:
       icon: code
       text: Jaxon tire le meilleur parti des fonctions de PHP, et est compatible avec ses dernières versions.
 ---
-

@@ -8,11 +8,13 @@ content:
         by: default
         dir: asc
         custom:
-            - _motivations
             - _operation
+            - _featured
             - _features
-#            - _plugins
+            - _extensions
+            - _plugins
             - _integrations
+            - _packages
 ---
 
 ## A PHP library for Ajax
@@ -22,8 +24,8 @@ It's a fork of the Xajax library.
 
 It allows into a web page to make direct Ajax calls to PHP classes that will in turn update its content, without reloading the entire page.
 
-Jaxon implements a complete set of functions to define the contents and properties of the web page from PHP.
+<!-- Jaxon implements a complete set of functions to define the contents and properties of the web page from PHP.
 Several plugins exist to extend its functionalities and provide integration with various PHP frameworks.
 
 Compared to Xajax, Jaxon is easier to use, it provides more functionalities, and it is more efficient.
-It also works with the latest PHP versions.
+It also works with the latest PHP versions. -->
