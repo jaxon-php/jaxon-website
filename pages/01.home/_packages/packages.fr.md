@@ -1,22 +1,11 @@
 ---
-title: 'Nouveau package: Jaxon Adminer'
+title: Packages
 name: packages
-extensions:
-    - name: Bootstrap
-      description: Dialog with the minimum functionality and smart defaults
-      website: http://getbootstrap.com/javascript/#modals
-      github: https://github.com/jaxon-php/jaxon-bootstrap
-      demo: /fr/examples/advanced/namespaces.html
-    - name: PgwModal
-      description: PgwModal is a responsive modal dialog for jQuery
-      website: http://pgwjs.com/pgwmodal
-      github: https://github.com/jaxon-php/jaxon-pgwjs
-      demo: /fr/examples/advanced/namespaces.html
-    - name: Toastr
-      description: Toastr is a javascript library for non-blocking notifications
-      website: http://codeseven.github.io/toastr
-      github: https://github.com/jaxon-php/jaxon-toastr
-      demo: /fr/examples/advanced/namespaces.html
 ---
 
-Divers plugins de Jaxon permettent d'utiliser des librairies javascript dans une application, sans écrire un seule ligne de javascript.
+Les packages sont un aspect original et unique de Jaxon.
+Ces sont des applications complètes mais qui au lieu d'être installées sur un serveur, s'intègrent dans une application PHP existante.
+
+Le gestionnaire de bd [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer) et le [dashboard Supervisor](https://github.com/lagdo/jaxon-supervisor) sont deux exemples de packages Jaxon.
+
+[Lire la documentation](../../docs/v3x/plugins/packages.html)

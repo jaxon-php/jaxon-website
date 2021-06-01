@@ -23,8 +23,8 @@ class Habitat extends Theme
         $uri = $this->grav['uri'];
 
         $this->enable([
-            'onPageInitialized' => ['onPageInitialized', 0],
-            'onPageContentRaw' => ['onPageContentRaw', 0],
+            // 'onPageInitialized' => ['onPageInitialized', 0],
+            // 'onPageContentRaw' => ['onPageContentRaw', 0],
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
         ]);

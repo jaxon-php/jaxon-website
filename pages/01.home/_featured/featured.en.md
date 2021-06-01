@@ -1,27 +1,12 @@
 ---
 title: 'New package: Jaxon Adminer'
 name: featured
-plugins:
-    - name: Bootstrap
-      description: Dialog with the minimum functionality and smart defaults
-      website: http://getbootstrap.com/javascript/#modals
-      github: https://github.com/jaxon-php/jaxon-bootstrap
-      demo: /examples/advanced/namespaces.html
-    - name: PgwModal
-      description: PgwModal is a responsive modal dialog for jQuery
-      website: http://pgwjs.com/pgwmodal
-      github: https://github.com/jaxon-php/jaxon-pgwjs
-      demo: /examples/advanced/namespaces.html
-    - name: Toastr
-      description: Toastr is a javascript library for non-blocking notifications
-      website: http://codeseven.github.io/toastr
-      github: https://github.com/jaxon-php/jaxon-toastr
-      demo: /examples/advanced/namespaces.html
-    - name: Bootbox
-      description: Bootstrap powered alert, confirm and flexible dialog boxes
-      website: http://bootboxjs.com
-      github: https://github.com/jaxon-php/jaxon-bootbox
-      demo: /examples/simple/plugins.html
+adminer:
+    intro: It is based on <a href="https://www.adminer.org/" target="_blank">Adminer</a>, and then will provide the same features.
+    outro: Read <a href="/blog/2021/03/install-jaxon-adminer-on-voyager.html">our tutorial on how to install Jaxon Adminer</a> on <a href="https://voyager-docs.devdojo.com/" target="_blank">Voyager</a>.
+    features:
+        - Supports multiple database drivers (MySQL, PostgreSQL, and more).
+        - Provides CRUD operations, import and export on databases.
 ---
 
-There are various Jaxon plugins for using existing javascript libraries in an application, without writing a single line of javascript.
+[Jaxon Adminer](https://github.com/lagdo/jaxon-adminer/?target=_blank) is a database management tool that is inserted in a page of an existing PHP application, instead of being installed like [phpMyAdmin](https://www.phpmyadmin.net/?target=_blank) or [Adminer](https://www.adminer.org/?target=_blank).

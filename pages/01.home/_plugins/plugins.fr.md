@@ -1,27 +1,14 @@
 ---
 title: Plugins
 name: plugins
-plugins:
-    - name: Bootstrap
-      description: Dialog with the minimum functionality and smart defaults
-      website: http://getbootstrap.com/javascript/#modals
-      github: https://github.com/jaxon-php/jaxon-bootstrap
-      demo: /fr/examples/advanced/namespaces.html
-    - name: PgwModal
-      description: PgwModal is a responsive modal dialog for jQuery
-      website: http://pgwjs.com/pgwmodal
-      github: https://github.com/jaxon-php/jaxon-pgwjs
-      demo: /fr/examples/advanced/namespaces.html
-    - name: Toastr
-      description: Toastr is a javascript library for non-blocking notifications
-      website: http://codeseven.github.io/toastr
-      github: https://github.com/jaxon-php/jaxon-toastr
-      demo: /fr/examples/advanced/namespaces.html
-    - name: Bootbox
-      description: Bootstrap powered alert, confirm and flexible dialog boxes
-      website: http://bootboxjs.com
-      github: https://github.com/jaxon-php/jaxon-bootbox
-      demo: /fr/examples/simple/plugins.html
+doc:
+    read: Lire plus...
+    link: ../../docs/v3x/response.html
 ---
 
-Divers plugins de Jaxon permettent d'utiliser des librairies javascript dans une application, sans écrire un seule ligne de javascript.
+Les plugins étendent les fonctions de définition des pages de Jaxon, en réalisant des opérations différentes ou plus complexes que celles fournies par la librairie.
+Ils peuvent utiliser des librairies javascript tierces.
+
+Jaxon contient un [plugin jQuery](../../docs/v3x/responses/jquery.html), et il existe un [plugin Dialogs](https://github.com/jaxon-php/jaxon-dialogs) pour afficher des fenêtres et des messages.
+
+[Lire la documentation](../../docs/v3x/plugins/response.html)

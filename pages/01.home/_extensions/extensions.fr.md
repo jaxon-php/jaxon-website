@@ -3,4 +3,4 @@ title: Jaxon est extensible
 name: extensions
 ---
 
-Jaxon fournit 3 types d'extensions qui enrichissent ses fonctionnalités et facilitent son usage.
+Les fonctions de Jaxon peuvent être étendues et enrichies avec 3 types d'extensions.

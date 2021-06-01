@@ -19,7 +19,7 @@ taxonomy:
         - ajax
 ---
 
-The two most popular PHP web applications for database administration are [phpMyAdmin](https://www.phpmyadmin.net/) et [Adminer](https://www.adminer.org/). Both are standalone applications that need to be installed on a web server.
+The two most popular PHP web applications for database administration are [phpMyAdmin](https://www.phpmyadmin.net/) and [Adminer](https://www.adminer.org/). Both are standalone applications that need to be installed on a web server.
 
 The Jaxon packages offer another choice,  [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer), which inserts a database administration tool in a page of an existing PHP web application.
 This solution relies on [Adminer](https://www.adminer.org/), and will thus offer the same features.
@@ -167,7 +167,7 @@ The name of this route will be used in the `Menu Builder` in `Voyager`, as descr
 #### Create a menu entry for Adminer in Voyager
 
 `Voyager` comes with a `Menu Builder`, which we will now use to create a menu entry for `Adminer`.
-It starts from the `Tools > Menu Builder` menu entry. The `Builder` button in the `admin` list item then gives access to the above page, where the menu entries are defined.
+It starts from the `Tools > Menu Builder` menu entry. The `Builder` button in the `admin` list item then shows the above page, where the menu entries are defined.
 
 [![voyager-menu-builder](./voyager-menu-builder.png)](./voyager-menu-builder.png)
 
@@ -178,13 +178,13 @@ From the `New Menu Item` button, we now add a new menu entry with the following 
 - Route parameters: (empty)
 - Icon: voyager-data
 
-We can the move the menu entry anywhere we want, for example under the `Tools` section.
+We can then move the menu entry anywhere we want, for example under the `Tools` section.
 
 After reloading the `Menu Builder` page, the `/admin/adminer` link now appears in the `Adminer` menu entry.
 
 [![voyager-menu-adminer](./voyager-menu-adminer.png)](./voyager-menu-adminer.png)
 
-#### Configuration de Jaxon
+#### Jaxon configuration
 
 The `config\jaxon.php` file defines the configuration of the `Jaxon` library, and all its plugins and packages.
 

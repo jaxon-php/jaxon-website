@@ -7,8 +7,8 @@ sections:
       text: Exportez vos classes PHP vers javascript.
     - icon: chevron-circle-right
       rank: 2
-      text: Appelez vos classes PHP en js avec Ajax.
+      text: Appelez vos classes PHP avec Ajax.
     - icon: check-circle
       rank: 3
-      text: Définissez le contenu de vos pages avec PHP.
+      text: Composez vos pages côté serveur avec PHP.
 ---

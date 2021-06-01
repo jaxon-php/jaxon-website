@@ -1,27 +1,12 @@
 ---
 title: 'Nouveau package: Jaxon Adminer'
 name: featured
-plugins:
-    - name: Bootstrap
-      description: Dialog with the minimum functionality and smart defaults
-      website: http://getbootstrap.com/javascript/#modals
-      github: https://github.com/jaxon-php/jaxon-bootstrap
-      demo: /fr/examples/advanced/namespaces.html
-    - name: PgwModal
-      description: PgwModal is a responsive modal dialog for jQuery
-      website: http://pgwjs.com/pgwmodal
-      github: https://github.com/jaxon-php/jaxon-pgwjs
-      demo: /fr/examples/advanced/namespaces.html
-    - name: Toastr
-      description: Toastr is a javascript library for non-blocking notifications
-      website: http://codeseven.github.io/toastr
-      github: https://github.com/jaxon-php/jaxon-toastr
-      demo: /fr/examples/advanced/namespaces.html
-    - name: Bootbox
-      description: Bootstrap powered alert, confirm and flexible dialog boxes
-      website: http://bootboxjs.com
-      github: https://github.com/jaxon-php/jaxon-bootbox
-      demo: /fr/examples/simple/plugins.html
+adminer:
+    intro: Il est basé sur <a href="https://www.adminer.org/" target="_blank">Adminer</a>, et fournit donc les mêmes fonctions.
+    outro: Lire <a href="/fr/blog/2021/03/installer-jaxon-adminer-dans-voyager.html">notre tutoriel sur l'installation de Jaxon Adminer</a> dans <a href="https://voyager-docs.devdojo.com/" target="_blank">Voyager</a>.
+    features:
+        - Gère plusieurs moteurs de données (MySQL, PostgreSQL, et plus).
+        - Fournit les opérations CRUD, l'import et l'export de données.
 ---
 
-Divers plugins de Jaxon permettent d'utiliser des librairies javascript dans une application, sans écrire un seule ligne de javascript.
+[Jaxon Adminer](https://github.com/lagdo/jaxon-adminer/?target=_blank) est un gestionnaire de base de données qui s'insère dans une page d'une application PHP, au lieu d'être installé comme [phpMyAdmin](https://www.phpmyadmin.net/?target=_blank) ou [Adminer](https://www.adminer.org/?target=_blank).

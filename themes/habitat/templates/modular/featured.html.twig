@@ -1,2 +1,19 @@
-                            <h4>{{ page.title }}</h4>
-							{{ content }}
+                    <h4>{{ page.title }}</h4>
+                    {{ content }}
+                    <div class="row margin-vert-10">
+                        <div class="col-md-6">
+                            {{ page.header.adminer.intro }}
+                            <ul style="padding-inline-start:15px">
+{% for feature in page.header.adminer.features %}
+                                <li>{{ feature }}</li>
+{% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            {# page.find('/images').media['jaxon-adminer.png'].html()|raw **BUG: Adds a /user/pages prefix on image links** #}
+                            <a href="/images/jaxon-adminer.png"><img src="/images/jaxon-adminer.png" alt="Jaxon Adminer" /></a>
+                        </div>
+                        <div class="col-md-12">
+                            {{ page.header.adminer.outro }}
+                        </div>
+                    </div>
