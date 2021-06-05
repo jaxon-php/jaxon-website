@@ -1,8 +1,8 @@
                     <h4>{{ page.title }}</h4>
-                    {{ content }}
+                    {{ content|raw }}
                     <div class="row margin-vert-10">
                         <div class="col-md-6">
-                            {{ page.header.adminer.intro }}
+                            {{ page.header.adminer.intro|raw }}
                             <ul style="padding-inline-start:15px">
 {% for feature in page.header.adminer.features %}
                                 <li>{{ feature }}</li>
@@ -14,6 +14,6 @@
                             <a href="/images/jaxon-adminer.png"><img src="/images/jaxon-adminer.png" alt="Jaxon Adminer" /></a>
                         </div>
                         <div class="col-md-12">
-                            {{ page.header.adminer.outro }}
+                            {{ page.header.adminer.outro|raw }}
                         </div>
                     </div>

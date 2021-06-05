@@ -25,7 +25,7 @@
                             <!-- Page content -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    {{ page.content | raw }}
+                                    {{ page.content|raw }}
                                     <hr>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="row">
 {% for block in page.collection %}
                                 <div class="col-md-6">
-                                    {{ block.content | raw }}
+                                    {{ block.content|raw }}
                                 </div>
 {% endfor %}
                             </div>

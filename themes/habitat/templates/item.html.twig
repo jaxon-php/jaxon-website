@@ -108,7 +108,7 @@
         {% set header_image_media = page.media.images|first %}
     {% endif %}
                         <div class="thumbnail" style="margin-bottom:20px">
-                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html | raw }}
+                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html|raw }}
                             <div class="caption">
 {% include 'blog/credits/unsplash.html.twig' with {'author':header_image_media.meta.author} %}
                             </div>
@@ -124,7 +124,7 @@
     {{ block('post_image') }}
                                         </div>
                                         <div class="col-md-12">
-                                            {{ page.content | raw }}
+                                            {{ page.content|raw }}
                                         </div>
                                     </div>
                                     <div class="blog-item-footer">

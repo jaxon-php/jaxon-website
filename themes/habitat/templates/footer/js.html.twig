@@ -17,9 +17,9 @@
         <!-- Prism -->
         <script src="/assets/js/prism.js" type="text/javascript"></script>
 {% endblock %}
-{{ assets.js() | raw }}
+{{ assets.js()|raw }}
 {% if jaxon %}
-        {{ jaxon.init | raw }}
+        {{ jaxon.init|raw }}
 
-        {{ jaxon.code | raw }}
+        {{ jaxon.code|raw }}
 {% endif %}
