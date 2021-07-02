@@ -6,6 +6,7 @@
 <html lang="en">
     <!--<![endif]-->
     <head>
+{% include 'header/google.html.twig' %}
         <!-- Title -->
         <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
         <!-- Meta -->
