@@ -6,7 +6,6 @@
 <html lang="en">
     <!--<![endif]-->
     <head>
-{% include 'header/google.html.twig' %}
         <!-- Title -->
         <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
         <!-- Meta -->
@@ -15,6 +14,7 @@
         <link href="favicon.ico" rel="shortcut icon">
         <!-- CSS -->
 {% include 'header/css.html.twig' %}
+{% include 'header/google.html.twig' %}
     </head>
     <body>
         <div id="body-bg">
