@@ -19,9 +19,15 @@ taxonomy:
         - ajax
 ---
 
+### Edit on 2022/01/25
+
+**The [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer) package is now deprecated, and replaced by [Jaxon DbAdmin](https://github.com/lagdo/jaxon-dbadmin).**
+
+**Read this updated blog entry on [how to install Jaxon DbAdmin on Voyager](../../../2022/01/install-jaxon-dbadmin-on-voyager.html).**
+
 The two most popular PHP web applications for database administration are [phpMyAdmin](https://www.phpmyadmin.net/) and [Adminer](https://www.adminer.org/). Both are standalone applications that need to be installed on a web server.
 
-The Jaxon packages offer another choice,  [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer), which inserts a database administration tool in a page of an existing PHP web application.
+The Jaxon packages offer another choice, [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer), which inserts a database administration tool in a page of an existing PHP web application.
 This solution relies on [Adminer](https://www.adminer.org/), and will thus offer the same features.
 
 #### What is Adminer

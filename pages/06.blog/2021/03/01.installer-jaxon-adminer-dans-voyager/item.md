@@ -19,6 +19,12 @@ taxonomy:
         - ajax
 ---
 
+### Mise à jour du 25/01/2022
+
+**le package [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer) est désormais obsolète, et remplacé par [Jaxon DbAdmin](https://github.com/lagdo/jaxon-dbadmin).**
+
+**Lire l'article mis à jour sur comment [installer Jaxon DbAdmin dans Voyager](../../../2022/01/installer-jaxon-dbadmin-dans-voyager.html).**
+
 Les deux applications web en PHP les plus populaires pour administrer des bases de données sont [phpMyAdmin](https://www.phpmyadmin.net/) et [Adminer](https://www.adminer.org/). Les deux sont des applications à installer sur un serveur web.
 
 Les packages Jaxon offrent un autre choix, [Jaxon Adminer](https://github.com/lagdo/jaxon-adminer), qui intègre un outil d'administration de bases de données dans une page d'une application web PHP existante.
