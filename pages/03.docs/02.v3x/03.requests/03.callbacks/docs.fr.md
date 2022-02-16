@@ -7,6 +7,26 @@ published: true
 
 Jaxon permet définir des callbacks qui vont être appelées à différents étapes de l'exécution de chaque requête.
 
+Depuis la version 3.6.0, plusieurs fonctions peuvent être définies pour la même étape.
+
+#### Au démarrage de la librairie
+
+```php
+$jaxon->callback()->boot(function() {});
+```
+
+Cette callback est disponible depuis la version 3.6.0.
+La fonction fournie ne prend aucun paramètre.
+
+#### A l'instantiation d'une classe Jaxon
+
+```php
+$jaxon->callback()->init(function($xCallable) {});
+```
+
+Cette callback est appelée pour chaque classe Jaxon instanciée lors du traitement d'une requête.
+La fonction fournie prend en paramètre l'instance qui vient d'être créée.
+
 #### Avant l'exécution de la requête
 
 ```php

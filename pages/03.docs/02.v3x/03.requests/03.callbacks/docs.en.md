@@ -7,6 +7,26 @@ published: true
 
 Jaxon allows the developer to specify callbacks that will be called at different steps during the execution of each request.
 
+Starting from version 3.6.0, multiple functions can be defined for the same step.
+
+#### When booting the library
+
+```php
+$jaxon->callback()->boot(function() {});
+```
+
+This callback is available since version 3.6.0.
+The provided function takes no parameter.
+
+#### At a Jaxon class instantiation
+
+```php
+$jaxon->callback()->init(function($xCallable) {});
+```
+
+This callback is called for each class which is instantiated when processing a request.
+The provided function takes the newly created instance as parameter.
+
 #### Before processing the request
 
 ```php

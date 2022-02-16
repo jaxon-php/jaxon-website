@@ -4,7 +4,7 @@ menu: Traiter les requêtes
 template: jaxon
 ---
 
-Quelque soit le nombre de classes PHP qu'elle exporte vers javascript, une application qui utilise la librairie Jaxon a besoin d'un seul point d'entrée pour toutes les requêtes vers ces classes.
+Quelque soit le nombre de classes PHP qu'elle exporte vers javascript, une application qui utilise la librairie Jaxon a besoin d'un seul point d'entrée pour toutes les requêtes Ajax vers ces classes.
 
 Le code le plus simple pour traiter une requête vers une classe Jaxon est le suivant:
 
