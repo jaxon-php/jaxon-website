@@ -77,7 +77,7 @@ Options can be set on class methods.
     ],
 ```
 
-#### The classes
+#### The directories
 
 The `app.directories` section of the configuration contains an array of directories where the classes to be registered are found.
 Each entry of the array represents a directory, defined with its full path and the following informations:
