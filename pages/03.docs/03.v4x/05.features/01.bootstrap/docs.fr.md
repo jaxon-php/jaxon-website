@@ -1,6 +1,6 @@
 ---
-title: Le démarrage
-menu: Le démarrage
+title: Le bootstrapping
+menu: Le bootstrapping
 template: jaxon
 ---
 

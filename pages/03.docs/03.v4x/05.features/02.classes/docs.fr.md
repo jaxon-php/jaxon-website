@@ -1,6 +1,6 @@
 ---
-title: La classe Jaxon\App\CallableClass
-menu: La classe Jaxon\App\CallableClass
+title: Les classes Callable
+menu: Les classes Callable
 template: jaxon
 ---
 

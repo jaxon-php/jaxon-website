@@ -1,5 +1,5 @@
 ---
 title: Fonctions applicatives
-menu: Fonctions applicative
+menu: Fonctions applicatives
 template: jaxon
 ---

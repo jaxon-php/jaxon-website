@@ -4,7 +4,7 @@ menu: Les data bags
 template: jaxon
 ---
 
-L'annotation `@databag` permet de définir des [data bags](../05.databags/), qui sont des données stockées sur le client et disponibles à la demande dans les classes Jaxon.
+L'annotation `@databag` permet de définir des [data bags](../../05.features/04.databags/), qui sont des données stockées sur le client et disponibles à la demande dans les classes Jaxon.
 
 Elle peut être définie sur la classe (elle s'applique alors à toutes les méthodes), et sur les méthodes.
 Elle peut être repétée.
