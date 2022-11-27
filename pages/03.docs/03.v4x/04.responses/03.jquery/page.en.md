@@ -23,7 +23,7 @@ The PHP API operates the same way as the javascript library.
 A first function selects the set of elements to be modified, and the following calls each perform an action on the selected elements.
 All these functions can be chained in one call.
 
-The `Response` class provides a method named `Jaxon\jq()`, which selects the DOM elements to be edited.
+The `Response` class provides a `jq()` method, which selects the DOM elements to be edited.
 
 ```php
 $response->jq('#message')->html('Yaba daba doo')->css('color', 'blue');
@@ -54,24 +54,30 @@ $response->jq('#message')->value = 'Yaba daba doo';
 
 #### The functions parameters
 
-The `Jaxon\jq()` method accepts the same [selectors as jQuery](http://api.jquery.com/category/selectors/).
+The `jq()` method accepts the same [selectors as jQuery](http://api.jquery.com/category/selectors/).
 The parameters of the calls after can be of boolean, integer, string or array types.
 
 It is also possible to pass contents from the web page as parameters of the calls, using the `Jaxon\jq()` global function,
 
 ```php
+use function Jaxon\jq;
+
 $response->jq('#message')->html(jq('#message2')->html());
 ```
 
 or the [parameter factory](../requests/factory.html).
 
 ```php
+use function Jaxon\pm;
+
 $response->jq('#message')->html(pm()->html('message2'));
 ```
 
 A call to a Jaxon function can be used as parameter, when binding to an event.
 
 ```php
+use function Jaxon\rq;
+
 $response->jq('#button')->click(rq('MyClass')->call('myMethod'));
 ```
 
@@ -82,6 +88,7 @@ In the following example a click on each HTML element with class `.btn` will cal
 
 ```php
 use function Jaxon\jq;
+use function Jaxon\rq;
 
 $request = rq('MyClass')->call('myMethod', jq()->parent()->attr('data-name'));
 $response->jq('.btn')->click($request);
@@ -91,6 +98,7 @@ This syntax can also be used to insert content from the webpage in a confirmatio
 
 ```php
 use function Jaxon\jq;
+use function Jaxon\rq;
 
 $request = rq('MyClass')->call('myMethod')
     ->confirm('Confirm the name {1}?', jq()->parent()->attr('data-name'));

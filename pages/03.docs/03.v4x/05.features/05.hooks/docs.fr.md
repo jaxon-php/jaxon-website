@@ -24,7 +24,7 @@ $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
         \Ns\App\SecondClass::class => [
             'functions' => [
                 'doThat' => [
-                    '__after__' => ['firstAfterHook', 'secondAfterHook']
+                    '__after' => ['firstAfterHook', 'secondAfterHook']
                 ]
             ]
         ]
@@ -51,7 +51,7 @@ $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
                     \Ns\App\SecondClass::class => [
                         'functions' => [
                             'doThat' => [
-                                '__after__' => ['firstAfterHook', 'secondAfterHook']
+                                '__after' => ['firstAfterHook', 'secondAfterHook']
                             ]
                         ]
                     ]

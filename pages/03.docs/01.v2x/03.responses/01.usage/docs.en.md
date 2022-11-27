@@ -4,10 +4,10 @@ menu: Operation
 template: jaxon
 ---
 
-An Jaxon response is an object that encapsulates the commands to be executed in the browser in response to a Jaxon request.
+A Jaxon response is an object that encapsulates the commands to be executed in the browser in response to a Jaxon request.
 All functions called by Jaxon should therefore return an object of type `Jaxon\Response\Response`.
 
-By default there is a response in the library Jaxon which is accessed with the `Jaxon::getGlobalResponse()` method in version 1, or `Jaxon::getResponse()` starting from version 2.  
+By default there is a response in the library Jaxon which is accessed with the `Jaxon::getGlobalResponse()` method in version 1, or `Jaxon::getResponse()` starting from version 2.
 However, it is possible to create others, by instantiating the `Jaxon\Response\Response` class.
 
 ```php
