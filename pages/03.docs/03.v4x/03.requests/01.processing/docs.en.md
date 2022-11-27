@@ -4,8 +4,7 @@ menu: Processing requests
 template: jaxon
 ---
 
-No matter how many classes are exported to javascript, an application using the Jaxon library needs only one entry point to process all the request to these classes.
-Quelque soit le nombre de classes PHP qu'elle exporte vers javascript, une application qui utilise la librairie Jaxon a besoin d'un seul point d'entrée pour toutes les requêtes vers ces classes.
+No matter how many classes are exported to javascript, an application using the Jaxon library needs only one entry point to process all the requests to these classes.
 
 This is the simplest code to process a request to a Jaxon class:
 

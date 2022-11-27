@@ -4,7 +4,7 @@ menu: Data bags
 template: jaxon
 ---
 
-`Data bags` are data sets that are stored on client side, and made available at demand in Jaxon classes.
+`Data bags` are data sets that are stored on client side, and made available on demand in Jaxon classes.
 They are convenient for data that must be available allover the application, but are only used occasionnally.
 
 Each `data bag` has an identifier which must be unique throughout the application, and each of its data is stored under a key which must be unique throughout the `data bag`.

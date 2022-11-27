@@ -4,7 +4,7 @@ menu: Operation
 template: jaxon
 ---
 
-An Jaxon response is an object that encapsulates the commands to be executed in the browser in response to a Jaxon request.
+A Jaxon response is an object that encapsulates the commands to be executed in the browser in response to a Jaxon request.
 All functions called by Jaxon should therefore return an object of type `Jaxon\Response\Response`.
 
 By default there is a response in the library Jaxon which is returned by the `Jaxon::getResponse()` call.

@@ -23,7 +23,7 @@ L'API fonctionne de la même manière que celle de la librairie javascript.
 Une première fonction sélectionne les éléments sur lequels on souhaite agir, et une ou plusieurs autres fonctions leur appliquent les traitements souhaités.
 Toutes ces fonctions peuvent être chaînées dans un seul appel.
 
-La classe `Response` fournit une méthode nommée `Jaxon\jq()`, qui sélectionne les éléments du DOM à modifier.
+La classe `Response` fournit une méthode `jq()`, qui sélectionne les éléments du DOM à modifier.
 
 ```php
 $response->jq('#message')->html('Yaba daba doo')->css('color', 'blue');
@@ -54,25 +54,31 @@ $response->jq('#message')->value = 'Yaba daba doo';
 
 #### Les paramètres des fonctions
 
-Le méthode `Jaxon\jq()` accepte les mêmes [sélecteurs que jQuery](http://api.jquery.com/category/selectors/).
+Le méthode `jq()` accepte les mêmes [sélecteurs que jQuery](http://api.jquery.com/category/selectors/).
 Les paramètres des appels qui le suivent peuvent être de type booléen, entier, caractères ou tableau.
 
 Il est également possible de passer du contenu de la page web en paramètre des appels, en utilisant la fonction globale `Jaxon\jq()`.
 
 ```php
+use function Jaxon\jq;
+
 $response->jq('#message')->html(jq('#message2')->html());
 ```
 
 ou encore la [fabrique de paramètres](../requests/factory.html).
 
 ```php
+use function Jaxon\pm;
+
 $response->jq('#message')->html(pm()->html('message2'));
 ```
 
 Un appel à une fonction Jaxon peut être passée en paramètre, pour la lier à un évènement.
 
 ```php
-$response->jq('#button')->click(rq('MyClass')->call('myMethod'));
+$use function Jaxon\rq;
+
+response->jq('#button')->click(rq('MyClass')->call('myMethod'));
 ```
 
 La fonction globale `Jaxon\jq()` peut être appelée sans paramètre.
@@ -82,6 +88,7 @@ Dans l'exemple suivant un click sur chaque élément avec la class `.btn` appell
 
 ```php
 use function Jaxon\jq;
+use function Jaxon\rq;
 
 $request = rq('MyClass')->call('myMethod', jq()->parent()->attr('data-name'));
 $response->jq('.btn')->click($request);
@@ -91,6 +98,7 @@ Cette syntaxe peut également être utilisée pour inclure du contenu de la page
 
 ```php
 use function Jaxon\jq;
+use function Jaxon\rq;
 
 $request = rq('MyClass')->call('myMethod')
     ->confirm('Confirm the name {1}?', jq()->parent()->attr('data-name'));

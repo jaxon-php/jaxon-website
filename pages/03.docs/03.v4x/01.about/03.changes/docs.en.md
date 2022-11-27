@@ -137,7 +137,7 @@ class HelloWorld extends \Jaxon\App\CallableClass
 
 ### Data bags
 
-The `@databag` annotation defines data bags, which are data sets that are stored on client side, and made available at demand in Jaxon classes.
+The `@databag` annotation defines data bags, which are data sets that are stored on client side, and made available on demand in Jaxon classes.
 
 ```php
 // The first_bag data bag can be accessed from all the methods of this class.
