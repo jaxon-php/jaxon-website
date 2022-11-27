@@ -4,7 +4,7 @@ menu: Data bags
 template: jaxon
 ---
 
-The `@databag` annotation defines [data bags](../../05.features/04.databags/), which are data sets that are stored on client side, and made available at demand in Jaxon classes.
+The `@databag` annotation defines [data bags](../../05.features/04.databags/), which are data sets that are stored on client side, and made available on demand in Jaxon classes.
 
 It can be declared on a class (it then applies on all its methods), or on the methods.
 It can be repeated.
