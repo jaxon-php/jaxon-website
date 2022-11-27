@@ -115,7 +115,7 @@ The version 2 calls are deprecated in version 2, and will be removed in a future
 
 #### The request factory
 
-There are now two distinct global functions, `rq()` and `pr()`, that are respectively used to create requests to Jaxon classes and functions, and their parameters.
+There are now two distinct global functions, `rq()` and `pm()`, that are respectively used to create requests to Jaxon classes and functions, and their parameters.
 
 With version 2
 ```php
@@ -124,12 +124,12 @@ rq()->call('MyClass.showPage', rq()->select('colorselect'), rq()->page());
 
 With version 3
 ```php
-rq('MyClass')->call('showPage', pr()->select('colorselect'), pr()->page());
+rq('MyClass')->call('showPage', pm()->select('colorselect'), pm()->page());
 ```
 
 Note
 ====
-The `pr()` function was renamed to `pm()` in the 3.2.0 release.
+The `pm()` function was renamed to `pm()` in the 3.2.0 release.
 
 #### La pagination
 
@@ -142,7 +142,7 @@ $pagination = rq()->paginate($count, $limit, $page, 'MyClass.showPage', rq()->se
 
 With version 3
 ```php
-$pagination = rq('MyClass')->call('showPage', pr()->select('colorselect'), pr()->page())->paginate($page, $limit, $count);
+$pagination = rq('MyClass')->call('showPage', pm()->select('colorselect'), pm()->page())->paginate($page, $limit, $count);
 ```
 
 #### The CallableClass class
@@ -191,7 +191,7 @@ class HelloWorld extends \Jaxon\CallableClass
     //
     public function showPage($pageNumber)
     {
-        $pagination = $this->rq()->showPage(pr()->page())->paginate($currentPage, $itemsPerPage, $itemsTotal);
+        $pagination = $this->rq()->showPage(pm()->page())->paginate($currentPage, $itemsPerPage, $itemsTotal);
     }
 }
 ```

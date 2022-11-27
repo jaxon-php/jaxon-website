@@ -1,4 +1,5 @@
 # Do not commit Eclipse files
 .project
+.idea
 .settings/*
 /jaxon-website.komodoproject
