@@ -118,7 +118,7 @@ class Upload extends JaxonCallable
 }
 ```
 
-The call to `jaxon()->upload()->files()` returns an array where the key is the `name` attribute of the `input` field, and the value is an array of objects of class [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php), each representing an uploaded file.
+The call to `jaxon()->upload()->files()` returns an array where the key is the `name` attribute of the `input` field, and the value is an array of objects of class [`Jaxon\Request\Upload\FileInterface`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Upload/FileInterface.php), each representing an uploaded file.
 
 #### Configuration
 

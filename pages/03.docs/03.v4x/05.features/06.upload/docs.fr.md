@@ -118,7 +118,7 @@ class Upload extends JaxonCallable
 }
 ```
 
-L'appel à `jaxon()->upload()->files()` renvoie une table où la clé est l'attribut `name` du champ `input`, et la valeur est un tableau d'objets de la classe [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php), chacun représentant un fichier transféré.
+L'appel à `jaxon()->upload()->files()` renvoie une table où la clé est l'attribut `name` du champ `input`, et la valeur est un tableau d'objets de la classe [`Jaxon\Request\Upload\FileInterface`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Upload/FileInterface.php), chacun représentant un fichier transféré.
 
 #### Configuration
 
