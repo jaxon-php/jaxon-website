@@ -4,34 +4,36 @@ menu: File upload
 template: jaxon
 ---
 
-The `@upload` annotation implements file upload in a method of a Jaxon class.
-
-It can be declared only on methods, and it cannot be repeated.
+The `@upload` annotation adds [file upload](../../05.features/06.upload/) to an ajax request.
+It takes the id of the HTML field as a mandatory option.
+It applies only to methods.
 
 ```php
-class HelloWorld extends \Jaxon\App\CallableClass
+class JaxonExample
 {
-    // Calls to this method will upload the files in the HTML input field with id first_field_id.
     /**
-     * @upload('field' => 'first_field_id')
+     * @upload('field' => 'div-user-file')
      */
-    public function doSomething()
+    public function saveFile()
     {
         // Get the uploaded files.
-        $uploadedFiles = $this->files();
-
-        return $this->response;
+        $files = $this->upload()->files();
     }
+}
+```
 
+The PHP-DOC syntax can also be used.
+
+```php
+class JaxonExample
+{
     /**
-     * @upload second_field_id
+     * @upload div-user-file
      */
-    public function doSomethingElse()
+    public function saveFile()
     {
         // Get the uploaded files.
-        $uploadedFiles = $this->files();
-
-        return $this->response;
+        $files = $this->upload()->files();
     }
 }
 ```

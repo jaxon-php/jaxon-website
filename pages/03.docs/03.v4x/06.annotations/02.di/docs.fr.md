@@ -4,50 +4,204 @@ menu: L'injection de dépendance
 template: jaxon
 ---
 
-L'annotation `@di` définit des objets à injecter dans les classes Jaxon.
+The `@di` annotation defines [dependency injection](../../05.features/03.dependency-injection/) in Jaxon classes.
 
-Elle peut être définie sur la classe, sur les attributs publics et protégés, et sur les méthodes.
-Elle peut être repétée.
+When applied to methods and classes, it takes the name and the class of the attribute as parameters.
 
-Sur une classe ou sur une méthode, cette annotation prend en paramètre le nom de l'attribut, et son type.
-Rappelons que ce type doit être déclaré avec [l'injection de dépendance](../04.dependency-injection/).
 ```php
-/**
- * @di('attr' => 'translator', class => '\App\Services\Translator') 
- * @di $translator \App\Services\Translator
- */
+class JaxonExample
+{
+    /**
+     * @var \App\Services\Translator
+     */
+     protected $translator;
+
+    /**
+     * @di('attr' => 'translator', class => '\App\Services\Translator')
+     */
+    public function translate(string $phrase)
+    {
+        // The $translator property is set from the DI container when this method is called.
+        $phrase = $this->translator->translate($phrase);
+    }
+}
 ```
 
-Si l'attribut est déjà déclaré avec un type, celui-ci peut être omis dans l'annotation.
-```php
-/**
- * @var \App\Services\Translator
- */
-protected $translator;
+The class parameter is optional, and can be omitted if it is already specified by a `@var` annotation.
 
-/**
- * @di('attr' => 'translator') 
- * @di $translator
- */
+```php
+class JaxonExample
+{
+    /**
+     * @var \App\Services\Translator
+     */
+     protected $translator;
+
+    /**
+     * @di('attr' => 'translator')
+     */
+    public function translate(string $phrase)
+    {
+        // The $translator property is set from the DI container when this method is called.
+        $phrase = $this->translator->translate($phrase);
+    }
+}
 ```
 
-Sur un attribut, le nom de l'annotation doit être omis.
+When applied to properties, it takes the class of the property as only parameter, which can be omitted if it is already specified by a `@var` annotation.
+
 ```php
+class JaxonExample
+{
+    /**
+     * @di(class => '\App\Services\Translator')
+     */
+     protected $translator;
+
+    public function translate(string $phrase)
+    {
+        // The $translator property is set from the DI container when this method is called.
+        $phrase = $this->translator->translate($phrase);
+    }
+}
+```
+
+```php
+class JaxonExample
+{
+    /**
+     * @di
+     * @var \App\Services\Translator
+     */
+     protected $translator;
+
+    public function translate(string $phrase)
+    {
+        // The $translator property is set from the DI container when this method is called.
+        $phrase = $this->translator->translate($phrase);
+    }
+}
+```
+
+If the class name does not start with a `"\"`, then the corresponding fully qualified name (FQN) will be set using
+either the `use` or the `namespace` statements in the source file.
+
+```php
+namespace App\Ajax;
+
+use App\Services\Translator;
+
+class JaxonExample
+{
+    /**
+     * @var Translator
+     */
+     protected $translator;
+
+    /**
+     * @var Formatter
+     */
+     protected $formatter;
+
+    /**
+     * @di('attr' => 'translator', class => 'Translator')
+     * @di('attr' => 'formatter', class => 'Formatter')
+     */
+    public function translate(string $phrase)
+    {
+        // The Translator FQN is defined by the use instruction => App\Services\Translator.
+        // The Formatter FQN is defined by the current namespace => App\Ajax\Formatter.
+        $phrase = $this->formatter->format($this->translator->translate($phrase));
+    }
+}
+```
+
+La syntaxe PHP-DOC peut également être utilisée.
+
+```php
+namespace App\Ajax;
+
+use App\Services\Translator;
+
+class JaxonExample
+{
+    /**
+     * @var Translator
+     */
+     protected $translator;
+
+    /**
+     * @var Formatter
+     */
+     protected $formatter;
+
+    /**
+     * @di $translator   Translator
+     * @di $formatter    Formatter
+     */
+    public function translate(string $phrase)
+    {
+        // The Translator FQN is defined by the use instruction => App\Services\Translator.
+        // The Formatter FQN is defined by the current namespace => App\Ajax\Formatter.
+        $phrase = $this->formatter->format($this->translator->translate($phrase));
+    }
+}
+```
+
+```php
+namespace App\Ajax;
+
 use App\Services\Translator;
 
 /**
- * @di Translator
+ * @di $translator   Translator
+ * @di $formatter    Formatter
  */
-protected $translator;
+class JaxonExample
+{
+    /**
+     * @var Translator
+     */
+     protected $translator;
+
+    /**
+     * @var Formatter
+     */
+     protected $formatter;
+
+    public function translate(string $phrase)
+    {
+        // The Translator FQN is defined by the use instruction => App\Services\Translator.
+        // The Formatter FQN is defined by the current namespace => App\Ajax\Formatter.
+        $phrase = $this->formatter->format($this->translator->translate($phrase));
+    }
+}
 ```
 
-Si le type de l'attribut est déjà déclaré, il peut aussi être omis.
 ```php
+namespace App\Ajax;
+
 use App\Services\Translator;
 
-/**
- * @di
- * @var Translator
- */
-protected $translator;
+class JaxonExample
+{
+    /**
+     * @di  Translator
+     * @var Translator
+     */
+     protected $translator;
+
+    /**
+     * @di  Formatter
+     * @var Formatter
+     */
+     protected $formatter;
+
+    public function translate(string $phrase)
+    {
+        // The Translator FQN is defined by the use instruction => App\Services\Translator.
+        // The Formatter FQN is defined by the current namespace => App\Ajax\Formatter.
+        $phrase = $this->formatter->format($this->translator->translate($phrase));
+    }
+}
 ```

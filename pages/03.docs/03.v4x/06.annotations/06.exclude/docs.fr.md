@@ -4,19 +4,51 @@ menu: Exclure des méthodes
 template: jaxon
 ---
 
-L'annotation `@exclude` permet d'avoir dans une classe Jaxon une méthode publique qui ne sera pas présente dans le code javascript généré.
-
-Elle peut être définie sur les classes et les méthodes publiques, et elle ne peut pas être repétée.
+L'annotation `@exclude` empêche une méthode ou une classe d'être exportée en javascript.
+Elle prend un paramètre booléen optionnel.
 
 ```php
-class HelloWorld extends \Jaxon\App\CallableClass
+// Cette classe ne sera pas exportée en javascript.
+/**
+ * @exclude(true)
+ */
+class JaxonExample
 {
-    // Cette méthode ne pourra pas être appelée en javascript.
+}
+```
+
+```php
+class JaxonExample
+{
     /**
      * @exclude
      */
-    public function doSomething()
+    public function doNot()
     {
+        // Cette méthode ne sera pas exportée en javascript.
+    }
+}
+```
+
+La syntaxe PHP-DOC peut également être utilisée.
+
+```php
+class JaxonExample
+{
+    /**
+     * @exclude false
+     */
+    public function do()
+    {
+        // Cette méthode sera exportée en javascript.
+    }
+
+    /**
+     * @exclude true
+     */
+    public function doNot()
+    {
+        // Cette méthode ne sera pas exportée en javascript.
     }
 }
 ```

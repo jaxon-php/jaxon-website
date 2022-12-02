@@ -4,39 +4,106 @@ menu: Les hooks
 template: jaxon
 ---
 
-Les annotations `@before` et `@after` permettent d'appeler des méthodes d'une classe avant ou après la méthode de la requête Ajax.
-
-Elles peuvent être définies sur les classes et les méthodes publiques, et elles peuvent être repétées.
+The `@before` annotation defines a method of the class as a [hook to be called](../../05.features/05.hooks/) before processing the request.
+It takes the name of the method as a mandatory parameter, and an array as optional parameters to be passed to the hook.
+It applies to methods and classes.
 
 ```php
-/**
- * @before('call' => 'funcBefore')
- * @after('call' => 'funcAfter')
- */
-class ClassAnnotated extends CallableClass
+class JaxonExample
 {
-    protected function funcBefore()
+    protected function funcBefore1()
     {
-        //
+        // Do something
     }
 
-    protected function funcAfter()
+    protected function funcBefore2($param1, $param2)
     {
-        //
-    }
-
-    protected function funcAfter2()
-    {
-        //
+        // Do something with parameters
     }
 
     /**
-     * @after funcAfter2
+     * @before('call' => 'funcBefore1')
+     * @before('call' => 'funcBefore2', 'with' => ['value1', 'value2'])
      */
-    public function doSomething()
+    public function action()
     {
-        // La fonction funcBefore() sera appelée avant celle-ci.
-        // Les fonctions funcAfter() et funcAfter2() seront appelées après celle-ci.
+    }
+}
+```
+
+La syntaxe PHP-DOC peut également être utilisée.
+
+```php
+class JaxonExample
+{
+    protected function funcBefore1()
+    {
+        // Do something
+    }
+
+    protected function funcBefore2($param1, $param2)
+    {
+        // Do something with parameters
+    }
+
+    /**
+     * @before funcBefore1
+     * @before funcBefore2 ["value1", "value2"]
+     */
+    public function action()
+    {
+    }
+}
+```
+
+The `@after` annotation defines a method of the class as a [hook to be called](../../05.features/05.hooks/) after processing the request.
+It takes the name of the method as a mandatory parameter, and an array as optional parameters to be passed to the hook.
+It applies to methods and classes.
+
+```php
+class JaxonExample
+{
+    protected function funcAfter1()
+    {
+        // Do something
+    }
+
+    protected function funcAfter2($param)
+    {
+        // Do something with parameter
+    }
+
+    /**
+     * @after('call' => 'funcAfter1')
+     * @after('call' => 'funcAfter2', 'with' => ['value'])
+     */
+    public function action()
+    {
+    }
+}
+```
+
+La syntaxe PHP-DOC peut également être utilisée.
+
+```php
+class JaxonExample
+{
+    protected function funcAfter1()
+    {
+        // Do something
+    }
+
+    protected function funcAfter2($param)
+    {
+        // Do something with parameter
+    }
+
+    /**
+     * @after funcAfter1
+     * @after funcAfter2 ["value"]
+     */
+    public function action()
+    {
     }
 }
 ```
