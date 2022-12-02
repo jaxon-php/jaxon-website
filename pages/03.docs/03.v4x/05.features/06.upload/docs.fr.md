@@ -26,7 +26,7 @@ Pour transférer un fichier avec Jaxon, un attribut `id` unique doit être défi
 
 ```html
 <form>
-    <input type="file" id="upload_example" name="example_file" />
+    <input type="file" id="html_file_input_id" name="example_file" />
 </form>
 ```
 
@@ -34,7 +34,7 @@ Les uploads de fichiers multiples sont pris en charge.
 
 ```html
 <form>
-    <input type="file" id="upload_example" name="example_files[]" multiple="multiple" />
+    <input type="file" id="html_file_input_id" name="example_files[]" multiple="multiple" />
 </form>
 ```
 
@@ -44,7 +44,7 @@ Ensuite, il faut passer la valeur de cet id en paramètre à l'enregistrement de
 $jaxon->register(Jaxon::CALLABLE_CLASS, Upload::class, [
     'functions' => [
         'saveFile' => [
-            'upload' => "'upload_example'"
+            'upload' => "'html_file_input_id'"
         ]
     ]
 ]);
@@ -58,7 +58,7 @@ $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
         Upload::class => [
             'functions' => [
                 'saveFile' => [
-                    'upload' => "'upload_example'"
+                    'upload' => "'html_file_input_id'"
                 ]
             ]
         ]
@@ -72,7 +72,7 @@ Cette configuration peut aussi se faire à l'aide d'une annotation, directement 
 class Upload
 {
     /**
-     * @di upload_example
+     * @upload html_file_input_id
      */
     public function saveFile()
     {
@@ -88,7 +88,7 @@ use function Jaxon\jaxon;
 class Upload
 {
     /**
-     * @di upload_example
+     * @upload html_file_input_id
      */
     public function saveFile()
     {
@@ -106,7 +106,7 @@ class Upload
 class Upload extends JaxonCallable
 {
     /**
-     * @di upload_example
+     * @upload html_file_input_id
      */
     public function saveFile()
     {
