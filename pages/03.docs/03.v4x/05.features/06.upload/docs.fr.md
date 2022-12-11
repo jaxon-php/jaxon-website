@@ -164,4 +164,4 @@ Les fichiers peuvent être enregistrés sur les systèmes de stockage suivants:
 
 Pour chacun de ses systèmes, un package spécifique doit être installé, et des paramètres de connexion doivent être fournis dans la configuration de Jaxon.
 
-Voir la documentation du package  [jaxon-upload](https://github.com/jaxon-php/jaxon-upload), et la section **Official adapters** de la [documentation de Flysystem](https://flysystem.thephpleague.com/docs/), pour plus d'informations.
+Voir la documentation du package [jaxon-upload](https://github.com/jaxon-php/jaxon-upload), et la section **Official adapters** de la [documentation de Flysystem](https://flysystem.thephpleague.com/docs/), pour plus d'informations.
