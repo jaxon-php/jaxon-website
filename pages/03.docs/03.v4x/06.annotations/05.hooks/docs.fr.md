@@ -4,9 +4,9 @@ menu: Les hooks
 template: jaxon
 ---
 
-The `@before` annotation defines a method of the class as a [hook to be called](../../05.features/05.hooks/) before processing the request.
-It takes the name of the method as a mandatory parameter, and an array as optional parameters to be passed to the hook.
-It applies to methods and classes.
+L'annotation `@before` définit une méthode d'une classe comme un [hook à appeler](../../05.features/05.hooks/) avant le traitement d'une requête.
+Elle prend le nom de la méthode en paramètre obligatoire, et en option un tableau de paramètre à passer au hook.
+Elle s'applique aux méthodes et aux classes.
 
 ```php
 class JaxonExample
@@ -31,7 +31,7 @@ class JaxonExample
 }
 ```
 
-La syntaxe PHP-DOC peut également être utilisée.
+The PHP-DOC syntax can also be used.
 
 ```php
 class JaxonExample
@@ -56,9 +56,9 @@ class JaxonExample
 }
 ```
 
-The `@after` annotation defines a method of the class as a [hook to be called](../../05.features/05.hooks/) after processing the request.
-It takes the name of the method as a mandatory parameter, and an array as optional parameters to be passed to the hook.
-It applies to methods and classes.
+L'annotation `@after` définit une méthode d'une classe comme un [hook à appeler](../../05.features/05.hooks/) après le traitement d'une requête.
+Elle prend le nom de la méthode en paramètre obligatoire, et en option un tableau de paramètre à passer au hook.
+Elle s'applique aux méthodes et aux classes.
 
 ```php
 class JaxonExample
@@ -83,7 +83,7 @@ class JaxonExample
 }
 ```
 
-La syntaxe PHP-DOC peut également être utilisée.
+The PHP-DOC syntax can also be used.
 
 ```php
 class JaxonExample
