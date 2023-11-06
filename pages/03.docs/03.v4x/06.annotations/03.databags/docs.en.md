@@ -4,31 +4,46 @@ menu: Data bags
 template: jaxon
 ---
 
-The `@databag` annotation defines [data bags](../../05.features/04.databags/), which are data sets that are stored on client side, and made available on demand in Jaxon classes.
-
-It can be declared on a class (it then applies on all its methods), or on the methods.
-It can be repeated.
-
-It takes a single parameter, the `data bag` identifier, which must be unique within the application.
+The `@databag` annotation defines a [data bag](../../05.features/04.databags/) to be appended to ajax requests to a method.
+It takes the name of the data bag as a mandatory parameter.
+It applies to methods and classes.
 
 ```php
-// The first_bag data bag can be accessed from all the methods of this class.
 /**
- * @databag first_bag
+ * @databag('name' => 'section')
  */
-class HelloWorld extends \Jaxon\App\CallableClass
+class JaxonExample
 {
-    // The second_bag data bag can be accessed only from this method.
     /**
-     * @databag second_bag
+     * @databag('name' => 'user')
      */
-    public function doThat()
+    public function action()
     {
-        // Read data from or write data in data bags.
-        $this->bag('first_bag')->set('first_value', $firstValue);
-        $secondValue = $this->bag('second_bag')->get('second_value');
+        // Read a value from the data bag.
+        $count = $this->bag('user')->get('count', 0);
+        // Update a value in the data bag.
+        $this->bag('user')->set('count', $count++);
+    }
+}
+```
 
-        return $this->response;
+The PHP-DOC syntax can also be used.
+
+```php
+/**
+ * @databag section
+ */
+class JaxonExample
+{
+    /**
+     * @databag user
+     */
+    public function action()
+    {
+        // Read a value from the data bag.
+        $count = $this->bag('user')->get('count', 0);
+        // Update a value in the data bag.
+        $this->bag('section')->set('count', $count++);
     }
 }
 ```

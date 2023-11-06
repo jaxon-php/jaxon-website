@@ -4,36 +4,36 @@ menu: L'upload de fichiers
 template: jaxon
 ---
 
-#### L'upload de fichiers
-
-L'annotation `@upload` permet de télécharger des fichiers dans une méthode d'une classe Jaxon.
-
-Elle ne peut être définie que sur les méthodes, et elle ne peut pas être repétée.
+L'annotation `@upload` ajoute le [transfert de fichiers](../../05.features/06.upload/) à une requête ajax.
+Elle prend l'id du champ HTML en paramètre obligatoire.
+Elle s'applique uniquement aux méthodes.
 
 ```php
-class HelloWorld extends \Jaxon\App\CallableClass
+class JaxonExample
 {
-    // L'appel à cette méthode télécharge les fichiers dans le champ HTML input avec l'id first_field_id.
     /**
-     * @upload('field' => 'first_field_id')
+     * @upload('field' => 'div-user-file')
      */
-    public function doSomething()
+    public function saveFile()
     {
-        // Récupérer les fichiers téléchargés.
-        $uploadedFiles = $this->files();
-
-        return $this->response;
+        // Get the uploaded files.
+        $files = $this->upload()->files();
     }
+}
+```
 
+La syntaxe PHP-DOC peut également être utilisée.
+
+```php
+class JaxonExample
+{
     /**
-     * @upload second_field_id
+     * @upload div-user-file
      */
-    public function doSomethingElse()
+    public function saveFile()
     {
-        // Récupérer les fichiers téléchargés.
-        $uploadedFiles = $this->files();
-
-        return $this->response;
+        // Get the uploaded files.
+        $files = $this->upload()->files();
     }
 }
 ```

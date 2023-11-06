@@ -4,31 +4,46 @@ menu: Les data bags
 template: jaxon
 ---
 
-L'annotation `@databag` permet de définir des [data bags](../../05.features/04.databags/), qui sont des données stockées sur le client et disponibles à la demande dans les classes Jaxon.
-
-Elle peut être définie sur la classe (elle s'applique alors à toutes les méthodes), et sur les méthodes.
-Elle peut être repétée.
-
-Elle prend un seul paramètre, l'identifiant du `data bag`, qui doit être unique dans l'application.
+L'annotation `@databag` définit un [data bag](../../05.features/04.databags/) à embarquer dans les requêtes ajax vers une méthode.
+Elle prend le nom du data bag comme paramètre obligatoire.
+Elle s'applique aux méthodes et aux classes.
 
 ```php
-// Le data bag first_bag sera accessible dans toutes les méthodes de cette classe.
 /**
- * @databag('name' => 'first_bag')
+ * @databag('name' => 'section')
  */
-class HelloWorld extends \Jaxon\App\CallableClass
+class JaxonExample
 {
-    // Le data bag second_bag sera disponible uniquement dans cette méthode.
     /**
-     * @databag second_bag
+     * @databag('name' => 'user')
      */
-    public function doThat()
+    public function action()
     {
-        // Lire ou écrire des données dans les data bags.
-        $this->bag('first_bag')->set('first_value', $firstValue);
-        $secondValue = $this->bag('second_bag')->get('second_value');
+        // Read a value from the data bag.
+        $count = $this->bag('user')->get('count', 0);
+        // Update a value in the data bag.
+        $this->bag('section')->set('count', $count++);
+    }
+}
+```
 
-        return $this->response;
+La syntaxe PHP-DOC peut également être utilisée.
+
+```php
+/**
+ * @databag section
+ */
+class JaxonExample
+{
+    /**
+     * @databag user
+     */
+    public function action()
+    {
+        // Read a value from the data bag.
+        $count = $this->bag('user')->get('count', 0);
+        // Update a value in the data bag.
+        $this->bag('section')->set('count', $count++);
     }
 }
 ```

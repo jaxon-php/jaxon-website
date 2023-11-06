@@ -26,7 +26,7 @@ In order to be able to upload files with Jaxon, a unique `id` attribute must be 
 
 ```html
 <form>
-    <input type="file" id="upload_example" name="example_file" />
+    <input type="file" id="html_file_input_id" name="example_file" />
 </form>
 ```
 
@@ -34,7 +34,7 @@ Multiple files upload is supported.
 
 ```html
 <form>
-    <input type="file" id="upload_example" name="example_files[]" multiple="multiple" />
+    <input type="file" id="html_file_input_id" name="example_files[]" multiple="multiple" />
 </form>
 ```
 
@@ -44,7 +44,7 @@ The value of this id must then be passed as parameter when registering the class
 $jaxon->register(Jaxon::CALLABLE_CLASS, Upload::class, [
     'functions' => [
         'saveFile' => [
-            'upload' => "'upload_example'"
+            'upload' => "'html_file_input_id'"
         ]
     ]
 ]);
@@ -58,7 +58,7 @@ $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
         Upload::class => [
             'functions' => [
                 'saveFile' => [
-                    'upload' => "'upload_example'"
+                    'upload' => "'html_file_input_id'"
                 ]
             ]
         ]
@@ -72,7 +72,7 @@ This configuration can also be done using an annotation, directly in the class.
 class Upload
 {
     /**
-     * @di upload_example
+     * @upload html_file_input_id
      */
     public function saveFile()
     {
@@ -88,7 +88,7 @@ use function Jaxon\jaxon;
 class Upload
 {
     /**
-     * @di upload_example
+     * @upload html_file_input_id
      */
     public function saveFile()
     {
@@ -106,7 +106,7 @@ class Upload
 class Upload extends JaxonCallable
 {
     /**
-     * @di upload_example
+     * @upload html_file_input_id
      */
     public function saveFile()
     {
@@ -118,7 +118,7 @@ class Upload extends JaxonCallable
 }
 ```
 
-The call to `jaxon()->upload()->files()` returns an array where the key is the `name` attribute of the `input` field, and the value is an array of objects of class [`Jaxon\Request\Support\UploadedFile`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Support/UploadedFile.php), each representing an uploaded file.
+The call to `jaxon()->upload()->files()` returns an array where the key is the `name` attribute of the `input` field, and the value is an array of objects of class [`Jaxon\Request\Upload\FileInterface`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Upload/FileInterface.php), each representing an uploaded file.
 
 #### Configuration
 
