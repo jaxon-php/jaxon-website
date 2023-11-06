@@ -1,0 +1,39 @@
+en:
+  HEADER:
+    MOTTO: Easily create Ajax applications with PHP
+    DONATE: <i class="fa fa-heart"></i> Jaxon? Donate to help us.
+  PLUGIN_BLOG_INJECTOR:
+    TEMPLATES:
+      CONTINUE_READING: Continue Reading...
+      PREVIOUS_POST: Previous Post
+      NEXT_POST: Next Post
+      SEARCH_TITLE: Search
+      POPULAR_TAGS: Popular Tags
+      RELATED_POSTS: Related Posts
+      TOPIC_TAGS: Topic Tags
+      RANDOM_ARTICLE: Random Article
+      FEEL_LUCKY: I'm Feeling Lucky!
+      ARCHIVES: Archives
+      SYNDICATE: Syndicate
+      ATOM: Atom 1.0
+      RSS: RSS
+
+fr:
+  HEADER:
+    MOTTO: Créez facilement des applications Ajax avec PHP
+    DONATE: <i class="fa fa-heart"></i> Jaxon ? Faites-nous un don.
+  PLUGIN_BLOG_INJECTOR:
+    TEMPLATES:
+      CONTINUE_READING: Continuer la lecture...
+      PREVIOUS_POST: Post précédent
+      NEXT_POST: Post suivant
+      SEARCH_TITLE: Rechercher
+      POPULAR_TAGS: Tags populaires
+      RELATED_POSTS: Posts en relation
+      TOPIC_TAGS: Tags de thème
+      RANDOM_ARTICLE: Article aléatoire
+      FEEL_LUCKY: J'ai de la chance !
+      ARCHIVES: Archives
+      SYNDICATE: Flux
+      ATOM: Atom 1.0
+      RSS: RSS

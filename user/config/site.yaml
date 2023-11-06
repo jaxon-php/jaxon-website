@@ -1,0 +1,7 @@
+title: Jaxon
+author:
+    name: Thierry Feuzeu
+    email: 'thierry.feuzeu@lagdo-software.net'
+metadata:
+    description: 'Jaxon is an open source PHP library for easily creating Ajax web applications. It''s a fork of the Xajax library.'
+    keywords: 'Ajax, PHP, Javascript, Library, Jaxon, Xajax, Asynchronous'

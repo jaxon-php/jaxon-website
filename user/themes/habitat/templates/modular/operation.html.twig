@@ -1,0 +1,11 @@
+							<div class="row text-center">
+                            	<!-- <h4>{{ page.title }}</h4> -->
+								{{ content }}
+{% for section in page.header.sections %}
+								<div class="col-md-4">
+									<i class="fa fa-{{ section.icon }} fa-2x color-primary"></i>
+									<p class="animate fadeIn">{{ section.text }}</p>
+									<p>{{ section.more }}</p>
+								</div>
+{% endfor %}
+							</div>

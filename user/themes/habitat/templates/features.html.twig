@@ -1,0 +1,48 @@
+{% extends 'partials/page.html.twig' %}
+
+{% block content %}
+            <div id="content">
+                <div class="container background-white">
+                    <div class="row margin-vert-40">
+                        <!-- Begin Sidebar Menu -->
+                        <div class="col-md-3">
+                            {% include 'sidebar/menu.html.twig' %}
+                        </div>
+                        <!-- End Sidebar Menu -->
+                        <div class="col-md-9">
+                            <!-- Page title -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="headline">
+                                        <h3>{{ page.title }}</h3>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- End Page title -->
+
+{% if page.content %}
+                            <!-- Page content -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ page.content|raw }}
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- End Page content -->
+{% endif %}
+
+                            <div class="row">
+{% for block in page.collection %}
+                                <div class="col-md-6">
+                                    {{ block.content|raw }}
+                                </div>
+{% endfor %}
+                            </div>
+
+                            <div class="clearfix margin-bottom-10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

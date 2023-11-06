@@ -1,0 +1,29 @@
+{% set v4x = page.find('/docs/v4x') %}
+{% set v3x = page.find('/docs/v3x') %}
+{% set v2x = page.find('/docs/v2x') %}
+    <ul class="list-unstyled text-right">
+        <li>
+            &nbsp;<i class="fa fa-chevron-right color-gray-lighter"></i>
+{% if uri.paths[1] == 'v4x' %}
+            &nbsp;<b>{{ v4x.header.version }}</b>
+{% else %}
+            &nbsp;<a href="{{ v4x.url }}">{{ v4x.header.version }}</a>
+{% endif %}
+        </li>
+        <li>
+            &nbsp;<i class="fa fa-chevron-right color-gray-lighter"></i>
+{% if uri.paths[1] == 'v3x' %}
+            &nbsp;<b>{{ v3x.header.version }}</b>
+{% else %}
+            &nbsp;<a href="{{ v3x.url }}">{{ v3x.header.version }}</a>
+{% endif %}
+        </li>
+        <li>
+            &nbsp;<i class="fa fa-chevron-right color-gray-lighter"></i>
+{% if uri.paths[1] == 'v2x' %}
+            &nbsp;<b>{{ v2x.header.version }}</b>
+{% else %}
+            &nbsp;<a href="{{ v2x.url }}">{{ v2x.header.version }}</a>
+{% endif %}
+        </li>
+    </ul>

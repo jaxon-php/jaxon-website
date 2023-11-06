@@ -1,0 +1,47 @@
+<!-- === BEGIN HEADER === -->
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <!-- Title -->
+        <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+        <!-- Meta -->
+{% include 'header/meta.html.twig' %}
+        <!-- Favicon -->
+        <link href="favicon.ico" rel="shortcut icon">
+        <!-- CSS -->
+{% include 'header/css.html.twig' %}
+{% include 'header/google.html.twig' %}
+    </head>
+    <body>
+        <div id="body-bg">
+{% include 'header/github.html.twig' %}
+            <!-- Language/Email -->
+{% include 'header/lang.html.twig' %}
+            <!-- End Language/Email -->
+            <!-- Header -->
+{% include 'header/logo.html.twig' %}
+            <!-- End Header -->
+            <!-- Top Menu -->
+{% include 'header/menu.html.twig' %}
+            <!-- End Top Menu -->
+<!-- === END HEADER === -->
+
+<!-- === BEGIN CONTENT === -->
+{% block content %}{% endblock %}
+<!-- === END CONTENT === -->
+
+<!-- === BEGIN FOOTER === -->
+            <!-- Footer -->
+{% include 'footer/links.html.twig' %}
+            <!-- End Footer -->
+        </div>
+        <!-- JS -->
+{% include 'footer/js.html.twig' %}
+        <!-- End JS -->
+    </body>
+</html>
+<!-- === END FOOTER === -->
