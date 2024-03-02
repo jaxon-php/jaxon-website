@@ -24,6 +24,8 @@ Si en plus l'option `js.app.minify` a la valeur `true`, le code javascript est m
 
 Par défaut, le nom du fichier est généré avec un hash sur une valeur calculée par la librairie.
 Si l'option `js.app.file` est définie, sa valeur est utilisée comme nom de fichier.
-
 Le fichier javascript n'est plus généré s'il existe déjà.
+
 Il est donc conseillé de mettre l'option `js.app.export` à `false` pendant le développement, et de générer un fichier minifié lorsque l'application est déployée.
+
+Les noms des fonctions javascript générées par la librairies sont décrits [dans cette page](../../requests/javascript/).

@@ -1,10 +1,11 @@
 ---
-title: Calling javascript code
+title: Calling exported functions and classes from javascript
 menu: Javascript calls
 template: jaxon
 ---
 
-When a PHP function is registered with Jaxon, the javascript function name is the name of the PHP function prepended with the value of the `core.prefix.function` configuration option. The default value of this option is `jaxon_`.
+When a PHP function is registered with Jaxon, the javascript function name is the name of the PHP function prepended with the value of the `core.prefix.function` configuration option.
+The default value of this option is `jaxon_`.
 
 ```php
 $jaxon->register(Jaxon::CALLABLE_FUNCTION, 'helloWorld');

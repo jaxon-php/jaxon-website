@@ -31,7 +31,7 @@ class JaxonExample
 }
 ```
 
-The PHP-DOC syntax can also be used.
+La syntaxe PHP-DOC peut également être utilisée.
 
 ```php
 class JaxonExample

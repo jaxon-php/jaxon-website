@@ -54,9 +54,9 @@ Althougth this article describes the installation of `Jaxon DbAdmin` on `Voyager
 3. Add a route and a menu entry for this page,
 4. Configure `Jaxon` and its packages, among which `Jaxon DbAdmin`.
 
-Fisrt, we will install `Voyager` on the latest `Laravel` version, [following its documentation](https://voyager-docs.devdojo.com/getting-started/installation).
+Fisrt, we will install `Voyager` on the version 9 of `Laravel`, [following its documentation](https://voyager-docs.devdojo.com/getting-started/installation).
 ```bash
-composer create-project laravel/laravel voyager
+composer create-project laravel/laravel voyager 9.x
 cd voyager
 composer require tcg/voyager
 ```
@@ -67,24 +67,25 @@ php artisan voyager:install
 php artisan voyager:admin your@email.com --create
 ```
 
-We can now login on `Voyager`.
+We can now login on `Voyager`, on the `/admin` path in the installed application.
 
 [![voyager-login](./voyager-login.png)](./voyager-login.png)
 
 #### Install Jaxon packages
 
-In addition to the `lagdo/jaxon-dbadmin` package, we need to install the `jaxon-php/jaxon-laravel` package, for integration with `Laravel`, and the `jaxon-php/jaxon-dialogs` package, to display dialogs.
+In addition to the `lagdo/jaxon-dbadmin` package, we need to install the `jaxon-php/jaxon-laravel` package, for integration with `Laravel`, the framework `Voyager` is built with.
 
 For the database drivers, we need to install the `lagdo/dbadmin-driver-mysql`, `lagdo/dbadmin-driver-pgsql` or `lagdo/dbadmin-driver-sqlite` packages, depending on the databases that need to be managed.
 
 Finally, we need to install packages for the UI. At the time this article is published, only the [package for `Bootstrap`](https://github.com/lagdo/ui-builder-bootstrap) is available.
 
 ```bash
-composer require lagdo/jaxon-dbadmin jaxon-php/jaxon-laravel jaxon-php/jaxon-dialogs
-composer require lagdo/dbadmin-driver-mysql lagdo/dbadmin-driver-pgsql lagdo/dbadmin-driver-sqlite lagdo/ui-builder-bootstrap
+composer require lagdo/jaxon-dbadmin jaxon-php/jaxon-laravel
+composer require lagdo/dbadmin-driver-mysql lagdo/dbadmin-driver-pgsql lagdo/dbadmin-driver-sqlite
+composer require lagdo/ui-builder-bootstrap
 ```
 
-The `php artisan route:list | grep jaxon` command now prints the following lines, showing that a route exists for processing `Jaxon` requests.
+The `php artisan route:list | grep jaxon` command now prints the following lines, showing that a route exists for `Jaxon` requests.
 ```
 | Domain | Method | URI     | Name    | Action                                                     | Middleware
 +--------+--------+---------+---------+------------------------------------------------------------+-----------

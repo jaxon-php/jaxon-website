@@ -1,10 +1,11 @@
 ---
-title: Appeler le code javascript
+title: Appeler les fonctions et classes exportées depuis javascript
 menu: Les appels javascript
 template: jaxon
 ---
 
-Lorsqu'une fonction PHP est enregistrée avec Jaxon, le nom de la fonction javascript générée est celui de la fonction PHP préfixée de la valeur de l'option de configuration `core.prefix.function`. La valeur par défaut de ce paramètre est `jaxon_`.
+Lorsqu'une fonction PHP est enregistrée avec Jaxon, le nom de la fonction javascript générée est celui de la fonction PHP préfixée de la valeur de l'option de configuration `core.prefix.function`.
+La valeur par défaut de ce paramètre est `jaxon_`.
 
 ```php
 $jaxon->register(Jaxon::CALLABLE_FUNCTION, 'helloWorld');
