@@ -5,7 +5,7 @@ template: jaxon
 published: true
 ---
 
-Jaxon permet définir des callbacks qui vont être appelées à différents étapes de l'exécution de chaque requête.
+Jaxon permet définir des callbacks qui vont être appelées à différents étapes de l'exécution de chaque requête dans l'application PHP.
 
 #### Avant l'exécution de la requête
 
