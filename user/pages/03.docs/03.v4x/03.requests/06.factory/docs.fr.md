@@ -1,16 +1,14 @@
 ---
-title: La fabrique de requête
-menu: Fabrique de requête
+title: La fabrique de requête (`Request Factory`)
+menu: Request Factory
 template: jaxon
 ---
 
 La classe `Jaxon\Request\Factory\RequestFactory` permet de créer des requêtes vers les fonctions ou les méthodes exportées avec Jaxon.
 La fonction globale `Jaxon\rq()` retourne une instance de cette classe, qui fournit une fonction `call()` pour créer la requête.
+Elle sera souvent utilisée avec la fonction `Jaxon\pm()`, pour lui [ajouter des paramètres](../parameters/).
 
-La classe `Jaxon\Request\Factory\ParameterFactory` permet de créer des paramètres.
-La fonction globale `Jaxon\pm()` retourne une instance de cette classe, qui fournit un ensemble d'autres fonctions pour passer des éléments de la page HTML en paramètre.
-
-Par exemple, le code suivant utilise la fabrique de requête pour générer un appel à la méthode `setColor()` de la classe `HelloWorld`, en lui passant la valeur de la liste déroulante avec l'id `colorselect`.
+Par exemple, le code suivant utilise la `Request Factory` pour générer un appel à la méthode `setColor()` de la classe `HelloWorld`, en lui passant la valeur de la liste déroulante avec l'id `colorselect`.
 
 ```php
 <div class="col-md-4 margin-vert-10">
@@ -24,7 +22,7 @@ Par exemple, le code suivant utilise la fabrique de requête pour générer un a
 </div>
 ```
 
-La fabrique de requête peut aussi être utilisée pour lier un appel à une fonction Jaxon à un évènement.
+La `Request Factory` peut aussi être utilisée pour lier un appel à une fonction Jaxon à un évènement.
 
 ```php
 use function Jaxon\pm;
@@ -39,18 +37,9 @@ public function myFunction()
 
 Le préfixe configuré est automatiquement ajouté au code javascript généré.
 
-Les méthodes suivantes sont utilisées pour lire le contenu de la page.
-
-- form($sFormId): retourne les valeurs dans le formulaire avec l'id donné.
-- input($sInputId): retourne la valeur de la zone de texte avec l'id donné.
-- checked($sInputId): retourne la valeur de la case à cocher avec l'id donné.
-- select($sInputId): retourne la valeur de la liste déroulante avec l'id donné.
-- html($sElementId): retourne le texte de l'élément HTML avec l'id donné.
-- js($sValue): retourne une variable ou un appel de fonction javascript.
-
 #### Les appels conditionnels
 
-La fabrique de requête fournit 3 fonctions pour vérifier une condition avant l'éxécution de la requête.
+La `Request Factory` fournit 3 fonctions pour vérifier une condition avant l'éxécution de la requête.
 
 La fonction `when()` exécute la requête seulement si une condition est vraie.
 Dans l'exemple suivant la requête est exécutée si l'utilisateur a coché la case avec l'id `accepted`.
