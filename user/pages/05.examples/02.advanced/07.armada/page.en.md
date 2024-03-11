@@ -2,6 +2,7 @@
 title: Jaxon Armada
 menu: Armada
 template: jaxon
+visible: false
 cache_enable: false
 ---
 
