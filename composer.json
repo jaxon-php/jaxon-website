@@ -61,7 +61,9 @@
         "symfony/http-client": "^4.4",
         "composer/semver": "^1.4",
         "rhukster/dom-sanitizer": "^1.0",
-        "multiavatar/multiavatar-php": "^1.0"
+        "multiavatar/multiavatar-php": "^1.0",
+        "jaxon-php/jaxon-core": "^4.6",
+        "gravitypdf/querypath": "^3.2"
     },
     "require-dev": {
         "codeception/codeception": "^4.1",
