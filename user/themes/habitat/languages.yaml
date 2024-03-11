@@ -2,6 +2,8 @@ en:
   HEADER:
     MOTTO: Easily create Ajax applications with PHP
     DONATE: <i class="fa fa-heart"></i> Jaxon? Donate to help us.
+  CONTENT:
+    EXAMPLES_DEPRECATION: Warning. These examples work with the version 2.x of the Jaxon library.
   PLUGIN_BLOG_INJECTOR:
     TEMPLATES:
       CONTINUE_READING: Continue Reading...
@@ -22,6 +24,8 @@ fr:
   HEADER:
     MOTTO: Créez facilement des applications Ajax avec PHP
     DONATE: <i class="fa fa-heart"></i> Jaxon ? Faites-nous un don.
+  CONTENT:
+    EXAMPLES_DEPRECATION: Attention. Ces exemples sont pour la version 2.x de la librairie Jaxon.
   PLUGIN_BLOG_INJECTOR:
     TEMPLATES:
       CONTINUE_READING: Continuer la lecture...

@@ -5,6 +5,13 @@ namespace Grav\Theme;
 use Grav\Common\Theme;
 use stdClass;
 
+use function html5qp;
+use function html_entity_decode;
+use function strrchr;
+use function strstr;
+use function substr;
+use function trim;
+
 class Habitat extends Theme
 {
     protected $jaxon = null;
@@ -18,7 +25,7 @@ class Habitat extends Theme
 
     public function onThemeInitialized()
     {
-        $config = $this->config();
+        // $config = $this->config();
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
 
@@ -31,7 +38,7 @@ class Habitat extends Theme
 
         // Check if this is an example page (dir is /examples or /demo)
         if(!strstr($uri->path(), '/codes/') &&
-            (substr($uri->path(), 0, 9) == '/examples' || substr($uri->path(), 0, 5) == '/demo'))
+            (substr($uri->path(), 0, 9) === '/examples' || substr($uri->path(), 0, 5) === '/demo'))
         {
             // Set the example URL
             $exampleUrl = trim($uri->base(), '/') . '/exp/web/';
@@ -40,7 +47,7 @@ class Habitat extends Theme
             if($path != 'examples') // /examples is the path to the section
             {
                 // Create an object for Jaxon contents
-                if(($dom = \html5qp($exampleUrl . $path . '/')))
+                if(($dom = html5qp($exampleUrl . $path . '/')))
                 {
                     $this->jaxon = new stdClass;
                     $this->jaxon->html = html_entity_decode($dom->find('#jaxon-html')->eq(0)->innerHTML());
@@ -76,7 +83,7 @@ class Habitat extends Theme
         }
 
         // Enable Piwik and Google Analytics only on the website
-        if($_SERVER['SERVER_NAME'] != 'www.jaxon-php.org' || (isset($_GET['a']) && $_GET['a'] === 'no'))
+        if($_SERVER['SERVER_NAME'] !== 'www.jaxon-php.org' || (isset($_GET['a']) && $_GET['a'] === 'no'))
         {
             $this->config->set('plugins.piwik.siteId', 0);
             $this->config->set('plugins.ganalytics.trackingId', '');
@@ -117,7 +124,7 @@ class Habitat extends Theme
             return;
         }
         // The top parent pages have "Pages" as top parent.
-        if($root->title() == 'Pages')
+        if($root->title() === 'Pages')
         {
             $root = $this->grav['page'];
         }

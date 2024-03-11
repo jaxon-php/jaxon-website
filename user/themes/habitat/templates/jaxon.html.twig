@@ -29,6 +29,17 @@
                             </div>
 
 {% if page.content %}
+{% if root.route == '/examples' %}
+                            <!-- Warning on examples deprecation -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning" role="alert">
+                                        {{ "CONTENT.EXAMPLES_DEPRECATION"|t }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Warning -->
+{% endif %}
                             <!-- Page content -->
                             <div class="row">
                                 <div class="col-md-12">
