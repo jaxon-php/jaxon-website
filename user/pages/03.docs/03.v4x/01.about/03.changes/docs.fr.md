@@ -18,7 +18,7 @@ Optionnellement, les fonctions suivantes peuvent être améliorées grâce aux n
 - les data bags
 - l'upload de fichiers
 
-### La classe `Jaxon\App\CallableClass`
+## La classe `Jaxon\App\CallableClass`
 
 La classe `Jaxon\CallableClass` a été déplacée dans un autre namespace.
 
@@ -36,7 +36,7 @@ class HelloWorld extends \Jaxon\App\CallableClass
 }
 ```
 
-### Le namespace pour les fonctions globales
+## Le namespace pour les fonctions globales
 
 Pour éviter d'éventuels conflits avec d'autres librairies, les fonctions globales, `jaxon()`, `pm()`, `rq()` et `jq()`, ont toutes été déplacées vers le namespace `Jaxon\`.
 
@@ -57,7 +57,7 @@ use function Jaxon\jaxon;
 $jaxon = jaxon();
 ```
 
-### La création des objets `Response`
+## La création des objets `Response`
 
 Le constructeur de la classe `Response` a été modifié, et prend maintenant en paramètres des objets fournis par le conteneur de dépendances.
 Par conséquent, la création des objets `Response` se fait désormais avec une méthode fournie par la classe `Jaxon`.
@@ -76,7 +76,7 @@ $response = jaxon()->newResponse();
 
 L'objet global `Response` reste toujours accessible à l'aide de l'appel `jaxon()->getResponse()`.
 
-### L'upload de fichiers
+## L'upload de fichiers
 
 La fonction d'upload de fichiers est maintenant fournie dans un package séparé, et désactivée par défaut.
 
@@ -84,7 +84,7 @@ Pour l'utiliser, il faut donc installer le package [`jaxon-php\jaxon-upload`](ht
 
 Son usage par contre reste identique à la version 3.
 
-### La création de plugins
+## La création de plugins
 
 De nouvelles interfaces ont été définies, pour décrire les fonctions des plugins.
 Selon les fonctions qu'il fournit, un plugin Jaxon doit implémenter une ou plusieurs de ces interfaces.
@@ -93,7 +93,7 @@ Pour les plugins de requête, `CallableRegistryInterface` pour ceux qui enregist
 
 Pour les plugins de réponse, il y a une seule interface `ResponsePluginInterface`.
 
-### Les annotations
+## Les annotations
 
 Les [annotations](../../06.annotations/01.about/) sont optionnelles, et fournies dans le package [`jaxon-php\jaxon-annotations`](https://github.com/jaxon-php\jaxon-annotations).
 

@@ -18,7 +18,7 @@ Optionnaly, the following features can take advantage of the new annotations fea
 - Data bags
 - File upload
 
-### The `Jaxon\App\CallableClass` class
+## The `Jaxon\App\CallableClass` class
 
 The `Jaxon\App\CallableClass` class is moved to another namespace.
 
@@ -36,7 +36,7 @@ class HelloWorld extends \Jaxon\App\CallableClass
 }
 ```
 
-### Namespace for the global functions
+## Namespace for the global functions
 
 In order to avoid conflicts with others libraries, the global functions, `jaxon()`, `pm()`, `rq()` and `jq()`, are now defined in the `Jaxon` namespace.
 
@@ -57,7 +57,7 @@ use function Jaxon\jaxon;
 $jaxon = jaxon();
 ```
 
-### Creation of `Response` objects
+## Creation of `Response` objects
 
 The constructor of the `Response` class were modified, and now takes objects provided by the dependency container as parameter.
 As a consequence, the creation of `Response` objects now requires to call a method provided by the `Jaxon` class.
@@ -76,7 +76,7 @@ $response = jaxon()->newResponse();
 
 The global `Response` object can still be accessed with a call to `jaxon()->getResponse()`.
 
-### File upload
+## File upload
 
 The file upload feature is now provided in a distinct package, and disabled by default.
 
@@ -84,7 +84,7 @@ Implementing file upload with Jaxon now requires to install the [`jaxon-php\jaxo
 
 However, its usage is still the same as in version 3.
 
-### Creating plugins
+## Creating plugins
 
 New interfaces are defined to describe plugins features.
 Depending on the features its provides, a Jaxon plugin must implement one or more of these interfaces.
@@ -93,7 +93,7 @@ Concerning the request plugins, `CallableRegistryInterface` for those who regist
 
 Concerning the response plugins, there is a single `ResponsePluginInterface` interface.
 
-### Annotations
+## Annotations
 
 [Annotations](../../06.annotations/01.about/) are an optional feature provided in the [`jaxon-php\jaxon-annotations`](https://github.com/jaxon-php\jaxon-annotations) package.
 
@@ -135,7 +135,7 @@ class HelloWorld extends \Jaxon\App\CallableClass
 }
 ```
 
-### Data bags
+#### Data bags
 
 The `@databag` annotation defines data bags, which are data sets that are stored on client side, and made available on demand in Jaxon classes.
 
@@ -161,7 +161,7 @@ class HelloWorld extends \Jaxon\App\CallableClass
 }
 ```
 
-#### L'upload de fichiers
+#### File upload
 
 The `@upload` annotation implements file upload in a method of a Jaxon class.
 

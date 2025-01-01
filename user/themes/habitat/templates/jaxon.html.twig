@@ -42,7 +42,7 @@
 {% endif %}
                             <!-- Page content -->
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 doc-page-content">
                                     {{ page.content|raw }}
                                     <hr>
                                 </div>
@@ -50,19 +50,7 @@
                             <!-- End Page content -->
 {% endif %}
 
-{% if jaxon and jaxon.html %}
-                            <!-- Jaxon content -->
-                            <div class="row" style="margin-bottom:20px;">
-                                <div class="col-md-12">
-                                    <h3 class="margin-vert-10">Demo</h3>
-                                </div>
-                                {{ jaxon.html }}
-                                <hr>
-                            </div>
-                            <!-- End Jaxon content -->
-{% endif %}
-
-{% if page.route == '/docs/v4x' or page.route == '/docs/v3x' or page.route == '/docs/v2x' %}
+{% if page.route in ['/docs/v5x', '/docs/v4x', '/docs/v3x', '/docs/v2x'] %}
                             <!-- Section TOC -->
                             <div class="row">
                                 <div class="col-md-12">

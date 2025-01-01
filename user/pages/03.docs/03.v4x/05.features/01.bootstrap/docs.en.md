@@ -18,7 +18,7 @@ The `lib` section contains the configuration options of the library, and its plu
 
 The `app` section contains the configuration options for application level features like classes and functions registration, or views.
 
-#### Les fonctions
+#### The functions
 
 The `app.functions` section of the configuration contains an array of functions to be registered.
 

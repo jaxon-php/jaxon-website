@@ -3,7 +3,7 @@ title: Add new features
 position: 4
 read:
     text: Read more
-    link: /docs/v3x/responses/plugins.html
+    link: /docs/v5x/responses/plugins.html
 ---
 
 The Jaxon library can be extended with plugins which will enrich the `Response` object with new functionalities.

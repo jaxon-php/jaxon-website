@@ -10,7 +10,7 @@ template: jaxon
 
 3. The Jaxon library receives the request, and calls the PHP class, passing the parameters received.<br/>
 
-4. The Jaxon class defined by the developer returns a `Response` object in which it has recorded a set of commands to run in the browser.
+4. The Jaxon classes called during the request processing populate a `Response` object with a set of commands to run in the browser.
 
 5. The Jaxon library sends back this response to the browser, which automatically executes all commands it contains.
 

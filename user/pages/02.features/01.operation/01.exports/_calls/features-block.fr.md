@@ -3,7 +3,7 @@ title: Appeler de javascript vers PHP
 position: 2
 read:
     text: Lire plus
-    link: /fr/docs/v3x/requests/javascript.html
+    link: /fr/docs/v5x/declarations/javascript.html
 ---
 
 Lorsque la classe javascript est appelée dans le navigateur, une requête Ajax est automatiquement créée et envoyée vers le serveur avec les paramètres de la fonction.

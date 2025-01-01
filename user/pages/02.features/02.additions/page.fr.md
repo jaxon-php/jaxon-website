@@ -1,5 +1,5 @@
 ---
-title: Pourquoi Jaxon
-menu: Pourquoi Jaxon
+title: Releases
+menu: Releases
 template: jaxon
 ---

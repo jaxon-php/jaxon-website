@@ -8,9 +8,9 @@ template: jaxon
 
 2. Lorsque la classe javascript est appelée dans le navigateur, une requête Ajax est automatiquement créée et envoyée vers l'application. La requête a comme paramètres les noms de la classe et la méthode PHP, et les paramètres reçus.
 
-3. La librairie Jaxon reçoit cette requête, et appelle la classe PHP en lui passant les paramètres reçus.<br/>
+3. La librairie Jaxon reçoit cette requête, et appelle la classe PHP en lui passant les paramètres reçus.
 
-4. La classe PHP écrite par le développeur renvoie un objet `Response`, dans laquelle elle a enregistré une série de commandes à exécuter dans le navigateur.
+4. Les classes PHP appelées lors du traitement de la requête remplissent un objet `Response` avec série de commandes à exécuter dans le navigateur.
 
 5. La librairie Jaxon renvoie cette réponse au navigateur, qui exécute automatiquement toutes les commandes qu'elle contient.
 

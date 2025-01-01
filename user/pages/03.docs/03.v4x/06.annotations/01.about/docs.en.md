@@ -70,9 +70,9 @@ class HelloWorld
 
 In the 2.1 version, 6 annotations instructions are provided.
 
-- `@di`, for [dependency injection](../../05.features/03.dependency-injection/)
-- `@databag`, for [data bags](../../05.features/04.databags/)
-- `@upload`, for [file upload](../../05.features/06.upload/)
-- `@before`, for [callbacks](../../05.features/05.hooks/) to call before the requested method
-- `@after`, for [callbacks](../../05.features/05.hooks/) to call bafter the requested method
-- `@exclude`, pour ne pas exporter des méthodes publiques
+- `@di`: for [dependency injection](../../05.features/03.dependency-injection/)
+- `@databag`: for [data bags](../../05.features/04.databags/)
+- `@upload`: for [file upload](../../05.features/06.upload/)
+- `@before`: for [callbacks](../../05.features/05.hooks/) to call before the requested method
+- `@after`: for [callbacks](../../05.features/05.hooks/) to call bafter the requested method
+- `@exclude`: to exclude classes or public methods from the generated Javascript code
