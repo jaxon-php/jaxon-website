@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Framework\Flex
  *
- * @copyright  Copyright (c) 2015 - 2023 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2024 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -440,7 +440,8 @@ class FlexCollection extends ObjectCollection implements FlexCollectionInterface
                 ] + $context
             );
 
-            if ($debugger->enabled()) {
+            if ($debugger->enabled() &&
+                !($grav['uri']->getContentType() === 'application/json' || $grav['uri']->extension() === 'json')) {
                 $output = "\n<!–– START {$type} collection ––>\n{$output}\n<!–– END {$type} collection ––>\n";
             }
 

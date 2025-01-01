@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Common\Page
  *
- * @copyright  Copyright (c) 2015 - 2023 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2024 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -15,6 +15,8 @@ use Grav\Common\Media\Interfaces\ImageManipulateInterface;
 use Grav\Common\Media\Interfaces\ImageMediaInterface;
 use Grav\Common\Media\Interfaces\MediaLinkInterface;
 use Grav\Common\Media\Traits\ImageLoadingTrait;
+use Grav\Common\Media\Traits\ImageDecodingTrait;
+use Grav\Common\Media\Traits\ImageFetchPriorityTrait;
 use Grav\Common\Media\Traits\ImageMediaTrait;
 use Grav\Common\Utils;
 use Gregwar\Image\Image;
@@ -30,6 +32,8 @@ class ImageMedium extends Medium implements ImageMediaInterface, ImageManipulate
 {
     use ImageMediaTrait;
     use ImageLoadingTrait;
+    use ImageDecodingTrait;
+    use ImageFetchPriorityTrait;
 
     /**
      * @var mixed|string

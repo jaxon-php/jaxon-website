@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Framework\Flex
  *
- * @copyright  Copyright (c) 2015 - 2023 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2024 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -627,7 +627,8 @@ class FlexObject implements FlexObjectInterface, FlexAuthorizeInterface
                 ] + $context
             );
 
-            if ($debugger->enabled()) {
+            if ($debugger->enabled() &&
+                !($grav['uri']->getContentType() === 'application/json' || $grav['uri']->extension() === 'json')) {
                 $name = $this->getKey() . ' (' . $type . ')';
                 $output = "\n<!–– START {$name} object ––>\n{$output}\n<!–– END {$name} object ––>\n";
             }

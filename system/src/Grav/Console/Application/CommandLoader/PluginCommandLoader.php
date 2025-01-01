@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Console
  *
- * @copyright  Copyright (c) 2015 - 2023 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2024 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -57,6 +57,14 @@ class PluginCommandLoader implements CommandLoaderInterface
                 $command = new $command_class();
                 if ($command instanceof Command) {
                     $this->commands[$command->getName()] = $command;
+
+                    // If the command has an alias, add that as a possible command name.
+                    $aliases = $this->commands[$command->getName()]->getAliases();
+                    if (isset($aliases)) {
+                        foreach ($aliases as $alias) {
+                            $this->commands[$alias] = $command;
+                        }
+                    }
                 }
             }
         }
