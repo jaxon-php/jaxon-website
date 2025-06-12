@@ -23,19 +23,11 @@ La fonction `jaxon()->getOption($name)` permet de les lire.
 
 De la même façon, les valeurs des options de configuration de la section `app` sont modifiées avec `jaxon()->app()->setOption($name, $value)` ou `jaxon()->app()->setOptions($values)`, et lues avec `jaxon()->app()->getOption($name)`.
 
-#### Fonctions globales
-
-Lorsque la configuration de Jaxon est chargée avec l'appel `jaxon()->app()->setup()`, les fonctions globales sont également copiées dans l'espace de nom global.
-On peut donc appeler les fonctions `jaxon()`, `cl()`, `rq()`, `jo()`, `jq()`, `je()`, et `attr()` sans utiliser l'instruction `use function` correspondante.
-
-En cas de conflit de nommage avec d'autres librairies, cette opération peut être désactivée en passant l'option `app.helpers.global` à la valeur booléenne `false`.
-
 #### Fonction dépréciée
 
 La librairie Jaxon permet aussi de charger les options de configuration de l'implémentation Ajax (le contenu de la section `lib`) depuis un fichier, avec l'appel suivant.
 
 ```php
-// Configuration
 jaxon()->config()->load($phpFilePath);
 ```
 
