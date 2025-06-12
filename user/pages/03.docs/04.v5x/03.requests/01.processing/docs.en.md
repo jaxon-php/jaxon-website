@@ -9,8 +9,6 @@ No matter how many classes are exported to javascript, an application using the 
 This is the simplest code to to attach to this route to process a request to a Jaxon class:
 
 ```php
-use function Jaxon\jaxon;
-
 $jaxon = jaxon();
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
 

@@ -11,8 +11,6 @@ La section `app.classes` de la configuration contient un tableau de classes à e
 En voici un exemple.
 
 ```php
-use function Jaxon\jaxon;
-
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -41,7 +39,6 @@ class HelloWorld
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
 ```
@@ -87,7 +84,6 @@ Des options peuvent être ajoutées aux méthodes des classes.
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
     'functions' => [
@@ -122,7 +118,6 @@ Lors de l'enregistrement d'une classe, l'option `include` permet d'indiquer le c
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, ['include' => '/path/to/dir/HelloWorld.php']);
 ```

@@ -31,7 +31,7 @@ class ComponentA extends \Jaxon\App\FuncComponent
 All the components have access to the same `Response` object, through their `response` attribute, which is automatically initialized by the library.
 
 ```php
-class ComponentA extends \Jaxon\App\CallableClass
+class ComponentA extends \Jaxon\App\FuncComponent
 {
     public function doA()
     {
@@ -52,7 +52,7 @@ class ComponentA extends \Jaxon\App\CallableClass
 ```
 
 ```php
-class ClassB extends \Jaxon\App\CallableClass
+class ClassB extends \Jaxon\App\FuncComponent
 {
     public function doB()
     {
@@ -95,7 +95,7 @@ The `rq()` method returns a request to its calling class.
 It provides a fluid interface that transforms a call to any of its method into a request to the same method, which can then be bound to an event on an element in the web page.
 
 ```php
-class ComponentA extends \Jaxon\App\CallableClass
+class ComponentA extends \Jaxon\App\FuncComponent
 {
     public function doA()
     {
@@ -115,7 +115,7 @@ The [request factory](../../call-factory/functions.html) will often be used in t
 The `paginator()` method creates pagination links with calls to a method of a component.
 
 ```php
-class ComponentA extends \Jaxon\App\CallableClass
+class ComponentA extends \Jaxon\App\FuncComponent
 {
     private function showPageContent($pageNumber)
     {

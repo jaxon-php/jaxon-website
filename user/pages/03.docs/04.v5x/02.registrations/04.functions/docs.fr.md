@@ -28,7 +28,6 @@ function hello_world($isCaps)
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_FUNCTION, "hello_world");
 ```
@@ -49,7 +48,6 @@ Le nom de la fonction javascript peut être changé avec un alias.
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_FUNCTION, "hello_world", ["alias" => "sayHello"]);
 ```
@@ -70,8 +68,6 @@ Une méthode d'une classe peut aussi être enregistrée comme une fonction.
 Pour cela, le nom de la classe doit être passé à la fonction `register()`, comme dans l'exemple suivant.
 
 ```php
-use function Jaxon\jaxon;
-
 class HelloWorld
 {
     public function hello_world($isCaps)
@@ -85,7 +81,6 @@ class HelloWorld
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_FUNCTION, "hello_world", ["class" => HelloWorld::class]);
 ```
@@ -94,7 +89,6 @@ De même, un alias peut être défini.
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_FUNCTION, "hello_world", ["class" => HelloWorld::class, "alias" => "sayHello"]);
 ```

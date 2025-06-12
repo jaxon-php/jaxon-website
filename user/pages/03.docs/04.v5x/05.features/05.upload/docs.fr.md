@@ -81,8 +81,6 @@ class Upload
 Enfin, les fichiers transferés sont disponibles dans la fonction appelée.
 
 ```php
-use function Jaxon\jaxon;
-
 class Upload
 {
     /**

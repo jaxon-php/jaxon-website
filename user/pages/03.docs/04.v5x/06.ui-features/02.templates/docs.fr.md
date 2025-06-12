@@ -6,11 +6,11 @@ template: jaxon
 
 La librairie Jaxon propose des fonctions à utiliser dans les templates, pour insérer les codes Javascript et CSS générés dans les templates, et attacher les [composants](../../components/node-components.html) et les gestionnaires d'évènements aux éléments de la page.
 
-Parmi ces fonctions, celles fournies par l'objet `Jaxon\attr()` ajoutent des attributs spécifiques à Jaxon à ces éléments, qui seront traités par la librairie Javascript dans le navigateur, pour mettre en place les fonctionnalités correspondantes.
+Parmi ces fonctions, celles fournies par l'objet `attr()` ajoutent des attributs spécifiques à Jaxon à ces éléments, qui seront traités par la librairie Javascript dans le navigateur, pour mettre en place les fonctionnalités correspondantes.
 
 #### Inclure le code de Jaxon dans la page web
 
-Les fonctions `css()`, `js()` et `script()` de l'objet `Jaxon\jaxon()` retournent les codes à inclure dans une page web pour faire fonctionner la librairie.
+Les fonctions `css()`, `js()` et `script()` de l'objet `jaxon()` retournent les codes à inclure dans une page web pour faire fonctionner la librairie.
 
 ```php
 <html>

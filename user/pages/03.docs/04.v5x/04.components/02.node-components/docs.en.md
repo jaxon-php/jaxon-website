@@ -9,17 +9,13 @@ UI components are a new addition in Jaxon version 5.
 They have the same functions as [functional components](../func-components.html), but in addition they can be attached to a DOM node. They will then be used to manage the content of this node.
 
 ```php
-use Jaxon\attr;
-use Jaxon\rq;
-
 <div class="row" <?php echo attr()->bind(rq(UiComponent::class)) ?>>
 </div>
 ```
 
 A component can also be attached to a node dynamically.
-```php
-use Jaxon\rq;
 
+```php
 $this->response->bind('element-id', rq(UiComponent::class));
 ```
 
@@ -35,7 +31,7 @@ class UiComponent extends \Jaxon\App\NodeComponent
 }
 ```
 
-Note: The `html()` method of a UI component is not exported to Javascript.
+> Note: The `html()` method of a UI component is not exported to Javascript.
 
 #### Render a component
 
@@ -87,7 +83,7 @@ or in a template.
 
 ```php
 <button type="button" class="btn btn-primary" <?php
-    echo Jaxon\attr()->click(Jaxon\rq(UiComponent::class)->render()) ?>>Clear</button>
+    echo attr()->click(rq(UiComponent::class)->render()) ?>>Clear</button>
 ```
 
 #### Component duplication
@@ -96,10 +92,10 @@ The same component can be displayed multiple times on the same page.
 Each instance of the component must then be given a different item identifier, which will then be used to distinguish them.
 
 ```php
-<div class="row" <?php echo Jaxon\attr()->bind(rq(UiComponent::class), 'first') ?>>
+<div class="row" <?php echo attr()->bind(rq(UiComponent::class), 'first') ?>>
 </div>
 
-<div class="row" <?php echo Jaxon\attr()->bind(rq(UiComponent::class), 'second') ?>>
+<div class="row" <?php echo attr()->bind(rq(UiComponent::class), 'second') ?>>
 </div>
 ```
 

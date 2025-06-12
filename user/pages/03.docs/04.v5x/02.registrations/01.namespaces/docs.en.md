@@ -66,7 +66,6 @@ Namespaces can also be registered with calls to the library functions.
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', ['namespace' => 'Ns']);
 ```
@@ -126,7 +125,6 @@ Additional options can be passed to classes when they are registered, and includ
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
     'namespace' => 'Ns',
@@ -176,7 +174,6 @@ When registering a directory with a namespace, the `autoload` option can be used
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', ['namespace' => 'Ns', 'autoload' => true]);
 ```

@@ -7,17 +7,17 @@ template: jaxon
 Les composants de pagination affichent les contenus paginés et les liens de pagination correspondants.
 
 Le composant de pagination est un composant d'UI, ce qui signifie qu'il va être attaché à un noeud du DOM.
-Il possède un autre composant d'UI pour l'affichage des liens de pagination, et la méthode `Jaxon\attr()->pagination()` permet de définir dans les templates l'endoit où ils seront affichés.
+Il possède un autre composant d'UI pour l'affichage des liens de pagination, et la méthode `attr()->pagination()` permet de définir dans les templates l'endoit où ils seront affichés.
 
 ```php
 <div class="row">
     <!-- Pagination content component -->
     <div class="col-md-12" <?php
-        echo Jaxon\attr()->bind(Jaxon\rq(PageComponent::class)) ?>>
+        echo attr()->bind(rq(PageComponent::class)) ?>>
     </div>
     <!-- Pagination links component -->
     <div class="col-md-12" <?php
-        echo Jaxon\attr()->pagination(Jaxon\rq(PageComponent::class)) ?>>
+        echo attr()->pagination(rq(PageComponent::class)) ?>>
     </div>
 </div>
 ```

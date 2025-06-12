@@ -66,7 +66,6 @@ Les namespaces peuvent aussi être enregistrés avec des appels aux fonctions de
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', ['namespace' => 'Ns']);
 ```
@@ -126,7 +125,6 @@ Des options supplémentaires peuvent être passées aux classes lors de leur enr
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
     'namespace' => 'Ns',
@@ -176,7 +174,6 @@ Lors de l'enregistrement d'un répertoire avec namespace, l'option `autoload` pe
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', ['namespace' => 'Ns', 'autoload' => true]);
 ```

@@ -50,7 +50,6 @@ L'option `excluded` est différente, car elle va plutôt indiquer qu'une classe 
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
     'namespace' => 'Ns',

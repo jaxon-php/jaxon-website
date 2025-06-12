@@ -115,7 +115,7 @@ La [fabrique de requête](../../call-factory/functions.html) sera souvent utilis
 La méthode `paginator()` crée les liens de pagination avec les appels vers une méthode d'un composant.
 
 ```php
-class ComponentA extends \Jaxon\App\CallableClass
+class ComponentA extends \Jaxon\App\FuncComponent
 {
     private function showPageContent($pageNumber)
     {

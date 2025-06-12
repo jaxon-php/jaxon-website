@@ -9,8 +9,6 @@ Quelque soit le nombre de classes PHP qu'elle exporte vers javascript, une appli
 Le code le plus simple à attacher à cette route pour traiter une requête vers une classe Jaxon est le suivant:
 
 ```php
-use function Jaxon\jaxon;
-
 $jaxon = jaxon();
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
 

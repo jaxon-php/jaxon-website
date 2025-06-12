@@ -70,7 +70,7 @@ The dependencies can also be defined in the [configuration file](../bootstrap.ht
 The dependencies are passed as parameters to Jaxon classes constructors.
 
 ```php
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     protected $service;
 
@@ -88,7 +88,7 @@ In this case, it will only apply on requests to the annotated class or method.
 /**
  * @di $service \Name\Space\Class\Name
  */
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     protected $service;
 }
@@ -97,7 +97,7 @@ class Test extends \Jaxon\App\CallableClass
 Or,
 
 ```php
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     /**
      * @di
@@ -110,7 +110,7 @@ class Test extends \Jaxon\App\CallableClass
 Dependencies can also be injected directly in Jaxon class methods.
 
 ```php
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     /**
      * @var \Name\Space\Class\Name

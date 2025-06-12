@@ -38,10 +38,6 @@ class Calc extends NodeComponent
 Dans le template `calculator::wrapper`, des handlers sont attachés aux boutons avec `attr()->click()`, et le composant `Result` est attaché au noeud du DOM qui doit afficher le résultat avec `attr()->bind()`.
 
 ```php
-use function Jaxon\attr;
-use function Jaxon\pm;
-use function Jaxon\rq;
-
 // Get the components
 $rqCalc = rq(App\Calculator\Calc::class);
 $rqCalcFunc = rq(App\Calculator\CalcFunc::class);
@@ -180,10 +176,6 @@ Maintenant que nos composants sont prêts, nous allons insérer la calculatrice 
 
 ```php
 use App\Calculator\Calc;
-
-use function Jaxon\attr;
-use function Jaxon\cl;
-use function Jaxon\rq;
 ?>
 
 <div class="row" <?php echo attr()->bind(rq(Calc::class)) ?>>
@@ -248,8 +240,6 @@ return [
 Ce fichier doit être chargé au démarrage de l'application.
 
 ```php
-use function Jaxon\jaxon;
-
 // Load the config
 jaxon()->app()->setup($configDir . '/calculator.php');
 ```

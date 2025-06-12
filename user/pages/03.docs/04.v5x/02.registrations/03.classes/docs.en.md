@@ -11,8 +11,6 @@ The `app.classes` section of the configuration contains an array of classes to b
 Here's an example.
 
 ```php
-use function Jaxon\jaxon;
-
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -41,7 +39,6 @@ class HelloWorld
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
 ```
@@ -87,7 +84,6 @@ Options can be set on class methods.
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
     'functions' => [
@@ -122,7 +118,6 @@ When registering a class, the `include` option allows to specify the path to the
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, ['include' => '/path/to/dir/HelloWorld.php']);
 ```

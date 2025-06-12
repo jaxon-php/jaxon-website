@@ -6,11 +6,11 @@ template: jaxon
 
 The Jaxon library provides functions for use in templates, to insert generated Javascript and CSS codes into templates, and to attach [components](../../components/node-components.html) and event handlers to page elements.
 
-Among these functions, those provided by the `Jaxon\attr()` object add Jaxon-specific attributes to these elements, which are processed by the Jaxon javascript library in the browser to setup the corresponding features.
+Among these functions, those provided by the `attr()` object add Jaxon-specific attributes to these elements, which are processed by the Jaxon javascript library in the browser to setup the corresponding features.
 
 #### Include Jaxon's code in the web page
 
-The `css()`, `js()` and `script()` functions of the `Jaxon\jaxon()` object return the codes to include in a web page to make the library work.
+The `css()`, `js()` and `script()` functions of the `jaxon()` object return the codes to include in a web page to make the library work.
 
 ```php
 <html>

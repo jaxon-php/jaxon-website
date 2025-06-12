@@ -81,8 +81,6 @@ class Upload
 At the end, the uploaded files are available in the Jaxon class method.
 
 ```php
-use function Jaxon\jaxon;
-
 class Upload
 {
     /**

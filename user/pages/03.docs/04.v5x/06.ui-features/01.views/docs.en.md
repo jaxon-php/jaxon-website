@@ -145,8 +145,6 @@ The following configuration defines the directory `/path/to/users/views`, contai
 The following call renders the template in the file `/path/to/users/views/path/to/view.tpl` with the Smarty engine.
 
 ```php
-use function Jaxon\jaxon;
-
 $html = jaxon()->view()->render('users::path/to/view');
 ```
 
@@ -170,8 +168,6 @@ If a default namespace is set in the configuration, then the identifier can be o
 ```
 
 ```php
-use function Jaxon\jaxon;
-
 $html = jaxon()->view()->render('path/to/view');
 ```
 

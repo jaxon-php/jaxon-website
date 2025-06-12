@@ -70,7 +70,7 @@ Les dépendances peuvent également être définies dans le [fichier de configur
 Les dépendances sont passées en paramètre aux constructeurs des classes Jaxon.
 
 ```php
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     protected $service;
 
@@ -88,7 +88,7 @@ Dans ce cas, elle ne concerne que les requêtes vers la classe ou la méthode an
 /**
  * @di $service \Name\Space\Class\Name
  */
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     protected $service;
 }
@@ -97,7 +97,7 @@ class Test extends \Jaxon\App\CallableClass
 Ou encore,
 
 ```php
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     /**
      * @di
@@ -110,7 +110,7 @@ class Test extends \Jaxon\App\CallableClass
 Les dépendances peuvent aussi être injectées directement dans une méthode.
 
 ```php
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     /**
      * @var \Name\Space\Class\Name

@@ -38,10 +38,6 @@ class Calc extends NodeComponent
 In the `calculator::wrapper` template, the handlers are attached to buttons with `attr()->click()`, and the `Result` component is attached to the DOM node that will display the result with `attr()->bind()`.
 
 ```php
-use function Jaxon\attr;
-use function Jaxon\pm;
-use function Jaxon\rq;
-
 // Get the components
 $rqCalc = rq(App\Calculator\Calc::class);
 $rqCalcFunc = rq(App\Calculator\CalcFunc::class);
@@ -180,10 +176,6 @@ Now that our components are ready, we need to embed the calculator into a web pa
 
 ```php
 use App\Calculator\Calc;
-
-use function Jaxon\attr;
-use function Jaxon\cl;
-use function Jaxon\rq;
 ?>
 
 <div class="row" <?php echo attr()->bind(rq(Calc::class)) ?>>
@@ -248,8 +240,6 @@ return [
 That file needs to be loaded when starting the application.
 
 ```php
-use function Jaxon\jaxon;
-
 // Load the config
 jaxon()->app()->setup($configDir . '/calculator.php');
 ```

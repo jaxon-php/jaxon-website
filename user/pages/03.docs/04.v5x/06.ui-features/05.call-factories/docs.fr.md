@@ -15,7 +15,7 @@ Différentes `call factories` existent pour générer des appels vers les classe
 
 #### Les classes et fonctions exportées
 
-La fonction globale `Jaxon\rq()` crée une `call factory` pour la classe exportée dont elle a reçu le nom en paramètre.
+La fonction globale `rq()` crée une `call factory` pour la classe exportée dont elle a reçu le nom en paramètre.
 Un appel sur cette factory génère le code du même appel en Javascript, qui peut donc être utilisé dans un template par exemple pour définir un gestionnaire d'évènement.
 
 ```php
@@ -23,7 +23,7 @@ Un appel sur cette factory génère le code du même appel en Javascript, qui pe
     ->click(rq(FuncComponent::class)->doThat()) ?>>Click me</button>
 ```
 
-Sans paramètre, la fonction `Jaxon\rq()` renvoie une `call factory` pour créer des appels vers les fonctions exportées.
+Sans paramètre, la fonction `rq()` renvoie une `call factory` pour créer des appels vers les fonctions exportées.
 
 ```php
 <button type="button" <?= attr()->click(rq()->hello_world()) ?>>Click me</button>
@@ -54,7 +54,7 @@ class FuncComponent
     ->click($this->rqComponent->doThat()) ?>>Click me</button>
 ```
 
-La fonction `Jaxon\rq()` et la méthode `rq()` ajoutent automatiquement le préfixe configuré pour les classes ou les fonctions exportées au code javascript généré.
+La fonction `rq()` et la méthode `rq()` ajoutent automatiquement le préfixe configuré pour les classes ou les fonctions exportées au code javascript généré.
 
 #### Les fonctions Javascript
 

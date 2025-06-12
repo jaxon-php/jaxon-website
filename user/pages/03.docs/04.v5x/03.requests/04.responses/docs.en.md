@@ -10,8 +10,6 @@ By default there is a response in the library Jaxon which is returned by the `ja
 However, it is possible to create others, by calling the `jaxon()->newResponse()` method.
 
 ```php
-use function Jaxon\jaxon;
-
 class MyClass
 {
     public function __construct()
@@ -24,8 +22,6 @@ class MyClass
 By making many successive calls to Jaxon responses, a complex series of actions to be executed in the browser can be constructed in a simple way.
 
 ```php
-use function Jaxon\jaxon;
-
 class MyClass
 {
     public function __construct()

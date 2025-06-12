@@ -44,8 +44,6 @@ Ensuite configurer le package pour utiliser la librairie Toastr.
 Une fois installé et configuré, les fichiers [javascript](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js) et [css](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css) de la librairie Toastr sont chargés dans la page HTML, et ses méthodes peuvent être appelées dans les fonctions Jaxon.
 
 ```php
-use function Jaxon\jaxon;
-
 class MyClass
 {
     public function myMethod()

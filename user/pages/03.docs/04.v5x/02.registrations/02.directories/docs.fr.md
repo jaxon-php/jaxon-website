@@ -51,7 +51,6 @@ Les répertoires peuvent aussi être enregistrés avec des appels aux fonctions 
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir');
 ```
@@ -110,7 +109,6 @@ Des options supplémentaires peuvent être passées aux classes lors de leur enr
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
     'classes' => [
@@ -155,7 +153,6 @@ Lors de l'enregistrement d'un répertoire sans namespace, l'option `autoload` pe
 
 ```php
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 jaxon()->register(Jaxon::CALLABLE_DIR, '/the/class/dir', ['autoload' => true]);
 ```

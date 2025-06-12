@@ -44,8 +44,6 @@ Then configure the package so it use the Toastr library.
 Once installed and configured, the [javascript](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js) and [css](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css) files of the Toastr library are loaded into the HTML page, and the methods of the plugin can be called from Jaxon functions.
 
 ```php
-use function Jaxon\jaxon;
-
 class MyClass
 {
     public function myMethod()
