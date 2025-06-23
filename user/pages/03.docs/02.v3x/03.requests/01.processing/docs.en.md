@@ -91,16 +91,16 @@ They can then be inserted in the HTML code of the page, like in the following ex
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-<?php echo $jaxonCss ?>
+<?= $jaxonCss ?>
 
 </head>
 <body>
     <input type="button" value="Submit" onclick="JaxonHelloWorld.sayHello(1);return false;" />
 </body>
 
-<?php echo $jaxonJs ?>
+<?= $jaxonJs ?>
 
-<?php echo $jaxonScript ?>
+<?= $jaxonScript ?>
 
 </html>
 ```

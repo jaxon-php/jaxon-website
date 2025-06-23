@@ -9,7 +9,7 @@ UI components are a new addition in Jaxon version 5.
 They have the same functions as [functional components](../func-components.html), but in addition they can be attached to a DOM node. They will then be used to manage the content of this node.
 
 ```php
-<div class="row" <?php echo attr()->bind(rq(UiComponent::class)) ?>>
+<div class="row" <?= attr()->bind(rq(UiComponent::class)) ?>>
 </div>
 ```
 
@@ -92,10 +92,10 @@ The same component can be displayed multiple times on the same page.
 Each instance of the component must then be given a different item identifier, which will then be used to distinguish them.
 
 ```php
-<div class="row" <?php echo attr()->bind(rq(UiComponent::class), 'first') ?>>
+<div class="row" <?= attr()->bind(rq(UiComponent::class), 'first') ?>>
 </div>
 
-<div class="row" <?php echo attr()->bind(rq(UiComponent::class), 'second') ?>>
+<div class="row" <?= attr()->bind(rq(UiComponent::class), 'second') ?>>
 </div>
 ```
 

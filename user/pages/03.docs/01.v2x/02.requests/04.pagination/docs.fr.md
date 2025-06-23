@@ -53,7 +53,7 @@ $pagination = rq()->paginate(25, 10, 1, 'MyClass.showPage', rq()->select('colors
             <option value="blue">Blue</option>
         </select>
     </div>
-    <div id="pagination-wrapper"><?php echo $pagination ?></div>
+    <div id="pagination-wrapper"><?= $pagination ?></div>
 </div>
 ```
 

@@ -15,7 +15,7 @@ Par exemple, le code suivant utilise la fabrique de requête pour générer un a
 ```php
 <div class="col-md-4 margin-vert-10">
     <select id="colorselect" name="colorselect"
-            onchange="<?php echo rq('HelloWorld')->call('setColor', pm()->select('colorselect')) ?>">
+            onchange="<?= rq('HelloWorld')->call('setColor', pm()->select('colorselect')) ?>">
         <option value="black" selected="selected">Black</option>
         <option value="red">Red</option>
         <option value="green">Green</option>

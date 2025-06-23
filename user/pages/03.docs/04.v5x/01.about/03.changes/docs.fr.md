@@ -32,7 +32,7 @@ Les outils de frontend modernes sont de meilleures alternatives à ces fonctions
 La [classe `Response`](../../requests/responses.html) ne stocke plus les commandes, et ses instances servent désormais de proxy à un objet gestionnaire de commandes.
 Par conséquent, les fonctions des classes Jaxon ne sont plus tenues de renvoyer un objet `Response`.
 
-La sntaxe de la fonction `confirm()` de la classe `Response` a également été modifiée.
+La syntaxe de la fonction `confirm()` de la classe `Response` a également été modifiée.
 
 ### La gestion de la configuration
 

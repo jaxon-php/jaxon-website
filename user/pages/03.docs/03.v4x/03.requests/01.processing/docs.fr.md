@@ -96,16 +96,16 @@ Ils doivent ensuite être insérés dans le code HTML de la page, comme dans l'e
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-<?php echo $jaxonCss ?>
+<?= $jaxonCss ?>
 
 </head>
 <body>
     <input type="button" value="Submit" onclick="JaxonHelloWorld.sayHello(1);return false;" />
 </body>
 
-<?php echo $jaxonJs ?>
+<?= $jaxonJs ?>
 
-<?php echo $jaxonScript ?>
+<?= $jaxonScript ?>
 
 </html>
 ```

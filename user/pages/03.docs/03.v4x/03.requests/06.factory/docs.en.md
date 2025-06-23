@@ -13,7 +13,7 @@ For example, the following code uses the `Request Factory` to create a request t
 ```php
 <div class="col-md-4 margin-vert-10">
     <select id="colorselect" name="colorselect"
-            onchange="<?php echo Jaxon\rq('HelloWorld')->call('setColor', Jaxon\pm()->select('colorselect')) ?>">
+            onchange="<?= Jaxon\rq('HelloWorld')->call('setColor', Jaxon\pm()->select('colorselect')) ?>">
         <option value="black" selected="selected">Black</option>
         <option value="red">Red</option>
         <option value="green">Green</option>

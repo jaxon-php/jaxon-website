@@ -9,7 +9,7 @@ Les components d'UI sont une nouveauté de la version 5 de Jaxon.
 Ils ont les mêmes fonctions que les [composants fonctionnels](../func-components.html), mais en plus ils peuvent être attachés à un noeud du DOM. Ils vont alors servir à gérer le contenu de ce noeud.
 
 ```php
-<div class="row" <?php echo attr()->bind(rq(UiComponent::class)) ?>>
+<div class="row" <?= attr()->bind(rq(UiComponent::class)) ?>>
 </div>
 ```
 
@@ -92,10 +92,10 @@ Un même composant peut être affiché plusieurs fois dans la même page.
 Il faut alors donner à chaque instance du composant un identifiant d'item différent, qui sera ensuite utilisé pour les distinguer.
 
 ```php
-<div class="row" <?php echo attr()->bind(rq(UiComponent::class), 'first') ?>>
+<div class="row" <?= attr()->bind(rq(UiComponent::class), 'first') ?>>
 </div>
 
-<div class="row" <?php echo attr()->bind(rq(UiComponent::class), 'second') ?>>
+<div class="row" <?= attr()->bind(rq(UiComponent::class), 'second') ?>>
 </div>
 ```
 

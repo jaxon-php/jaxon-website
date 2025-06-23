@@ -48,7 +48,7 @@ The result is the HTML code to be inserted in the page.
             <option value="blue">Blue</option>
         </select>
     </div>
-    <div id="pagination-wrapper"><?php echo $pagination ?></div>
+    <div id="pagination-wrapper"><?= $pagination ?></div>
 </div>
 ```
 

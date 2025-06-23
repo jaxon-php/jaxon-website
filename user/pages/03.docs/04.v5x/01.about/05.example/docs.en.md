@@ -52,7 +52,7 @@ $operandB = je('operand-b')->rd()->input();
     <div class="row mb-3">
         <div class="col-md-4">
             <button type="button" class="btn btn-primary w-100"
-                <?php echo attr()->click($rqCalc->render()) ?>>Clear</button>
+                <?= attr()->click($rqCalc->render()) ?>>Clear</button>
         </div>
         <div class="col-md-8">
             <input type="text" class="form-control" id="operand-a" />
@@ -74,9 +74,9 @@ $operandB = je('operand-b')->rd()->input();
     <div class="row mb-3">
         <div class="col-md-4">
             <button type="button" class="btn btn-primary w-100"
-                <?php echo attr()->click($rqCalcFunc->calculate($operator, $operandA, $operandB)) ?>>=</button>
+                <?= attr()->click($rqCalcFunc->calculate($operator, $operandA, $operandB)) ?>>=</button>
         </div>
-        <div class="col-md-8" <?php echo attr()->bind($rqResult) ?>>
+        <div class="col-md-8" <?= attr()->bind($rqResult) ?>>
         </div>
     </div>
 </form>
@@ -167,8 +167,8 @@ class CalcFunc extends FuncComponent
 The component function is bound to the `click` event on the button in the `calculator::wrapper` template with this code.
 
 ```php
-<button type="button" class="btn btn-primary w-100"
-    <?php echo attr()->click($rqCalcFunc->calculate($operator, $operandA, $operandB)) ?>>=</button>
+<button type="button" class="btn btn-primary w-100" <?= attr()
+    ->click($rqCalcFunc->calculate($operator, $operandA, $operandB)) ?>>=</button>
 ```
 
 ### Displaying the component in a web page
@@ -180,8 +180,8 @@ Now that our components are ready, we need to embed the calculator into a web pa
 use App\Calculator\Calc;
 ?>
 
-<div class="row" <?php echo attr()->bind(rq(Calc::class)) ?>>
-    <?php echo cl(Calc::class)->html() ?>
+<div class="row" <?= attr()->bind(rq(Calc::class)) ?>>
+    <?= cl(Calc::class)->html() ?>
 </div>
 ```
 

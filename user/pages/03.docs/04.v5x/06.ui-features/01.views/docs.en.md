@@ -212,8 +212,6 @@ The following functions can be used in templates.
 
 Insert the value of a variable or block.
 ```php
-<?php echo $this->content ?>
-// Or
 <?= $this->content ?>
 ```
 

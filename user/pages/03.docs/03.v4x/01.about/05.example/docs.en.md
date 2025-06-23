@@ -49,10 +49,10 @@ if($jaxon->canProcessRequest())
     <input type="button" value="Say Hello" onclick="jaxon_hello_world(true)" />
 </body>
 <!-- Jaxon CSS -->
-<?php echo $jaxon->getCss(), "\n"; ?>
+<?= $jaxon->getCss() ?>
 <!-- Jaxon JS -->
-<?php echo $jaxon->getJs(), "\n"; ?>
+<?= $jaxon->getJs() ?>
 <!-- Jaxon script -->
-<?php echo $jaxon->getScript(), "\n"; ?>
+<?= $jaxon->getScript() ?>
 </html>
 ```
