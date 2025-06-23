@@ -18,4 +18,4 @@ Before they can be used, the [`jaxon-php\jaxon-annotations`](https://github.com/
 - `@upload`: for [file upload](../../features/upload.html).
 - `@before`: for [callbacks](../../features/hooks.html) to call before the requested method.
 - `@after`: for [callbacks](../../features/hooks.html) to call bafter the requested method.
-- `@exclude`: to exclude classes or public methods from the [generated Javascript code]](../../registrations/javascript.html).
+- `@exclude`: to exclude classes or public methods from the [generated Javascript code](../../registrations/javascript.html).

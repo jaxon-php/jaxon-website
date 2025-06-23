@@ -1,14 +1,19 @@
 {% set versions = ['v5x', 'v4x', 'v3x', 'v2x'] %}
-    <ul class="list-unstyled text-right">
+    <form>
+        <select class="form-select" id="doc-version">
 {% for version in versions %}
 {% set doc = page.find('/docs/' ~ version) %}
-        <li>
-            &nbsp;<i class="fa fa-chevron-right color-gray-lighter"></i>
-{% if uri.paths[1] == version %}
-            &nbsp;<b>{{ doc.header.version }}</b>
-{% else %}
-            &nbsp;<a href="{{ doc.url }}">{{ doc.header.version }}</a>
-{% endif %}
-        </li>
+            <option value="{{ doc.url }}"{% if uri.paths[1] == version %} selected="selected"{% endif %}>
+                <i class="fa fa-chevron-right color-gray-lighter"></i> {{ doc.header.version }}
+            </option>
 {% endfor %}
-    </ul>
+        </select>
+    </form>
+    <script type="text/javascript">
+        window.onload = function() {
+            const versionMenu = document.getElementById('doc-version');
+            versionMenu.onchange = function() {
+                window.location.href = this.options[this.selectedIndex].value;
+            };
+        };
+    </script>
