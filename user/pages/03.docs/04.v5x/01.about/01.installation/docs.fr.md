@@ -32,7 +32,12 @@ Par défaut, Jaxon place ses fonctions globales dans l'espace de nom global.
 On peut donc appeler les fonctions `jaxon()`, `cl()`, `rq()`, `jo()`, `jq()`, `je()`, et `attr()` sans utiliser l'instruction `use function` correspondante.
 
 En cas de conflit de nommage avec d'autres librairies, cette opération peut être désactivée en passant l'option `app.helpers.global` à la valeur booléenne `false`.
-Ces fonctions seront alors disponibles dans le namespace `Jaxon\`.
+
+```php
+jaxon()->setAppOption('helpers.global', false);
+```
+
+Ces fonctions, à l'exception de `jaxon()`, seront alors disponibles dans le namespace `Jaxon\`.
 
 ```php
 use function Jaxon\attr;

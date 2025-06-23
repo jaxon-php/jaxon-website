@@ -40,7 +40,7 @@ La librairie [Alertify](https://alertifyjs.com/) est ajoutée en plus, et pourra
 ```
 
 ```php
-    jaxon()->app()->setOptions([
+    jaxon()->setAppOptions([
         'default' => [
             'modal' => 'bootbox',
             'alert' => 'toastr',
