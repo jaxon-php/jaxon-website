@@ -33,7 +33,7 @@ Jaxon instead produces a result more like this.
 The `click` event on each link will be bound to a call to a request to a Jaxon class, with the corresponding parameters.
 Therefore, parameters in pagination links are not named, and their position is important.
 
-The `paginator()` method of the [Response object](../responses.html) creates a pagination object, which must then be associated with [a request to a function of a class](../../call-factory/functions.html), to generate the pagination links.
+The `paginator()` method of the [Response object](../../requests/responses.html) creates a pagination object, which must then be associated with [a request to a function of a class](../../ui-features/call-factories.html), to generate the pagination links.
 
 ```php
 class HelloWorld

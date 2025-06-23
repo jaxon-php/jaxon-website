@@ -4,7 +4,7 @@ menu: Responses
 template: jaxon
 ---
 
-A Jaxon response provides [functions to generate the commands](../../features/responses.html) to be executed in the browser in response to a Jaxon request.
+A Jaxon response provides [functions to generate the commands](../../requests/responses.html) to be executed in the browser in response to a Jaxon request.
 
 By default there is a response in the library Jaxon which is returned by the `jaxon()->getResponse()` call.
 However, it is possible to create others, by calling the `jaxon()->newResponse()` method.

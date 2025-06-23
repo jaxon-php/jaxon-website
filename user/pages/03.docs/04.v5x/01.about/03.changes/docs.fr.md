@@ -8,16 +8,16 @@ template: jaxon
 
 Le principal changement dans la version 5 de Jaxon, qui est une innovation dans son genre, est l'introduction des composants d'UI.
 
-Un [composant](../../components/node-components.html) est une classe PHP est [attachée à un noeud du DOM](../../components/dom-bindings.html) dans le code HTML.
+Un [composant](../../components/node-components.html) est une classe PHP est attachée à un noeud du DOM dans le code HTML.
 Elle fournit une méthode `html()` qui renvoie un code HTML, et une méthode `render()` qui, lorsqu'elle est appelée dans une fonction Ajax, va remplacer le contenu du noeud du DOM par la valeur renvoyée par la fonction `html()`.
 
-Combinée aux [databags](../../components/databags.html) et aux [stashes](../../components/stashes.html), qui permettent de partager des données entre le navigateur et le serveur, et entre différents composants de l'application, cette fonctionnalité permet de contruire facilement des UI complexes en Ajax et PHP.
+Combinée aux [databags](../../components/databags.html) et au [stash](../../components/stash.html), qui permettent de partager des données entre le navigateur et le serveur, et entre différents composants de l'application, cette fonctionnalité permet de contruire facilement des UI complexes en Ajax et PHP.
 
 ### Les templates
 
-De nouvelles fonctions de [templating](../../components/templating.html) ont été ajoutées pour attacher les [composants](../../components/node-components.html) aux noeuds du DOM, définir les gestionnaires d'évènements, mais aussi pour intégrer les codes Javascript et CSS générés par la librairie dans la page web.
+De nouvelles fonctions de [templating](../../ui-features/templates.html) ont été ajoutées pour attacher les [composants](../../components/node-components.html) aux noeuds du DOM, définir les gestionnaires d'évènements, mais aussi pour intégrer les codes Javascript et CSS générés par la librairie dans la page web.
 
-En plus des templates, l'api PHP et Javascript de [la `request factory`](../../call-factory/requests.html), qui génère les appels à des fonctions et sélecteurs Javascript (ou jQuery) et les associe à des évènements dans la page web, a été grandement améliorée.
+En plus des templates, l'api PHP et Javascript de [la `request factory`](../../ui-features/call-factories.html), qui génère les appels à des fonctions et sélecteurs Javascript (ou jQuery) et les associe à des évènements dans la page web, a été grandement améliorée.
 
 ### Re-écriture des commandes
 
@@ -62,7 +62,7 @@ Cela inclut notamment un nouveau parseur qui interprète et exécute les command
 
 ### Les plugins de dialogue
 
-La structure des [plugins de dialogue](../../features/dialogs.html) a été simplifiée, et leur code est désormais écrit uniquement en Javascript.
+La structure des [plugins de dialogue](../../ui-features/dialogs.html) a été simplifiée, et leur code est désormais écrit uniquement en Javascript.
 Les classes PHP servent uniquement à les déclarer et à inclure leurs codes Javascript et CSS dans la page.
 
 ### Alternatives à jQuery

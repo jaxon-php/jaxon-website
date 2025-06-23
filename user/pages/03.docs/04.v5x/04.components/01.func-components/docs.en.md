@@ -9,7 +9,7 @@ They are classes whose public functions are exported to Javascript, so they can 
 
 Functional components inherit from the `Jaxon\App\FuncComponent` class, which provides them with a set of utility functions.
 
-The provided functions include [views](../../features/views.html), [sessions](../../features/sessions.html), [file upload](../../features/upload.html), [logging](../../features/logging.html), data sharing ([databags](../databags.html) and [stashes](../stashes.html)), in addition to those described below.
+The provided functions include [views](../../ui-features/views.html), [sessions](../../features/sessions.html), [file upload](../../features/upload.html), [logging](../../features/logging.html), data sharing ([databags](../databags.html) and [stash](../stash.html)), in addition to those described below.
 
 #### Retrieve an instance of another class
 
@@ -63,7 +63,7 @@ class ClassB extends \Jaxon\App\FuncComponent
 
 #### Les fenêtres et alertes
 
-Le trait `Jaxon\App\Dialog\DialogTrait` founit les méthodes `alert()` et `dialog()` qui affichent [les dialogues et les messages](../../features/dialogs.html) dans la page.
+Le trait `Jaxon\App\Dialog\DialogTrait` founit les méthodes `alert()` et `dialog()` qui affichent [les dialogues et les messages](../../ui-features/dialogs.html) dans la page.
 
 ```php
 use Jaxon\App\Dialog\DialogTrait;
@@ -108,7 +108,7 @@ class ComponentA extends \Jaxon\App\FuncComponent
 }
 ```
 
-The [request factory](../../call-factory/functions.html) will often be used in templates to define [event handlers](../../call-factory/templates.html).
+The [request factory](../../ui-features/call-factories.html) will often be used in templates to define [event handlers](../../ui-features/templates.html).
 
 #### The pagination
 

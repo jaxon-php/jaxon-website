@@ -11,7 +11,7 @@ These commands can perform 3 types of operations in the web page.
 - Edit the page presentation with CSS
 - Run javascript code in the page
 
-Although the `Jaxon\Response\Response` class implements a rich set of features, it can be extended using [plugins](../plugins).
+Although the `Jaxon\Response\Response` class implements a rich set of features, it can be extended using [plugins](../../extensions/response.html).
 
 #### Editing the page content and style
 
@@ -105,8 +105,6 @@ public function doThis()
 
 Two groups of functions are now deprecated: those who add or delete a content block in a webpage, and those who link Javascript calls to an event on the webpage.
 
-The [templates](../../features/templates.html) features must be used instead.
-
 ```php
 // Create a new element in the document
 create(string $sParent, string $sTag, string $sId)
@@ -134,3 +132,5 @@ addHandler(string $sTarget, string $sEvent, string $sHandler)
 // Remove an event handler from the specified element
 removeHandler(string $sTarget, string $sEvent, string $sHandler)
 ```
+
+The [templates](../../ui-features/templates.html) features must be used instead.

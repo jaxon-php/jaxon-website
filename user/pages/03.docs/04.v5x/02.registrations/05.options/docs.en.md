@@ -13,7 +13,7 @@ Those options can apply to PHP code, Javascript code, or both.
 When they apply to PHP code, the options are added to classes and functions metadata.
 They will be taken into account during their processing.
 
-It is the case for example for [class callbacks](../../features/callbacks.html), and [upload](../../features/upload.html).
+It is the case for example for [class callbacks](../../requests/php-callbacks.html), and [upload](../../features/upload.html).
 
 #### Javascript options
 

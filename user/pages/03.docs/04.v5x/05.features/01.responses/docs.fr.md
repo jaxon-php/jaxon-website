@@ -11,7 +11,7 @@ Ces commandes peuvent réaliser 3 types d'opérations dans une page web.
 - Modifier la présentation de la page avec CSS
 - Exécuter du code javascript dans la page
 
-Bien que la classe `Jaxon\Response\Response` implémente un riche ensemble de fonctions, il est possible de lui en ajouter à l'aide de [plugins](../plugins).
+Bien que la classe `Jaxon\Response\Response` implémente un riche ensemble de fonctions, il est possible de lui en ajouter à l'aide de [plugins](../../extensions/response.html).
 
 #### Modifier le contenu et le style de la page
 
@@ -105,8 +105,6 @@ public function doThis()
 
 Deux groupes de fonctions ont été dépréciées: celles qui ajoutent ou suppriment un bloc de contenu dans une page web, et celles qui lient des fonctions Javascript à un évènement sur la page.
 
-Les fonctions de [templates](../../features/templates.html) doivent être utilisées à la place.
-
 ```php
 // Créer un nouvel élément dans le document
 create(string $sParent, string $sTag, string $sId)
@@ -134,3 +132,5 @@ addHandler(string $sTarget, string $sEvent, string $sHandler)
 // Supprimer un gestionnaire d'évènement sur l'élément spécifié
 removeHandler(string $sTarget, string $sEvent, string $sHandler)
 ```
+
+Les fonctions de [templates](../../ui-features/templates.html) doivent être utilisées à la place.

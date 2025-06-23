@@ -60,7 +60,7 @@ The HTML code of a component can be inserted directly into the template.
 The Jaxon library provides functions to attach an event handler to one or more elements on a page.
 
 The `on()` function defines an event handler on an element.
-It takes as parameters the event name and the function to call, defined using the [call factory](../../call-factory/functions.html).
+It takes as parameters the event name and the function to call, defined using the [call factory](../call-factories.html).
 
 ```php
 <select class="form-select" <?= attr()->on('change', rq(FuncComponent::class)->doThat()) ?>>

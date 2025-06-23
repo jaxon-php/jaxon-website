@@ -69,7 +69,7 @@ $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
 ]);
 ```
 
-The javascript callbacks can also be defined in [the configuration file](../../features/bootstrap/) or using annotations.
+The javascript callbacks can also be defined in [the configuration file](../../about/configuration.html) or using annotations.
 
 ```php
 namespace Ns\App;

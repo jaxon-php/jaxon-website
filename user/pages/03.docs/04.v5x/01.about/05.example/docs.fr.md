@@ -17,7 +17,7 @@ En voici une capture d'écran, avec les deux composants d'UI en évidence.
 ### Le composant principal
 
 C'est un [composant d'UI](../../components/node-components.html), qui affiche l'écran de la calculatrice.
-Il va servir de point d'entrée pour insérer la calculatrice dans une page web.
+Il va également servir de point d'entrée pour insérer la calculatrice dans une page web.
 
 
 ```php
@@ -38,6 +38,7 @@ class Calc extends NodeComponent
 Dans le template `calculator::wrapper`, des handlers sont attachés aux boutons avec `attr()->click()`, et le composant `Result` est attaché au noeud du DOM qui doit afficher le résultat avec `attr()->bind()`.
 
 ```php
+<?php
 // Get the components
 $rqCalc = rq(App\Calculator\Calc::class);
 $rqCalcFunc = rq(App\Calculator\CalcFunc::class);
@@ -84,7 +85,7 @@ $operandB = je('operand-b')->rd()->input();
 ### Le composant de résultat
 
 Il récupère le résultat de l'opération, le formatte et l'affiche à l'endroit souhaité.
-La fonction `stash()` permet de [partager des données](../../components/stashes.html) entre des composants.
+La fonction `stash()` permet de [partager des données](../../components/stash.html) entre des composants.
 
 ```php
 use Jaxon\App\NodeComponent;
@@ -114,7 +115,7 @@ Le template `calculator::result` affiche le résultat dans une zone de texte en 
 Le troisième composant est un [composant fonctionnel](../../components/func-components.html). Cela signifie qu'il n'affiche pas de code HTML, mais fournit des fonctions à appeler depuis une page web.
 
 Dans cet exemple, il fournit la fonction de calcul, pour laquelle il utilise un service qui lui est injecté.
-Il affiche également un message en cas d'erreur, à l'aide de la [fonction de dialogue](../../features/dialogs.html) fournie par le trait `DialogTrait`.
+Il affiche également un message en cas d'erreur, à l'aide de la [fonction de dialogue](../../ui-features/dialogs.html) fournie par le trait `DialogTrait`.
 
 ```php
 namespace App\Calculator;
@@ -175,11 +176,12 @@ La fonction du composant est liée à l'évènement `click` sur le bouton dans l
 Maintenant que nos composants sont prêts, nous allons insérer la calculatrice dans une page web.
 
 ```php
+<?php
 use App\Calculator\Calc;
 ?>
 
 <div class="row" <?php echo attr()->bind(rq(Calc::class)) ?>>
-<?php echo cl(Calc::class)->html() ?>
+    <?php echo cl(Calc::class)->html() ?>
 </div>
 ```
 
@@ -187,7 +189,7 @@ La fonction `attr()->bind()` attache le composant à un noeud du DOM, et la fonc
 
 ### La configuration
 
-Le [fichier de configuration](../../about/configuration.html) déclare les [classes Jaxon avec leur namespace](../../registrations/namespaces.html), un [répertoire de templates PHP](../../features/views.html) à afficher avec le `view renderer` de Jaxon, la [librairie `CuteAlert`](https://github.com/gustavosmanc/cute-alert) pour afficher [les alertes et notifications](../../features/dialogs.html), et un service dans le [conteneur de dépendences](../../features/dependency-injection.html).
+Le [fichier de configuration](../../about/configuration.html) déclare les [classes Jaxon avec leur namespace](../../registrations/namespaces.html), un [répertoire de templates PHP](../../ui-features/views.html) à afficher avec le `view renderer` de Jaxon, la [librairie `CuteAlert`](https://github.com/gustavosmanc/cute-alert) pour afficher [les alertes et notifications](../../ui-features/dialogs.html), et un service dans le [conteneur de dépendences](../../features/dependency-injection.html).
 
 ```php
 return [

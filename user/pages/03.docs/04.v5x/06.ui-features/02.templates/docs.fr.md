@@ -60,7 +60,7 @@ Le code HTML d'un composant peut être inséré directement dans le template.
 La librairie Jaxon fournit des fonctions pour attacher un gestionnaire d'évènement à un ou plusieurs éléments d'une page.
 
 La fonction `on()` définit un gestionnaire d'évènement sur un élément.
-Elle prend en paramètres le nom de l'évènement et la fonction à appeler, définie à l'aide de la [call factory](../../call-factory/functions.html).
+Elle prend en paramètres le nom de l'évènement et la fonction à appeler, définie à l'aide de la [call factory](../call-factories.html).
 
 ```php
 <select class="form-select" <?= attr()->on('change', rq(FuncComponent::class)->doThat()) ?>>

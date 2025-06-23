@@ -38,7 +38,7 @@ class FuncComponent
     public function show()
     {
         $html = $this->view()->render('users::path/to/view', [
-            'rqComponent' => $this->rq(), 
+            'clickHandler' => $this->rq()->doThat(), 
         ]);
     }
 
@@ -50,8 +50,7 @@ class FuncComponent
 ```
 
 ```php
-<button type="button" <?= attr()
-    ->click($this->rqComponent->doThat()) ?>>Click me</button>
+<button type="button" <?= attr()->click($this->clickHandler) ?>>Click me</button>
 ```
 
 La fonction `rq()` et la méthode `rq()` ajoutent automatiquement le préfixe configuré pour les classes ou les fonctions exportées au code javascript généré.
@@ -59,6 +58,7 @@ La fonction `rq()` et la méthode `rq()` ajoutent automatiquement le préfixe co
 #### Les fonctions Javascript
 
 La fonction globale `jo()` crée une `call factory` pour un objet Javascript, qui doit déjà exister dans l'application côté client.
+
 Un appel sur cette factory génère le code d'appel de la même fonction en Javascript, qui peut donc être utilisé dans un template par exemple pour définir un gestionnaire d'évènement.
 
 ```php
@@ -82,6 +82,7 @@ Cette `call factory` peut recevoir des appels vers ses propriétés, qui peuvent
 // Javascript console.log()
 <button type="button" <?= attr()
     ->click(jo()->console->log('Button clicked!!')) ?>>Click me</button>
+// Idem que jo('console')->log('Button clicked!!')
 ```
 
 Dans l'objet [Response](../../features/responses.html), la méthode `jo()` ajoute l'appel à la liste des commandes à exécuter dans le navigateur.
@@ -102,7 +103,6 @@ La fonction globale `jq()` crée une `call factory` pour un sélecteur jQuery.
 Elle prend en paramètre un [sélecteur jQuery](https://api.jquery.com/category/selectors/).
 
 Un appel sur cette factory génère le code Javascript pour lire ou affecter des valeurs sur les éléments sélectionnés, ou bien pour définir des gestionnaires d'évènement.
-
 Elle sera souvent utilisée avec l'objet [Response](../../features/responses.html), pour ajouter l'appel à la liste des commandes à exécuter dans le navigateur.
 
 ```php
@@ -144,7 +144,6 @@ La fonction globale `je()` crée une `call factory` pour un sélecteur Javascrip
 Elle prend en paramètre l'id de l'élément à retrouver.
 
 Un appel sur cette factory génère le code Javascript pour lire ou affecter des valeurs sur l'élément sélectionné, ou bien pour définir des gestionnaires d'évènement.
-
 Elle sera souvent utilisée avec l'objet [Response](../../features/responses.html), pour ajouter l'appel à la liste des commandes à exécuter dans le navigateur.
 
 ```php
@@ -197,34 +196,20 @@ La `call factory` créée par la fonction globale `je()` fournit aussi des helpe
 
 Les `call factories` fournissent des fonctions pour vérifier une condition avant l'éxécution de l'appel.
 
-La fonction `when()` exécute l'appel seulement si une condition est vraie.
-Dans l'exemple suivant l'appel est exécuté si l'utilisateur a coché la case avec l'id `accepted`.
-
-```php
-<button type="button" <?= attr()->click(rq(FuncComponent::class)
-    ->doThat()->when(je('accepted')->checked)) ?>>Click me</button>
-```
-
-La fonction `unless()` exécute l'appel seulement si une condition est fausse.
-Dans l'exemple suivant l'appel est exécuté si l'utilisateur n'a pas coché la case avec l'id `refused`.
-
-```php
-<button type="button" <?= attr()->click(rq(FuncComponent::class)
-    ->doThat()->unless(je('refused')->checked)) ?>>Click me</button>
-```
-
 La fonction `confirm()` exécute l'appel seulement si l'utilisateur répond oui à la question posée.
 
 ```php
 <button type="button" <?= attr()->click(rq(FuncComponent::class)
-    ->doThat()->confirm('Etes-vous sûr ?')) ?>>Click me</button>
+    ->doThat()
+    ->confirm('Etes-vous sûr ?')) ?>>Click me</button>
 ```
 
-Des valeurs issues du contenu de la page web peuvent être incluses dans la question, en indiquant les positions entre accolades.
+Les questions sont affichées avec les [fonctions de dialogues](../dialogs.html), et des valeurs issues du contenu de la page web peuvent être incluses dans la question, en indiquant les positions entre accolades.
 
 ```php
 <button type="button" <?= attr()->click(rq(FuncComponent::class)
-    ->doThat()->confirm('Vous voulez du {1} ? Vraiment, {2} ?',
+    ->doThat()
+    ->confirm('Vous voulez du {1} ? Vraiment, {2} ?',
         je('colorselect')->text, je('username')->innerHtml)) ?>>Click me</button>
 ```
 
@@ -232,6 +217,68 @@ L'ordre des paramètres dans dans le message peut être différent, ce qui est u
 
 ```php
 <button type="button" <?= attr()->click(rq(FuncComponent::class)
-    ->doThat()->confirm('Bonjour {2}, vous voulez du {1} ?',
+    ->doThat()
+    ->confirm('Bonjour {2}, vous voulez du {1} ?',
         je('colorselect')->text, je('username')->innerHtml)) ?>>Click me</button>
+```
+
+La fonction `when()` exécute l'appel seulement si une condition est vraie.
+Dans l'exemple suivant l'appel est exécuté si l'utilisateur a coché la case avec l'id `accepted`.
+
+```php
+<button type="button" <?= attr()->click(rq(FuncComponent::class)
+    ->doThat()
+    ->when(je('accepted')->checked)) ?>>Click me</button>
+```
+
+La fonction `unless()` exécute l'appel seulement si une condition est fausse.
+Dans l'exemple suivant l'appel est exécuté si l'utilisateur n'a pas coché la case avec l'id `refused`.
+
+```php
+<button type="button" <?= attr()->click(rq(FuncComponent::class)
+    ->doThat()
+    ->unless(je('refused')->checked)) ?>>Click me</button>
+```
+
+Il est également possible d'utiliser des fonctions de comparaison.
+Leurs noms commencent par un `if`, et elles acceptent deux paramètres qui peuvent chacune être une constante ou un appel à une `call factory`.
+
+```php
+<button type="button" <?= attr()->click(rq(FuncComponent::class)
+    ->doThat()
+    ->ifeq(je('accepted')->checked, true)) ?>>Click me</button>
+```
+
+Les fonctions suivantes sont disponibles.
+
+```php
+    public function ifeq($xValue1, $xValue2);
+    public function ifteq($xValue1, $xValue2);
+    public function ifne($xValue1, $xValue2);
+    public function ifnte($xValue1, $xValue2);
+    public function ifgt($xValue1, $xValue2);
+    public function ifge($xValue1, $xValue2);
+    public function iflt($xValue1, $xValue2);
+    public function ifle($xValue1, $xValue2);
+```
+
+Enfin, les fonctions de type `else` permettent d'afficher un message à l'écran lorsque la condition requise n'a pas été vérifiée.
+De même que pour la confirmation, les messages sont affichés avec les [fonctions de dialogues](../dialogs.html), et des valeurs issues du contenu de la page web peuvent être incluses dans le message.
+
+```php
+<button type="button" <?= attr()->click(rq(FuncComponent::class)
+    ->doThat()
+    ->when(je('accepted')->checked))
+    ->elseShow('Hi {1}, vous devez cocher la case Accepter',
+        je('username')->innerHtml)) ?>>Click me</button>
+```
+
+Les fonctions suivantes sont disponibles.
+
+```php
+    public function elseShow(string $sMessage, ...$aArgs);
+    public function elseInfo(string $sMessage, ...$aArgs);
+    public function elseSuccess(string $sMessage, ...$aArgs);
+    public function elseWarning(string $sMessage, ...$aArgs);
+    public function elseError(string $sMessage, ...$aArgs);
 ```

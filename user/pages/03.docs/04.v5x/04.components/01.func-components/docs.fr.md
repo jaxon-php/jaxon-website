@@ -9,7 +9,7 @@ Ce sont des classes dont les fonctions publiques sont exportées en Javascript, 
 
 Les composants fonctionnels héritent de la classe `Jaxon\App\FuncComponent`, qui leur fournit un ensemble de fonctions utilitaires.
 
-Les fonctions fournies incluent [les vues](../../features/views.html), [les sessions](../../features/sessions.html), [l'upload de fichier](../../features/upload.html), [les logs](../../features/logging.html), le partage de données ([databags](../databags.html) et [stashes](../stashes.html)), en plus de celles décrites ci-dessous.
+Les fonctions fournies incluent [les vues](../../ui-features/views.html), [les sessions](../../features/sessions.html), [l'upload de fichier](../../features/upload.html), [les logs](../../features/logging.html), le partage de données ([databags](../databags.html) et [stash](../stash.html)), en plus de celles décrites ci-dessous.
 
 #### Retrouver une instance d'une autre classe
 
@@ -63,7 +63,7 @@ class ComponentB extends \Jaxon\App\FuncComponent
 
 #### Les fenêtres et alertes
 
-The `Jaxon\App\Dialog\DialogTrait` trait provides the `alert()` et `dialog()` methods, which display [dialogs and messages](../../features/dialogs.html) in the page.
+The `Jaxon\App\Dialog\DialogTrait` trait provides the `alert()` et `dialog()` methods, which display [dialogs and messages](../../ui-features/dialogs.html) in the page.
 
 ```php
 use Jaxon\App\Dialog\DialogTrait;
@@ -108,7 +108,7 @@ class ComponentA extends \Jaxon\App\FuncComponent
 }
 ```
 
-La [fabrique de requête](../../call-factory/functions.html) sera souvent utilisée dans les templates pour définir les [gestionnaires d'évènements](../../call-factory/templates.html).
+La [fabrique de requête](../../ui-features/call-factories.html) sera souvent utilisée dans les templates pour définir les [gestionnaires d'évènements](../../ui-features/templates.html).
 
 #### La pagination
 

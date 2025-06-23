@@ -17,7 +17,7 @@ Here's a screenshot, with the two UI components highlighted.
 ### The main component
 
 It is a [UI component](../../components/node-components.html), which will display the calculator screen.
-It will serve as entry point to insert the calculator in a web page.
+It will also serve as entry point to insert the calculator in a web page.
 
 
 ```php
@@ -38,6 +38,7 @@ class Calc extends NodeComponent
 In the `calculator::wrapper` template, the handlers are attached to buttons with `attr()->click()`, and the `Result` component is attached to the DOM node that will display the result with `attr()->bind()`.
 
 ```php
+<?php
 // Get the components
 $rqCalc = rq(App\Calculator\Calc::class);
 $rqCalcFunc = rq(App\Calculator\CalcFunc::class);
@@ -84,7 +85,7 @@ $operandB = je('operand-b')->rd()->input();
 ### The result component
 
 It retrieves the result of the operation, formats it and displays it in the desired location.
-The `stash()` function allows to [share data](../../components/stashes.html) between components.
+The `stash()` function allows to [share data](../../components/stash.html) between components.
 
 ```php
 use Jaxon\App\NodeComponent;
@@ -114,7 +115,7 @@ The `calculator::result` template displays the result in a read-only text zone.
 The third component is a [functional component](../../components/func-components.html). This means that it doesn't display HTML code, but provides functions to be called from a web page.
 
 In this example, it provides the calculation function, for which it uses a service injected into it.
-It also displays a message in case of an error, using the [dialog function](../../features/dialogs.html) provided by the `DialogTrait`.
+It also displays a message in case of an error, using the [dialog function](../../ui-features/dialogs.html) provided by the `DialogTrait`.
 
 ```php
 namespace App\Calculator;
@@ -175,11 +176,12 @@ The component function is bound to the `click` event on the button in the `calcu
 Now that our components are ready, we need to embed the calculator into a web page.
 
 ```php
+<?php
 use App\Calculator\Calc;
 ?>
 
 <div class="row" <?php echo attr()->bind(rq(Calc::class)) ?>>
-<?php echo cl(Calc::class)->html() ?>
+    <?php echo cl(Calc::class)->html() ?>
 </div>
 ```
 
@@ -187,7 +189,7 @@ The `attr()->bind()` attaches the component to a DOM node, and the `cl(Calc::cla
 
 ### The configuration
 
-The [configuration file](../../about/configuration.html) declares the [Jaxon classes with their namespace](../../registrations/namespaces.html), a [directory of PHP templates](../../features/views.html) to be rendered with the Jaxon `view renderer`, the [`CuteAlert` library](https://github.com/gustavosmanc/cute-alert) to show [alerts and notifications](../../features/dialogs.html), and a service in the [dependency container](../../features/dependency-injection.html).
+The [configuration file](../../about/configuration.html) declares the [Jaxon classes with their namespace](../../registrations/namespaces.html), a [directory of PHP templates](../../ui-features/views.html) to be rendered with the Jaxon `view renderer`, the [`CuteAlert` library](https://github.com/gustavosmanc/cute-alert) to show [alerts and notifications](../../ui-features/dialogs.html), and a service in the [dependency container](../../features/dependency-injection.html).
 
 ```php
 return [

@@ -6,7 +6,7 @@ template: jaxon
 
 La librairie Jaxon permet de passer des classes ou des interfaces en paramètres des constructeurs des classes Jaxon.
 
-Le conteneur de dépendances est configuré à l'initialisation de la librairie ou dans son [fichier de configuration](../bootstrap.html).
+Le conteneur de dépendances est configuré à l'initialisation de la librairie ou dans son [fichier de configuration](../../about/configuration.html).
 Les dépendances sont passées aux classes Jaxon soit dans leur constructeur, soit à l'aide d'une annotation.
 
 ### Le conteneur de dépendances
@@ -41,7 +41,7 @@ Définir la valeur d'une dépendance.
 jaxon()->di()->val('di_var_id', $varValue);
 ```
 
-Les dépendances peuvent également être définies dans le [fichier de configuration](../bootstrap.html).
+Les dépendances peuvent également être définies dans le [fichier de configuration](../../about/configuration.html).
 
 ```php
     'app' => [

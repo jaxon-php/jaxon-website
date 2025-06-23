@@ -15,13 +15,13 @@ The configuration file can be in one of the `php`, `json` or `yaml` formats, and
 
 The `lib` section contains the configuration options of the Ajax implementation in the library, and its plugins.
 
-The `app` section contains the configuration options for application level features like [classes and functions registration](../../registrations/namespaces.html), [dialog libraries](../../features/dialogs.html), [views](../../features/views.html), [annotations](../../features/annotations.html), and [packages](../../features/packages.html).
+The `app` section contains the configuration options for application level features like [classes and functions registration](../../registrations/namespaces.html), [dialog libraries](../../ui-features/dialogs.html), [views](../../ui-features/views.html), [annotations](../../components/attributes.html), and [packages](../../extensions/packages.html).
 The options available in this section are documented together with their respective features.
 
 The values of the configuration options in the `lib` section are changed with calls to `jaxon()->setOption($name, $value)` or `jaxon()->setOptions($values)`, where `$values` is an array.
 They are read with a call to `jaxon()->getOption($name)`.
 
-Similarily, the values of the configuration options in the `app` section are changed with `jaxon()->app()->setOption($name, $value)` or `jaxon()->app()->setOptions($values)`, and read with `jaxon()->app()->getOption($name)`.
+Similarily, the values of the configuration options in the `app` section are changed with `jaxon()->setAppOption($name, $value)` or `jaxon()->setAppOptions($values)`, and read with `jaxon()->getAppOption($name)`.
 
 #### Deprecated function
 
@@ -31,9 +31,9 @@ The Jaxon library also allows to load the configuration options of its Ajax impl
 jaxon()->config()->load($phpFilePath);
 ```
 
-Using this function is now discouraged, since it duplicates the previous one.
+Using this function is now discouraged, since it duplicates the above `setup()` function.
 
-### The configuration options
+#### The configuration options
 
 These options are those of the Jaxon library. Its plugins can require additional options.
 

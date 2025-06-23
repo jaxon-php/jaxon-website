@@ -33,7 +33,7 @@ Jaxon produit plutôt un résultat semblable à celui-ci.
 L'évènement `click` sur chaque lien sera lié à l'appel d'une requête vers une class Jaxon avec les paramètres correspondants.
 Par conséquence, les paramètres dans les liens de pagination ne sont pas nommés, et leur position est importante.
 
-La méthode `paginator()` de [l'objet Response](../responses.html) crée un objet de pagination, qui doit ensuite être associée à [une requête vers une fonction d'une classe](../../call-factory/functions.html), pour générer les liens de pagination.
+La méthode `paginator()` de [l'objet Response](../../requests/responses.html) crée un objet de pagination, qui doit ensuite être associée à [une requête vers une fonction d'une classe](../../ui-features/call-factories.html), pour générer les liens de pagination.
 
 ```php
 class HelloWorld

@@ -6,7 +6,7 @@ template: jaxon
 
 The Jaxon library allows to add classes and interfaces as parameters of Jaxon classes constructors.
 
-The dependency containter is configured when either at library initialization, or in its [configuration file](../bootstrap.html).
+The dependency containter is configured when either at library initialization, or in its [configuration file](../../about/configuration.html).
 The dependencies are passed to Jaxon classes in their contructor, or using an annotation.
 
 ### The dependency container
@@ -41,7 +41,7 @@ Define the value for a dependency.
 jaxon()->di()->val('di_var_id', $varValue);
 ```
 
-The dependencies can also be defined in the [configuration file](../bootstrap.html).
+The dependencies can also be defined in the [configuration file](../../about/configuration.html).
 
 ```php
     'app' => [

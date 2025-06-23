@@ -15,13 +15,13 @@ Le fichier de configuration peut être aux formats `php`, `json` ou `yaml`, et c
 
 La section `lib` contient la configuration de l'implémentation Ajax de la librairie, et de ses plugins.
 
-La section `app` contient la configuration des fonctions de niveau applicatif telles que [les classes et fonctions à exporter](../../registrations/namespaces.html), [les librairies de dialogue](../../features/dialogs.html), [les vues](../../features/views.html), [les annotations](../../features/annotations.html), et [les packages](../../features/packages.html).
+La section `app` contient la configuration des fonctions de niveau applicatif telles que [les classes et fonctions à exporter](../../registrations/namespaces.html), [les librairies de dialogue](../../ui-features/dialogs.html), [les vues](../../ui-features/views.html), [les annotations](../../components/attributes.html), et [les packages](../../extensions/packages.html).
 Les options contenues dans cette section dont documentées avec les fonctions correspondantes.
 
 Les valeurs des options de configuration de la section `lib` sont modifiées avec les appels `jaxon()->setOption($name, $value)` ou `jaxon()->setOptions($values)`, où `$values` est un tableau.
 La fonction `jaxon()->getOption($name)` permet de les lire.
 
-De la même façon, les valeurs des options de configuration de la section `app` sont modifiées avec `jaxon()->app()->setOption($name, $value)` ou `jaxon()->app()->setOptions($values)`, et lues avec `jaxon()->app()->getOption($name)`.
+De la même façon, les valeurs des options de configuration de la section `app` sont modifiées avec `jaxon()->setAppOption($name, $value)` ou `jaxon()->setAppOptions($values)`, et lues avec `jaxon()->getAppOption($name)`.
 
 #### Fonction dépréciée
 
@@ -31,9 +31,9 @@ La librairie Jaxon permet aussi de charger les options de configuration de l'imp
 jaxon()->config()->load($phpFilePath);
 ```
 
-L'utilisation de cette fonction est maintenant déconseillée, car elle fait doublon avec la précédente.
+L'utilisation de cette fonction est maintenant déconseillée, car elle fait doublon avec la fonction `setup()` ci-dessus.
 
-### Les options de configuration
+#### Les options de configuration
 
 Ces options sont celles de la librairie Jaxon. D'autres options peuvent exister pour ses plugins.
 
