@@ -12,13 +12,13 @@ namespace Grav;
 \define('GRAV_REQUEST_TIME', microtime(true));
 \define('GRAV_PHP_MIN', '7.3.6');
 
-if (PHP_SAPI === 'cli-server') {
-    $symfony_server = stripos(getenv('_'), 'symfony') !== false || stripos($_SERVER['SERVER_SOFTWARE'] ?? '', 'symfony') !== false || stripos($_ENV['SERVER_SOFTWARE'] ?? '', 'symfony') !== false;
+// if (PHP_SAPI === 'cli-server') {
+//     $symfony_server = stripos(getenv('_'), 'symfony') !== false || stripos($_SERVER['SERVER_SOFTWARE'] ?? '', 'symfony') !== false || stripos($_ENV['SERVER_SOFTWARE'] ?? '', 'symfony') !== false;
 
-    if (!isset($_SERVER['PHP_CLI_ROUTER']) && !$symfony_server) {
-        die("PHP webserver requires a router to run Grav, please use: <pre>php -S {$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']} system/router.php</pre>");
-    }
-}
+//     if (!isset($_SERVER['PHP_CLI_ROUTER']) && !$symfony_server) {
+//         die("PHP webserver requires a router to run Grav, please use: <pre>php -S {$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']} system/router.php</pre>");
+//     }
+// }
 
 // Ensure vendor libraries exist
 $autoload = __DIR__ . '/vendor/autoload.php';
