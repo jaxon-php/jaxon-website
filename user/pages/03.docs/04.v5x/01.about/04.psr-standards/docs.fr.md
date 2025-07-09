@@ -35,4 +35,4 @@ Le middleware `jaxon()->psr()->config($filename)` prend en paramètre le chemin 
 Le middleware `jaxon()->psr()->ajax()` et le handler `jaxon()->psr()->handler()` traitent la requête Jaxon, et renvoient en réponse un objet qui implémente l'interface `Psr\Http\Message\ResponseInterface`.
 Un seul des deux sera donc utilisé dans une même application PHP.
 
-Ces composants servent à intégrer Jaxon dans les frameworks PHP qui supportent le standard PSR-15.
+Ces composants servent à intégrer Jaxon dans les frameworks PHP qui supportent le standard PSR-15, à l'exemple de [Slim Framework](../../integrations/slim.html).

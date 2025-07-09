@@ -8,7 +8,7 @@ template: jaxon
 
 Le principal changement dans la version 5 de Jaxon, qui est une innovation dans son genre, est l'introduction des composants d'UI.
 
-Un [composant](../../components/node-components.html) est une classe PHP est attachée à un noeud du DOM dans le code HTML.
+Un [composant](../../components/node-components.html) est une classe PHP est attachée à un noeud du DOM dans la page web.
 Elle fournit une méthode `html()` qui renvoie un code HTML, et une méthode `render()` qui, lorsqu'elle est appelée dans une fonction Ajax, va remplacer le contenu du noeud du DOM par la valeur renvoyée par la fonction `html()`.
 
 Combinée aux [databags](../../components/databags.html) et au [stash](../../components/stash.html), qui permettent de partager des données entre le navigateur et le serveur, et entre différents composants de l'application, cette fonctionnalité permet de contruire facilement des UI complexes en Ajax et PHP.

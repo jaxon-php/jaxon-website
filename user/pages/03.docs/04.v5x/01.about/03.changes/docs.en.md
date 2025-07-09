@@ -8,10 +8,10 @@ template: jaxon
 
 The main change in the version 5 of Jaxon, which is also an innovation in the field, is the introduction of UI components.
 
-A [component](../../components/node-components.html) is a PHP class that is attached to a DOM node in the HTML code.
+A [component](../../components/node-components.html) is a PHP class that is attached to a DOM node in the web page.
 It provides a `html()` method which returns some HTML code, and a `render()` method which, each time it is called, will replace the attached DOM node content with the value returned by the `html()` method.
 
-Combined to [databags](../../components/databags.html) and to [stash](../../components/stash.html), which allow to share data between the browser and the server, and between different components in the application, this feature makes it possible to esily build complex UI in Ajax and PHP.
+Combined to [databags](../../components/databags.html) and to [stash](../../components/stash.html), which allow to share data between the browser and the server, and between different components in the application, this feature makes it possible to easily build complex UI in Ajax and PHP.
 
 ### The templates
 

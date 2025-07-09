@@ -10,7 +10,8 @@ Le code le plus simple à attacher à cette route pour traiter une requête vers
 
 ```php
 $jaxon = jaxon();
-$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
+
+// Configurer la librairie et déclarer les classes exportées.
 
 if($jaxon->canProcessRequest())
 {

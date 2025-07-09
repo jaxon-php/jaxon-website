@@ -10,7 +10,8 @@ This is the simplest code to to attach to this route to process a request to a J
 
 ```php
 $jaxon = jaxon();
-$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
+
+// Configure the library and register the exported classes.
 
 if($jaxon->canProcessRequest())
 {
