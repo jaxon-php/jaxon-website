@@ -30,7 +30,7 @@ Sans paramètre, la fonction `rq()` renvoie une `call factory` pour créer des a
 ```
 
 Dans une classe de [composant](../../components/func-components.html), la méthode `rq()`, appelée sans paramètre, retourne une `call factory` pour la classe courante.
-Si elle reçoit une classe en paramètre, elle retourne une `call factory` pour cette classe.
+Si elle reçoit un nom de classe en paramètre, elle retourne une `call factory` pour cette classe.
 
 ```php
 class FuncComponent

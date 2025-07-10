@@ -30,7 +30,7 @@ Without parameters, the `rq()` function returns a `call factory` to create calls
 ```
 
 In a [component](../../components/func-components.html) class, the `rq()` method, called without parameters, returns a `call factory` for the current class.
-If it receives a class as a parameter, it returns a `call factory` for that class.
+If it receives a class name as a parameter, it returns a `call factory` for that class.
 
 ```php
 class FuncComponent
