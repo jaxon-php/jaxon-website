@@ -12,7 +12,9 @@ template: jaxon
 
 3. En réalité, une requête Ajax est automatiquement créée et envoyée vers l'application. Elle contient les noms de la classe et la méthode, et des paramètres. La librairie Jaxon reçoit cette requête, et appelle la classe PHP en lui passant les paramètres reçus.
 
-4. The PHP class fills a `Response` object with a series of commands to be executed in the browser. The Jaxon library returns this response to the browser, which automatically executes all the commands it contains.
+La classe PHP va ensuite remplir un objet `Response` avec série de commandes à exécuter dans le navigateur.
+
+4. La librairie Jaxon renvoie cette réponse au navigateur, qui exécute automatiquement les commandes qu'elle contient.
 
 Les étapes 3 et 4 sont gérées par Jaxon, et transparentes pour le développeur.
 Son seul rôle est d'écrire les fonctions PHP qui définissent le contenu et la présentation de la page web.

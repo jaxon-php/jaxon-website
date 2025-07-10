@@ -12,9 +12,11 @@ template: jaxon
 
 3. Actually, an Ajax request is automatically created and sent to the application. It contains the class and method names, and parameters. The Jaxon library receives this request and calls the PHP class with the incoming parameters.
 
-5. The Jaxon library sends back this response to the browser, which automatically executes all commands it contains.
+The PHP class will then fill a `Response` object with a series of commands to be executed in the browser.
+
+4. The Jaxon library returns this response to the browser, which automatically executes the commands it contains.
 
 Steps 3 and 4 are handled by Jaxon and are transparent to the developer.
 Its only role is to write the PHP functions that define the content and presentation of the web page.
 
-At the end, a single Ajax call allows to execute a set of actions, defined in the server side application with PHP, in a web page.
+At the end, a single Ajax call allows to execute a set of actions, defined on the server side application with PHP, in a web page.
