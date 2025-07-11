@@ -3,14 +3,6 @@
 namespace Grav\Theme;
 
 use Grav\Common\Theme;
-use stdClass;
-
-use function html5qp;
-use function html_entity_decode;
-use function strrchr;
-use function strstr;
-use function substr;
-use function trim;
 
 class Habitat extends Theme
 {
