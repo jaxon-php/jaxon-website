@@ -1,11 +1,14 @@
-							<div class="row text-center">
-                            	<!-- <h4>{{ page.title }}</h4> -->
-								{{ content }}
+                            <div class="row text-center">
+                                <!-- <h4>{{ page.title }}</h4> -->
+                                {{ content }}
 {% for section in page.header.sections %}
-								<div class="col-md-4">
-									<i class="fa fa-{{ section.icon }} fa-2x color-primary"></i>
-									<p class="animate fadeIn">{{ section.text }}</p>
-									<p>{{ section.more }}</p>
-								</div>
+                                <div class="col-md-4">
+                                    <span class="fa-stack">
+                                        <i class="fa fa-circle fa-stack-2x color-primary"></i>
+                                        <strong class="fa-stack-1x color-white">{{ section.position }}</strong>
+                                    </span>
+                                    <p class="animate fadeIn">{{ section.text }}</p>
+                                    <p>{{ section.more }}</p>
+                                </div>
 {% endfor %}
-							</div>
+                            </div>
