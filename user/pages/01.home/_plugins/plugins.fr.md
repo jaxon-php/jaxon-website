@@ -1,14 +1,11 @@
 ---
 title: Plugins
 name: plugins
-doc:
-    read: Lire plus...
-    link: ../../docs/v3x/response.html
 ---
 
-Les plugins étendent les fonctions de définition des pages de Jaxon, en réalisant des opérations différentes ou plus complexes que celles fournies par la librairie.
-Ils peuvent utiliser des librairies javascript tierces.
+Les plugins étendent les fonctions de la librairie Jaxon, en réalisant des opérations différentes ou plus complexes.
+Ils peuvent pour cela utiliser des librairies Javascript tierces.
 
-Jaxon contient un [plugin jQuery](../../docs/v3x/responses/jquery.html), et il existe un [plugin Dialogs](https://github.com/jaxon-php/jaxon-dialogs) pour afficher des fenêtres et des messages.
+Par exemple, il existe des plugins pour [l'upload](../../docs/v5x/features/upload.html), [les dialogues](../../docs/v5x/ui-features/dialogs.html) et [la création de graphes](https://github.com/jaxon-php/jaxon-flot).
 
-[Lire la documentation](../../docs/v3x/plugins/response.html)
+[Lire la documentation](../../docs/v5x/extensions/response.html)

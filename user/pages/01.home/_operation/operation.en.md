@@ -2,16 +2,13 @@
 title: How does Jaxon work
 name: operation
 sections:
-    - icon: chevron-circle-left
-      rank: 1
+    - position: 1
       text: Export your PHP classes to javascript.
       more: <a href="/en/features/operation/exports.html">Read more...</a>
-    - icon: chevron-circle-right
-      rank: 2
+    - position: 2
       text: Make Ajax calls to your PHP classes.
-      more: <a href="/en/docs/v4x/requests/factory.html">Read more...</a>
-    - icon: check-circle
-      rank: 3
+      more: <a href="/en/features/operation/lifecycle.html">Read more...</a>
+    - position: 3
       text: Build your page on server side with PHP.
-      more: <a href="/en/docs/v4x/responses/features.html">Read more...</a>
+      more: <a href="/en/features/operation/exports.html">Read more...</a>
 ---

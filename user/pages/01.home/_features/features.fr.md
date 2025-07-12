@@ -11,7 +11,7 @@ features:
     - header: Modulaire et extensible
       icon: gears
       text: Jaxon c'est un package PHP, un package Javascript, et des plugins pour lui ajouter plus de fonctions.
-    - header: Code concis et moderne
+    - header: Code propre et moderne
       icon: code
       text: Jaxon tire le meilleur parti des fonctions de PHP, et est compatible avec ses dernières versions.
 ---

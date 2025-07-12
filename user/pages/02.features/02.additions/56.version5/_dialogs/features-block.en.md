@@ -1,5 +1,5 @@
 ---
-title: The dialogs libraries
+title: The dialog libraries
 position: 4
 read:
     text: Read more
