@@ -1,6 +1,6 @@
 ---
-title: L'application Jaxon DbAdmin
-menu: Database Admin
+title: Les extensions Jaxon
+menu: Les extensions Jaxon
 template: jaxon
 visible: false
 ---

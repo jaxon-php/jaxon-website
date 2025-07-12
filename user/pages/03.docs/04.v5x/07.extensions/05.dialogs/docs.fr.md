@@ -1,6 +1,6 @@
 ---
-title: L'application Jaxon DbAdmin
-menu: Database Admin
+title: Les extensions de dialogue
+menu: Les extensions de dialogue
 template: jaxon
 visible: false
 ---

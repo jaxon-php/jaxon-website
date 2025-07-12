@@ -1,6 +1,6 @@
 ---
-title: The Jaxon DbAdmin application
-menu: Database Admin
+title: View extensions
+menu: View extensions
 template: jaxon
 visible: false
 ---
