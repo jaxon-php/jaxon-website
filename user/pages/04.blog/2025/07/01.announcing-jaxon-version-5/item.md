@@ -33,14 +33,15 @@ Now let's dive more in depth into each of these new features.
 ### The Jaxon components
 
 In the previous versions of Jaxon, the webpage content was set exclusively using the HTML `id` attribute.
-Each DOM element in a webpage with dynamic content needed to be given a unique id, which will then be used to set its content. Keeping track of all those ids in an application was not an easy task.
 
 ```php
 $this->response->html('dom-element-id', $text);
 ```
 
+Each DOM element in a webpage with dynamic content needed to be given a unique id, which will then be used to update its content. Keeping track of all those ids in an application was not an easy task.
+
 Jaxon 5 introduces a new [UI component](../../../../docs/v5x/components/node-components.html), which is a Jaxon class that defines the content of a DOM element.
-It just needs to implement a method named `html()`.
+It just needs to implement a method named `html()`,
 
 ```php
 namespace Jaxon\Demo\Calc\App;
@@ -54,7 +55,7 @@ class Calc extends \Jaxon\App\NodeComponent
 }
 ```
 
-And to be bound to a DOM element in a webpage.
+and to be bound to a DOM element in a webpage.
 
 ```php
 <div <?= attr()->bind(rq(Jaxon\Demo\Calc\App\Calc::class)) ?>>
@@ -82,7 +83,7 @@ They have evolved a lot since then, and now they can make calls to the exported 
 They can also define event handlers on the webpage elements using Javascript or JQuery-style selectors.
 Thirdly, they also provides functions to pass any content of the webpage as parameter to Javascript calls.
 
-In this code from the Jaxon examples, JQuery selectors are used in a Jaxon custom HTML attribute to define calls to Jaxon classes as event handlers on two select lists, and to pass the selected item as parameter to the handler.
+In this code from the Jaxon examples, JQuery selectors are used in a Jaxon custom HTML attribute to define calls to Jaxon classes as event handlers on two select lists, and to pass the selected item value as parameter to the handler.
 
 ```php
     <div class="row" <?= attr()
@@ -168,7 +169,8 @@ The only feature in PHP classes is to load the Javascript files into the webpage
 
 A [new example](../../../../docs/v5x/about/example.html) is introduced to illustrate the Jaxon operation.
 
-The example now implements a simple calculator, which takes an operation, in a select combo, and two operands, in text zones, as parameters, performs the calculation using an injected service, and displays the result in a readonly text zone.
+The example now implements a simple calculator, which takes an operation and two operands as parameters, performs the calculation using an injected service, and displays the result.
+There are two text zones and a select combo for the inputs, and the result is displayed in a readonly text zone.
 
 The example is built with the new Jaxon UI components, and also released as a [Jaxon package](https://github.com/jaxon-php/jaxon-demo-calc).
 This package is used in the [Laravel](https://github.com/jaxon-php/jaxon-demo-laravel), [Symfony](https://github.com/jaxon-php/jaxon-demo-symfony) and [Slim Framework](https://github.com/jaxon-php/jaxon-demo-clim) demo applications, to show how the Jaxon library can be used to build a cross-framework and full-featured package including both the frontend and backend features.
