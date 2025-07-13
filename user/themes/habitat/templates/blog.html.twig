@@ -38,6 +38,7 @@
 {% set header_image_width  = page.header.header_image_width|defined(900) %}
 {% set header_image_height = page.header.header_image_height|defined(600) %}
 {% set header_image_file = page.header.header_image_file %}
+{% set post_header_image = page.header.media.images|first %}
                             <!-- Blog Post -->
                             <div class="blog-post padding-bottom-20">
                                 <!-- Blog Item Header -->
@@ -123,9 +124,19 @@
                                     <!-- End Date -->
 {% endblock %}
 
-{% block post_image %}
+{# {% block post_image %}
 {% if header_image_file %}
     {% set header_image_media = page.media.images[header_image_file] %}
+{% else %}
+    {% set header_image_media = page.media.images|first %}
+{% endif %}
+                                        <div class="thumbnail">
+                                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html|raw }}
+                                        </div>
+{% endblock %} #}
+{% block post_image %}
+{% if post_header_image %}
+    {% set header_image_media = page.media.images[post_header_image] %}
 {% else %}
     {% set header_image_media = page.media.images|first %}
 {% endif %}

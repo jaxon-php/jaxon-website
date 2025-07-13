@@ -34,6 +34,7 @@
 {% set header_image_width  = page.header.header_image_width|defined(900) %}
 {% set header_image_height = page.header.header_image_height|defined(600) %}
 {% set header_image_file = page.header.header_image_file %}
+{% set post_header_image = page.header.media.images|first %}
                             <div class="blog-post">
 {{ block('post_header') }}
 {{ block('post_content') }}
@@ -101,7 +102,7 @@
 {% endblock %}
 
 {% block post_image %}
-{% if header_image %}
+{# {% if header_image %}
     {% if header_image_file %}
         {% set header_image_media = page.media.images[header_image_file] %}
     {% else %}
@@ -113,8 +114,24 @@
 {% include 'blog/credits/unsplash.html.twig' with {'author':header_image_media.meta.author} %}
                             </div>
                         </div>
+{% endif %} #}
+{% if post_header_image %}
+    {% if post_header_image %}
+        {% set header_image_media = page.media.images[post_header_image] %}
+    {% else %}
+        {% set header_image_media = page.media.images|first %}
+    {% endif %}
+                        <div class="thumbnail" style="margin-bottom:20px">
+                            {{ header_image_media.cropZoom(header_image_width, header_image_height).html|raw }}
+{% if header_image_media.meta.source == 'unsplash' %}
+                            <div class="caption">
+{% include 'blog/credits/unsplash.html.twig' with {'author':header_image_media.meta.author} %}
+                            </div>
+{% endif %}
+                        </div>
 {% endif %}
 {% endblock %}
+
 
 {% block post_content %}
                                 <div class="blog-item">

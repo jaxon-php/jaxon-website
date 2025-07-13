@@ -2,18 +2,17 @@
                     {{ content|raw }}
                     <div class="row margin-vert-10">
                         <div class="col-md-6">
-                            {{ page.header.adminer.intro|raw }}
+                            {{ page.header.dbadmin.intro|raw }}
                             <ul style="padding-inline-start:15px">
-{% for feature in page.header.adminer.features %}
+{% for feature in page.header.dbadmin.features %}
                                 <li>{{ feature }}</li>
 {% endfor %}
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            {# page.find('/images').media['jaxon-adminer.png'].html()|raw **BUG: Adds a /user/pages prefix on image links** #}
-                            <a href="/images/jaxon-adminer.png"><img src="/images/jaxon-adminer.png" alt="Jaxon Adminer" /></a>
+                            <a href="/images/jaxon-dbadmin.png"><img src="/images/jaxon-dbadmin.png" alt="Jaxon dbadmin" /></a>
                         </div>
                         <div class="col-md-12">
-                            {{ page.header.adminer.outro|raw }}
+                            {{ page.header.dbadmin.outro|raw }}
                         </div>
                     </div>
