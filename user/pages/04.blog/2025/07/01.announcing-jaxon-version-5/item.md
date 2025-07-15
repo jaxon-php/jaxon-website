@@ -38,7 +38,7 @@ In the previous versions of Jaxon, the webpage content was set exclusively using
 $this->response->html('dom-element-id', $text);
 ```
 
-Each DOM element in a webpage with dynamic content needed to be given a unique id, which will then be used to update its content. Keeping track of all those ids in an application was not an easy task.
+Each DOM element with dynamic content in a webpage content needed to be given a unique id, which will then be used to update its content. Keeping track of all those ids in an application was not an easy task.
 
 Jaxon 5 introduces a new [UI component](../../../../docs/v5x/components/node-components.html), which is a Jaxon class that defines the content of a DOM element.
 It just needs to implement a method named `html()`,
@@ -104,14 +104,14 @@ When building an application UI on the server, being able to make Javascript cal
 
 ### Javascript library rewrite
 
-The Javascript library rewrite started as a discusion on Github [about the forbidden usage of eval](https://github.com/jaxon-php/jaxon-js/issues/21).
+The Javascript library rewrite started as a discusion on Github about [the forbidden usage of the eval function](https://github.com/jaxon-php/jaxon-js/issues/21).
 
 I then decided to rewrite the Javascript library, which today has resulted in many important changes.
 
 The library now includes a command processor which executes existing Javascript functions from a JSON payload. With this processor, there's no need for the `eval` function anymore, and it is also at the foundation of the `call factories` described above.
 
 The library also includes an attribute processor, which handles the Jaxon custom attributes needed to implement the UI components bindings and the event handlers.
-In the example above where the `Jaxon\Demo\Calc\App\Calc` is bound to a `div` element, the following HTML code is actually generated.
+In the example above where the `Jaxon\Demo\Calc\App\Calc` UI Component is bound to a `div` element, the following HTML code is actually generated.
 
 ```html
 <div jxn-bind="Jaxon.Demo.Calc.App.Calc">
@@ -121,9 +121,9 @@ In the example above where the `Jaxon\Demo\Calc\App\Calc` is bound to a `div` el
 
 The [response commands](../../../../docs/v5x/features/responses.html) were also rewritten with new names and a new JSON format. Their names are now more meaningful, and the obsolete ones were removed.
 
-### The dialog plugin
+### The Dialog plugin
 
-The [dialog plugin](../../../../docs/v5x/ui-features/dialogs.html) is a special case in the Jaxon universe. It is a Jaxon response plugin, but at the same time it can also be extended with it own plugins.
+The [Dialog plugin](../../../../docs/v5x/ui-features/dialogs.html) is a special case in the Jaxon universe. It is a Jaxon response plugin, but at the same time it can also be extended with it own plugins.
 
 In the previous version, adding a dialog plugin required to write functions in both PHP and Javascript.
 In the v5 release, only a tiny Javascript object is now necessary.
@@ -173,7 +173,7 @@ The example now implements a simple calculator, which takes an operation and two
 There are two text zones and a select combo for the inputs, and the result is displayed in a readonly text zone.
 
 The example is built with the new Jaxon UI components, and also released as a [Jaxon package](https://github.com/jaxon-php/jaxon-demo-calc).
-This package is used in the [Laravel](https://github.com/jaxon-php/jaxon-demo-laravel), [Symfony](https://github.com/jaxon-php/jaxon-demo-symfony) and [Slim Framework](https://github.com/jaxon-php/jaxon-demo-clim) demo applications, to show how the Jaxon library can be used to build a cross-framework and full-featured package including both the frontend and backend features.
+This package is used in the [Laravel](https://github.com/jaxon-php/jaxon-demo-laravel), [Symfony](https://github.com/jaxon-php/jaxon-demo-symfony) and [Slim Framework](https://github.com/jaxon-php/jaxon-demo-slim) demo applications, to show how the Jaxon library can be used to build a cross-framework and full-featured package including both the frontend and backend features.
 
 The [DB Admin](https://github.com/lagdo/dbadmin-mono) package and the [African Tontine](https://github.com/lagdo/tontine) application are also upgraded to Jaxon 5.
 Although the former is still a work in progress, both are real world examples of building complex one page Ajax applications with Jaxon.
