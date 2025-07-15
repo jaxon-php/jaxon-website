@@ -9,6 +9,8 @@
 
 namespace Grav;
 
+use Dotenv\Dotenv;
+
 \define('GRAV_REQUEST_TIME', microtime(true));
 \define('GRAV_PHP_MIN', '7.3.6');
 
@@ -35,6 +37,10 @@ date_default_timezone_set(@date_default_timezone_get());
 // Set internal encoding.
 @ini_set('default_charset', 'UTF-8');
 mb_internal_encoding('UTF-8');
+
+// Load the .env file
+$dotenv = Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv->safeLoad();
 
 use Grav\Common\Grav;
 use RocketTheme\Toolbox\Event\Event;
