@@ -123,7 +123,7 @@ The [response commands](../../../../docs/v5x/features/responses.html) were also 
 
 ### The dialog plugin
 
-The [dialog plugin](../../../../docs/v5x/ui-features/dialogs.html) is a special case in the Jaxon system. It is a Jaxon response plugin, but at the same time it can also be extended with it own plugins.
+The [dialog plugin](../../../../docs/v5x/ui-features/dialogs.html) is a special case in the Jaxon universe. It is a Jaxon response plugin, but at the same time it can also be extended with it own plugins.
 
 In the previous version, adding a dialog plugin required to write functions in both PHP and Javascript.
 In the v5 release, only a tiny Javascript object is now necessary.

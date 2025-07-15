@@ -1,5 +1,5 @@
 ---
-title: Les textensions de vues
+title: Les extensions de vues
 menu: Les extensions de vues
 template: jaxon
 visible: false
