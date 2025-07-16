@@ -27,6 +27,8 @@ user/plugins/*
 # !user/themes/.*
 user/**/config/security.yaml
 
+public/images
+
 # Environments
 .env
 .gravenv
