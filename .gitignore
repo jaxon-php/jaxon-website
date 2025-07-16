@@ -27,7 +27,10 @@ user/plugins/*
 # !user/themes/.*
 user/**/config/security.yaml
 
+assets/admin-preset.css
+public/user
 public/images
+public/assets/admin-preset.css
 
 # Environments
 .env
