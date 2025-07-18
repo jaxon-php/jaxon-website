@@ -2,56 +2,125 @@
 title: Les plugins de réponse
 menu: Les plugins de réponse
 template: jaxon
-visible: false
 ---
 
-Un plugin de réponse de Jaxon sert à enrichir la classe `Jaxon\Response\Response` avec de nouvelles fonctions.
+Un plugin de réponse de Jaxon enrichit la classe `Jaxon\Response\Response` avec de nouvelles fonctions.
+Il possède un nom qui doit être unique dans toute l'application, et qui peut ête utilisé comme attribut de l'objet `Response` pour accéder à son instance.
 
-#### Installation
+#### Créer un plugin de réponse
 
-Pour installer un plugin de réponse Jaxon, il suffit d'installer le package correspondant avec `Composer`.
-Une fois installé, le plugin est automatiquement enregistré auprès de la librairie Jaxon, et son code CSS et javascript est automatiquement ajouté à celui de la librairie.
-
-#### Utilisation
-
-Un plugin de réponse de Jaxon possède un nom, qui doit être unique dans toute l'application.
-Ce nom permet d'accéder à une instance du plugin à partir d'une instance la classe `Jaxon\Response\Response`.
-
-#### Configuration
-
-Les plugins de réponse sont configurés de la même façon que la librairie Jaxon, à la différence que les noms des paramètres sont préfixés du nom du plugin.
-
-La documentation de chaque plugin fournit la liste de ses paramètres de configuration.
-
-#### Exemple
-
-Le plugin [jaxon-dialogs](https://github.com/jaxon-php/jaxon-dialogs) de la version 2 de Jaxon ajoute des notifications à une application, à l'aide de plusieurs libraries javascript dont [Toastr](https://github.com/CodeSeven/toastr).
-
-Pour l'installer, il faut ajouter son package au fichier `composer.json`.
-
-```json
-"require": {
-    "jaxon-php/jaxon-dialogs": "~4.0"
-}
-```
-
-Ensuite configurer le package pour utiliser la librairie Toastr.
+Comme tous les autres, un plugin de réponse doit d'abord implémenter l'interface `Jaxon\Plugin\PluginInterface`.
+S'il génère du code, il doit également implémenter l'interface `Jaxon\Plugin\CodeGeneratorInterface`.
+Il doit enfin implémenter l'interface `Jaxon\Plugin\ResponsePluginInterface`, qui définit les fonctions pour initialiser son instance avec l'objet `Response` auquel il est attaché.
 
 ```php
-    $jaxon->setOptions('dialogs.default.alert', 'toastr');
-```
+namespace Jaxon\Plugin;
 
-Une fois installé et configuré, les fichiers [javascript](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js) et [css](https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css) de la librairie Toastr sont chargés dans la page HTML, et ses méthodes peuvent être appelées dans les fonctions Jaxon.
+use Jaxon\Response\AbstractResponse;
 
-```php
-class MyClass
+interface ResponsePluginInterface
 {
-    public function myMethod()
-    {
-        $response = jaxon()->newResponse();
-        $response->dialog->success("You are now using the Toastr Notification plugin!!");
-    }
+    /**
+     * Get the attached response
+     *
+     * @return AbstractResponse|null
+     */
+    public function response(): ?AbstractResponse;
+
+    /**
+     * @param AbstractResponse $xResponse   The response
+     *
+     * @return static
+     */
+    public function initPlugin(AbstractResponse $xResponse): static;
 }
 ```
 
-L'appel `$response->dialog` est l'équivalent de `$response->plugin('dialog')`.
+Alternativement, le plugin peut étendre la classe `Jaxon\Response\AbstractResponsePlugin`, qui inclut déjà les trois interfaces ci-dessus, et implémente la fonction `initPlugin()` et des fonctions par défaut pour la génération de code.
+Le plugin peut alors redéfinir la fonction `protected function init(): void` pour son initialisation.
+
+#### Déclarer un plugin de réponse
+
+Une fois défini, le plugin doit être enregistré auprès de la librairie Jaxon, avec l'appel suivant.
+
+```php
+jaxon()->registerPlugin($sClassName, $sPluginName, $nPriority);
+```
+
+La variable `$sPluginName` doit avoir la même valeur que celle renvoyée par la méthode `getName()`.
+Pour des plugins tiers, il convient de donner une valeur supérieure à 1000 au paramètre `$nPriority`.
+
+Le code CSS et Javascript du plugin sera alors ajouté à celui de la librairie et inclus dans les pages web.
+
+#### Fonctionnement d'un plugin de réponse
+
+Chaque méthode du plugin peut utiliser la méthode `addCommand()` de l'objet `Response` pour ajouter des commandes à exécuter dans le navigateur.
+S'il hérite de la classe `Jaxon\Response\AbstractResponsePlugin`, alors il dispose de la méthode `addCommand()`, qui en plus ajoute l'option `plugin` à la commande.
+
+```php
+    public function addCommand(string $sName, array|JsonSerializable $aOptions): Command
+    {
+        return $this->xResponse
+            ->addCommand($sName, $aOptions)
+            ->setOption('plugin', $this->getName());
+    }
+```
+
+Par exemple, le plugin `DataBag` utilise l'appel suivant ajouter la liste des valeurs modifiées à la réponse.
+
+```php
+    if($this->xDataBag->touched())
+    {
+        $this->addCommand('databag.set', ['values' => $this->xDataBag]);
+    }
+```
+
+Une fonction d'un plugin peut ajouter plusieurs commandes à la réponse.
+Pour les commandes qui requièrent des fonctions Javascript plus complexes, il peut être plus intéressant de créer une nouvelle commande dans la librairie Javascript, et de l'appeler dans le code PHP.
+Par exemple, le plugin [Flot](https://github.com/jaxon-php/jaxon-flot) définit ainsi une commande dans [son code Javascript](https://github.com/jaxon-php/jaxon-flot/blob/main/js/flot.js).
+
+```js
+jaxon.dom.ready(function() {
+    jaxon.register("flot.plot", function({ plot }) {
+        // Draw the plot
+        ...
+        return true;
+    });
+});
+```
+
+Dans [son code PHP](https://github.com/jaxon-php/jaxon-flot/blob/main/src/FlotPlugin.php), elle définit cette fonction,
+
+```php
+    /**
+     * Draw a Plot in a given HTML element.
+     *
+     * @return void
+     */
+    public function draw(Plot $xPlot)
+    {
+        $this->addCommand('flot.plot', ['plot' => $xPlot]);
+    }
+```
+
+qui est ensuite utilisée, [comme dans l'exemple](https://github.com/jaxon-php/jaxon-examples/blob/main/examples/flot/code.php), pour afficher un graphe.
+
+```php
+    public function drawGraph()
+    {
+        $flot = $this->response->plugin(FlotPlugin::class);
+        // Create a new plot, to be displayed in the div with id "flot"
+        $plot = $flot->plot('#flot')->width('450px')->height('300px');
+        // Fill the graph
+        ...
+        // Draw the graph
+        $flot->draw($plot);
+    }
+```
+
+Comme dans l'exemple ci-dessus, le nom d'un plugin de réponse donne accès à son instance à partir d'une instance la classe `Jaxon\Response\Response`.
+Par exemple, l'instance du plugin `FlotPlugin`, dont le nom est `flot`, peut être retrouvé par l'appel `$response->flot`, ou `$response->plugin('flot')`, ou avec le nom de la classe.
+
+```php
+$response->plugin(Jaxon\Flot\FlotPlugin::class);
+```

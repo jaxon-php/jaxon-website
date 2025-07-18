@@ -32,7 +32,7 @@ This solution relies on [Adminer](https://www.adminer.org/), and will thus offer
 
 #### What is Adminer
 
-[Adminer](https://www.adminer.org/) (formerly phpMinAdmin) is a full-featured database management tool written in PHP. Conversely to phpMyAdmin, it consist of a single file ready to deploy to the target server. `Adminer` is available for `MySQL`, `MariaDB`, `PostgreSQL`, `SQLite`, `MS SQL`, `Oracle`, `Elasticsearch`, `MongoDB` and others via plugin.
+[Adminer](https://www.adminer.org/) (formerly phpMinAdmin) is a full-featured database management tool written in PHP. Unlike phpMyAdmin, it consist of a single file ready to deploy to the target server. `Adminer` is available for `MySQL`, `MariaDB`, `PostgreSQL`, `SQLite`, `MS SQL`, `Oracle`, `Elasticsearch`, `MongoDB` and others via plugin.
 
 #### What is Jaxon DbAdmin
 
@@ -55,7 +55,7 @@ Althougth this article describes the installation of `Jaxon DbAdmin` on `Backpac
 3. Add a route and a menu entry for this page,
 4. Configure `Jaxon` and its packages, among which `Jaxon DbAdmin`.
 
-Fisrt, we will install `Backpack` on the version 12 of `Laravel`, [following its documentation](https://backpackforlaravel.com/docs/6.x/installation).
+First, we will install `Backpack` on the version 12 of `Laravel`, [following its documentation](https://backpackforlaravel.com/docs/6.x/installation).
 
 ```bash
 composer create-project laravel/laravel backpack 12.x

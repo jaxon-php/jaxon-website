@@ -64,58 +64,6 @@ Variables can also be inserted into a view by passing an array as second paramet
     $this->view()->render('ns::path/to/view', ['count' => 5, 'current' => 1]);
 ```
 
-#### Adding a template engine
-
-Adding a new template engine to Jaxon requires the creation and declaration of a class that implements the `Jaxon\App\View\ViewInterface` interface.
-
-```php
-namespace Jaxon\App\View;
-
-interface ViewInterface
-{
-    /**
-     * Add a namespace to the view renderer
-     *
-     * @param string $sNamespace    The namespace name
-     * @param string $sDirectory    The namespace directory
-     * @param string $sExtension    The extension to append to template names
-     *
-     * @return void
-     */
-    public function addNamespace(string $sNamespace, string $sDirectory, string $sExtension = '');
-
-    /**
-     * Render a view
-     *
-     * @param Store $store    A store populated with the view data
-     *
-     * @return string
-     */
-    public function render(Store $store): string;
-}
-```
-
-```php
-use Jaxon\App\View\ViewInterface;
-
-class NewView implements ViewInterface
-{
-}
-```
-
-The `addNamespace()` method will be called anytime a directory is associated with the template engine.
-The `render()` method returns the HTML code of a given view. It takes as a parameter an instance of class `Jaxon\App\View\Store`, which contains the data passed to the view.
-
-After the class is defined, it must be declared using the following call.
-
-```php
-jaxon()->di()->getViewManager()->addViewRenderer($myViewId, function(){
-    return new NewView();
-});
-```
-
-The `$myViewId` parameter is the unique identifier of the template engine, to be passed to calls to `jaxon()->di()->getViewManager()->addNamespace()`.
-
 #### In config file
 
 The views can also be defined in the `app.views` section of the Jaxon configuration.

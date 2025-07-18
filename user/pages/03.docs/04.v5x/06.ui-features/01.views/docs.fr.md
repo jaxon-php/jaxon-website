@@ -64,58 +64,6 @@ Les variables peuvent aussi être passées dans un tableau en second paramètre 
     $this->view()->render('ns::path/to/view', ['count' => 5, 'current' => 1]);
 ```
 
-#### Ajouter un moteur de template
-
-Pour ajouter un moteur de templates à Jaxon, il faut créer et déclarer une classe qui implémente l'interface `Jaxon\App\View\ViewInterface`.
-
-```php
-namespace Jaxon\App\View;
-
-interface ViewInterface
-{
-    /**
-     * Add a namespace to the view renderer
-     *
-     * @param string $sNamespace    The namespace name
-     * @param string $sDirectory    The namespace directory
-     * @param string $sExtension    The extension to append to template names
-     *
-     * @return void
-     */
-    public function addNamespace(string $sNamespace, string $sDirectory, string $sExtension = '');
-
-    /**
-     * Render a view
-     *
-     * @param Store $store    A store populated with the view data
-     *
-     * @return string
-     */
-    public function render(Store $store): string;
-}
-```
-
-```php
-use Jaxon\App\View\ViewInterface;
-
-class NewView implements ViewInterface
-{
-}
-```
-
-La méthode `addNamespace()` sera appelée chaque fois qu'un répertoire est associé au moteur de template.
-La méthode `render()` retourne le code HTML d'une vue. Elle prend en paramètre une instance de la classe `Jaxon\App\View\Store`, qui contient les données passées à la vue.
-
-Après avoir défini la classe, il faut la déclarer avec l'appel suivant.
-
-```php
-jaxon()->di()->getViewManager()->addViewRenderer($myViewId, function(){
-    return new NewView();
-});
-```
-
-Le paramètre `$myViewId` est l'identifiant unique du nouveau moteur de template, à passer à l'appel à `jaxon()->di()->getViewManager()->addNamespace()`.
-
 #### Dans le fichier de config
 
 Les vues peuvent aussi être définies dans la section `app.views` de la configuration de Jaxon.
