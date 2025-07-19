@@ -1,0 +1,17 @@
+.jaxon-code pre {
+  padding-top: 0 !important;
+}
+a {
+  color: #42969e;
+}
+.read-more {
+  float: right;
+  margin-right: 15px;	
+}
+h4.features-block-title {
+  margin-top: 10px;
+  text-align: center;
+}
+h6 {
+  color: #9e9e9e;
+}
