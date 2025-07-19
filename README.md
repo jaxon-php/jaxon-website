@@ -1,7 +1,7 @@
 Jaxon Website
 =============
 
-The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.org).
+The website of the [Jaxon library](https://www.jaxon-php.org), powered by the [Grav CMS](https://www.getgrav.org).
 
 #### Installation
 
@@ -15,11 +15,7 @@ The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.
 
 3. Install the Grav plugins
 
-> ./bin/gpm install piwik
-
 > ./bin/gpm install langswitcher
-
-> ./bin/gpm install ganalytics
 
 > ./bin/gpm install pagination
 
@@ -31,4 +27,5 @@ The website of the Jaxon library, powered by the [Grav CMS](https://www.getgrav.
 
 4. Configure a virtual host on the web server
 
-The `index.php` file is at the root of the repository.
+The `index.php` and the static files are moved to the `public` subdir.
+Run the `update.sh` script to copy the static files, and configure the web server to give access to the `images` and `assets` dirs.

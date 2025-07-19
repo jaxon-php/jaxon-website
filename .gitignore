@@ -28,6 +28,7 @@ user/plugins/*
 user/**/config/security.yaml
 
 assets/admin-preset.css
+public/sytem
 public/user
 public/images
 public/assets/admin-preset.css
