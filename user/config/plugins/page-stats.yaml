@@ -56,6 +56,12 @@ ignored_urls:
     url: .*jpg
   -
     url: .*ico
+  -
+    url: .*ttf
+  -
+    url: .*woff
+  -
+    url: .*woff2
 bot_regexp:
     - abacho
     - accona
