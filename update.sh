@@ -3,17 +3,17 @@
 git pull
 
 # Copy the system assets to the public dir
-find system/assets \( -name "*css" -or -name "*js" -or -name "*png" -or -name "*jpg" \) \
-    -and -type f | xargs -l ./publish_file.sh
+find system/assets -regex ".*\.\(css\|js\|png\|jpg\)$" \
+    -type f | xargs -l ./publish_file.sh
 
 # Copy the system images to the public dir
-find system/images \( -name "*png" -or -name "*jpg" \) \
-    -and -type f | xargs -l ./publish_file.sh
+find system/images -regex ".*\.\(png\|jpg\)$" \
+    -type f | xargs -l ./publish_file.sh
 
 # Copy the plugins assets to the public dir
-find user/plugins \( -name "*css" -or -name "*js" -or -name "*png" -or -name "*jpg" \) \
-    -and -type f | xargs -l ./publish_file.sh
+find user/plugins -regex ".*\.\(css\|js\|png\|jpg\|ttf\|woff[2]?$\)" \
+    -type f | xargs -l ./publish_file.sh
 
 # Copy the user images to the public dir
-find user/pages/images \( -name "*png" -or -name "*jpg" \) \
-    -and -type f | xargs -l ./publish_file.sh
+find user/pages/images -regex ".*\.\(png\|jpg\)$" \
+    -type f | xargs -l ./publish_file.sh
