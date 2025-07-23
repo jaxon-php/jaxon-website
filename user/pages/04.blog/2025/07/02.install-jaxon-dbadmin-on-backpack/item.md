@@ -133,7 +133,7 @@ The [Font Awesome](https://fontawesome.com) icon set is also added, because it i
         <h2>Jaxon DB Admin</h2>
     </div>
     <div>
-        {!! jaxon()->package(Lagdo\DbAdmin\Package::class)->getHtml() !!}
+        @jxnPackage(Lagdo\DbAdmin\Package::class)
     </div>
 </div>
 @endsection
