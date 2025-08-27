@@ -69,7 +69,7 @@ Ne pas partager les identifiants d'accès aux bases de données facilite le resp
 
 Malgré les avantages ci-dessus, l'utilisation des outils existants qui offrent une authentification séparée n'est pas assez courante car elle se heurte à plusieurs challenges.
 
-Mettre en place et utiliser un système de gestion des secrets (Vault) ou une API Gateway avec les permissions nécessaires est complexe. Pour une petite équipe ou sur certains projets, cela représente une surcharge importante en termes de temps, de compétences et de budget.
+Mettre en place et utiliser un système de gestion des secrets (vault) ou une API Gateway avec les permissions nécessaires est complexe. Pour une petite équipe ou sur certains projets, cela représente une surcharge importante en termes de temps, de compétences et de budget.
 D'un autre côté, les outils tels que [DBeaver](https://dbeaver.io/) (Community) et [Adminer](https://www.adminer.org/) sont gratuits et open-source.
 
 Certaines tâches complexes (analyser des indexes, optimiser des requêtes, faire des exports/imports massifs) sont beaucoup plus simples avec un outil graphique qu'avec une ligne de commande ou une API REST.
@@ -77,10 +77,10 @@ Il en est de même de l'analyse de la structure d'une base de données complexe 
 La convivialité de l'interface graphique des outils comme [DBeaver](https://dbeaver.io/) ou [Adminer](https://www.adminer.org/) est un avantage certain.
 
 Les développeurs expérimentés aiment parfois avoir la main directe sur la base.
-Ils apprécient la rapidité d'une requête SQL ad hoc pour explorer un schéma de base de données, comprendre les relations entre les tables, ou tester une logique complexe avant de l'écrire dans le code.
+Ils apprécient la rapidité d'une requête SQL _ad hoc_ pour explorer un schéma de base de données, comprendre les relations entre les tables, ou tester une logique complexe avant de l'écrire dans le code.
 Pour des manipulations ponctuelles, se connecter avec un outil graphique leur semble plus rapide.
 
-Il est difficile de reproduire localement un environnement où l'accès direct à la base est interdit.
+Il est difficile de reproduire un environnement où l'accès direct à la base de données est interdit sur un poste de développement.
 Les développeurs ont alors besoin d'une base de données locale pour coder, et dans ce cas la sécurité des accès n'est pas une priorité.
 [Adminer](https://www.adminer.org/) ou [DBeaver](https://dbeaver.io/) conviennent très bien à cette situation, et la tentation est grande d'utiliser le même outil pour tous les environnements.
 
@@ -91,7 +91,7 @@ De plus, tous les développeurs ne sont pas conscients des risques ou des meille
 ### En conclusion
 
 **Jaxon DbAdmin** est une application web de gestion de bases de données qui sépare l'authentification des utilisateurs et les connexions aux bases de données, dont les identifiants ne sont donc pas partagés avec les utilisateurs qui y accèdent.
-Sa configuration permet de définir les identifiants correspondant à chaque utilisateur ou chaque groupe d'utilisateurs.
+Sa configuration permet à l'administrateur de définir les identifiants correspondant à chaque utilisateur ou chaque groupe d'utilisateurs.
 
 Il va donc permettre d'améliorer la sécurité des accès aux bases de données, tout en conservant la convivialité et la simplicité d'une interface graphique.
 
