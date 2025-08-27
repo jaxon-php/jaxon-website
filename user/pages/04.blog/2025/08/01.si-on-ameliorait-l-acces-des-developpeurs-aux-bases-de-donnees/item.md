@@ -43,8 +43,8 @@ Notons que cette technique d'accès aux bases de données n'est pas vraiment nou
 D'une part, les applications qui utilisent des bases de données stockent déjà de cette façon les identifiants de connexion, et d'autre part, il existe déjà des applications de gestion de bases de données qui authentifient leurs utilisateurs ailleurs que sur les bases de données.
 **Jaxon DbAdmin** combine ces deux approches pour en faire son fonctionnement par défaut.
 
-**Jaxon DbAdmin** est un logiciel open source distribué sous licence BSD 3-Clause: https://github.com/lagdo/dbadmin-app.
-Une image Docker est également fournie: https://hub.docker.com/r/lagdo/jaxon-dbadmin.
+**Jaxon DbAdmin** est un logiciel open source distribué sous licence BSD-3-Clause: [https://github.com/lagdo/dbadmin-app](https://github.com/lagdo/dbadmin-app).
+Une image Docker est également fournie: [https://hub.docker.com/r/lagdo/jaxon-dbadmin](https://hub.docker.com/r/lagdo/jaxon-dbadmin).
 
 > **Jaxon DbAdmin** est toujours activement développée, et certaines fonctions ne sont pas encore disponibles.
 
