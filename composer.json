@@ -91,6 +91,9 @@
         "apcu-autoloader": true,
         "platform": {
             "php": "7.3.6"
+        },
+        "audit": {
+            "block-insecure": false
         }
     },
     "autoload": {
