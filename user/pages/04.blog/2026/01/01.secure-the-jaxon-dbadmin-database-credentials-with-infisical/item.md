@@ -126,7 +126,7 @@ The last step here is to create the Jaxon DbAdmin secrets.
 [![infisical-project-secrets](./infisical-project-secrets.png)](./infisical-project-secrets.png)
 
 For each database server, there is a secret for the `username` and another one for the `password`.
-To keep things simple, each secret name has the same value as the corresponding option name in the Jaxon DbAdmin config, prefixed with `users.`.
+To keep things simple, each secret name has the same value as the corresponding option name in the Jaxon DbAdmin config, prefixed with the `users.` string.
 
 ### Setup the Jaxon DbAdmin for Infisical
 
@@ -150,32 +150,32 @@ The `getUsername()` and `getPassword()` functions are overloaded, and now get th
 This file will be located at `app/Infisical/InfisicalConfigReader.php`, and Jaxon DdAdmin needs to be configured to use it to read config.
 So the `config/jaxon.php` file is edited with two changes: the `App\Infisical\InfisicalConfigReader` class is defined as the `config reader`, and a new entry is added in the Jaxon DI container.
 ```php
-        'packages' => [
-            Lagdo\DbAdmin\Db\DbAdminPackage::class => [
-                // Config reader definition
-                'config' => [
-                    'reader' => InfisicalConfigReader::class,
-                ],
+    'packages' => [
+        Lagdo\DbAdmin\Db\DbAdminPackage::class => [
+            // Config reader definition
+            'config' => [
+                'reader' => InfisicalConfigReader::class,
             ],
         ],
-        'container' => [
-            'set' => [
-                // Config reader DI
-                InfisicalConfigReader::class => function(Container $di) {
-                    $auth = $di->g(AuthInterface::class);
+    ],
+    'container' => [
+        'set' => [
+            // Config reader DI
+            InfisicalConfigReader::class => function(Container $di) {
+                $auth = $di->g(AuthInterface::class);
 
-                    $infisicalSdk = new InfisicalSDK(env('INFISICAL_SERVER_URL'));
-                    $clientId = env('INFISICAL_MACHINE_CLIENT_ID');
-                    $clientSecret = env('INFISICAL_MACHINE_CLIENT_SECRET');
-                    // Authenticate on the Infisical server.
-                    $infisicalSdk->auth()->universalAuth()->login($clientId, $clientSecret);
-                    // Create the Infisical secrets service.
-                    $secrets = $infisicalSdk->secrets();
-                    $projectId = env('INFISICAL_PROJECT_ID');
-                    return new InfisicalConfigReader($auth, $secrets, $projectId, 'dev');
-                },
-            ],
+                $infisicalSdk = new InfisicalSDK(env('INFISICAL_SERVER_URL'));
+                $clientId = env('INFISICAL_MACHINE_CLIENT_ID');
+                $clientSecret = env('INFISICAL_MACHINE_CLIENT_SECRET');
+                // Authenticate on the Infisical server.
+                $infisicalSdk->auth()->universalAuth()->login($clientId, $clientSecret);
+                // Create the Infisical secrets service.
+                $secrets = $infisicalSdk->secrets();
+                $projectId = env('INFISICAL_PROJECT_ID');
+                return new InfisicalConfigReader($auth, $secrets, $projectId, 'dev');
+            },
         ],
+    ],
 ```
 
 Here's the modified `config/jaxon.php` file.
