@@ -106,7 +106,7 @@ We are now going to migrate those credentials to a local instance of the [Infisi
 The Docker Compose file to run the Infisical server is here: [https://github.com/lagdo/dbadmin-mono/tree/main/docker/compose-secret](https://github.com/lagdo/dbadmin-mono/tree/main/docker/compose-secret).
 It is the same as [this one](https://github.com/Infisical/infisical/blob/main/docker-compose.prod.yml), with some slight differences.
 
-After running the `docker compose up -d` command, the application can be browsed at `http://localhost:8080`.
+After running the `docker compose up -d` command, the application can be browsed at `http://localhost:7095`.
 The user is now able to create a first admin user account and connect into the dashboard.
 
 Create a project of type `Secrets Management` for the Jaxon DbAdmin credentials, and copy its id.
@@ -180,7 +180,7 @@ So the `config/jaxon.php` file is edited with two changes: the `App\Infisical\In
 
 Here's the modified `config/jaxon.php` file.
 
-<script src="https://gist.github.com/feuzeu/a98d98715827765d9c4638632e8aa9ed.js"></script>
+<script src="https://gist.github.com/feuzeu/b40c2a8fb6da66b63cc5631cab875a90.js"></script>
 
 The databases credentials can now be removed from the `config/dbadmin.json` config file.
 
