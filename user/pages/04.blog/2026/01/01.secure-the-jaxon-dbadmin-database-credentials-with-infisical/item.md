@@ -17,7 +17,7 @@ taxonomy:
         - laravel
 ---
 
-This tutorial covers the use of the [Infisical](https://infisical.com/) server with the [Jaxon DbAdmin](https://github.com/lagdo/dbadmin-app) database management tool to store the database credentials in a secure location.
+This tutorial covers the use of the [Infisical](https://infisical.com/) server with the [Jaxon DbAdmin](https://github.com/lagdo/dbadmin-app) database management tool to store the credentials of the managed databases in a secure location.
 
 The first part covers the installation and configuration of the Jaxon DbAdmin application, while the second part covers the installation and setup of the Infisical server, and how it is used to secure the Jaxon DbAdmin application.
 
@@ -35,7 +35,7 @@ By default, Jaxon DbAdmin stores all the database credentials on the server it i
 While this already brings a higher level of security compared to spreading the database credentials across the developer teams, the security can be further improved by storing the credentials in a secure location.
 
 When managing multiple database servers or multiple Jaxon DbAdmin instances, fetching the database credentials from the Infisical server instead of providing them all when deploying the application, will make the deployment much more simple.
-Moreover, the Jaxon DbAdmin application will benefit from the many advanced credentials management features provided by Infisical, like password rotation and synchronisation with the servers.
+Moreover, the Jaxon DbAdmin application can benefit from the many advanced credentials management features provided by Infisical, like password rotation, and synchronisation with the servers.
 
 ### Install and populate the databases
 
@@ -48,11 +48,12 @@ The `seed` container provides scripts to populate the databases with datasets fr
 Make sure to copy the [https://github.com/lagdo/dbadmin-mono/tree/main/docker/seed](https://github.com/lagdo/dbadmin-mono/tree/main/docker/seed) and [https://github.com/lagdo/dbadmin-mono/tree/main/jaxon-dbadmin/migrations](https://github.com/lagdo/dbadmin-mono/tree/main/jaxon-dbadmin/migrations) directories locally and update the volumes in the `docker-compose.yml` file accordingly.
 
 Create and start the containers.
+
 ```bash
 docker compose up -d
 ```
 
-Now enter the `seed` container, and run the scripts in the `/home/dbadmin/scripts` dir to populate the PostgreSQL, MariaDB and MySQL databases.
+Now enter the `seed` container, and run the scripts in the `/home/dbadmin/scripts` directory to populate the PostgreSQL, MariaDB and MySQL databases.
 
 The `/home/dbadmin/scripts/pgsql/auditdb.sh` script migrates the `PostgreSQL 17` server for the Jaxon DbAdmin audit logs feature.
 
@@ -67,26 +68,28 @@ The `config/dbadmin.json` file lists the managed database servers, and defines t
 <script src="https://gist.github.com/feuzeu/e2cf6628a649338953d76df9fd99ff33.js"></script>
 
 In the `config/dbadmin.php` file, the audit logs are enabled and a database is defined for their storage.
+The audit database is `PostgreSQL 17`, which was migrated with the `/home/dbadmin/scripts/pgsql/auditdb.sh` script.
 
 <script src="https://gist.github.com/feuzeu/75f93a8c94288e9c607ded6839d30eea.js"></script>
 
-> **Note** The env vars are specified in a particular format. The `env()` function is not called directly.
+> **Note** The environment variables are specified in a custom format. The `env()` function is not called directly.
 
-With this setup, the access to the database servers and the audit logs page are granted only to the user with email `admin@company.com`.
+With this setup, the access to the database servers and the audit logs page is granted only to the user with email `admin@company.com`.
 
-We now define the database addresses, port numbers and credentials as env vars in the `.env.dbadmin` file.
+We now define the database addresses, port numbers and credentials as environment variables in the `.env.dbadmin` file.
 
 <script src="https://gist.github.com/feuzeu/65e009ae8f635f9d56c4b57b14004d62.js"></script>
 
 The Jaxon DbAdmin application can now be started with the following `docker-compose.yml` file.
-Make sure to create the config files in the right location.
+Make sure the config files are stored in the paths specified in this file.
 
 <script src="https://gist.github.com/feuzeu/18b078a7e1c5ae0b0bc3c5f15bdeff4b.js"></script>
 
-Since the database containers have exposed their port numbers, the `jaxon-dbadmin` container can connect to them using the host address.
+Since the database containers have exposed their port numbers, the `jaxon-dbadmin` container connects to them using the host address, as defined in the `extra_hosts` section.
 
 The last install step is to create a user in the application.
 Enter the `jaxon-dbadmin` container, and run the following command, which will prompt for the user password.
+
 ```bash
 cd /var/www
 php artisan user:create --name Admin --email admin@company.com
@@ -94,7 +97,7 @@ php artisan user:create --name Admin --email admin@company.com
 
 > **Note** This command is a [Laravel Artisan console command](https://laravel.com/docs/12.x/artisan).
 
-Now, the Jaxon DbAdmin application is up and running, and the user can log using the credentials provided in the above command, and browse the managed databases in multiple tabs.
+Now, the Jaxon DbAdmin application is up and running, and the user can log in using the credentials provided in the above command, and browse the managed databases in multiple tabs.
 
 [![jaxon-dbadmin-pgsql-table](./jaxon-dbadmin-pgsql-table.png)](./jaxon-dbadmin-pgsql-table.png)
 
@@ -104,7 +107,7 @@ At this point, the Jaxon DbAdmin application uses the credentials stored in the 
 We are now going to migrate those credentials to a local instance of the [Infisical](https://infisical.com/) running with Docker.
 
 The Docker Compose file to run the Infisical server is here: [https://github.com/lagdo/dbadmin-mono/tree/main/docker/compose-secret](https://github.com/lagdo/dbadmin-mono/tree/main/docker/compose-secret).
-It is the same as [this one](https://github.com/Infisical/infisical/blob/main/docker-compose.prod.yml), with some slight differences.
+It is the same as [this one](https://github.com/Infisical/infisical/blob/main/docker-compose.prod.yml), with some slight changes.
 
 After running the `docker compose up -d` command, the application can be browsed at `http://localhost:7095`.
 The user is now able to create a first admin user account and connect into the dashboard.
@@ -126,11 +129,11 @@ The last step here is to create the Jaxon DbAdmin secrets.
 [![infisical-project-secrets](./infisical-project-secrets.png)](./infisical-project-secrets.png)
 
 For each database server, there is a secret for the `username` and another one for the `password`.
-To keep things simple, each secret name has the same value as the corresponding option name in the Jaxon DbAdmin config, prefixed with the `users.` string.
+To keep things simple, each secret name has the same value as the corresponding option name in the Jaxon DbAdmin config, with `users.` as prefix.
 
 ### Setup the Jaxon DbAdmin for Infisical
 
-We now need to setup the Jaxon DbAdmin application to fetch the database credentials from the Infisical server.
+We are now going to setup the Jaxon DbAdmin application to fetch the database credentials from the Infisical server.
 
 First update the `.env.dbadmin` file with the Infisical server URL and ids, and delete the database credentials.
 
@@ -143,12 +146,12 @@ A [default class](https://github.com/lagdo/jaxon-dbadmin/blob/main/src/Config/Co
 
 <script src="https://gist.github.com/feuzeu/b65056ee1ed2c7320ff149cd3dd58095.js"></script>
 
-The `getUsername()` and `getPassword()` functions are overloaded, and now get their values from the Infisical server.
+The `getUsername()` and `getPassword()` functions are overridden, and now get their values from the Infisical server.
 
 > **Note** The `$secretKey` value needs to be set according to how the secret are stored in the Infisical project. The `AuthInterface` object can also allow to return a different key depending on the user email or role.
 
 This file will be located at `app/Infisical/InfisicalConfigReader.php`, and Jaxon DdAdmin needs to be configured to use it to read config.
-So the `config/jaxon.php` file is edited with two changes: the `App\Infisical\InfisicalConfigReader` class is defined as the `config reader`, and a new entry is added in the Jaxon DI container.
+So the `config/jaxon.php` file is edited with the following changes: the `App\Infisical\InfisicalConfigReader` class is defined as the `config reader`, and a new entry is added in the Jaxon DI container.
 ```php
     'packages' => [
         Lagdo\DbAdmin\Db\DbAdminPackage::class => [
@@ -178,6 +181,8 @@ So the `config/jaxon.php` file is edited with two changes: the `App\Infisical\In
     ],
 ```
 
+> **Note** The `App\Infisical\InfisicalConfigReader` class can be defined in the [Laravel service container](https://laravel.com/docs/12.x/container) instead.
+
 Here's the modified `config/jaxon.php` file.
 
 <script src="https://gist.github.com/feuzeu/b40c2a8fb6da66b63cc5631cab875a90.js"></script>
@@ -190,7 +195,7 @@ This `Dockerfile` installs the [Infisical PHP SDK](https://infisical.com/docs/sd
 
 <script src="https://gist.github.com/feuzeu/1475294c93fd7fd4a6863c00fe94144d.js"></script>
 
-The new `docker-compose.yaml` will now setup the Jaxon DbAdmin application to read the managed databases credentials from the local Infisical server.
+The new `docker-compose.yml` will now setup the Jaxon DbAdmin application to read the managed databases credentials from the local Infisical server.
 
 <script src="https://gist.github.com/feuzeu/c23a169713485e0c1b7e9de24b5e11e8.js"></script>
 
@@ -200,10 +205,10 @@ Jaxon DbAdmin now runs exactly as before, but without any database username or p
 
 While the [Infisical PHP SDK](https://infisical.com/docs/sdks/languages/php) documentation recommends to set the [machine identity tokens](https://infisical.com/docs/documentation/platform/identities/overview) as environment variables, as we did in this tutorial, the Infisical service can also secure the entire application.
 
-A howto is provided for the Laravel framework: [https://infisical.com/docs/integrations/frameworks/laravel](https://infisical.com/docs/integrations/frameworks/laravel).
-With this feature, the Infisical cli injects the environment variables and secrets into the Laravel application, Jaxon DbAdmin in this case.
+A howto for the Laravel framework is provided: [https://infisical.com/docs/integrations/frameworks/laravel](https://infisical.com/docs/integrations/frameworks/laravel).
+With this feature, the Infisical cli injects the environment variables and secrets into the Laravel application, Jaxon DbAdmin in our case.
 
-The question that might arise here is why use the Jaxon DbAdmin custom config reader instead of the Infisical cli.
-The main difference is that the Infisical cli injects all the secrets once when the application server (not the Laravel application itself) starts, while the config reader fetches the secrets it needs from the Infisical server on each request, and is then able to ask for a different secret depending on the current application state.
+The question that might arise here is why use the Jaxon DbAdmin custom `config reader` instead of the Infisical cli.
+The main difference is that the Infisical cli injects all the secrets once when the application server (not the Laravel application itself) starts, while the `config reader` fetches the secrets it needs from the Infisical server on each request, and is then able to ask for or receive a different secret depending on the current application state, or the changes on the Infisical server.
 
 So the user might choose the technique that best fits its requirements, and even use both of them simultaneously.
