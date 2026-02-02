@@ -40,7 +40,7 @@ Moreover, the Jaxon DbAdmin application can benefit from the many advanced crede
 ### Install and populate the databases
 
 In this tutorial, we'll use Docker Compose to install the applications.
-Let's start by the databases we are going to manage.
+Let's start by creating the databases we are going to manage.
 
 The Docker Compose file at [https://github.com/lagdo/dbadmin-mono/tree/main/docker/compose-dbserver](https://github.com/lagdo/dbadmin-mono/tree/main/docker/compose-dbserver) will start four database servers: `PostgreSQL 14`, `PostgreSQL 17`, `MariaDB 10` and `MySQL 8`.
 
