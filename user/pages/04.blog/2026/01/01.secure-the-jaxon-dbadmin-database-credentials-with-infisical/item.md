@@ -133,6 +133,8 @@ To keep things simple, each secret name has the same value as the corresponding 
 
 ### Setup the Jaxon DbAdmin for Infisical
 
+> **Edit 2026/02/10** The `0.9.0` release of Jaxon DbAdmin now includes by default a `config reader` for Infisical. It is no more required to add and register the `InfisicalConfigReader` class in the Jaxon container as described above. Read the `Config readers` section in the [documentation](https://github.com/lagdo/dbadmin-app) for more information.
+
 We are now going to setup the Jaxon DbAdmin application to fetch the database credentials from the Infisical server.
 
 First update the `.env.dbadmin` file with the Infisical server URL and ids, and delete the database credentials.
