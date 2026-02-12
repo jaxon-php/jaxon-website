@@ -19,7 +19,7 @@ taxonomy:
         - ajax
 ---
 
-*Note: This blog entry is an update of a [previous article](../../../2021/03/install-jaxon-adminer-on-voyager.html) we wrote about how to install the `Jaxon Adminer` package on `Voyager`.*
+*Note: This blog entry is an update of a [previous article](../../../2021/03/install-jaxon-adminer-on-voyager.html) written about how to install the `Jaxon Adminer` package on `Voyager`.*
 *Meanwhile, the new [Jaxon DbAdmin](https://github.com/lagdo/jaxon-dbadmin) package was created, and the database drivers and UI builders were moved to separate packages.*
 
 *This article describes the installation of these new packages.*
