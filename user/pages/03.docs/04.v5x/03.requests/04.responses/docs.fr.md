@@ -32,13 +32,13 @@ class MyClass
     public function firstMethod()
     {
         // Call the response
-        // $this->response->
+        // $this->response()->
     }
 
     public function secondMethod()
     {
         // Call the response
-        // $this->response->
+        // $this->response()->
 
         $this->firstMethod();
     }
@@ -46,7 +46,7 @@ class MyClass
     public function thirdMethod()
     {
         // Call the response
-        // $this->response->
+        // $this->response()->
 
         $this->firstMethod();
         $this->secondMethod();

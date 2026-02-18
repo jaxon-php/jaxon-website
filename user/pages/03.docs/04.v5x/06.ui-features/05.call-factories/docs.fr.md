@@ -5,7 +5,7 @@ template: jaxon
 ---
 
 Une `call factory` est une classe PHP qui sert à générer des appels en Javascript qui vont être exécutés dans le navigateur.
-Elle sera utilisé pour insérer du code Javascript dans les templates ou définir des gestionnaires d'évènement dans les templates et les composants.
+Elle est utilisée pour insérer du code Javascript dans les templates ou définir des gestionnaires d'évènement dans les templates et les composants.
 
 Les `call factories` ont une syntaxe `fluent`. Elles convertissent les appels en PHP qu'elles reçoivent en appels aux fonctions Javascript du même nom, avec les mêmes paramètres.
 
@@ -19,8 +19,7 @@ La fonction globale `rq()` crée une `call factory` pour la classe exportée don
 Un appel sur cette factory génère le code du même appel en Javascript, qui peut donc être utilisé dans un template par exemple pour définir un gestionnaire d'évènement.
 
 ```php
-<button type="button" <?= attr()
-    ->click(rq(FuncComponent::class)->doThat()) ?>>Click me</button>
+<button type="button" <?= attr()->click(rq(FuncComponent::class)->doThat()) ?>>Click me</button>
 ```
 
 Sans paramètre, la fonction `rq()` renvoie une `call factory` pour créer des appels vers les fonctions exportées.
@@ -53,6 +52,26 @@ class FuncComponent
 <button type="button" <?= attr()->click($this->clickHandler) ?>>Click me</button>
 ```
 
+Dans l'objet [Response](../../features/responses.html), la méthode `rq()` ajoute l'appel à la liste des commandes à exécuter dans le navigateur.
+
+```php
+class FuncComponent
+{
+    public function doThis()
+    {
+        // Lance un appel ajax à la méthode doThat().
+        $this->response()->rq(FuncComponent::class)->doThat();
+    }
+
+    public function doThat()
+    {
+        // Do something
+    }
+}
+```
+
+> Note: Appelée sans paramètre, la méthode `rq()` de l'objet `Response` renvoie une `call factory` pour les fonctions exportées, et non pour la classe courante.
+
 La fonction `rq()` et la méthode `rq()` ajoutent automatiquement le préfixe configuré pour les classes ou les fonctions exportées au code javascript généré.
 
 #### Les fonctions Javascript
@@ -63,8 +82,7 @@ Un appel sur cette factory génère le code d'appel de la même fonction en Java
 
 ```php
 // Appeler la fonction Javascript Example.Embedded.doSomething().
-<button type="button" <?= attr()
-    ->click(jo('Example.Embedded')->doSomething()) ?>>Click me</button>
+<button type="button" <?= attr()->click(jo('Example.Embedded')->doSomething()) ?>>Click me</button>
 ```
 
 Appelée sans paramètre, la fonction `jo()` renvoie une `call factory` vers l'objet Javascript `window`.
@@ -72,16 +90,14 @@ Elle peut donc servir à générer des appels vers des fonctions globales Javasc
 
 ```php
 // Appeler la fonction Javascript alert().
-<button type="button" <?= attr()
-    ->click(jo()->alert('Button clicked!!')) ?>>Click me</button>
+<button type="button" <?= attr()->click(jo()->alert('Button clicked!!')) ?>>Click me</button>
 ```
 
 Cette `call factory` peut recevoir des appels vers ses propriétés, qui peuvent même être chaînés.
 
 ```php
 // Javascript console.log()
-<button type="button" <?= attr()
-    ->click(jo()->console->log('Button clicked!!')) ?>>Click me</button>
+<button type="button" <?= attr()->click(jo()->console->log('Button clicked!!')) ?>>Click me</button>
 // Idem que jo('console')->log('Button clicked!!')
 ```
 
@@ -92,7 +108,7 @@ class FuncComponent
 {
     public function doThat()
     {
-        $this->response->jo('Example.Embedded')->doSomething();
+        $this->response()->jo('Example.Embedded')->doSomething();
     }
 }
 ```
@@ -110,7 +126,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->jq('#button-id')
+        $this->response()->jq('#button-id')
             ->click($this->rq()->doThat(jq('#button-id')->attr('data-label')));
     }
 
@@ -129,7 +145,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->jq('#button-id')
+        $this->response()->jq('#button-id')
             ->click($this->rq()->doThat(jq()->attr('data-label')));
     }
 
@@ -151,7 +167,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->je('button-id')->addEventListener('click',
+        $this->response()->je('button-id')->addEventListener('click',
             $this->rq()->doThat(je('button-id')->getAttribute('data-label')));
     }
 
@@ -170,7 +186,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->je('button-id')->addEventListener('click',
+        $this->response()->je('button-id')->addEventListener('click',
             $this->rq()->doThat(je()->getAttribute('data-label')));
     }
 
@@ -191,6 +207,15 @@ La `call factory` créée par la fonction globale `je()` fournit aussi des helpe
 - `je($sElementId)->rd()->select()`: retourne la valeur de la liste déroulante avec l'id donné.
 - `je($sElementId)->rd()->html()`: retourne le texte de l'élément HTML avec l'id donné.
 - `je()->rd()->page()`: retourne le numéro de page courant.
+
+Les mêmes helpers sont aussi disponibles en fonctions globales, dans le namespace `Jaxon\`.
+
+- `Jaxon\form($sElementId)`: même que `je($sElementId)->rd()->form()`;
+- `Jaxon\input($sElementId)`: même que `je($sElementId)->rd()->input()`;
+- `Jaxon\checked($sElementId)`: même que `je($sElementId)->rd()->checked()`;
+- `Jaxon\select($sElementId)`: même que `je($sElementId)->rd()->select()`;
+- `Jaxon\html($sElementId)`: même que `je($sElementId)->rd()->html()`;
+- `Jaxon\page()`: même que `je()->rd()->page()`;
 
 #### Les appels conditionnels
 

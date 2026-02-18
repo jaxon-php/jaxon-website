@@ -11,14 +11,55 @@ Each `data bag` has an identifier which must be unique throughout the applicatio
 
 To be able to read data from a `data bag` in a method of a Jaxon class, it must explicitly requested that its content is sent in requests to this method.
 
-This is done either with annotations in the class, or when registering the class in [the configuration file](../../about/configuration.html), or [with calls to the Jaxon object](../../registrations/namespaces.html).
+This is done either with attributes or annotations in the class, or when registering the class in [the configuration file](../../about/configuration.html), or [with calls to the jaxon()->register() function](../../registrations/namespaces.html).
 
 #### Note on security
 
 Since the data in `data bags` are stored in the browser, they are accessible to users. Therefore, sensitive data should not be stored in them.
 Likewise, they should store as little data as possible, as this increases the size of Jaxon requests.
 
-#### Annotation
+#### The databag attribute
+
+The `Jaxon\Attributes\Attribute\Databag` attribute is defined on a class or method to configure `data bags`.
+It takes its unique identifier as a parameter, and can be repeated to define multiple `data bags`.
+
+If the attribute is defined on a Jaxon class, then all its methods will receive the contents of the `data bag`.
+
+```php
+namespace Ns\App;
+
+use Jaxon\Attributes\Attribute\Databag;
+
+#[Databag('bag_key')]
+class FirstClass extends \Jaxon\App\FuncComponent
+{
+    public function doThat()
+    {
+        $bagValue = $this->bag('bag_key')->get('value_key');
+        // ...
+    }
+}
+```
+
+If the attribute is defined on a method, then only that method will receive the contents of the `data bag`.
+
+```php
+namespace Ns\App;
+
+use Jaxon\Attributes\Attribute\Databag;
+
+class SecondClass extends \Jaxon\App\FuncComponent
+{
+    #[Databag('bag_key')]
+    public function doThat()
+    {
+        $bagValue = $this->bag('bag_key')->get('value_key');
+        // ...
+    }
+}
+```
+
+#### The databag annotation
 
 The `@databag` annotation is defined on a class or method to configure `data bags`.
 It takes its unique identifier as a parameter, and can be repeated to define multiple `data bags`.
@@ -151,3 +192,13 @@ class FirstClass extends \Jaxon\App\FuncComponent
     }
 }
 ```
+
+#### Javascript functions
+
+The Javascript library provides functions to read or change the values in `databags`.
+These functions can be use for example to pass some parts of a `databag` content as parameter to a function call.
+
+The `jaxon.bag.getEntry(sBagName, sBagKey)` and `jaxon.bag.setEntry(sBagName, sBagKey, xValue)` functions read or set the contents of an entry in the `databag`.
+
+The `jaxon.bag.getValue(sBagName, sBagKey, sDataKey, xDefault)` and `jaxon.bag.setValue(sBagName, sBagKey, sDataKey, xValue)` functions read or set a value in the contents of an entry in the `databag`.
+The entry's contents must be a Javascript object, and the presence of dots in the value of the `sDataKey` parameter provides access to values ​​nested within that content.

@@ -108,7 +108,7 @@ which is then used, [as in the example](https://github.com/jaxon-php/jaxon-examp
 ```php
     public function drawGraph()
     {
-        $flot = $this->response->plugin(FlotPlugin::class);
+        $flot = $this->response()->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
         $plot = $flot->plot('#flot')->width('450px')->height('300px');
         // Fill the graph

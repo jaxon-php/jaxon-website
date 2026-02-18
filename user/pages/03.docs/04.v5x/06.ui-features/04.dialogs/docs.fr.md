@@ -95,7 +95,7 @@ class MyClass
             'click' => $this->rq()->save(pm()->form('data-form'));
         ]];
         // Show the dialog
-        $this->response->dialog->show("Modal Dialog", $content, $buttons);
+        $this->response()->dialog->show("Modal Dialog", $content, $buttons);
     }
 
     public function save(array $dataFormValues)
@@ -155,7 +155,7 @@ class MyClass
 {
     public function myMethod()
     {
-        $this->response->dialog
+        $this->response()->dialog
             ->title('Greetings')
             ->success("Hello Mr Johnson!!");
     }
@@ -169,7 +169,7 @@ class MyClass
 {
     public function myMethod()
     {
-        $this->response->dialog
+        $this->response()->dialog
             ->title('Greetings')
             ->success("Hello {1}!!", rq('#fullname')->html());
     }
@@ -213,7 +213,7 @@ class MyClass
                 ->confirm('Hey {1}, do you confirm?', rq('#fullname')->html());
         ]];
         // Show the dialog
-        $this->response->dialog->show("Modal Dialog", $content, $buttons);
+        $this->response()->dialog->show("Modal Dialog", $content, $buttons);
     }
 
     public function save(array $dataFormValues)
@@ -231,7 +231,7 @@ class MyClass
 {
     public function myMethod()
     {
-        $this->response->dialog
+        $this->response()->dialog
             ->with('alertify')
             ->info("You are now using the Alertify notification library!!");
     }

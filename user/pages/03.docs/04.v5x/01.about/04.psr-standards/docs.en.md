@@ -4,24 +4,32 @@ menu: PSR standards
 template: jaxon
 ---
 
-Jaxon supports the [HTTP Message Interface (PSR-7)](https://www.php-fig.org/psr/psr-7), [HTTP Handlers (PSR-15)](https://www.php-fig.org/psr/psr-15), and [HTTP Factories (PSR-17)](https://www.php-fig.org/psr/psr-17) standards.
+Jaxon supports the [Container interface (PSR-11)](https://www.php-fig.org/psr/psr-11), [HTTP Message interfaces (PSR-7)](https://www.php-fig.org/psr/psr-7), [HTTP Handlers (PSR-15)](https://www.php-fig.org/psr/psr-15), and [HTTP Factories (PSR-17)](https://www.php-fig.org/psr/psr-17) PSR standards.
 
-#### PSR-7: HTTP Message Interface
+### PSR-11: Container interface
 
-In the `jaxon-core` package and in its request plugins, the HTTP request received as input in the application implements the `Psr\Http\Message\ServerRequestInterface` interface, defined in the PSR-7 standard.
+The Jaxon DI container implements the `Psr\Container\ContainerInterface` interface from the `PSR-11` standard.
+The `jaxon()->di()` function therefore returns an object compatible with this interface.
+
+The `Psr\Container\ContainerInterface` interface is also used to combine the Jaxon container with the container of the frameworks in which the library is integrated.
+This allows the services defined in the framework container to be injected into Jaxon components.
+
+### PSR-7: HTTP Message interfaces
+
+In the Jaxon library and in its request plugins, the HTTP request received as input in the application implements the `Psr\Http\Message\ServerRequestInterface` interface, defined in the PSR-7 standard.
 
 This interface provides functions to read the arguments, the parameters, and the uploaded files from the HTTP request.
 
 The Jaxon classes still return an object of type `Jaxon\Response\ResponseInterface`, but this object now has a `toPsr()` method, which creates an object that implements the `Psr\Http\Message\ResponseInterface` interface, defined by the PSR-7 standard, from its content.
 
-#### PSR-17: HTTP Factories
+### PSR-17: HTTP Factories
 
 Jaxon now uses a third-party package that implements the PSR-17 standard, [nyholm/psr7-server](https://github.com/nyholm/psr7-server), to read the HTTP requests it receives.
 
 This package provides functions to create, using the HTTP request content, an object that implements the `Psr\Http\Message\ServerRequestInterface` interface defined by the PSR-7 standard.
 This object itself is defined in the [nyholm/psr7](https://github.com/Nyholm/psr7) package.
 
-#### PSR-15: HTTP Handlers
+### PSR-15: HTTP Handlers
 
 More and more PHP frameworks now support the PSR-15 standard, which defines interfaces for two types of components that process HTTP requests:
 - middlewares: `Psr\Http\Server\MiddlewareInterface`,
