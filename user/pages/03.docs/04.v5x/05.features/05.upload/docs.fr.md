@@ -4,9 +4,9 @@ menu: Le transfert de fichiers
 template: jaxon
 ---
 
-Un appel d'une fonction ou d'une classe peut transférer un ou plusieurs fichiers du navigateur vers l'application, et les enregistrer dans un répertoire défini.
+Une requête HTTP Ajax à une fonction ou une classe Jaxon peut transférer un ou plusieurs fichiers du navigateur vers l'application, et les enregistrer dans un répertoire défini.
 
-La fonction d'upload de Jaxon utilise l'objet `FormData` de javascript pour transporter le fichier et les autres paramètres de la fonction appelée dans une requête HTTP Ajax.
+La fonction d'upload de Jaxon utilise l'objet `FormData` de javascript pour transporter le fichier et les autres paramètres de la fonction appelée dans la requête.
 
 #### Installation
 
@@ -15,7 +15,15 @@ La fonction d'upload est fournie dans un [package séparé](https://github.com/j
 La fonction est également désactivée par défaut, et doit donc être activée dans la configuration.
 
 ```php
-$jaxon->setOption('core.upload.enabled', true);
+$jaxon->setAppOption('upload.enabled', true);
+```
+
+```php
+    'app' => [
+        'upload' => [
+            'enabled' => true,
+        ],
+    ],
 ```
 
 #### Fonctionnement
@@ -32,7 +40,7 @@ Les uploads de fichiers multiples sont pris en charge.
 
 ```html
 <form>
-    <input type="file" id="html_file_input_id" name="example_files[]" multiple="multiple" />
+    <input type="file" id="html_file_input_id" name="html_file_input_id[]" multiple="multiple" />
 </form>
 ```
 
@@ -64,7 +72,19 @@ $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
 ]);
 ```
 
-Cette configuration peut aussi se faire à l'aide d'une annotation, directement dans la classe.
+Cette configuration peut aussi se faire à l'aide d'un attribut ou d'une annotation, directement dans la classe.
+
+```php
+use Jaxon\Attributes\Attribute\Upload;
+
+class Upload
+{
+    #[Upload('html_file_input_id')]
+    public function saveFile()
+    {
+    }
+}
+```
 
 ```php
 class Upload
@@ -81,11 +101,11 @@ class Upload
 Enfin, les fichiers transferés sont disponibles dans la fonction appelée.
 
 ```php
+use Jaxon\Attributes\Attribute\Upload;
+
 class Upload
 {
-    /**
-     * @upload html_file_input_id
-     */
+    #[Upload('html_file_input_id')]
     public function saveFile()
     {
         $response = jaxon()->newResponse();
@@ -97,11 +117,12 @@ class Upload
 ```
 
 ```php
-class Upload extends JaxonCallable
+use Jaxon\App\FuncComponent;
+use Jaxon\Attributes\Attribute\Upload;
+
+class Upload extends FuncComponent
 {
-    /**
-     * @upload html_file_input_id
-     */
+    #[Upload('html_file_input_id')]
     public function saveFile()
     {
         // Get uploaded files
@@ -110,7 +131,7 @@ class Upload extends JaxonCallable
 }
 ```
 
-L'appel à `jaxon()->upload()->files()` renvoie une table où la clé est l'attribut `name` du champ `input`, et la valeur est un tableau d'objets de la classe [`Jaxon\Request\Upload\FileInterface`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Upload/FileInterface.php), chacun représentant un fichier transféré.
+L'appel à `$this->files()` ou `jaxon()->upload()->files()` renvoie une table où la clé est l'attribut `name` du champ `input`, et la valeur est un tableau d'objets de la classe [`Jaxon\Request\Upload\FileInterface`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Upload/FileInterface.php), chacun représentant un fichier transféré.
 
 #### Configuration
 
@@ -118,6 +139,17 @@ Les paramètres de configuration de la fonction d'upload définissent le répert
 Les conditions sont définies en fonction de leur type, leur extension et leur taille.
 
 Les paramètres qui s'appliquent à tous les fichiers sont définis dans la section `upload.default`.
+
+```php
+    'app' => [
+        'upload' => [
+            'enabled' => true,
+            'default' => [
+                // Les options par défaut.
+            ],
+        ],
+    ],
+```
 
 - `upload.default.dir` : le répertoire où les fichiers seront enregistrés.
 - `upload.default.types` : un tableau de types mime acceptés.
@@ -128,23 +160,70 @@ Les paramètres qui s'appliquent à tous les fichiers sont définis dans la sect
 Le répertoire défini par le paramètre `upload.default.dir` doit exister et être et accessible en écriture.
 Les autres paramètres ne seront pas vérifiés s'ils ne sont pas définis.
 
-Pour définir des paramètres qui vont s'appliquer uniquement à des fichiers spécifiques, il faut remplacer la chaîne `default` par l'attribut `name` du champ `input` du fichier transferé, préfixé de `files.`.
+Les paramètres qui s'appliquent uniquement à des fichiers spécifiques sont définies dans la section `files`, avec l'`id` du champ `input` du fichier transferé comme identifiant.
 
-Dans l'exemple précédent, l'option `upload.files.example_files.dir` définit un répertoire différent.
+```php
+    'app' => [
+        'upload' => [
+            'enabled' => true,
+            'files' => [
+                'html_file_input_id' => [
+                    // Les options de "html_file_input_id".
+                ],
+            ],
+        ],
+    ],
+```
 
-#### Enregistrer les fichiers
+#### Enregistrer les fichiers transférés
 
-Dans cette version 4, les fichiers transférés peuvent être enregistrés sur le disque local, l'option par défaut, mais également sur divers autres types de stockage, grâce au [package Flysystem](https://flysystem.thephpleague.com).
+Dans cette version 4, les fichiers transférés peuvent être enregistrés sur le disque local, l'option par défaut, mais également sur divers autres types de stockage, grâce aux packages [jaxon-storage](https://github.com/jaxon-php/jaxon-storage) et [Flysystem](https://flysystem.thephpleague.com).
 
-Les fichiers peuvent être enregistrés sur les systèmes de stockage suivants:
-- AWS S3
-- Async AWS S3
-- Google Cloud
-- Microsoft Azure
-- FTP
-- SFTP V2
-- SFTP V3
+Par défaut, les fichiers transférés sont enregistrés sur le disque local, dans les répertoires indiqués dans la configuration.
 
-Pour chacun de ses systèmes, un package spécifique doit être installé, et des paramètres de connexion doivent être fournis dans la configuration de Jaxon.
+Cependant, il est également possible de les enregistrer sur tout type de stockage supporté par la librairie [Flysystem](https://flysystem.thephpleague.com).
+Pour chacun de ces types de stockage, un package spécifique doit être installé.
+Voir la section **Official adapters** de la [documentation de Flysystem](https://flysystem.thephpleague.com/docs/), pour plus d'informations.
 
-Voir la documentation du package [jaxon-upload](https://github.com/jaxon-php/jaxon-upload), et la section **Official adapters** de la [documentation de Flysystem](https://flysystem.thephpleague.com/docs/), pour plus d'informations.
+Le package [jaxon-storage](https://github.com/jaxon-php/jaxon-storage) fournit une fonction pour enregistrer un adaptateur pour un type de stockage.
+Par exemple, le package `league/flysystem-ftp` fournit le support du stockage sur `FTP`.
+
+```php
+use League\Flysystem\Ftp\FtpAdapter;
+use League\Flysystem\Ftp\FtpConnectionOptions;
+use function Jaxon\Storage\storage;
+
+storage()->register('ftp', function(string $sRootDir, array $aOptions) {
+    $aOptions['root'] = $sRootDir;
+    $xOptions = FtpConnectionOptions::fromArray($aOptions);
+    return new FtpAdapter($xOptions);
+});
+```
+
+Ce stockage peut ensuite être utilisé pour enregistrer les fichiers transférés.
+
+```php
+    'app' => [
+        'storage' => [
+            'adapters' => [
+                'ftp' => [], // Ces options sont passées à l'adaptateur.
+            ]
+            'stores' => [
+                'ftp_store' => [
+                    'adapter' => 'ftp',
+                    'dir' => '/path/to/uploads/storage',
+                    // 'options' => [], // Optional
+                ],
+            ],
+        ],
+        'upload' => [
+            'enabled' => true,
+            'files' => [
+                'html_file_input_id' => [
+                    'storage' => 'ftp_store',
+                    // Les options de "html_file_input_id".
+                ],
+            ],
+        ],
+    ],
+```

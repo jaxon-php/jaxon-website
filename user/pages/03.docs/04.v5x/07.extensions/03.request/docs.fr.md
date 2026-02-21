@@ -10,7 +10,7 @@ Lorsqu'un object du type défini est déclaré dans la librairie, le plugin de r
 #### Créer un plugin de requête
 
 Comme tous les autres, un plugin de requête doit d'abord implémenter l'interface `Jaxon\Plugin\PluginInterface`.
-S'il génère du code, il doit également implémenter l'interface `Jaxon\Plugin\CodeGeneratorInterface`.
+S'il génère du code, il peut également implémenter l'interface `Jaxon\Plugin\CodeGeneratorInterface` ou  `Jaxon\Plugin\CodeGeneratorInterface`.
 
 Il doit ensuite implémenter au moins l'une des deux interfaces suivantes.
 L'interface `Jaxon\Plugin\CallableRegistryInterface`, qui définit les fonctions pour déclarer les objets à appeler dans les requêtes Jaxon, ou l'interface `Jaxon\Plugin\RequestHandlerInterface`, qui définit les fonctions pour traiter des requêtes Jaxon.

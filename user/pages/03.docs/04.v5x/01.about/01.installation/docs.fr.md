@@ -9,14 +9,14 @@ Pour l'installer, il faut ajouter la ligne suivante dans le fichier `composer.js
 
 ```json
 "require": {
-    "jaxon-php/jaxon-core": "~5.0"
+    "jaxon-php/jaxon-core": "~5.7"
 }
 ```
 
 Ou bien exécuter la commande
 
 ```bash
-composer require jaxon-php/jaxon-core:~5.0
+composer require jaxon-php/jaxon-core:~5.7
 ```
 
 #### La librairie javascript

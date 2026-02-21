@@ -14,7 +14,7 @@ La version `5.x` de l'extension est compatible avec toutes les versions du frame
 
 #### Les fonctions de l'extension
 
-Elle bootstrappe la libairie à partir du fichier `config/jaxon.php`, et fournit toutes les [fonctions des extensions d'intégration](../about.html).
+Elle bootstrappe la librairie à partir du fichier `config/jaxon.php`, et fournit toutes les [fonctions des extensions d'intégration](../about.html).
 
 Elle fournit deux middlewares pour initialiser la librairie Jaxon, et crée la route pour traiter les requêtes Jaxon.
 Elle fournit aussi des fonctions de proxy pour les fonctions de logs, des vues, d'injection de dépendances et de gestion des sessions.

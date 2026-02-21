@@ -10,7 +10,7 @@ Il possède un nom qui doit être unique dans toute l'application, et qui peut �
 #### Créer un plugin de réponse
 
 Comme tous les autres, un plugin de réponse doit d'abord implémenter l'interface `Jaxon\Plugin\PluginInterface`.
-S'il génère du code, il doit également implémenter l'interface `Jaxon\Plugin\CodeGeneratorInterface`.
+S'il génère du code, il peut également implémenter l'interface `Jaxon\Plugin\CodeGeneratorInterface` ou  `Jaxon\Plugin\CodeGeneratorInterface`.
 Il doit enfin implémenter l'interface `Jaxon\Plugin\ResponsePluginInterface`, qui définit les fonctions pour initialiser son instance avec l'objet `Response` auquel il est attaché.
 
 ```php
@@ -108,7 +108,7 @@ qui est ensuite utilisée, [comme dans l'exemple](https://github.com/jaxon-php/j
 ```php
     public function drawGraph()
     {
-        $flot = $this->response->plugin(FlotPlugin::class);
+        $flot = $this->response()->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
         $plot = $flot->plot('#flot')->width('450px')->height('300px');
         // Fill the graph

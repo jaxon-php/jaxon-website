@@ -142,7 +142,7 @@ The corresponding database credentials are defined in the `.env.dbadmin` file, a
 <script src="https://gist.github.com/feuzeu/65e009ae8f635f9d56c4b57b14004d62.js"></script>
 
 The installation of `Jaxon DbAdmin` on `Backpack` has now been completed.
-The `admin@company.com` user, once he logs in, can now browse the databases in any of the four configured servers just by choosing one in a dropdown list, in multiple tabs, without entering any database credentials.
+The `admin@company.com` user, once he logs in, can now browse the databases in any of the four configured servers just by choosing one in a dropdown list, in multiple tabs, without entering any database credential.
 
 [![Jaxon DbAdmin database page](./dbadmin-backpack-tabler-theme.png)](./dbadmin-backpack-tabler-theme.png)
 

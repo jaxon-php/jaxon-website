@@ -19,6 +19,15 @@ New [templating](../../ui-features/templates.html) features are added to attach 
 
 In addition to the templates, the PHP and Javascript api of [the `request factory`](../../ui-features/call-factories.html), which generates calls to Javascript (or jQuery) functions and selectors and set them as events handlers to them, has been greatly improved.
 
+### Using attributes in Jaxon classes
+
+The [jaxon-annotations](https://github.com/jaxon-php/jaxon-annotations) package currently allows the implementation of some features in Jaxon classes using annotations, like `@upload`.
+
+The new [jaxon-attributes](https://github.com/jaxon-php/jaxon-attributes) package provides the same features, but with attributes.
+
+Only one of these two packages can be used in a Jaxon application.
+If a choice must be made, attributes should be preferred, as they represent a more modern approach for PHP applications.
+
 ### Commands rewrite
 
 The names and formats of the commands that are embedded in `Response`objects have been changed.
@@ -29,30 +38,18 @@ Modern frontend tools provide better alternatives to these functions.
 
 ### The `Response` class
 
-The [`Response` class](../../requests/responses.html) does not store the commands anymore, and its instances now act as proxies to a command manager object.
+The [`Response` class](../../requests/responses.html) does not store the commands anymore, and its instances now act as proxies to a command manager object, where they are stored.
 As a consequence, the functions of the Jaxon classes do not need to return a `Response` object anymore.
 
 The syntax of the `confirm()` function of the `Response` class was also changed.
 
-### The configuration manager
+### New packages
 
-A [new package](https://github.com/jaxon-php/jaxon-config) was created to implement the configuration options management, which are now stored in immutable objects.
+Two new packages were created to implement [configuration options](https://github.com/jaxon-php/jaxon-config) management and [file storage](https://github.com/jaxon-php/jaxon-storage).
 
-### Upload with iframe
+The [jaxon-config](https://github.com/jaxon-php/jaxon-config) stores configuration options in immutable objects.
 
-This feature, which allowed Ajax upload in browsers that do not natively support the feature, was removed.
-
-### Using attributes in Jaxon classes (under development)
-
-The [jaxon-annotations](https://github.com/jaxon-php/jaxon-annotations) package currently allows the implementation of some features in Jaxon classes using annotations, like `@upload`.
-
-The [jaxon-attributes](https://github.com/jaxon-php/jaxon-attributes) package provides the same features, but with attributes.
-However, it is still under active development.
-
-### Development in monorepo
-
-The Jaxon library is now [developed in a monorepo](https://github.com/jaxon-php/jaxon-mono).
-The repositories of all the packages included in that monorepo are now only accessible for reading.
+The files are stored using the [Flysystem package](https://flysystem.thephpleague.com), and the [jaxon-storage package](https://github.com/jaxon-php/jaxon-storage) provides functions to configure and access them.
 
 ### Javascript code rewrite
 
@@ -71,3 +68,12 @@ The Jaxon library currently makes use of certains `jQuery`-specific functions, s
 For those who don't want to use `jQuery`, it is now possible to use a more lightweigth alternative instead.
 
 Currently, the [Chibi.js library](https://github.com/kylebarrow/chibi) is supported, and other libraries may be added in the future.
+
+### Upload with iframe
+
+This feature, which allowed Ajax upload in browsers that do not natively support the feature, was removed.
+
+### Development in monorepo
+
+The Jaxon library is now [developed in a monorepo](https://github.com/jaxon-php/jaxon-mono).
+The repositories of all the packages included in that monorepo are now only accessible for reading.

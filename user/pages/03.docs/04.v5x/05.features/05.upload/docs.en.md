@@ -4,9 +4,9 @@ menu: File upload
 template: jaxon
 ---
 
-A call to a class or a function can also transfer one or many files from the browser to the application, and save them into a configured directory.
+An HTTP Ajax request to a jaxon class or a function can also transfer one or many files from the browser to the application, and save them into a configured directory.
 
-The Jaxon upload function uses the javascript `FormData` object to encapsulate the uploaded files, as well as the other parameters of the Jaxon call, into an HTTP Ajax request.
+The Jaxon upload function uses the javascript `FormData` object to encapsulate the uploaded files, as well as the other parameters of the Jaxon call, into the request.
 
 #### Installation
 
@@ -15,7 +15,15 @@ The upload feature is provided in a [separate package](https://github.com/jaxon-
 The feature is also disabled by default, and must be enabled in the configuration.
 
 ```php
-$jaxon->setOption('core.upload.enabled', true);
+$jaxon->setAppOption('upload.enabled', true);
+```
+
+```php
+    'app' => [
+        'upload' => [
+            'enabled' => true,
+        ],
+    ],
 ```
 
 #### How it works
@@ -32,7 +40,7 @@ Multiple files upload is supported.
 
 ```html
 <form>
-    <input type="file" id="html_file_input_id" name="example_files[]" multiple="multiple" />
+    <input type="file" id="html_file_input_id" name="html_file_input_id[]" multiple="multiple" />
 </form>
 ```
 
@@ -64,7 +72,19 @@ $jaxon->register(Jaxon::CALLABLE_DIR, '/the/class/dir', [
 ]);
 ```
 
-This configuration can also be done using an annotation, directly in the class.
+This configuration can also be done using an attribute or an annotation, directly in the class.
+
+```php
+use Jaxon\Attributes\Attribute\Upload;
+
+class Upload
+{
+    #[Upload('html_file_input_id')]
+    public function saveFile()
+    {
+    }
+}
+```
 
 ```php
 class Upload
@@ -81,11 +101,11 @@ class Upload
 At the end, the uploaded files are available in the Jaxon class method.
 
 ```php
+use Jaxon\Attributes\Attribute\Upload;
+
 class Upload
 {
-    /**
-     * @upload html_file_input_id
-     */
+    #[Upload('html_file_input_id')]
     public function saveFile()
     {
         $response = jaxon()->newResponse();
@@ -97,11 +117,12 @@ class Upload
 ```
 
 ```php
-class Upload extends JaxonCallable
+use Jaxon\App\FuncComponent;
+use Jaxon\Attributes\Attribute\Upload;
+
+class Upload extends FuncComponent
 {
-    /**
-     * @upload html_file_input_id
-     */
+    #[Upload('html_file_input_id')]
     public function saveFile()
     {
         // Get uploaded files
@@ -110,7 +131,7 @@ class Upload extends JaxonCallable
 }
 ```
 
-The call to `jaxon()->upload()->files()` returns an array where the key is the `name` attribute of the `input` field, and the value is an array of objects of class [`Jaxon\Request\Upload\FileInterface`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Upload/FileInterface.php), each representing an uploaded file.
+The call to `$this->files()` or `jaxon()->upload()->files()` returns an array where the key is the `name` attribute of the `input` field, and the value is an array of objects of class [`Jaxon\Request\Upload\FileInterface`](https://github.com/jaxon-php/jaxon-core/blob/master/src/Request/Upload/FileInterface.php), each representing an uploaded file.
 
 #### Configuration
 
@@ -118,6 +139,17 @@ The configuration options of the upload feature define the directory where the u
 The matching conditions are related to their type, extension and size.
 
 The options that apply to all uploaded files are defined in the `upload.default` section.
+
+```php
+    'app' => [
+        'upload' => [
+            'enabled' => true,
+            'default' => [
+                // The default options.
+            ],
+        ],
+    ],
+```
 
 - `upload.default.dir`: the directory where the files are saved.
 - `upload.default.types`: an array of accepted mime types.
@@ -128,23 +160,70 @@ The options that apply to all uploaded files are defined in the `upload.default`
 The directory defined by `upload.default.dir` option must exist and be writable.
 The other options are not checked if they are undefined.
 
-Options can also be defined that apply only to a specific file. In this case, the `default` string in the option name is replaced by the `name` attribute of the `input` field of the uploaded file, prepended with `files.`.
+The options to be applied only to a specific file are defined in the `files.` section, with the `id` of the uploaded file `input` field as identifier.
 
-In the previous example, the `upload.files.example_files.dir` option defines a different directory.
+```php
+    'app' => [
+        'upload' => [
+            'enabled' => true,
+            'files' => [
+                'html_file_input_id' => [
+                    // The "html_file_input_id" options.
+                ],
+            ],
+        ],
+    ],
+```
 
-#### Saving files
+#### Saving the uploaded files
 
-Starting from version 4, the uploaded files can be saved not only on the local disk, which is the default option, but also on various other storage systems, thanks to the [Flysystem package](https://flysystem.thephpleague.com).
+Starting from version 4, the uploaded files can be saved not only on the local disk, which is the default option, but also on various other storage systems, thanks to the [jaxon-storage](https://github.com/jaxon-php/jaxon-storage) and the [Flysystem](https://flysystem.thephpleague.com) packages.
 
-The uploaded files can be saved on the following file storage systems.
-- AWS S3
-- Async AWS S3
-- Google Cloud
-- Microsoft Azure
-- FTP
-- SFTP V2
-- SFTP V3
+By default, the uploaded files are saved on the local disk, in the directories specified in the configuration.
 
-For each of these systems, a specific adapter package must be installed, and the connection parameters must be specified in the Jaxon configuration.
+However, it is also possible to save them on any type of storage supported by the [Flysystem](https://flysystem.thephpleague.com) library.
+For each of these types of storage, a specific adapter package must be installed.
+See the **Official adapters** section of the [Flysystem documentation](https://flysystem.thephpleague.com/docs/) for more information.
 
-See the [jaxon-upload](https://github.com/jaxon-php/jaxon-upload) package documentation and the **Official adapters** section of the [Flysystem documentation](https://flysystem.thephpleague.com/docs/) for more information.
+The [jaxon-storage](https://github.com/jaxon-php/jaxon-storage) package provides a function to register an adapter for a storage type.
+For example, the `league/flysystem-ftp` package provides support for `FTP` storage.
+
+```php
+use League\Flysystem\Ftp\FtpAdapter;
+use League\Flysystem\Ftp\FtpConnectionOptions;
+use function Jaxon\Storage\storage;
+
+storage()->register('ftp', function(string $sRootDir, array $aOptions) {
+    $aOptions['root'] = $sRootDir;
+    $xOptions = FtpConnectionOptions::fromArray($aOptions);
+    return new FtpAdapter($xOptions);
+});
+```
+
+This storage can then be used to save the uploaded files.
+
+```php
+    'app' => [
+        'storage' => [
+            'adapters' => [
+                'ftp' => [], // These options are passed to the adapter closure
+            ]
+            'stores' => [
+                'ftp_store' => [
+                    'adapter' => 'ftp',
+                    'dir' => '/path/to/uploads/storage',
+                    // 'options' => [], // Optional
+                ],
+            ],
+        ],
+        'upload' => [
+            'enabled' => true,
+            'files' => [
+                'html_file_input_id' => [
+                    'storage' => 'ftp_store',
+                    // The "html_file_input_id" options.
+                ],
+            ],
+        ],
+    ],
+```

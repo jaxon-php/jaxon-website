@@ -95,7 +95,7 @@ The callback takes a `Jaxon\Response\Response` object as parameter, and the comm
 ```php
 public function doThis()
 {
-    $this->response->confirm(function($response) {
+    $this->response()->confirm(function($response) {
         $response->style('element-id', 'color', 'blue');
     }, 'Set the element color to blue?');
 }

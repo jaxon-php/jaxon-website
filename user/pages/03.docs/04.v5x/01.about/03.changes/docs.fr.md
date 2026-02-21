@@ -19,6 +19,15 @@ De nouvelles fonctions de [templating](../../ui-features/templates.html) ont ét
 
 En plus des templates, l'api PHP et Javascript de [la `request factory`](../../ui-features/call-factories.html), qui génère les appels à des fonctions et sélecteurs Javascript (ou jQuery) et les associe à des évènements dans la page web, a été grandement améliorée.
 
+### Les attributs dans les classes Jaxon
+
+Le package [jaxon-annotations](https://github.com/jaxon-php/jaxon-annotations) permet actuellement d'utiliser certaines fonctions dans les classes Jaxon à l'aide d'annotations, telle que `@upload`.
+
+Le nouveau package [jaxon-attributes](https://github.com/jaxon-php/jaxon-attributes) fournit les mêmes fonctions, mais en utilisant les attributs.
+
+Un seul de ces deux packages peut être utilisé dans une application Jaxon.
+En cas de choix, il faudrait préférer les attributs, car ils sont une technique plus moderne pour une application PHP.
+
 ### Re-écriture des commandes
 
 Les noms et les formats des commandes contenues dans les objets `Response` ont été modifiés.
@@ -29,30 +38,18 @@ Les outils de frontend modernes sont de meilleures alternatives à ces fonctions
 
 ### La classe `Response`
 
-La [classe `Response`](../../requests/responses.html) ne stocke plus les commandes, et ses instances servent désormais de proxy à un objet gestionnaire de commandes.
+La [classe `Response`](../../requests/responses.html) ne stocke plus les commandes, et ses instances servent désormais de proxy à un objet gestionnaire de commandes, où elles sont stockées.
 Par conséquent, les fonctions des classes Jaxon ne sont plus tenues de renvoyer un objet `Response`.
 
 La syntaxe de la fonction `confirm()` de la classe `Response` a également été modifiée.
 
-### La gestion de la configuration
+### Nouveaux packages
 
-Un [nouveau package](https://github.com/jaxon-php/jaxon-config) a été créé pour gérer les options de configuration, qui sont désormais stockés dans des objets immutables.
+Deux nouveaux packages ont été créés pour gérer les [options de configuration](https://github.com/jaxon-php/jaxon-config), et le [stockage de fichiers](https://github.com/jaxon-php/jaxon-storage).
 
-### Upload avec iframe
+Le package [jaxon-config](https://github.com/jaxon-php/jaxon-config) stocke les options de configuration dans des objets immutables.
 
-Cette fonction, qui permettait l'upload en Ajax dans les navigateurs qui ne le supportent pas nativement, a été supprimée.
-
-### Les attributs dans les classes Jaxon (en cours de développement)
-
-Le package [jaxon-annotations](https://github.com/jaxon-php/jaxon-annotations) permet actuellement d'utiliser certaines fonctions dans les classes Jaxon à l'aide d'annotations, telle que `@upload`.
-
-Le package [jaxon-attributes](https://github.com/jaxon-php/jaxon-attributes) fournit les mêmes fonctions, mais en utilisant les attributs.
-Cependant, il est encore en cours de développement.
-
-### Développement en monorepo
-
-La librairie Jaxon est désormais [développée dans un monorepo](https://github.com/jaxon-php/jaxon-mono).
-Les dépôts de tous les packages présents dans ce monorepo sont donc désormais accessibles uniquement en lecture.
+Les fichiers sont stockés à l'aide du [package Flysystem](https://flysystem.thephpleague.com), et le package [jaxon-storage](https://github.com/jaxon-php/jaxon-storage) fournit des fonctions pour les configurer et y accéder.
 
 ### Re-écriture du code Javascript
 
@@ -71,3 +68,12 @@ La librairie Jaxon utilise certaines fonctions spécifiques à `jQuery`, comme l
 Pour ceux qui ne souhaitent pas utiliser `jQuery`, il est possible de prendre à la place une alternative plus lègère.
 
 Actuellement, la [librairie Chibi.js](https://github.com/kylebarrow/chibi) est supportée, et il est possible que d'autres le soient à l'avenir.
+
+### Upload avec iframe
+
+Cette fonction, qui permettait l'upload en Ajax dans les navigateurs qui ne le supportent pas nativement, a été supprimée.
+
+### Développement en monorepo
+
+La librairie Jaxon est désormais [développée dans un monorepo](https://github.com/jaxon-php/jaxon-mono).
+Les dépôts de tous les packages présents dans ce monorepo sont donc désormais accessibles uniquement en lecture.

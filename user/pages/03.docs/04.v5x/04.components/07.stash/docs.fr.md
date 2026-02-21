@@ -75,4 +75,4 @@ class SecondClass extends \Jaxon\App\FuncComponent
 }
 ```
 
-L'annotation `@before` définit une méthode à appeler avant celle ciblée par la requête ajax.
+> Note: L'annotation `@before` définit une méthode à appeler avant celle ciblée par la requête ajax.

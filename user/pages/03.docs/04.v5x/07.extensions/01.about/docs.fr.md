@@ -6,13 +6,14 @@ template: jaxon
 
 L'architecture de la librairie Jaxon est modulaire.
 Plusieurs de ses fonctions sont conçues sous forme d'extensions qui se greffent au coeur de la librairie.
-C'est par exemple le cas des fonctions de déclaration des classes et des fonctions à exporter, ou encore des databags et de la pagination.
+C'est par exemple le cas des fonctions de déclaration des classes et des fonctions à exporter, ou encore des databags.
 
 Les fonctions de la librairie peuvent dont être enrichies avec plusieurs types d'extensions.
 
 Les [plugins de réponse](../response.html) sont les plus communs. Ils ajoutent de nouvelles fonctionnalités à l'objet `Response`, et fournissent des fonctions avancées d'UI, telles que les dialogues ou l'upload.
 
-Les [plugins de requête](../request.html) sont moins fréquents. Ils ajoutent à la librairie de nouveaux types d'objets à enregistrer, en plus des classes et des fonctions, ils génèrent le code Javascript correspondant, et traitent les requêtes Ajax vers ces objets.
+Les [plugins de requête](../request.html) sont moins fréquents. Ils ajoutent à la librairie de nouveaux types d'objets à enregistrer, en plus des classes et des fonctions.
+Ils génèrent ensuite le code Javascript correspondant, et traitent les requêtes Ajax vers ces objets.
 
 Les [extensions de vues](../views.html) connectent les moteurs de templates à l'API d'affichage des vues de Jaxon.
 
@@ -22,79 +23,27 @@ Les [extensions d'intégration](../../integrations/about.html) n'enrichissent pa
 
 Les [packages](../packages.html) sont des modules logiciels complets qui implémentent les fonctions backend et frontend d'une solution. Ils sont destinés à être intégrés dans une page d'une application PHP existante.
 
-#### Les interfaces communes aux plugins
+#### Les interfaces des extensions
 
-Chaque type d'extension doit implémenter certaines interfaces spécifiques.
-Deux interfaces cependant sont communes à plusieurs types d'extensions.
+La librairie Jaxon définit plusieurs interfaces que les classes des extentions doivent implémenter, selon les fonctions qu'elles fournissent.
 
-L'interface `Jaxon\Plugin\PluginInterface` est obligatoire pour les plugins de requête et les plugins de réponse.
-Elle définit un nom pour le plugin.
+L'interface `Jaxon\Plugin\PluginInterface` est commune aux plugins de réponse et de requête.
 
-```php
-namespace Jaxon\Plugin;
+Les plugins de réponse doivent en plus implémenter l'interface `Jaxon\Plugin\ResponsePluginInterface`.
+Ces interfaces sont regroupées dans la classe abstraite `Jaxon\Plugin\AbstractResponsePlugin`.
 
-interface PluginInterface
-{
-    /**
-     * Get a unique name to identify the plugin.
-     *
-     * @return string
-     */
-    public function getName(): string;
-}
-```
+Les plugins de requête doivent implémenter l'interface `Jaxon\Plugin\CallableRegistryInterface` lorsqu'ils doivent déclarer des classes qui peuvent être appelées dans une requête Ajax, et `RequestHandlerInterface` lorsqu'ils peuvent traiter une requête.
+Ces interfaces sont regroupées dans la classe abstraite `Jaxon\Plugin\AbstractRequestPlugin`.
 
-L'interface `Jaxon\Plugin\CodeGeneratorInterface` peut être implémentée par toute extension qui doit ajouter du code Javascript ou CSS à l'application.
-Elle définit les fonctions qui génèrent ces codes.
+Les extensions de vues doivent implémenter l'interface `Jaxon\App\View\ViewInterface`.
+Les packages doivent hériter de la classe abstraite `Jaxon\Plugin\AbstractPackage`, mais n'ont aucune interface à implémenter.
 
-```php
-namespace Jaxon\Plugin;
+### Les interfaces de generation de code
 
-use Jaxon\Plugin\Code\JsCode;
+Indépendamment des interfaces des extensions, la librairie fournit des interfaces spécifiques pour les extensions qui génèrent du code Javascript ou CSS.
+Ce sont les interfaces `Jaxon\Plugin\JsCodeGeneratorInterface` et `Jaxon\Plugin\CssCodeGeneratorInterface`.
 
-interface CodeGeneratorInterface
-{
-    /**
-     * Get the value to be hashed
-     *
-     * @return string
-     */
-    public function getHash(): string;
+En plus de la fonction `getHash()`, chacune définit une fonction `getJsCode()` ou `getCssCode()`, qui doit renvoyer un objet `Jaxon\Plugin\JsCode` ou `Jaxon\Plugin\CssCode`.
+L'implémentation des fonctions de génération de code consistera donc à créer une instance de l'une de ces classes et remplir ses propriétés avec le code de l'extension.
 
-    /**
-     * Get the HTML tags to include CSS code and files into the page
-     *
-     * The code must be enclosed in the appropriate HTML tags.
-     *
-     * @return string
-     */
-    public function getCss(): string;
-
-    /**
-     * Get the HTML tags to include javascript code and files into the page
-     *
-     * The code must be enclosed in the appropriate HTML tags.
-     *
-     * @return string
-     */
-    public function getJs(): string;
-
-    /**
-     * Get the javascript code to include into the page
-     *
-     * The code must NOT be enclosed in HTML tags.
-     *
-     * @return string
-     */
-    public function getScript(): string;
-
-    /**
-     * Get the javascript codes to include into the page
-     *
-     * The code must NOT be enclosed in HTML tags.
-     *
-     * @return JsCode|null
-     */
-    public function getJsCode(): ?JsCode;
-}
-```
+> Note: l'interface `Jaxon\Plugin\CodeGeneratorInterface` est dépréciée.

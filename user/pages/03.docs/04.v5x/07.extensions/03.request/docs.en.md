@@ -10,7 +10,7 @@ When an object of the defined type is declared in the library, the request plugi
 #### Create a request plugin
 
 Like all others, a request plugin must first implement the `Jaxon\Plugin\PluginInterface` interface.
-If it generates code, it must also implement the `Jaxon\Plugin\CodeGeneratorInterface` interface.
+If it generates code, it can also implement the `Jaxon\Plugin\CodeGeneratorInterface` or `Jaxon\Plugin\CodeGeneratorInterface` interface.
 
 It must then implement at least one of the following two interfaces.
 The `Jaxon\Plugin\CallableRegistryInterface` interface, which defines functions for declaring objects to be called in Jaxon requests, or the `Jaxon\Plugin\RequestHandlerInterface` interface, which defines functions for handling Jaxon requests.

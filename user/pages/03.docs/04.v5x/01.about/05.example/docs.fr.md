@@ -8,7 +8,7 @@ Pour montrer comment fonctionne la librairie Jaxon, nous présentons ici un exem
 
 Ce composant fait partie des [exemples de Jaxon](https://github.com/jaxon-php/jaxon-examples), et vous pouvez donc le voir fonctionner en installant ce package.
 
-La mise en oeuvre de cette calculatrice nécessite deux [composants d'UI](../../components/node-components.html), l'un pour afficher l'écran de la calculatrice, l'autre pour afficher le résultat de l'opération, et un [composant fonctionnel](../../components/func-components.html), qui effectuera le calcul.
+La mise en oeuvre de cette calculatrice nécessite deux [composants d'UI](../../components/types.html), l'un pour afficher l'écran de la calculatrice, l'autre pour afficher le résultat de l'opération, et un [composant fonctionnel](../../components/func-components.html), qui effectuera le calcul.
 
 En voici une capture d'écran, avec les deux composants d'UI en évidence.
 
@@ -16,7 +16,7 @@ En voici une capture d'écran, avec les deux composants d'UI en évidence.
 
 ### Le composant principal
 
-C'est un [composant d'UI](../../components/node-components.html), qui affiche l'écran de la calculatrice.
+C'est un [composant d'UI](../../components/types.html), qui affiche l'écran de la calculatrice.
 Il va également servir de point d'entrée pour insérer la calculatrice dans une page web.
 
 
@@ -39,20 +39,21 @@ Dans le template `calculator::wrapper`, des handlers sont attachés aux boutons 
 
 ```php
 <?php
+use Jaxon\attr;
+use Jaxon\input;
+use Jaxon\rq;
+use Jaxon\select;
+
 // Get the components
 $rqCalc = rq(App\Calculator\Calc::class);
 $rqCalcFunc = rq(App\Calculator\CalcFunc::class);
 $rqResult = rq(App\Calculator\Result::class);
-// Get the values in the HTML fields.
-$operator = je('operator')->rd()->select();
-$operandA = je('operand-a')->rd()->input();
-$operandB = je('operand-b')->rd()->input();
 ?>
 <form>
     <div class="row mb-3">
         <div class="col-md-4">
-            <button type="button" class="btn btn-primary w-100"
-                <?= attr()->click($rqCalc->render()) ?>>Clear</button>
+            <button type="button" class="btn btn-primary w-100" <?= attr()
+                ->click($rqCalc->render()) ?>>Clear</button>
         </div>
         <div class="col-md-8">
             <input type="text" class="form-control" id="operand-a" />
@@ -73,8 +74,8 @@ $operandB = je('operand-b')->rd()->input();
     </div>
     <div class="row mb-3">
         <div class="col-md-4">
-            <button type="button" class="btn btn-primary w-100"
-                <?= attr()->click($rqCalcFunc->calculate($operator, $operandA, $operandB)) ?>>=</button>
+            <button type="button" class="btn btn-primary w-100" <?= attr()
+                ->click($rqCalcFunc->calculate(select('operator'), input('operand-a'), input('operand-b'))) ?>>=</button>
         </div>
         <div class="col-md-8" <?= attr()->bind($rqResult) ?>>
         </div>

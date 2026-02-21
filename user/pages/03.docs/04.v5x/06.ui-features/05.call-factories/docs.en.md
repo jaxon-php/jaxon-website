@@ -19,11 +19,10 @@ The global function `rq()` creates a `call factory` for the exported class whose
 A call to this factory generates the code for the same call in Javascript, which can then be used in a template, for example, to define an event handler.
 
 ```php
-<button type="button" <?= attr()
-    ->click(rq(FuncComponent::class)->doThat()) ?>>Click me</button>
+<button type="button" <?= attr()->click(rq(FuncComponent::class)->doThat()) ?>>Click me</button>
 ```
 
-Without parameters, the `rq()` function returns a `call factory` to create calls to exported functions.
+Without any parameter, the `rq()` function returns a `call factory` to create calls to exported functions.
 
 ```php
 <button type="button" <?= attr()->click(rq()->hello_world()) ?>>Click me</button>
@@ -53,18 +52,37 @@ class FuncComponent
 <button type="button" <?= attr()->click($this->clickHandler) ?>>Click me</button>
 ```
 
+In the [Response](../../features/responses.html) object, the `rq()` method adds the call to the list of commands to be executed in the browser.
+
+```php
+class FuncComponent
+{
+    public function doThis()
+    {
+        // Make an ajax call to the doThat() method.
+        $this->response()->rq(FuncComponent::class)->doThat();
+    }
+
+    public function doThat()
+    {
+        // Do something
+    }
+}
+```
+
+> Note: Called without parameter, the `rq()` method of the `Response` object returns a `call factory` for exported functions, and not for the current class.
+
 The `rq()` function and `rq()` method automatically add the configured prefix for exported classes or functions to the generated Javascript code.
 
 #### Javascript functions
 
-The global `jo()` function creates a `call factory` for a Javascript object, which must already exist in the client-side application.
+The `jo()` global function creates a `call factory` for a Javascript object, which must already exist in the client-side application.
 
 A call to this factory generates the code to call the same function in Javascript, which can then be used in a template, for example, to define an event handler.
 
 ```php
 // Call the Javascript Example.Embedded.doSomething() function.
-<button type="button" <?= attr()
-    ->click(jo('Example.Embedded')->doSomething()) ?>>Click me</button>
+<button type="button" <?= attr()->click(jo('Example.Embedded')->doSomething()) ?>>Click me</button>
 ```
 
 Called without parameters, the `jo()` function returns a `call factory` to the Javascript `window` object.
@@ -72,16 +90,14 @@ It can therefore be used to generate calls to Javascript global functions, or to
 
 ```php
 // Call the Javascript alert() function.
-<button type="button" <?= attr()
-    ->click(jo()->alert('Button clicked!!')) ?>>Click me</button>
+<button type="button" <?= attr()->click(jo()->alert('Button clicked!!')) ?>>Click me</button>
 ```
 
 This `call factory` can receive calls to its properties, which can even be chained.
 
 ```php
 // Javascript console.log()
-<button type="button" <?= attr()
-    ->click(jo()->console->log('Button clicked!!')) ?>>Click me</button>
+<button type="button" <?= attr()->click(jo()->console->log('Button clicked!!')) ?>>Click me</button>
 // Same as jo('console')->log('Button clicked!!')
 ```
 
@@ -92,7 +108,7 @@ class FuncComponent
 {
     public function doThat()
     {
-        $this->response->jo('Example.Embedded')->doSomething();
+        $this->response()->jo('Example.Embedded')->doSomething();
     }
 }
 ```
@@ -110,7 +126,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->jq('#button-id')
+        $this->response()->jq('#button-id')
             ->click($this->rq()->doThat(jq('#button-id')->attr('data-label')));
     }
 
@@ -129,7 +145,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->jq('#button-id')
+        $this->response()->jq('#button-id')
             ->click($this->rq()->doThat(jq()->attr('data-label')));
     }
 
@@ -151,7 +167,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->je('button-id')->addEventListener('click',
+        $this->response()->je('button-id')->addEventListener('click',
             $this->rq()->doThat(je('button-id')->getAttribute('data-label')));
     }
 
@@ -170,7 +186,7 @@ class FuncComponent
 {
     public function show()
     {
-        $this->response->je('button-id')->addEventListener('click',
+        $this->response()->je('button-id')->addEventListener('click',
             $this->rq()->doThat(je()->getAttribute('data-label')));
     }
 
@@ -191,6 +207,15 @@ The `call factory` created by the global `je()` function also provides helpers f
 - `je($sElementId)->rd()->select()`: returns the value of the combobox with the given id.
 - `je($sElementId)->rd()->html()`: returns the text of the HTML element with the given id.
 - `je()->rd()->page()`: returns the current page number.
+
+The same helpers are also available as globals functions, in the `Jaxon\` namespace.
+
+- `Jaxon\form($sElementId)`: same as `je($sElementId)->rd()->form()`;
+- `Jaxon\input($sElementId)`: same as `je($sElementId)->rd()->input()`;
+- `Jaxon\checked($sElementId)`: same as `je($sElementId)->rd()->checked()`;
+- `Jaxon\select($sElementId)`: same as `je($sElementId)->rd()->select()`;
+- `Jaxon\html($sElementId)`: same as `je($sElementId)->rd()->html()`;
+- `Jaxon\page()`: same as `je()->rd()->page()`;
 
 #### Conditional calls
 
