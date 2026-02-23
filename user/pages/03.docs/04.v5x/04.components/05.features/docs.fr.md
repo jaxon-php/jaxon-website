@@ -6,9 +6,9 @@ template: jaxon
 
 Les [classes de base des composants Jaxon](../types.html) fournissent un large ensemble de fonctions, comprenant [les vues](../../ui-features/views.html), [les sessions](../../features/sessions.html), [l'upload de fichier](../../features/upload.html), [les logs](../../features/logging.html), le partage de données (avec [databags](../databags.html) et [stash](../stash.html)).
 
-En plus de celles ci-dessus, les autres fonctions des composants sont décrites ci-dessous.
+Les autres fonctions des composants sont décrites ci-dessous.
 
-#### Appeler un autre composant
+### Appeler un autre composant
 
 La méthode `cl()` retourne une instance d'un autre composant. Elle prend en paramètre le nom complet de la classe, avec le namespace.
 
@@ -23,7 +23,7 @@ class ComponentA extends \Jaxon\App\FuncComponent
 }
 ```
 
-#### L'objet `Response`
+### L'objet `Response`
 
 Toutes les composants ont accès à un même objet `Response` avec leur attribut `response`, qui est automatiquement initialisé par la librairie.
 
@@ -58,13 +58,13 @@ class ComponentB extends \Jaxon\App\FuncComponent
 }
 ```
 
-#### L'objet `NodeResponse`
+### L'objet `NodeResponse`
 
 La classe `Jaxon\App\NodeComponent` possède une méthode `node()` qui retourne une réponse spéciale, qui est liée au noeud attaché.
 
 Les [fonctions de manipulation du contenu et du style](../../features/responses.html) de cet objet ne possèdent plus le paramètre `string $sTarget`, car elles vont agir uniquement sur le noeud attaché.
 
-#### La fabrique de requête
+### La fabrique de requête
 
 La méthode `rq()` renvoie une requête vers le composant qui l'appelle.
 Elle fournit une interface fluide qui transforme un appel d'une de ses méthodes en requête vers cette méthode, et qui peut être associée à des évènements sur des élements de la page web.
@@ -85,7 +85,7 @@ class ComponentA extends \Jaxon\App\FuncComponent
 
 La [fabrique de requête](../../ui-features/call-factories.html) sera souvent utilisée dans les templates pour définir les [gestionnaires d'évènements](../../ui-features/templates.html).
 
-#### Données du composant
+### Données du composant
 
 Le trait `Jaxon\App\ComponentDataTrait` ajoute un tableau de données dans un composant.
 Il fournit les méthodes `set(string $sKey, mixed $xValue): static`, `has(string $sKey): bool` et `get(string $sKey, mixed $xDefault = null): mixed`, pour resp. enregistrer, vérifier ou lire les données associées à une clé dans le tableau.
@@ -98,7 +98,7 @@ $this->cl(UiComponent::class)->set('value', $value)->render();
 
 Il sera donc utilisé comme alternative au [stash](../stash.html), pour des données locales à un composant.
 
-#### Extension du composant
+### Extension du composant
 
 La méthode `protected function setupComponent(): void` permet à l'application de personnaliser le composant.
 Elle est appelée une seule fois, juste après la création du composant.
@@ -111,7 +111,7 @@ La méthode `extend()` sera bien souvent appelée dans la méthode `setupCompone
 
 Dans les composants de pagination, l'extension de l'attribut `item` sera automatiquement appliquée également au composant des liens.
 
-#### Duplication de composants
+### Duplication de composants
 
 Un même composant peut être affiché plusieurs fois dans la même page.
 Il faut alors donner à chaque instance du composant un identifiant différent, qui sera ensuite utilisé pour les distinguer.
@@ -135,7 +135,7 @@ class FuncComponent extends \Jaxon\App\FuncComponent
 }
 ```
 
-#### Helpers pour les fenêtres et alertes
+### Helpers pour les fenêtres et alertes
 
 Le trait `Jaxon\App\Dialog\DialogTrait` founit les méthodes `alert()` et `dialog()` qui affichent [les dialogues et les messages](../../ui-features/dialogs.html) dans la page.
 

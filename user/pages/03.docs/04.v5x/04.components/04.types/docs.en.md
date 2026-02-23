@@ -6,31 +6,31 @@ template: jaxon
 
 A component in the Jaxon library is a class that can process Ajax requests received by the application and return a response, or display HTML content in a portion of the page.
 
-A component will very often (but not always) be [exported from PHP to JavaScript](../../registrations/namespaces.html).
-A JavaScript object is then created and inserted into the page, and a call to a function of this object in the browser automatically executes the same function in the PHP component on the server.
+A component will very often (but not always) be [exported from PHP to Javascript](../../registrations/namespaces.html).
+A Javascript object is then created and inserted into the page, and a call to a function of this object in the browser automatically executes the same function in the PHP component on the server.
 
 Three types of components can be defined in a Jaxon application:
 - Functional components, which only provide functions for processing Ajax requests;
 - UI components, which can also be attached to a DOM node and display its content;
 - The pagination components, which display paginated content and pagination links.
 
-The different types of components are described in more detail in the following sections, and their functions are presented [on this page](../../features.html).
+The different types of components are described in more detail in the following sections, and their functions are presented [on this page](../features.html).
 
 ### Functional components
 
 Functional components were called [Callable classes](../../../v4x/features/classes.html) in the previous versions of Jaxon.
+It is a class whose public functions are exported in Javascript, and can therefore be called from the browser, in an Ajax request.
 
-When a functional component is exported as JavaScript, its public functions can be called from a browser within an Ajax request.
-Several other components can then be called sequentially to process the Ajax request.
+To process an Ajax request, several components can be called one after the other.
 Each of these components can then execute functions and [add actions to a response](../../features/responses.html), thus defining the operations to be performed on the page in response to the request.
 
-Functional components inherit from the `Jaxon\App\FuncComponent` class, which provides them with a [set of functions](../../features.html).
+Functional components inherit from the `Jaxon\App\FuncComponent` class, which provides them with a [set of functions](../features.html).
 
 ### UI components
 
 UI components are a new addition in Jaxon version 5.
 
-They have the same functions as [functional components](../func-components.html), but in addition they can be attached to a DOM node.
+They have the same functions as functional components, but in addition they can be attached to a DOM node.
 They will then be used to manage the content of this node.
 
 ```php
@@ -210,7 +210,7 @@ class PageComponent extends \Jaxon\App\PageComponent
         return 45;
     }
 
-    public function html():  string
+    public function html(): string
     {
         return '<div>Content of page number ' . $this->currentPage() . '</div>';
     }

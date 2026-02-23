@@ -14,17 +14,17 @@ Trois types de composants peuvent être définis dans une application Jaxon.
 - Les composants d'UI, qui peuvent en plus être attachés à un noeud du DOM et afficher son contenu,
 - Les composants de pagination, qui affichent du contenu paginé et les liens de pagination.
 
-Les différents types de composants sont décrits plus en détail dans les sections suivantes, et leurs fonctions sont présentées [dans cette page](../../features.html).
+Les différents types de composants sont décrits plus en détail dans les sections suivantes, et leurs fonctions sont présentées [dans cette page](../features.html).
 
 ### Les composants fonctionnels
 
 Les composants fonctionnels étaient appelées les [Callable classes](../../../v4x/features/classes.html) dans les versions précédentes de Jaxon.
+C'est une classe dont des fonctions publiques sont exportées en Javascript, et peuvent donc être appelées depuis le navigateur, dans une requête Ajax.
 
-Lorqu'un composant fonctionnel est exporté en javascript, ses fonctions publiques peuvent être appelées depuis un navigateur, dans une requête Ajax.
-Plusieurs autres composants peuvent ensuite être appelés les uns après les autres, pour traiter la requête Ajax.
+Pour traiter une requête Ajax, plusieurs composants peuvent être appelés les uns après les autres.
 Chacun d'eux peut alors exécuter des fonctions et [ajouter des actions dans une réponse](../../features/responses.html), définissant ainsi les opérations à effectuer dans la page en réponse à la requête.
 
-Un composant fonctionnel hérite de la classe `Jaxon\App\FuncComponent`, qui lui fournit un [ensemble de fonctions](../../features.html).
+Un composant fonctionnel hérite de la classe `Jaxon\App\FuncComponent`, qui lui fournit un [ensemble de fonctions](../features.html).
 
 ### Les composants d'UI
 
@@ -210,7 +210,7 @@ class PageComponent extends \Jaxon\App\PageComponent
         return 45;
     }
 
-    public function html():  string
+    public function html(): string
     {
         return '<div>Contenu de la page numéro ' . $this->currentPage() . '</div>';
     }
