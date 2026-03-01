@@ -111,6 +111,40 @@ The `extend()` method will often be called in the `setupComponent()` method.
 
 In the pagination components, the `item` attribute extension will automatically be also applied to the pagination links component.
 
+### Component override
+
+Sometimes it might useful to be able to display multiple UI components in the same HTML element in a page.
+This is the case for example when setting up a navigation menu, where each item displays different content on a page.
+
+A first UI component then needs to be attached to the element, and the other UI components will be setup to override that first one.
+
+```php
+<div class="page-content" <?= attr()->bind(rq(FirstComponent::class)) ?>>
+</div>
+```
+
+```php
+class SecondComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @var string
+     */
+    protected string $overrides = FirstComponent::class;
+}
+```
+
+```php
+class ThirdComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @var string
+     */
+    protected string $overrides = FirstComponent::class;
+}
+```
+
+> Note: the `overrides` relationship cannot be chained: a component cannot override a component that is already overriding another one.
+
 ### Component duplication
 
 The same component can be displayed multiple times on the same page.

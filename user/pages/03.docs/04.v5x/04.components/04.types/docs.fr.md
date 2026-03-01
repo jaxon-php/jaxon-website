@@ -38,6 +38,18 @@ Ils vont alors servir à gérer le contenu de ce noeud.
 </div>
 ```
 
+Un composant peut être affiché à la place d'un autre composant, permettant ainsi d'afficher alternativement plusieurs composants au même endroit.
+
+```php
+class OverComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @var string
+     */
+    protected string $overrides = UiComponent::class;
+}
+```
+
 Un composant peut également être attaché à un noeud dynamiquement.
 
 ```php

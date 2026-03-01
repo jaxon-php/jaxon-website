@@ -38,6 +38,18 @@ They will then be used to manage the content of this node.
 </div>
 ```
 
+A component can be displayed in place of another component, thus allowing several components to be displayed alternately in the same place.
+
+```php
+class OverComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @var string
+     */
+    protected string $overrides = UiComponent::class;
+}
+```
+
 A component can also be attached to a node dynamically.
 
 ```php

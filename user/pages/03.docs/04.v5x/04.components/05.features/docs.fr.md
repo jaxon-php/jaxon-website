@@ -111,6 +111,40 @@ La méthode `extend()` sera bien souvent appelée dans la méthode `setupCompone
 
 Dans les composants de pagination, l'extension de l'attribut `item` sera automatiquement appliquée également au composant des liens.
 
+### Remplacement de composants
+
+Il peut parfois être utile de pouvoir afficher plusieurs composants d'UI dans le même élément HTML d'une page.
+C'est par exemple le cas pour mettre en place un menu de navigation, où chaque item affiche un contenu différent dans une page.
+
+Il faut alors attacher un premier composant d'UI à l'élément, et configurer les autres composants d'UI pour remplacer ce premier composant.
+
+```php
+<div class="page-content" <?= attr()->bind(rq(FirstComponent::class)) ?>>
+</div>
+```
+
+```php
+class SecondComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @var string
+     */
+    protected string $overrides = FirstComponent::class;
+}
+```
+
+```php
+class ThirdComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @var string
+     */
+    protected string $overrides = FirstComponent::class;
+}
+```
+
+> Note: La relation `overrides` ne peut pas être chaînée : un composant ne peut pas remplacer un composant qui en remplace déjà un autre.
+
 ### Duplication de composants
 
 Un même composant peut être affiché plusieurs fois dans la même page.
