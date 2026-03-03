@@ -8,7 +8,7 @@ To demonstrate how the Jaxon library works, we present here a simple example: a 
 
 This component is included in the [Jaxon examples](https://github.com/jaxon-php/jaxon-examples), so you can see it working after installing that package.
 
-The implementation of the calculator requires two [UI components](../../components/types.html), one to display the calculator screen, the other to display the operation result, and a [functional component](../../components/func-components.html), which will perform the calculation.
+The implementation of the calculator requires two [UI components](../../components/types.html), one to display the calculator screen, the other to display the operation result, and a [functional component](../../components/types.html), which will perform the calculation.
 
 Here's a screenshot, with the two UI components highlighted.
 
@@ -39,21 +39,20 @@ In the `calculator::wrapper` template, the handlers are attached to buttons with
 
 ```php
 <?php
-use Jaxon\attr;
-use Jaxon\input;
-use Jaxon\rq;
-use Jaxon\select;
+use App\Calculator\Calc::class;
+use App\Calculator\CalcFunc::class;
+use App\Calculator\Result::class;
 
-// Get the components
-$rqCalc = rq(App\Calculator\Calc::class);
-$rqCalcFunc = rq(App\Calculator\CalcFunc::class);
-$rqResult = rq(App\Calculator\Result::class);
+use function Jaxon\attr;
+use function Jaxon\input;
+use function Jaxon\rq;
+use function Jaxon\select;
 ?>
 <form>
     <div class="row mb-3">
         <div class="col-md-4">
             <button type="button" class="btn btn-primary w-100" <?= attr()
-                ->click($rqCalc->render()) ?>>Clear</button>
+                ->click(rq(Calc::class)->render()) ?>>Clear</button>
         </div>
         <div class="col-md-8">
             <input type="text" class="form-control" id="operand-a" />
@@ -75,9 +74,10 @@ $rqResult = rq(App\Calculator\Result::class);
     <div class="row mb-3">
         <div class="col-md-4">
             <button type="button" class="btn btn-primary w-100" <?= attr()
-                ->click($rqCalcFunc->calculate(select('operator'), input('operand-a'), input('operand-b'))) ?>>=</button>
+                ->click(rq(CalcFunc::class)->calculate(select('operator'),
+                    input('operand-a'), input('operand-b'))) ?>>=</button>
         </div>
-        <div class="col-md-8" <?= attr()->bind($rqResult) ?>>
+        <div class="col-md-8" <?= attr()->bind(rq(Result::class)) ?>>
         </div>
     </div>
 </form>
@@ -88,17 +88,28 @@ $rqResult = rq(App\Calculator\Result::class);
 It retrieves the result of the operation, formats it and displays it in the desired location.
 The `stash()` function allows to [share data](../../components/stash.html) between components.
 
+> Note: The 5.7.0 release has introduced local data in UI components. Using the `stash()` function is no longer necessary.
+
 ```php
+use Jaxon\App\ComponentDataTrait;
 use Jaxon\App\NodeComponent;
 use Stringable;
 
 class Result extends NodeComponent
 {
+    use ComponentDataTrait;
+
     public function html(): Stringable
     {
+        // return $this->view()->render('calculator::result', [
+        //     'result' => $this->stash()->get('calculator.result'),
+        //     'operator' => $this->stash()->get('calculator.operator'),
+        // ]);
+
+        // The 5.7.0 release has introduced local data in UI components.
         return $this->view()->render('calculator::result', [
-            'result' => $this->stash()->get('calculator.result'),
-            'operator' => $this->stash()->get('calculator.operator'),
+            'result' => $this->get('result'),
+            'operator' => $this->get('operator'),
         ]);
     }
 }
@@ -113,7 +124,7 @@ The `calculator::result` template displays the result in a read-only text zone.
 
 ### The functional component
 
-The third component is a [functional component](../../components/func-components.html). This means that it doesn't display HTML code, but provides functions to be called from a web page.
+The third component is a [functional component](../../components/types.html). This means that it doesn't display HTML code, but provides functions to be called from a web page.
 
 In this example, it provides the calculation function, for which it uses a service injected into it.
 It also displays a message in case of an error, using the [dialog function](../../ui-features/dialogs.html) provided by the `DialogTrait`.
@@ -151,11 +162,17 @@ class CalcFunc extends FuncComponent
         try
         {
             $result = $this->calculator->calculate($operator, $operandA, $operandB);
-            // Share the result value with the other components.
-            $this->stash()->set('calculator.operator', $operator);
-            $this->stash()->set('calculator.result', $result);
-            // Render the result component.
-            $this->cl(Result::class)->render();
+            // // Share the result value with the other components.
+            // $this->stash()->set('calculator.operator', $operator);
+            // $this->stash()->set('calculator.result', $result);
+            // // Render the result component.
+            // $this->cl(Result::class)->render();
+
+            // The 5.7.0 release has introduced local data in UI components.
+            $this->cl(Result::class)
+                ->set('operator', $operator)
+                ->set('result', $result)
+                ->render();
         }
         catch(Exception $e)
         {
