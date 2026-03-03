@@ -78,6 +78,8 @@ Chaque bouton est un tableau avec les entrées suivantes:
 - `click`: le gestionnaire du click sur le bouton. Il peut être défini avec une [call factory](../call-factories.html), ou avoir la valeur `close` pour fermer la fenêtre.
 
 ```php
+use function Jaxon\form;
+
 class MyClass
 {
     public function showDialog()
@@ -92,7 +94,7 @@ class MyClass
         ], [
             'title' => 'Save',
             'class' => 'btn',
-            'click' => $this->rq()->save(pm()->form('data-form'));
+            'click' => $this->rq()->save(form('data-form'));
         ]];
         // Show the dialog
         $this->response()->dialog->show("Modal Dialog", $content, $buttons);
@@ -193,8 +195,12 @@ Elle affiche un message de confirmation à l'écran, et exécute l'appel uniquem
 ```
 
 Elle accepte également une liste de valeurs pour remplacer les placeholders dans le message.
+Avec cette fonction, du contenu de la page web peut être inséré dans le message de confirmation.
 
 ```php
+use function Jaxon\form;
+use function Jaxon\html;
+
 class MyClass
 {
     public function showDialog()
@@ -209,8 +215,8 @@ class MyClass
         ], [
             'title' => 'Save',
             'class' => 'btn',
-            'click' => $this->rq()->save(pm()->form('data-form'))
-                ->confirm('Hey {1}, do you confirm?', rq('#fullname')->html());
+            'click' => $this->rq()->save(form('data-form'))
+                ->confirm('Hey {1}, do you confirm?', html('#fullname'));
         ]];
         // Show the dialog
         $this->response()->dialog->show("Modal Dialog", $content, $buttons);
@@ -238,7 +244,7 @@ class MyClass
 }
 ```
 
-Cette librairie doit avoir été ajoutée à la configuration du plugin.
+Cette librairie doit avoir été ajoutée à la configuration du plugin, dans l'option `dialogs.lib.use`.
 
 #### Options des librairies
 

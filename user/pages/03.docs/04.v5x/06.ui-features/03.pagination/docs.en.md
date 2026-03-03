@@ -185,7 +185,7 @@ class PageContent extends \Jaxon\App\PageComponent
 The `paginator()` method of the [Response object](../../requests/responses.html) creates a pagination object, which must then be associated with [a request to a function of a class](../../ui-features/call-factories.html), to generate the pagination links.
 
 ```php
-use function Jaxon\pm;
+use function Jaxon\page;
 
 class HelloWorld
 {
@@ -200,7 +200,7 @@ class HelloWorld
         $page = $paginator->currentPage();
         $this->response()->assign('page-content', 'innerHTML', "Showing page number $page");
         // Display the pagination links, in the DOM node with id "pagination"
-        $paginator->render($this->rq()->showPage(pm()->page()), 'pagination');
+        $paginator->render($this->rq()->showPage(page()), 'pagination');
     }
 }
 ```
@@ -208,7 +208,7 @@ class HelloWorld
 This can also be done fluently, using the `page()` method.
 
 ```php
-use function Jaxon\pm;
+use function Jaxon\page;
 
 class HelloWorld
 {
@@ -225,7 +225,7 @@ class HelloWorld
                 $this->response()->assign('page-content', 'innerHTML', "Showing page number $page");
             })
             // Display the pagination links, in the DOM node with id "pagination"
-            ->render($this->rq()->showPage(pm()->page()), 'pagination');
+            ->render($this->rq()->showPage(page()), 'pagination');
     }
 }
 ```

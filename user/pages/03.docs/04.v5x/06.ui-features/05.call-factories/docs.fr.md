@@ -11,24 +11,24 @@ Les `call factories` ont une syntaxe `fluent`. Elles convertissent les appels en
 
 Ces paramètres pouvant eux-mêmes être définis avec des `call factories`, cela permet, en programmant sur le serveur, de passer n'importe quelle valeur présente dans la page web en paramètre à des appels Javascript.
 
-Différentes `call factories` existent pour générer des appels vers les classes et fonctions exportées, vers les autres fonctions Javascript, et vers les sélecteurs de type jQuery ou Javascript.
+Différentes `call factories` existent pour générer des appels vers les classes et fonctions exportées, vers les autres fonctions Javascript, et pour les sélecteurs de type jQuery ou Javascript.
 
-#### Les classes et fonctions exportées
+### Les classes et fonctions exportées
 
-La fonction globale `rq()` crée une `call factory` pour la classe exportée dont elle a reçu le nom en paramètre.
+La fonction globale `rq()` crée une `call factory` pour la [classe exportée](../../registrations/namespaces.html) dont elle a reçu le nom en paramètre.
 Un appel sur cette factory génère le code du même appel en Javascript, qui peut donc être utilisé dans un template par exemple pour définir un gestionnaire d'évènement.
 
 ```php
 <button type="button" <?= attr()->click(rq(FuncComponent::class)->doThat()) ?>>Click me</button>
 ```
 
-Sans paramètre, la fonction `rq()` renvoie une `call factory` pour créer des appels vers les fonctions exportées.
+Sans paramètre, la fonction `rq()` renvoie une `call factory` pour créer des appels vers les [fonctions exportées](../../registrations/functions.html).
 
 ```php
 <button type="button" <?= attr()->click(rq()->hello_world()) ?>>Click me</button>
 ```
 
-Dans une classe de [composant](../../components/func-components.html), la méthode `rq()`, appelée sans paramètre, retourne une `call factory` pour la classe courante.
+Dans une classe de [composant](../../components/types.html), la méthode `rq()`, appelée sans paramètre, retourne une `call factory` pour la classe courante.
 Si elle reçoit un nom de classe en paramètre, elle retourne une `call factory` pour cette classe.
 
 ```php
@@ -74,7 +74,7 @@ class FuncComponent
 
 La fonction `rq()` et la méthode `rq()` ajoutent automatiquement le préfixe configuré pour les classes ou les fonctions exportées au code javascript généré.
 
-#### Les fonctions Javascript
+### Les fonctions Javascript
 
 La fonction globale `jo()` crée une `call factory` pour un objet Javascript, qui doit déjà exister dans l'application côté client.
 
@@ -113,7 +113,7 @@ class FuncComponent
 }
 ```
 
-#### Les sélecteurs
+### Les sélecteurs
 
 La fonction globale `jq()` crée une `call factory` pour un sélecteur jQuery.
 Elle prend en paramètre un [sélecteur jQuery](https://api.jquery.com/category/selectors/).
@@ -197,7 +197,7 @@ class FuncComponent
 }
 ```
 
-#### Helpers
+### Helpers
 
 La `call factory` créée par la fonction globale `je()` fournit aussi des helpers pour lire des valeurs dans une page ou un formulaire web.
 
@@ -217,7 +217,7 @@ Les mêmes helpers sont aussi disponibles en fonctions globales, dans le namespa
 - `Jaxon\html($sElementId)`: même que `je($sElementId)->rd()->html()`;
 - `Jaxon\page()`: même que `je()->rd()->page()`;
 
-#### Les appels conditionnels
+### Les appels conditionnels
 
 Les `call factories` fournissent des fonctions pour vérifier une condition avant l'éxécution de l'appel.
 
