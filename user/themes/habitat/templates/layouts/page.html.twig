@@ -14,6 +14,7 @@
         <link href="favicon.ico" rel="shortcut icon">
         <!-- CSS -->
 {% include 'header/css.html.twig' %}
+{% block styles %}{% endblock %}
     </head>
     <body>
         <div id="body-bg">
@@ -38,8 +39,10 @@
 {% include 'footer/links.html.twig' %}
             <!-- End Footer -->
         </div>
+
         <!-- JS -->
 {% include 'footer/js.html.twig' %}
+{% block scripts %}{% endblock %}
         <!-- End JS -->
     </body>
 </html>

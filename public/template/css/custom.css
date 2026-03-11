@@ -4,6 +4,10 @@
 a {
   color: #42969e;
 }
+.row {
+  margin-top: 5px;	
+  margin-bottom: 10px;	
+}
 .read-more {
   float: right;
   margin-right: 15px;	

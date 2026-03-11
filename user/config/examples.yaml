@@ -1,0 +1,152 @@
+root: "env:EXAMPLES_ROOT_DIR"
+list:
+  components:
+    calculator:
+      sources:
+        - desc: The calculator components
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/calculator/app
+        - desc: The Jaxon library config
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/calculator.php
+        - desc: The calculator service
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/calculator/lib
+    html-attributes:
+      sources:
+        - desc: The exported classes
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/app
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/ext
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/events.php
+    event-parent:
+      sources:
+        - desc: The exported classes
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/app
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/ext
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/events.php
+    event-target:
+      sources:
+        - desc: The exported classes
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/app
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/ext
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/events.php
+    bind-component:
+      sources: []
+    outerhtml-component:
+      sources: []
+    pagination-component:
+      sources:
+        - desc: The exported class
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/page/content.cp.php
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/pagination.php
+    pagination-databag:
+      sources:
+        - desc: The exported class
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/component/page/content.db.php
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/pagination.php
+  advanced:
+    config:
+      sources:
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/config.yaml
+    directories:
+      sources:
+        - desc: The exported classes
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/simple/app
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/simple/ext
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/directories.php
+    namespaces:
+      sources:
+        - desc: The exported classes
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/namespace/app
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/namespace/ext
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/namespaces.php
+    container:
+      sources:
+        - desc: The injected interface and service
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/namespace/service
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/container.php
+    pagination:
+      sources: []
+    dialogs:
+      sources:
+        - desc: The Jaxon library config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/dialogs.php
+    flot:
+      sources: []
+    package:
+      sources:
+        - desc: The demo package config 
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/pages/package/config/jaxon.php
+    autoload-composer:
+      sources:
+        - desc: The exported classes
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/namespace/app
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/namespace/ext
+    autoload-disabled:
+      sources:
+        - desc: The exported classes
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/namespace/app
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/ajax/namespace/ext
+    # The upload example is disabled by default
+    # upload:
+  simple:
+    hello:
+      sources:
+        - desc:
+          paths:
+            -
+    alias:
+      sources:
+        - desc:
+          paths:
+            -
+    class:
+      sources:
+        - desc:
+          paths:
+            -
+    export:
+      sources:
+        - desc:
+          paths:
+            -
+    confirm:
+      sources:
+        - desc:
+          paths:
+            -
+    plugins:
+      sources:
+        - desc:
+          paths:
+            -

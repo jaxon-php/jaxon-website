@@ -19,41 +19,67 @@
                                     <hr>
                                 </div>
                                 <!-- End Page title -->
-{% if root.route == '/docs' %}
-                                <!-- Documentation menu -->
-                                <div class="col-md-3">
-                                    {% include 'partials/versions.html.twig' %}
-                                </div>
-                                <!-- End Documentation menu -->
-{% endif %}
                             </div>
 
                             <!-- Page content -->
                             <div class="row">
                                 <div class="col-md-12 doc-page-content">
                                     {{ page.content|raw }}
-                                    <hr>
                                 </div>
                             </div>
-                            <!-- End Page content -->
 
-{% if page.route in ['/docs/v5x', '/docs/v4x', '/docs/v3x', '/docs/v2x'] %}
-                            <!-- Section TOC -->
+{% if example %}
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    {{ example.html|raw }}
+                                </div>
+                            </div>
                             <div class="row">
+                                <div class="col-md-12">The HTML code</div>
                                 <div class="col-md-12">
-                                    {% include 'partials/section.html.twig' %}
-                                    <hr>
+                                    <pre><code class="language-php">
+{{ example.page|raw }}
+                                    </code></pre>
                                 </div>
                             </div>
-                            <!-- End Section TOC -->
-{% endif %}
 
-{% if config.plugins.jscomments.enabled %}
-  {{ jscomments() }}
+{% for source in example.sources %}
+                            <p>
+                                <div class="strong">{{ source.desc }}</div>
+{% for path in source.paths %}
+                                <div><a href="{{ path }}">{{ path }}</a></div>
+{% endfor %}
+                            </p>
+{% endfor %}
+
+                            <div class="row">
+                                <div class="col-md-12">The Jaxon setup code</div>
+                                <div class="col-md-12">
+                                    <pre><code class="language-php">
+{{ example.code|raw }}
+                                    </code></pre>
+                                </div>
+                            </div>
 {% endif %}
+                            <!-- End Page content -->
                             <div class="clearfix margin-bottom-10"></div>
                         </div>
                     </div>
                 </div>
             </div>
+{% endblock %}
+
+{% block styles %}
+{{ jaxon.css|raw }}
+{% endblock %}
+
+{% block scripts %}
+{{ jaxon.js|raw }}
+{{ jaxon.script|raw }}
+
+{% if example %}
+<script type="text/javascript">
+{{ example.ready|raw }}
+</script>
+{% endif %}
 {% endblock %}
