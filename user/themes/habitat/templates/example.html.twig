@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">The HTML code</div>
+                                <div class="col-md-12">The HTML code.</div>
                                 <div class="col-md-12">
                                     <pre><code class="language-php">
 {{ example.page|raw }}
@@ -53,13 +53,25 @@
 {% endfor %}
 
                             <div class="row">
-                                <div class="col-md-12">The Jaxon setup code</div>
+                                <div class="col-md-12">The Jaxon setup code.</div>
                                 <div class="col-md-12">
                                     <pre><code class="language-php">
 {{ example.code|raw }}
                                     </code></pre>
                                 </div>
                             </div>
+
+{% if example.ready != '' %}
+                            <div class="row">
+                                <div class="col-md-12">The Javascript code is generated from this PHP template.</div>
+                                <div class="col-md-12">
+                                    <pre><code class="language-php">
+{{ example.readyTpl|raw }}
+                                    </code></pre>
+                                </div>
+                            </div>
+{% endif %}
+
 {% endif %}
                             <!-- End Page content -->
                             <div class="clearfix margin-bottom-10"></div>

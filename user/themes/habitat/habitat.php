@@ -12,6 +12,7 @@ use function getenv;
 use function preg_match;
 use function renderCodeSource;
 use function renderPageSource;
+use function renderReadySource;
 
 class Habitat extends Theme
 {
@@ -104,6 +105,7 @@ class Habitat extends Theme
                 'ready' => $renderer->render("examples::{$slug}/ready.js"),
                 'code' => renderCodeSource($slug),
                 'page' => renderPageSource($slug),
+                'readyTpl' => renderReadySource($slug),
                 'sources' => $example['sources'],
             ];
         }
