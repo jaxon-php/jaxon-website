@@ -16,7 +16,7 @@
                                     <div class="headline">
                                         <h3>{{ page.title }}</h3>
                                     </div>
-                                    <hr>
+                                    <hr style="margin-bottom: 0;">
                                 </div>
                                 <!-- End Page title -->
                             </div>
@@ -24,16 +24,33 @@
                             <!-- Page content -->
                             <div class="row">
                                 <div class="col-md-12 doc-page-content">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 doc-page-content">
+{% if page.route == '/examples' %}
                                     {{ page.content|raw }}
+{% else %}
+{% for summary in page.header.example.summary %}
+                                    <p>{{ summary|markdown }}</p>
+{% endfor %}
+{% endif %}
                                 </div>
                             </div>
 
-{% if example %}
+{% if page.route != '/examples' and example %}
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     {{ example.html|raw }}
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ page.content|raw }}
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-12">The HTML code.</div>
                                 <div class="col-md-12">

@@ -30,13 +30,36 @@ Un composant fonctionnel hérite de la classe `Jaxon\App\FuncComponent`, qui lui
 
 Les composants d'UI sont une nouveauté de la version 5 de Jaxon.
 
+Ils héritent de la classe `Jaxon\App\NodeComponent`.
+Ils peuvent implémenter une fonction `public function html(): string|Stringable` qui renvoie du contenu HTML.
+
+```php
+class UiComponent extends \Jaxon\App\NodeComponent
+{
+    public function html(): string
+    {
+        return '<div>UI component content</div>';
+    }
+}
+```
+
+> Note: la méthode `html()` d'un composant d'UI n'est pas exportée en Javascript.
+
 Ils ont les mêmes fonctions que les composants fonctionnels, mais en plus ils peuvent être attachés à un noeud du DOM.
 Ils vont alors servir à gérer le contenu de ce noeud.
 
 ```php
 <div class="row" <?= attr()->bind(rq(UiComponent::class)) ?>>
+    <?= attr()->html(rq(UiComponent::class)) ?>
+</div>
+<!-- Le nom de la classe du composant peut également être utilisé en paramètre. -->
+<div class="row" <?= attr()->bind(UiComponent::class) ?>>
+    <?= attr()->html(UiComponent::class) ?>
 </div>
 ```
+
+La méthode `bind()` attache le composant au noeud du DOM, et la méthode `html()` y insère le code HTML du composant (qui est renvoyé par sa propre méthode `html()`).
+L'usage de la méthode `html()` ici est optionnel; le développeur choisit donc si le contenu du noeud est initialement vide ou pas.
 
 Un composant peut être affiché à la place d'un autre composant, permettant ainsi d'afficher alternativement plusieurs composants au même endroit.
 
@@ -56,24 +79,9 @@ Un composant peut également être attaché à un noeud dynamiquement.
 $this->response()->bind('element-id', rq(UiComponent::class));
 ```
 
-Les composants d'UI héritent de la classe `Jaxon\App\NodeComponent`.
-Ils peuvent implémenter une fonction `public function html(): string|Stringable` qui renvoie le contenu du noeud attaché.
-
-```php
-class UiComponent extends \Jaxon\App\NodeComponent
-{
-    public function html(): string
-    {
-        return '<div>UI component content</div>';
-    }
-}
-```
-
-> Note: la méthode `html()` d'un composant d'UI n'est pas exportée en Javascript.
-
 #### Afficher un composant d'UI
 
-Le composant d'UI hérite d'une fonction `render()`, qui lorsq'elle est appelée dans une méthode du même composant ou d'un autre composant, va mettre à jour le contenu du noeud attaché, avec le code HTML renvoyé par sa fonction `html()`.
+Le composant d'UI hérite d'une fonction `render()`, qui lorsqu'elle est appelée dans une méthode du même composant ou d'un autre composant, va mettre à jour le contenu du noeud attaché, avec le code HTML renvoyé par sa fonction `html()`.
 
 ```php
 class UiComponent extends \Jaxon\App\NodeComponent
@@ -120,7 +128,7 @@ class FuncComponent extends \Jaxon\App\FuncComponent
 ou bien dans un template.
 
 ```php
-<button type="button" class="btn btn-primary" <?php echo attr()
+<button type="button" class="btn btn-primary" <?= attr()
     ->click(rq(UiComponent::class)->render()) ?>>Clear</button>
 ```
 
@@ -142,6 +150,34 @@ Elles servent généralement à préparer ou à compléter l'affichage du compos
 
 Les composants de pagination affichent les [contenus paginés et les liens de pagination correspondants](../../ui-features/pagination.html).
 
+Voici le code minimal nécessaire dans un composant de pagination.
+
+```php
+class PageComponent extends \Jaxon\App\PageComponent
+{
+    protected function limit(): int
+    {
+        return 10;
+    }
+
+    protected function count(): int
+    {
+        return 45;
+    }
+
+    public function html(): string
+    {
+        return '<div>Contenu de la page numéro ' . $this->currentPage() . '</div>';
+    }
+
+    public function showPage(int $pageNumber)
+    {
+        // Afficher le contenu paginé et mettre à jour les liens de pagination.
+        $this->paginate($this->rq()->showPage(page()), $pageNumber);
+    }
+}
+```
+
 Le composant de pagination est d'abord un composant d'UI, ce qui signifie qu'il est attaché à un noeud du DOM et gère son contenu.
 Il possède en plus un autre composant d'UI, créé automatiquement par la librairie, pour l'affichage des liens de pagination.
 La méthode `attr()->pagination()` affiche ce composant dans les templates.
@@ -149,10 +185,10 @@ La méthode `attr()->pagination()` affiche ce composant dans les templates.
 ```php
 <div class="row">
     <!-- Contenu du composant de pagination -->
-    <div class="col-md-12" <?php echo attr()->bind(rq(PageComponent::class)) ?>>
+    <div class="col-md-12" <?= attr()->bind(rq(PageComponent::class)) ?>>
     </div>
     <!-- Contenu du composant des liens de pagination -->
-    <div class="col-md-12" <?php echo attr()->pagination(rq(PageComponent::class)) ?>>
+    <div class="col-md-12" <?= attr()->pagination(rq(PageComponent::class)) ?>>
     </div>
 </div>
 ```
@@ -206,31 +242,3 @@ use function Jaxon\je;
 ```
 
 La fonction paginée utilise donc deux paramètres: le numéro de page, qui provient généralement de l'appel Ajax à la fonction, et une [call factory](../../ui-features/call-factories.html) qui renvoie un appel Ajax à elle-même.
-
-Voici au final le code minimal nécessaire dans un composant de pagination.
-
-```php
-class PageComponent extends \Jaxon\App\PageComponent
-{
-    protected function limit(): int
-    {
-        return 10;
-    }
-
-    protected function count(): int
-    {
-        return 45;
-    }
-
-    public function html(): string
-    {
-        return '<div>Contenu de la page numéro ' . $this->currentPage() . '</div>';
-    }
-
-    public function showPage(int $pageNumber)
-    {
-        // Afficher le contenu paginé et mettre à jour les liens de pagination.
-        $this->paginate($this->rq()->showPage(page()), $pageNumber);
-    }
-}
-```

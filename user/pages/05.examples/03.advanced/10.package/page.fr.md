@@ -2,8 +2,10 @@
 title: Un package Jaxon
 menu: Un package Jaxon
 template: example
+example:
+    summary:
+        - This example demonstrates a simple Jaxon package.
 ---
 
-This example demonstrates a simple Jaxon package.
-
 The exported classes are listed in the package config, and not in the application config.
+They are the same as in the [namespace example](../namespaces.html).

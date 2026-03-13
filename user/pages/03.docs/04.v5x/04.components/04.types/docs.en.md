@@ -30,13 +30,36 @@ Functional components inherit from the `Jaxon\App\FuncComponent` class, which pr
 
 UI components are a new addition in Jaxon version 5.
 
+They inherit from the `Jaxon\App\NodeComponent` class.
+They can implement a `public function html(): string|Stringable` function that returns some HTML contents.
+
+```php
+class UiComponent extends \Jaxon\App\NodeComponent
+{
+    public function html(): string
+    {
+        return '<div>UI component content</div>';
+    }
+}
+```
+
+> Note: The `html()` method of a UI component is not exported to Javascript.
+
 They have the same functions as functional components, but in addition they can be attached to a DOM node.
 They will then be used to manage the content of this node.
 
 ```php
 <div class="row" <?= attr()->bind(rq(UiComponent::class)) ?>>
+    <?= attr()->html(rq(UiComponent::class)) ?>
+</div>
+<!-- The component class name can also be used as parameter. -->
+<div class="row" <?= attr()->bind(UiComponent::class) ?>>
+    <?= attr()->html(UiComponent::class) ?>
 </div>
 ```
+
+The `bind()` method attaches the component to the DOM node, and the `html()` method inserts the component's HTML code (which is returned by its own `html()` method) into it.
+The use of the `html()` method here is optional; the developer therefore chooses whether the content of the node is initially empty or not.
 
 A component can be displayed in place of another component, thus allowing several components to be displayed alternately in the same place.
 
@@ -56,22 +79,7 @@ A component can also be attached to a node dynamically.
 $this->response()->bind('element-id', rq(UiComponent::class));
 ```
 
-UI components inherit from the `Jaxon\App\NodeComponent` class.
-They can implement a `public function html(): string|Stringable` function that returns the contents of the attached node.
-
-```php
-class UiComponent extends \Jaxon\App\NodeComponent
-{
-    public function html(): string
-    {
-        return '<div>UI component content</div>';
-    }
-}
-```
-
-> Note: The `html()` method of a UI component is not exported to Javascript.
-
-#### Render a component
+#### Rendering a component
 
 The UI component has a `render()` function, which will be called to update the contents of the attached node, in a method of the same component, or of another component.
 
@@ -120,7 +128,7 @@ class FuncComponent extends \Jaxon\App\FuncComponent
 or in a template.
 
 ```php
-<button type="button" class="btn btn-primary" <?php echo attr()
+<button type="button" class="btn btn-primary" <?= attr()
     ->click(rq(UiComponent::class)->render()) ?>>Clear</button>
 ```
 
@@ -142,6 +150,34 @@ They are generally used to prepare or complete the display of the component, eit
 
 Pagination components display [paginated content and the corresponding pagination links](../../ui-features/pagination.html).
 
+Here is the minimum code required in a pagination component.
+
+```php
+class PageComponent extends \Jaxon\App\PageComponent
+{
+    protected function limit(): int
+    {
+        return 10;
+    }
+
+    protected function count(): int
+    {
+        return 45;
+    }
+
+    public function html(): string
+    {
+        return '<div>Content of page number ' . $this->currentPage() . '</div>';
+    }
+
+    public function showPage(int $pageNumber)
+    {
+        // Display paginated content and update pagination links.
+        $this->paginate($this->rq()->showPage(page()), $pageNumber);
+    }
+}
+```
+
 The pagination component is a UI component, which means it will be attached to a DOM node.
 It also has another UI component, automatically created by the library, for displaying pagination links.
 The `attr()->pagination()` method displays this component in the templates.
@@ -149,10 +185,10 @@ The `attr()->pagination()` method displays this component in the templates.
 ```php
 <div class="row">
     <!-- Pagination content component -->
-    <div class="col-md-12" <?php echo attr()->bind(rq(PageComponent::class)) ?>>
+    <div class="col-md-12" <?= attr()->bind(rq(PageComponent::class)) ?>>
     </div>
     <!-- Pagination links component -->
-    <div class="col-md-12" <?php echo attr()->pagination(rq(PageComponent::class)) ?>>
+    <div class="col-md-12" <?= attr()->pagination(rq(PageComponent::class)) ?>>
     </div>
 </div>
 ```
@@ -206,31 +242,3 @@ use function Jaxon\je;
 ```
 
 The paginated function therefore uses two parameters: the page number, which usually comes from the Ajax call to the function, and a [call factory](../../ui-features/call-factories.html) that returns an Ajax call to itself.
-
-Here is the minimum code required in a pagination component.
-
-```php
-class PageComponent extends \Jaxon\App\PageComponent
-{
-    protected function limit(): int
-    {
-        return 10;
-    }
-
-    protected function count(): int
-    {
-        return 45;
-    }
-
-    public function html(): string
-    {
-        return '<div>Content of page number ' . $this->currentPage() . '</div>';
-    }
-
-    public function showPage(int $pageNumber)
-    {
-        // Display paginated content and update pagination links.
-        $this->paginate($this->rq()->showPage(page()), $pageNumber);
-    }
-}
-```
