@@ -98,6 +98,13 @@ list:
         - desc: The Jaxon library config 
           paths:
             - https://github.com/jaxon-php/jaxon-examples/tree/main/config/dialogs.php
+    confirm:
+      sources: []
+    plugin:
+      sources:
+        - desc: The Javascript code to register custom commands for a plugin.
+          paths:
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/pages/plugin/text.js
     flot:
       sources: []
     package:
@@ -121,32 +128,11 @@ list:
     # upload:
   simple:
     hello:
-      sources:
-        - desc:
-          paths:
-            -
+      sources: []
     alias:
-      sources:
-        - desc:
-          paths:
-            -
+      sources: []
     class:
       sources:
-        - desc:
+        - desc: The Jaxon library config 
           paths:
-            -
-    export:
-      sources:
-        - desc:
-          paths:
-            -
-    confirm:
-      sources:
-        - desc:
-          paths:
-            -
-    plugins:
-      sources:
-        - desc:
-          paths:
-            -
+            - https://github.com/jaxon-php/jaxon-examples/tree/main/config/class.php
