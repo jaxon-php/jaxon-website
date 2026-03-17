@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "488043c14b5025260ece0142dcb9fc64",
+    "content-hash": "33f58d91253e69549ddd6fdefde99492",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1293,16 +1293,16 @@
         },
         {
             "name": "jaxon-php/jaxon-flot",
-            "version": "v5.0.2",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-flot.git",
-                "reference": "759a6f2912944e8e68ea21413f1c525c7b63b4d6"
+                "reference": "71f148af2d2329cd263f39fa9d0b1a5b51983516"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-flot/zipball/759a6f2912944e8e68ea21413f1c525c7b63b4d6",
-                "reference": "759a6f2912944e8e68ea21413f1c525c7b63b4d6",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-flot/zipball/71f148af2d2329cd263f39fa9d0b1a5b51983516",
+                "reference": "71f148af2d2329cd263f39fa9d0b1a5b51983516",
                 "shasum": ""
             },
             "require": {
@@ -1344,7 +1344,7 @@
                 "issues": "https://github.com/jaxon-php/jaxon-flot/issues",
                 "source": "https://github.com/jaxon-php/jaxon-flot"
             },
-            "time": "2025-12-26T03:32:25+00:00"
+            "time": "2026-03-17T02:21:03+00:00"
         },
         {
             "name": "jaxon-php/jaxon-storage",

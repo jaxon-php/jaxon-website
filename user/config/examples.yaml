@@ -107,6 +107,10 @@ list:
             - https://github.com/jaxon-php/jaxon-examples/tree/main/pages/plugin/text.js
     flot:
       sources: []
+    flot-types:
+      sources: []
+    flot-axes:
+      sources: []
     package:
       sources:
         - desc: The demo package config 
