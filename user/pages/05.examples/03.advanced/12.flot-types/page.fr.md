@@ -1,10 +1,6 @@
 ---
 title: Différents types de graphes avec le plugin Flot
 menu: Types de graphes
-template: example
-example:
-    summary:
-        - This example shows different graph types with the [Flot plugin](https://github.com/jaxon-php/jaxon-flot).
+visible: false
+redirect: '/fr/examples/advanced/flots.html'
 ---
-
-This example is the same as [https://www.flotcharts.org/flot/examples/series-types/index.html](https://www.flotcharts.org/flot/examples/series-types/index.html).

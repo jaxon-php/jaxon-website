@@ -64,7 +64,7 @@
         "multiavatar/multiavatar-php": "^1.0",
         "vlucas/phpdotenv": "^5.6",
         "jaxon-php/jaxon-core": "^5.7",
-        "jaxon-php/jaxon-flot": "^5.1",
+        "jaxon-php/jaxon-flot": "^5.2",
         "jaxon-php/jaxon-dialogs": "^5.1",
         "jaxon-php/jaxon-annotations": "^3.1",
         "keradus/psr4autoloader": "^2.0"

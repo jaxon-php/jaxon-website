@@ -105,11 +105,7 @@ list:
         - desc: The Javascript code to register custom commands for a plugin.
           paths:
             - https://github.com/jaxon-php/jaxon-examples/tree/main/pages/plugin/text.js
-    flot:
-      sources: []
-    flot-types:
-      sources: []
-    flot-axes:
+    flots:
       sources: []
     package:
       sources:

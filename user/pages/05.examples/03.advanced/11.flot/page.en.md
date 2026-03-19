@@ -1,10 +1,6 @@
 ---
 title: The Flot plugin
 menu: The Flot plugin
-template: example
-example:
-    summary:
-        - This example shows how to draw a graph with the [Flot plugin](https://github.com/jaxon-php/jaxon-flot).
+visible: false
+redirect: '/en/examples/advanced/flots.html'
 ---
-
-A plot can display multiple graphs, and the series for each graph can be defined either with a list of points, or with a Javascript function.

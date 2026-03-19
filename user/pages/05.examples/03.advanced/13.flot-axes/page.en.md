@@ -1,10 +1,6 @@
 ---
 title: Multiple graph axes with the Flot plugin
 menu: Multiple graph axes
-template: example
-example:
-    summary:
-        - This example shows how to add multiple axes on a graph with the [Flot plugin](https://github.com/jaxon-php/jaxon-flot).
+visible: false
+redirect: '/en/examples/advanced/flots.html'
 ---
-
-This example is the same as [https://www.flotcharts.org/flot/examples/axes-interacting/index.html](https://www.flotcharts.org/flot/examples/axes-interacting/index.html).
