@@ -193,6 +193,8 @@ class FirstClass extends \Jaxon\App\FuncComponent
 }
 ```
 
+Starting from version `5.8.0`, the `has()` and `unset()` functions respectively allow to check if an entry is defined, or delete an entry in a `data bag`.
+
 #### Javascript functions
 
 The Javascript library provides functions to read or change the values in `databags`.
@@ -201,4 +203,4 @@ These functions can be use for example to pass some parts of a `databag` content
 The `jaxon.bag.getEntry(sBagName, sBagKey)` and `jaxon.bag.setEntry(sBagName, sBagKey, xValue)` functions read or set the contents of an entry in the `databag`.
 
 The `jaxon.bag.getValue(sBagName, sBagKey, sDataKey, xDefault)` and `jaxon.bag.setValue(sBagName, sBagKey, sDataKey, xValue)` functions read or set a value in the contents of an entry in the `databag`.
-The entry's contents must be a Javascript object, and the presence of dots in the value of the `sDataKey` parameter provides access to values ​​nested within that content.
+The entry's contents must be a Javascript object, and the presence of dots in the value of the `sDataKey` parameter provides access to values nested within that content.

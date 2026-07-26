@@ -73,6 +73,21 @@ class OverComponent extends \Jaxon\App\NodeComponent
 }
 ```
 
+Starting from version `5.8.0`, a component is overriden using a method.
+
+```php
+class OverComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @return string
+     */
+    protected function overrides(): string
+    {
+        return UiComponent::class;
+    }
+}
+```
+
 A component can also be attached to a node dynamically.
 
 ```php

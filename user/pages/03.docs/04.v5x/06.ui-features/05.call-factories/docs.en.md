@@ -37,7 +37,7 @@ class FuncComponent
     public function show()
     {
         $html = $this->view()->render('users::path/to/view', [
-            'clickHandler' => $this->rq()->doThat(), 
+            'clickHandler' => $this->rq()->doThat(),
         ]);
     }
 
@@ -217,6 +217,16 @@ The same helpers are also available as globals functions, in the `Jaxon\` namesp
 - `Jaxon\html($sElementId)`: same as `je($sElementId)->rd()->html()`;
 - `Jaxon\page()`: same as `je()->rd()->page()`;
 
+Starting from version `5.8.0`, the above helpers are deprecated.
+The `pm()` helper function shall be used instead.
+
+- `Jaxon\pm()->form($sElementId)`: same as `je($sElementId)->rd()->form()`;
+- `Jaxon\pm()->input($sElementId)`: same as `je($sElementId)->rd()->input()`;
+- `Jaxon\pm()->checked($sElementId)`: same as `je($sElementId)->rd()->checked()`;
+- `Jaxon\pm()->select($sElementId)`: same as `je($sElementId)->rd()->select()`;
+- `Jaxon\pm()->html($sElementId)`: same as `je($sElementId)->rd()->html()`;
+- `Jaxon\pm()->page()`: same as `je()->rd()->page()`;
+
 ### Conditional calls
 
 `Call factories` provide functions to check a condition before the call is executed.
@@ -311,3 +321,5 @@ The following functions are available.
     public function elseWarning(string $sMessage, ...$aArgs);
     public function elseError(string $sMessage, ...$aArgs);
 ```
+
+### The debounce() function

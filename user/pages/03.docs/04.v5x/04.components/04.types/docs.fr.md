@@ -73,6 +73,21 @@ class OverComponent extends \Jaxon\App\NodeComponent
 }
 ```
 
+A partir de la version `5.8.0`, il faut plutôt définir une méthode.
+
+```php
+class OverComponent extends \Jaxon\App\NodeComponent
+{
+    /**
+     * @return string
+     */
+    protected function overrides(): string
+    {
+        return UiComponent::class;
+    }
+}
+```
+
 Un composant peut également être attaché à un noeud dynamiquement.
 
 ```php

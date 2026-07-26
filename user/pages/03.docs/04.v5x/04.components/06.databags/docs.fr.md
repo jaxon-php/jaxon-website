@@ -193,6 +193,8 @@ class FirstClass extends \Jaxon\App\FuncComponent
 }
 ```
 
+A partir de la version `5.8.0`, les fonctions `has()` et `unset()` permettent respectivement de vérifier la présence, et de supprimer une entrée dans un `databag`.
+
 #### Fonctions Javascript
 
 La librairie Javascript fournit des fonctions pour lire ou modifier les valeurs des `databags`.

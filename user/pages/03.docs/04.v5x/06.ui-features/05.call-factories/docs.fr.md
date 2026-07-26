@@ -37,7 +37,7 @@ class FuncComponent
     public function show()
     {
         $html = $this->view()->render('users::path/to/view', [
-            'clickHandler' => $this->rq()->doThat(), 
+            'clickHandler' => $this->rq()->doThat(),
         ]);
     }
 
@@ -217,6 +217,16 @@ Les mêmes helpers sont aussi disponibles en fonctions globales, dans le namespa
 - `Jaxon\html($sElementId)`: même que `je($sElementId)->rd()->html()`;
 - `Jaxon\page()`: même que `je()->rd()->page()`;
 
+A partir de la version `5.8.0`, les helpers ci-dessus sont dépréciés.
+La fonction globale `pm()` doit être utilisée à la place.
+
+- `Jaxon\pm()->form($sElementId)`: même que `je($sElementId)->rd()->form()`;
+- `Jaxon\pm()->input($sElementId)`: même que `je($sElementId)->rd()->input()`;
+- `Jaxon\pm()->checked($sElementId)`: même que `je($sElementId)->rd()->checked()`;
+- `Jaxon\pm()->select($sElementId)`: même que `je($sElementId)->rd()->select()`;
+- `Jaxon\pm()->html($sElementId)`: même que `je($sElementId)->rd()->html()`;
+- `Jaxon\pm()->page()`: même que `je()->rd()->page()`;
+
 ### Les appels conditionnels
 
 Les `call factories` fournissent des fonctions pour vérifier une condition avant l'éxécution de l'appel.
@@ -311,3 +321,5 @@ Les fonctions suivantes sont disponibles.
     public function elseWarning(string $sMessage, ...$aArgs);
     public function elseError(string $sMessage, ...$aArgs);
 ```
+
+### La fonction debounce()

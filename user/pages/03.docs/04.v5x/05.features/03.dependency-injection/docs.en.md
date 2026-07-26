@@ -207,3 +207,8 @@ use Psr\Container\ContainerInterface;
  */
 jaxon()->di()->setContainer($xContainer);
 ```
+
+### Injecting in private properties
+
+Starting from version `5.8.0`, services can be injected in a private property of a component.
+Even in case the private property is defined in a parent class, it will be prperly assigned the service.
