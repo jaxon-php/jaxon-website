@@ -235,7 +235,7 @@ Les questions sont affichées avec les [fonctions de dialogues](../dialogs.html)
 <button type="button" <?= attr()->click(rq(FuncComponent::class)
     ->doThat()
     ->confirm('Vous voulez du {1} ? Vraiment, {2} ?',
-        je('colorselect')->text, je('username')->innerHtml)) ?>>Click me</button>
+        je('colorselect')->text, je('username')->innerHTML)) ?>>Click me</button>
 ```
 
 L'ordre des paramètres dans dans le message peut être différent, ce qui est utile par exemple pour les traductions.
@@ -244,7 +244,7 @@ L'ordre des paramètres dans dans le message peut être différent, ce qui est u
 <button type="button" <?= attr()->click(rq(FuncComponent::class)
     ->doThat()
     ->confirm('Bonjour {2}, vous voulez du {1} ?',
-        je('colorselect')->text, je('username')->innerHtml)) ?>>Click me</button>
+        je('colorselect')->text, je('username')->innerHTML)) ?>>Click me</button>
 ```
 
 La fonction `when()` exécute l'appel seulement si une condition est vraie.
@@ -285,6 +285,10 @@ Les fonctions suivantes sont disponibles.
     public function ifge($xValue1, $xValue2);
     public function iflt($xValue1, $xValue2);
     public function ifle($xValue1, $xValue2);
+    public function when($xValue);
+    public function unless($xValue);
+    public function ifty($xValue);
+    public function iffy($xValue);
 ```
 
 Enfin, les fonctions de type `else` permettent d'afficher un message à l'écran lorsque la condition requise n'a pas été vérifiée.
@@ -295,7 +299,7 @@ De même que pour la confirmation, les messages sont affichés avec les [fonctio
     ->doThat()
     ->when(je('accepted')->checked))
     ->elseShow('Hi {1}, vous devez cocher la case Accepter',
-        je('username')->innerHtml)) ?>>Click me</button>
+        je('username')->innerHTML)) ?>>Click me</button>
 ```
 
 Les fonctions suivantes sont disponibles.

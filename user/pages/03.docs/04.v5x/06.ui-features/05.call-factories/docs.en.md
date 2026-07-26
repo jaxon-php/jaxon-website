@@ -235,7 +235,7 @@ Questions are displayed with [dialog functions](../dialogs.html), and values ​
 <button type="button" <?= attr()->click(rq(FuncComponent::class)
     ->doThat()
     ->confirm('You want some {1}? Really, {2}?',
-        je('colorselect')->text, je('username')->innerHtml)) ?>>Click me</button>
+        je('colorselect')->text, je('username')->innerHTML)) ?>>Click me</button>
 ```
 
 The order of parameters in the message can be different, which is useful for example for translations.
@@ -244,7 +244,7 @@ The order of parameters in the message can be different, which is useful for exa
 <button type="button" <?= attr()->click(rq(FuncComponent::class)
     ->doThat()
     ->confirm('Hello {2}, do you want some {1}?',
-        je('colorselect')->text, je('username')->innerHtml)) ?>>Click me</button>
+        je('colorselect')->text, je('username')->innerHTML)) ?>>Click me</button>
 ```
 
 The `when()` function executes the call only if a condition is true.
@@ -285,6 +285,10 @@ The following functions are available.
     public function ifge($xValue1, $xValue2);
     public function iflt($xValue1, $xValue2);
     public function ifle($xValue1, $xValue2);
+    public function when($xValue);
+    public function unless($xValue);
+    public function ifty($xValue1, $xValue2);
+    public function iffy($xValue1, $xValue2);
 ```
 
 Finally, `else` functions can be used to display a message on the screen when the required condition has not been met.
@@ -295,7 +299,7 @@ Similar to confirmation, messages are displayed using [dialog functions](../dial
     ->doThat()
     ->when(je('accepted')->checked))
     ->elseShow('Hi {1}, you need to check the Accept box',
-        je('username')->innerHtml)) ?>>Click me</button>
+        je('username')->innerHTML)) ?>>Click me</button>
 ```
 
 The following functions are available.

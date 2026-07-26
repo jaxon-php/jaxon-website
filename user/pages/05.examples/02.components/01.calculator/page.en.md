@@ -1,5 +1,5 @@
 ---
-title: Example: the calculator
+title: The calculator
 menu: Calculator
 template: example
 example:

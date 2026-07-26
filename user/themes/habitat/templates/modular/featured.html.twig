@@ -5,12 +5,13 @@
                             {{ page.header.dbadmin.intro|raw }}
                             <ul style="padding-inline-start:15px">
 {% for feature in page.header.dbadmin.features %}
-                                <li>{{ feature }}</li>
+                                <li>{{ feature|raw }}</li>
 {% endfor %}
                             </ul>
                         </div>
+{% set dbAdminImage = page.find('/images').media['jaxon-dbadmin.png'] %}
                         <div class="col-md-6">
-                            <a href="/images/jaxon-dbadmin.png"><img src="/images/jaxon-dbadmin.png" alt="Jaxon dbadmin" /></a>
+                            <a href="{{ dbAdminImage.url }}"><img src="{{ dbAdminImage.url }}" alt="Jaxon dbadmin" /></a>
                         </div>
                         <div class="col-md-12">
                             {{ page.header.dbadmin.outro|raw }}

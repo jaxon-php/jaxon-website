@@ -5,7 +5,7 @@ position: "head"            # Code Position in the HTML document
 objectName: "gtag"          # Name for the global (gtag) object
 dnt: true                   # Respect Do Not Track header
 blockedIps: []              # Array of blocked IP addresses
-blockedIpRanges: ["private", "link-local"] # Array of blocked IP address ranges
+blockedIpRanges: ["private", "loopback", "link-local"] # Array of blocked IP address ranges
 blockingCookie: "blockGA"   # Name of a cookie blocking GA tracking
 
 cookieConfig: false         # Use custom cookie configuration

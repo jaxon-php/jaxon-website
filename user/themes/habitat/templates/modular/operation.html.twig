@@ -1,6 +1,6 @@
                             <div class="row text-center">
                                 <!-- <h4>{{ page.title }}</h4> -->
-                                {{ content }}
+                                {{ content|raw }}
 {% for section in page.header.sections %}
                                 <div class="col-md-4">
                                     <span class="fa-stack">
@@ -8,7 +8,7 @@
                                         <strong class="fa-stack-1x color-white">{{ section.position }}</strong>
                                     </span>
                                     <p class="animate fadeIn">{{ section.text }}</p>
-                                    <p>{{ section.more }}</p>
+                                    <p>{{ section.more|raw }}</p>
                                 </div>
 {% endfor %}
                             </div>
