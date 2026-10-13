@@ -53,7 +53,7 @@ The `servers.php` file can also be provided in `json` or `yaml` format. In that 
 
 >Read the [configuration documentation](https://github.com/lagdo/jaxon-dbadmin/wiki/04.-Configuration-files).
 
-The Jaxon DbAdmin [Docker images](https://hub.docker.com/r/lagdo/jaxon-dbadmin) are also updated, and they are now tagged both with the framework name and their version number. 
+The Jaxon DbAdmin [Docker images](https://hub.docker.com/r/lagdo/jaxon-dbadmin) are also updated, and they are now tagged both with the framework name and their version number.
 
 #### Database secrets management
 
@@ -97,13 +97,13 @@ Jaxon DbAdmin allows the user to open multiple tabs, each connected to a chosen 
 Each tab can be renamed, and by default a tab is named after the database it is connected to.
 Connecting to a different database automatically rename the tab accordingly.
 
-[![jaxon-dbadmin-tabs](./jaxon-dbadmin-tabs.png)](./jaxon-dbadmin-tabs.png)
+[![Jaxon DbAdmin tabs](./jaxon-dbadmin-tabs.png)](./jaxon-dbadmin-tabs.png)
 
 When connected to a database, the Query Editor window also allows the user to open multiple tabs.
 It is convenient when the user needs to run multiple queries on the same database.
 
 The application window and Query Editor tabs can be saved in the user preferences.
-They will the be automativally recreated anytime the user opens the application.
+They will the be automatically recreated anytime the user opens the application.
 
 #### The Query Editor and Query Builder
 
@@ -117,7 +117,7 @@ The user can also choose its preferred editor between the [CodeMirror 6](https:/
 
 In addition to SQL syntax highlighting and code completion, the Query Editor also provides code completion on the connected database tables and columns names.
 
-The Query Builder is a visual builder for database queries, which support querying and editing table data, and editing table definition.
+The Query Builder is a visual builder for database queries, which also supports querying and editing table data, and editing table definition.
 
 The Query Builder displays the selected table rows in a paginated list.
 Various buttons and dialogs allow the user to select the columns to be displayed, filter rows on column values, and change the results ordering.
@@ -169,7 +169,7 @@ return [
 The database import and export function rely on the [FlySystem](https://flysystem.thephpleague.com) package for file storage.
 They are then able to store the SQL files on a any of the supported storage types.
 
-The SQL files locations are user dependant, which means a user cannot get access to another user files from his account, event when knowing its name.
+The SQL files locations are user dependent, which means a user cannot get access to another user files from his account, event when knowing its name.
 This also apply to the file URL for database export. It is valid only for the user who made the export.
 
 >Read the [data import and export documentation](https://github.com/lagdo/jaxon-dbadmin/wiki/10.-Data-import-and-export).
@@ -194,7 +194,7 @@ This feature will be introduced in an upcoming release.
 #### Audit logging
 
 Jaxon DbAdmin can be configured to save all the executed queries in a dedicated database.
-These queries can then be visualised in a separate audit logging page with limited access.
+These queries can then be visualized in a separate audit logging page with limited access.
 
 [![jaxon-dbadmin-audit-logging](./jaxon-dbadmin-audit-logging.png)](./jaxon-dbadmin-audit-logging.png)
 
@@ -224,7 +224,7 @@ Prior to execution, the generated query can be presented to the user for validat
 The usage of DTOs has also been generalized. Instead of arrays or strings, the drivers functions now receive DTOs as input and returns other DTOs as output.
 
 As stated before, the database features come from Adminer. It means that the actual calls to the database servers, for example to read the list of tables in a database, still run code inherited from Adminer.
-That code is eventually improved to adapt PHP 8 changes, and return data in DTOs instead of arrays.
+That code is eventually improved to adapt to PHP 8 changes, and return data in DTOs instead of arrays.
 
 #### The database support layer
 
@@ -260,7 +260,9 @@ In the future releases, it will be able to query multiple tables with joins, and
 
 #### UI templates
 
-The application UI is built with the [UI Builder](https://github.com/lagdo/ui-builder) library, and the open source [SbAdmin template](https://github.com/startbootstrap/startbootstrap-sb-admin).
+The application UI is built with the [UI Builder](https://github.com/lagdo/ui-builder) library.
+Three Bootstrap 5 templates are currently available, built from the open source [SbAdmin](https://github.com/startbootstrap/startbootstrap-sb-admin), [CoreUi 5](https://coreui.io) and [Plain Admin](https://plainadmin.com) dashboard templates.
+
 Other CSS frameworks are planned to be supported by the [UI Builder](https://github.com/lagdo/ui-builder) library, including TailwindCSS and Bulma.
 So in addition to Bootstrap 5, other templates based on these frameworks will be available in the future releases.
 
